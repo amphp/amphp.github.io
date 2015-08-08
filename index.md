@@ -1,11 +1,9 @@
 ---
 layout: default
-title: Welcome
+title: Welcome to asynchronous multitasking PHP
 ---
 
-# Welcome to asynchronous multitasking PHP
-
-You can find the documentation in the [amp guide](/docs/amp/guide.html).
+You can find the documentation in the [amp guide](/docs/amp/).
 
 ## Packages
  * [amp](https://github.com/amphp/amp)

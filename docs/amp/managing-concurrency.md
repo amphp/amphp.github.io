@@ -135,8 +135,7 @@ function asyncMultiply($x, $y) {
 	$deferred = new Amp\Deferred;
 
 	// Resolve the async result one second from now
-	$reactor = Amp\getReactor();
-	$reactor->once(function() use ($deferred, $x, $y) {
+	Amp\once(function() use ($deferred, $x, $y) {
 		$deferred->succeed($x * $y);
 	}, $msDelay = 1000);
 

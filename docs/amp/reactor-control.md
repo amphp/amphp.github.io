@@ -224,20 +224,18 @@ A simple disable example:
 ```php
 <?php
 
-$reactor = new Amp\NativeReactor;
-
 // Register a watcher we'll disable
-$watcherIdToDisable = $reactor->once(function() {
+$watcherIdToDisable = Amp\once(function() {
     echo "I'll never execute in one second because: disable()\n";
 }, $msDelay = 1000);
 
 // Register a watcher to perform the disable() operation
-$reactor->once(function() use ($watcherIdToDisable, $reactor) {
+Amp\once(function() use ($watcherIdToDisable) {
     echo "Disabling WatcherId: ", $watcherIdToDisable, "\n";
-    $reactor->disable($watcherIdToDisable);
+    Amp\disable($watcherIdToDisable);
 }, $msDelay = 500);
 
-$reactor->run();
+Amp\run();
 ```
 
 After our second watcher callback executes the reactor loop exits because there are no longer any enabled watchers registered to process.
@@ -249,21 +247,19 @@ After our second watcher callback executes the reactor loop exits because there 
 ```php
 <?php
 
-$reactor = new Amp\NativeReactor;
-
 // Register a watcher
-$myWatcherId = $reactor->repeat(function() {
+$myWatcherId = Amp\repeat(function() {
     echo "tick\n";
 }, $msDelay = 1000);
 
 // Disable the watcher
-$reactor->disable($myWatcherId);
+Amp\disable($myWatcherId);
 
 // Remember, nothing happens until the reactor runs, so it doesn't matter that we
 // previously created and disabled $myWatcherId
-$reactor->run(function($reactor) use ($myWatcherId) {
+Amp\run(function() use ($myWatcherId) {
     // Immediately enable the watcher when the reactor starts
-    $reactor->enable($myWatcherId);
+    Amp\enable($myWatcherId);
     // Now that it's enabled we'll see tick output in our console every 1000ms.
 });
 ```
@@ -274,25 +270,21 @@ For a slightly more complex use case, let's look at a common scenario where a se
 <?php
 
 class Server {
-    private $reactor;
     private $clients = [];
-    public function __construct(Amp\Reactor $reactor) {
-        $this->reactor = $reactor;
-    }
 
     public function startServer() {
         // ... server bind and accept logic would exist here
-        $this->reactor->run();
+        Amp\run();
     }
 
     private function onNewClient($sock) {
         $socketId = (int) $sock;
         $client = new ClientStruct;
         $client->socket = $sock;
-        $readWatcher = $this->reactor->onReadable($sock, function() use ($client) {
+        $readWatcher = Amp\onReadable($sock, function() use ($client) {
             $this->onReadable($client);
         });
-        $writeWatcher = $this->reactor->onReadable($sock, function() use ($client) {
+        $writeWatcher = Amp\onReadable($sock, function() use ($client) {
             $this->doWrite($client);
         }, $enableNow = false); // <-- let's initialize the watcher as "disabled"
 
@@ -314,10 +306,10 @@ class Server {
         $bytesWritten = @fwrite($client->socket, $client->writeBuffer);
 
         if ($bytesToWrite === $bytesWritten) {
-            $this->reactor->disable($client->writeWatcher);
+            Amp\disable($client->writeWatcher);
         } elseif ($bytesWritten >= 0) {
             $client->writeBuffer = substr($client->writeBuffer, $bytesWritten);
-            $this->reactor->enable($client->writeWatcher);
+            Amp\enable($client->writeWatcher);
         } elseif ($this->isSocketDead($client->socket)) {
             $this->unloadClient($client);
         }
@@ -354,14 +346,15 @@ implementation (`UvReactor` or `LibeventReactor`, preferably the former) and int
 
 ```php
 <?php
-(new Amp\UvReactor)->run(function($reactor) {
+
+reactor(new Amp\UvReactor)->run(function() {
     // Let's tick off output once per second so we can see activity.
-    $reactor->repeat(function() {
+    Amp\repeat(function() {
             echo "tick: ", date('c'), "\n";
     }, $msInterval = 1000);
 
     // What to do when a SIGINT signal is received
-    $watcherId = $reactor->onSignal(UV::SIGINT, function() {
+    $watcherId = Amp\onSignal(UV::SIGINT, function() {
         echo "Caught SIGINT! exiting ...\n";
         exit;
     });
@@ -386,12 +379,12 @@ Watcher callbacks are invoked using the following standardized parameter order:
 
 | Watcher Type          | Callback Signature                                |
 | --------------------- | --------------------------------------------------|
-| immediately()         | `function(Reactor $reactor, string $watcherId, $callbackData)`          |
-| once()                | `function(Reactor $reactor, string $watcherId, $callbackData)`          |
-| repeat()              | `function(Reactor $reactor, string $watcherId, $callbackData)` |
-| onReadable()          | `function(Reactor $reactor, string $watcherId, $stream, $callbackData)` |
-| onWritable()          | `function(Reactor $reactor, string $watcherId, $stream, $callbackData)` |
-| onSignal()            | `function(Reactor $reactor, string $watcherId, $signo, $callbackData)`  |
+| immediately()         | `function(string $watcherId, $callbackData)`          |
+| once()                | `function(string $watcherId, $callbackData)`          |
+| repeat()              | `function(string $watcherId, $callbackData)` |
+| onReadable()          | `function(string $watcherId, $stream, $callbackData)` |
+| onWritable()          | `function(string $watcherId, $stream, $callbackData)` |
+| onSignal()            | `function(string $watcherId, $signo, $callbackData)`  |
 
 
 ### Watcher Cancellation Safety
@@ -401,10 +394,10 @@ It is always safe to cancel a watcher from within its own callback. For example:
 ```php
 <?php
 $increment = 0;
-Amp\repeat(function($reactor, $watcherId) use (&$increment) {
+Amp\repeat(function($watcherId) use (&$increment) {
     echo "tick\n";
     if (++$increment >= 3) {
-        $reactor->cancel($watcherId); // <-- cancel myself!
+        Amp\cancel($watcherId); // <-- cancel myself!
     }
 }, $msDelay = 50);
 ```
@@ -421,13 +414,13 @@ A standard pattern in this area is to initialize writability watchers in a disab
 
 ```php
 <?php
-$reactor = new Amp\NativeReactor;
+
 $options = ["enable" => false];
-$watcherId = $reactor->onWritable(STDOUT, function(){}, $options);
+$watcherId = Amp\onWritable(STDOUT, function(){}, $options);
 // ...
-$reactor->enable($watcherId);
+Amp\enable($watcherId);
 // ...
-$reactor->disable($watcherId);
+Amp\disable($watcherId);
 ```
 
 

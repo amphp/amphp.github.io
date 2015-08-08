@@ -3,12 +3,29 @@
 <head>
 	<title>amphp{% if page.title %} &ndash; {{page.title}}{% endif %}</title>
 
+	{% if page.description %}
+		{% assign description = page.description %}
+	{% else %}
+		{% assign description = "Amp is a non-blocking concurrency framework for PHP applications." %}
+	{% endif %}
+
 	<!-- metadata -->
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
 	<meta name="author" content="amphp" />
-	<meta name="description" content="" />
+	<meta name="description" content="{{description}}" />
 	<meta name="google-site-verification" content="lX-Oenz4-gpqzuAF71A-3MQBlDfgr9pIQIfrVniz1As" />
+
+	<meta name="twitter:card" content="summary" />
+	<meta name="twitter:site" content="@amphp" />
+	<meta name="twitter:creator" content="@amphp" />
+	<meta property="og:url" content="{{page.url}}" />
+	<meta property="og:title" content="{{page.title}}" />
+	<meta property="og:description" content="{{description}}" />
+
+	{% if page.cover %}
+		<meta property="og:image" content="{{page.cover}}" />
+	{% endif %}
 
 	<!-- icons -->
 	<link rel="shortcut icon" type="image/x-icon" href="/favicon.png"/>

@@ -1,5 +1,6 @@
 ---
 title: Managing Concurrency
+description: Managing concurrency by abstracting concurrent task execution to make it feel synchronous.
 layout: default
 ---
 

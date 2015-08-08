@@ -73,9 +73,7 @@ echo "after run()\n";
 <h2>Packages</h2>
 
 <ul>
-    <li><a href="https://github.com/amphp/amp">amp</a></li>
-    <li><a href="https://github.com/amphp/dns">dns</a></li>
-    <li><a href="https://github.com/amphp/mysql">mysql</a></li>
-    <li><a href="https://github.com/amphp/redis">redis</a></li>
-    <li><a href="https://github.com/amphp/socket">socket</a></li>
+    {% for repository in site.github.public_repositories %}
+        <li><a href="{{repository.html_url}}">{{repository.name}}</a></li>
+    {% endfor %}
 </ul>

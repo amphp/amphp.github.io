@@ -18,14 +18,14 @@ a.header-item:hover { color: #111; text-decoration: none; }
 main { margin: 0 auto; max-width: 1000px; color: #333; position: relative; }
 
 #sidebar { width: 180px; float: left; }
-article { margin-left: 200px; padding: 0 10px; }
+article { margin-left: 200px; padding: 10px; }
 .clear { clear: both; }
 
 h1, h2, h3, h4, h5, h6 { color: #222; }
 h1, h2, h3, h4, h5, h6 { font-weight: 300; }
 h1 { padding-top: 10px; }
 
-footer { color: #666; text-align: right; padding: 30px 0; max-width: 1000px; margin: 0 auto; font-size: smaller; }
+footer { color: #666; border-top: 1px solid #eee; padding: 20px 0; margin: 20px 0; max-width: 1000px; margin: 0 auto; font-size: smaller; display: flex; justify-content: space-between; }
 
 a { color: #4083C9; font-weight: bold; text-decoration: none; }
 a:hover { text-decoration: underline; }
@@ -50,6 +50,10 @@ td { border-top: 1px solid #ddd; vertical-align: top; }
 #markdown-toc a:hover { text-decoration: none; color: #59A6F7; }
 
 #sidebar { padding-right: 20px; }
-#sidebar::after { border-right: 1px dashed #ddd; content: ""; position: absolute; left: 180px; top: 0; bottom: 0; width: 0; }
+#sidebar::after { border-right: 1px solid #eee; content: ""; position: absolute; left: 180px; top: 0; bottom: 0; width: 0; }
 #sidebar ul { padding: 0; margin: 0; list-style-type: none; }
+#sidebar .active a { color: #333; }
+#sidebar .active a:hover { cursor: default; text-decoration: none; }
 #sidebar a { font-size: 13px; }
+#sidebar .index { border-bottom: 1px dashed #ddd; display: block; margin-right: -20px; padding: 6px 0; margin: 6px 0; }
+#sidebar .index a { font-weight: normal; }

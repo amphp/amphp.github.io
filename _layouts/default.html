@@ -49,8 +49,12 @@
 			    {% assign node_url_parts = node.url | split: '/' %}
 			    {% assign node_url_parts_size = node_url_parts | size %}
 			    {% assign filename = node_url_parts | last %}
-			    {% if url_parts_size == node_url_parts_size and filename != 'index.html' %}
-			      <li><a href='{{node.url}}'>{{node.title}}</a></li>
+			    {% if url_parts_size == node_url_parts_size %}
+					{% if filename != 'index.html' %}
+			      		<li {% if node.url == page.url %}class="active"{% endif %}><a href='{{node.url}}'>{{node.title}}</a></li>
+					{% else %}
+						<li class="index {% if node.url == page.url %}active{% endif %}"><a href='{{node.url}}'>{{node.title}}</a></li>
+					{% endif %}
 			    {% endif %}
 			  {% endif %}
 			{% endfor %}
@@ -67,7 +71,13 @@
 	</main>
 
 	<footer class="bottom">
-		Found a mistake? <a href="{{site.github.repository_url}}/blob/master/{{page.path}}">Edit this page</a>.
+		<div class="bottom-left">
+			This content is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
+		</div>
+
+		<div class="bottom-right">
+			Found a mistake? <a href="{{site.github.repository_url}}/blob/master/{{page.path}}">Edit this page</a>.
+		</div>
 	</footer>
 </body>
 </html>

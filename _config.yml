@@ -1,5 +1,6 @@
 kramdown:
   input: GFM
+  toc_levels: 1..2
 
 highlighter: pygments
 exclude: ["vendor"]

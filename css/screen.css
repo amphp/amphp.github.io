@@ -18,9 +18,11 @@ a.header-item:hover { color: #111; text-decoration: none; }
 main { margin: 0 auto; max-width: 1000px; color: #333; }
 h1, h2, h3, h4, h5, h6 { color: #222; }
 
-h1 { text-align: center; margin: 50px; line-height: 40px; }
+footer { color: #666; text-align: right; padding: 30px 0; max-width: 1000px; margin: 0 auto; font-size: smaller; }
 
-a { color: #4795ED; font-weight: bold; text-decoration: none; }
+h1 { margin: 50px 0; line-height: 40px; }
+
+a { color: #4083C9; font-weight: bold; text-decoration: none; }
 a:hover { text-decoration: underline; }
 
 hr { margin: 30px 0; border: 0; border-top: 1px solid #ccc; height: 0; }
@@ -35,3 +37,9 @@ table { border-collapse: collapse; border-spacing: 0; }
 th { vertical-align: bottom; text-align: left; }
 th, td { padding: 8px; line-height: 20px; }
 td { border-top: 1px solid #ddd; vertical-align: top; }
+
+#markdown-toc { padding: 0 20px; }
+#markdown-toc, #markdown-toc ul { list-style-type: none; }
+#markdown-toc li::before { content: "# "; color: #4083C9; opacity: .3; padding-right: 5px; }
+#markdown-toc ul a { font-weight: normal; }
+#markdown-toc a:hover { text-decoration: none; color: #59A6F7; }

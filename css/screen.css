@@ -57,3 +57,12 @@ td { border-top: 1px solid #ddd; vertical-align: top; }
 #sidebar a { font-size: 13px; }
 #sidebar .index { border-bottom: 1px dashed #ddd; display: block; margin-right: -20px; padding: 6px 0; margin: 6px 0; }
 #sidebar .index a { font-weight: normal; }
+
+.text-left { text-align: left; }
+.text-right { text-align: right; }
+.text-center { text-align: center; }
+
+.btn { box-shadow: 0 1px 2px rgba(0,0,0,.05); cursor: pointer; border-radius: 2px; border: 1px solid rgba(0,0,0,.05); padding: 8px 15px; font-weight: bold; color: rgba(0,0,0,.8); background-color: #eee; }
+.btn:disabled { opacity: .5; cursor: default; }
+.btn-green { background-color: #64D15A; }
+#run-output:empty { display: none; }

@@ -1,0 +1,81 @@
+---
+layout: main
+title: Welcome to asynchronous multitasking PHP
+---
+
+<h1>{{page.title}}</h1>
+
+<p>
+    <code>amphp/amp</code> is a non-blocking concurrency framework for PHP applications.
+</p>
+
+<pre><code class="language-php">&lt;?php
+
+function tick() {
+    echo "tick\n";
+}
+
+echo "before run()\n";
+
+Amp\run(function() {
+    Amp\repeat("tick", $msInterval = 1000);
+    Amp\once("Amp\stop", $msDelay = 5000);
+});
+
+echo "after run()\n";
+</code></pre>
+
+<p class="text-right">
+    <button class="btn btn-green" id="run"><i class="fa fa-play"></i> Run code sample</button>
+</p>
+
+<pre id="run-output"></pre>
+
+<script>
+    var button = document.getElementById("run");
+    var output = document.getElementById("run-output");
+    var run = false;
+
+    button.addEventListener("click", function(e) {
+        if (console) {
+            console.log("before run()");
+        }
+
+        output.textContent = "before run()\n";
+        this.setAttribute("disabled", "disabled");
+        run = setInterval("tick()", 1000);
+        setTimeout("stop()", 5000);
+    });
+
+    function tick() {
+        if (console) {
+            console.log("tick");
+        }
+
+        output.textContent += "tick\n";
+    }
+
+    function stop() {
+        if (console) {
+            console.log("after run()");
+        }
+
+        output.textContent += "after run()\n";
+        button.removeAttribute("disabled");
+        clearInterval(run);
+    }
+</script>
+
+<p>
+    You can find the documentation in the <a href="/docs/amp/">amp guide</a>.
+</p>
+
+<h2>Packages</h2>
+
+<ul>
+    <li><a href="https://github.com/amphp/amp">amp</a></li>
+    <li><a href="https://github.com/amphp/dns">dns</a></li>
+    <li><a href="https://github.com/amphp/mysql">mysql</a></li>
+    <li><a href="https://github.com/amphp/redis">redis</a></li>
+    <li><a href="https://github.com/amphp/socket">socket</a></li>
+</ul>

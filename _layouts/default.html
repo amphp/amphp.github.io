@@ -1,83 +1,35 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>amphp{% if page.title %} &ndash; {{page.title}}{% endif %}</title>
+---
+layout: main
+---
 
-	<!-- metadata -->
-	<meta charset="utf-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
-	<meta name="author" content="amphp" />
-	<meta name="description" content="" />
-	<meta name="google-site-verification" content="lX-Oenz4-gpqzuAF71A-3MQBlDfgr9pIQIfrVniz1As" />
+<nav id="sidebar">
+	{% assign url_parts = page.url | split: '/' %}
+	{% assign url_parts_size = url_parts | size %}
+	{% assign rm = url_parts | last %}
+	{% assign base_url = page.url | replace: rm %}
 
-	<!-- stylesheets -->
-	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/styles/docco.min.css">
-	<link href="http://fonts.googleapis.com/css?family=Lato:400,300,700" rel="stylesheet" />
-	<link href="/css/screen.css" rel="stylesheet" />
+	<ul>
+	{% for node in site.pages %}
+	  {% if node.url contains base_url %}
+	    {% assign node_url_parts = node.url | split: '/' %}
+	    {% assign node_url_parts_size = node_url_parts | size %}
+	    {% assign filename = node_url_parts | last %}
+	    {% if url_parts_size == node_url_parts_size %}
+			{% if filename != 'index.html' %}
+	      		<li {% if node.url == page.url %}class="active"{% endif %}><a href='{{node.url}}'>{{node.title}}</a></li>
+			{% else %}
+				<li class="index {% if node.url == page.url %}active{% endif %}"><a href='{{node.url}}'>{{node.title}}</a></li>
+			{% endif %}
+	    {% endif %}
+	  {% endif %}
+	{% endfor %}
+	</ul>
+</nav>
 
-	<!-- scripts -->
-	<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/highlight.min.js"></script>
-	<script>hljs.initHighlightingOnLoad();</script>
-</head>
-<body>
-	<header id="top">
-		<div class="header">
-			<div class="header-left">
-				<a href="/" class="logo-link">
-					<img class="header-item" src="https://avatars1.githubusercontent.com/u/8865682?v=3&s=100" width="50" height="50" />
-					<span class="header-item project-title">amphp</span>
-				</a>
-			</div>
+<article>
+	<h1>{{page.title}}</h1>
 
-			<div class="header-right">
-				<a class="header-item" href="https://github.com/amphp">Source</a>
-				<a class="header-item" href="https://dev.kelunik.com/">Chat</a>
-			</div>
-		</div>
-	</header>
+	{{content}}
+</article>
 
-	<main>
-		<nav id="sidebar">
-			{% assign url_parts = page.url | split: '/' %}
-			{% assign url_parts_size = url_parts | size %}
-			{% assign rm = url_parts | last %}
-			{% assign base_url = page.url | replace: rm %}
-
-			<ul>
-			{% for node in site.pages %}
-			  {% if node.url contains base_url %}
-			    {% assign node_url_parts = node.url | split: '/' %}
-			    {% assign node_url_parts_size = node_url_parts | size %}
-			    {% assign filename = node_url_parts | last %}
-			    {% if url_parts_size == node_url_parts_size %}
-					{% if filename != 'index.html' %}
-			      		<li {% if node.url == page.url %}class="active"{% endif %}><a href='{{node.url}}'>{{node.title}}</a></li>
-					{% else %}
-						<li class="index {% if node.url == page.url %}active{% endif %}"><a href='{{node.url}}'>{{node.title}}</a></li>
-					{% endif %}
-			    {% endif %}
-			  {% endif %}
-			{% endfor %}
-			</ul>
-		</nav>
-
-		<article>
-			<h1>{{page.title}}</h1>
-
-			{{content}}
-		</article>
-
-		<div class="clear"></div>
-	</main>
-
-	<footer class="bottom">
-		<div class="bottom-left">
-			This content is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
-		</div>
-
-		<div class="bottom-right">
-			Found a mistake? <a href="{{site.github.repository_url}}/blob/master/{{page.path}}">Edit this page</a>.
-		</div>
-	</footer>
-</body>
-</html>
+<div class="clear"></div>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>amphp{% if page.title %} &ndash; {{page.title}}{% endif %}</title>
+
+	<!-- metadata -->
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+	<meta name="author" content="amphp" />
+	<meta name="description" content="" />
+	<meta name="google-site-verification" content="lX-Oenz4-gpqzuAF71A-3MQBlDfgr9pIQIfrVniz1As" />
+
+	<!-- stylesheets -->
+	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/styles/docco.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,300,700" />
+	<link rel="stylesheet" href="/css/screen.css" />
+
+	<!-- scripts -->
+	<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/highlight.min.js"></script>
+	<script>hljs.initHighlightingOnLoad();</script>
+</head>
+<body>
+	<header id="top">
+		<div class="header">
+			<div class="header-left">
+				<a href="/" class="logo-link">
+					<img class="header-item" src="https://avatars1.githubusercontent.com/u/8865682?v=3&s=100" width="50" height="50" />
+					<span class="header-item project-title">amphp</span>
+				</a>
+			</div>
+
+			<div class="header-right">
+				<a class="header-item" href="https://github.com/amphp">Source</a>
+				<a class="header-item" href="https://dev.kelunik.com/">Chat</a>
+			</div>
+		</div>
+	</header>
+
+	<main>
+		{{content}}
+	</main>
+
+	<footer class="bottom">
+		<div class="bottom-left">
+			This content is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
+		</div>
+
+		<div class="bottom-right">
+			Found a mistake? <a href="{{site.github.repository_url}}/blob/master/{{page.path}}">Edit this page</a>.
+		</div>
+	</footer>
+</body>
+</html>

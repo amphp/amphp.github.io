@@ -1,0 +1,9 @@
+kramdown:
+  input: GFM
+  syntax_highlighter: coderay
+  coderay_default_lang: php
+  coderay_line_numbers: nil
+  coderay_tab_width: 4
+
+highlighter: rouge
+exclude: ["vendor"]

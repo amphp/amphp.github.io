@@ -1,6 +1,6 @@
 kramdown:
   input: GFM
-  syntax_highlighter: coderay
+  use_coderay: true
   coderay_default_lang: php
   coderay_line_numbers: nil
   coderay_tab_width: 4

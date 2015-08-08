@@ -74,6 +74,8 @@ echo "after run()\n";
 
 <ul>
     {% for repository in site.github.public_repositories %}
-        <li><a href="{{repository.html_url}}">{{repository.name}}</a></li>
+        {% if repository.name != "amphp.github.io" and repository.name != "template" %}
+            <li><a href="{{repository.html_url}}">{{repository.name}}</a></li>
+        {% endif %}
     {% endfor %}
 </ul>

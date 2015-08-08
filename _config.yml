@@ -1,9 +1,5 @@
 kramdown:
   input: GFM
-  use_coderay: true
-  coderay_default_lang: php
-  coderay_line_numbers: nil
-  coderay_tab_width: 4
 
-highlighter: rouge
+highlighter: pygments
 exclude: ["vendor"]

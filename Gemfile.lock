@@ -13,7 +13,6 @@ GEM
       timers (~> 4.0.0)
     classifier-reborn (2.0.3)
       fast-stemmer (~> 1.0)
-    coderay (1.1.0)
     coffee-script (2.4.1)
       coffee-script-source
       execjs
@@ -113,7 +112,6 @@ GEM
       ffi (>= 0.5.0)
     rdiscount (2.1.7)
     redcarpet (3.3.2)
-    rouge (1.9.1)
     safe_yaml (1.0.4)
     sass (3.4.16)
     terminal-table (1.5.2)
@@ -132,10 +130,8 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  coderay
   github-pages
   kramdown
-  rouge
 
 BUNDLED WITH
    1.10.6

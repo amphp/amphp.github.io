@@ -39,14 +39,14 @@ function tick() {
     echo "tick\n";
 }
 
-echo "before run()\n";
+echo "-- before run()\n";
 
 Amp\run(function() {
     Amp\repeat("tick", $msInterval = 1000);
     Amp\once("Amp\stop", $msDelay = 5000);
 });
 
-echo "after run()\n";
+echo "-- after run()\n";
 ```
 
 Upon execution of the above example you should see output like this:

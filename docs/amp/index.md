@@ -1,12 +1,13 @@
 ---
 title: amphp/amp
+description: Amp is a non-blocking concurrency framework for PHP applications.
+title_menu: Introduction
 layout: default
+color: "#d00"
 ---
 
 * Table of Contents
 {:toc}
-
----
 
 `amphp/amp` is a non-blocking concurrency framework for PHP applications.
 

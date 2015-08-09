@@ -1,10 +1,9 @@
-body { margin: 0; padding: 0; font-family: "Lato", sans-serif; background-color: #fafafa; position: relative; }
+body { margin: 0; padding: 0; font-family: "Lato", sans-serif; background-color: #fafafa; position: relative; overflow-y: scroll; /* make scrollbar always visible to prevent reflow when changing from short to large content */ }
 * { outline: 0 !important; box-sizing: border-box; }
 
 body, td, th { font-size: 16px; font-family: "Lato", sans-serif; line-height: 24px; }
 
-/* so we have some spacing on small screens */
-.content { padding: 0 10px; }
+.content { padding: 0 10px; margin: 0 auto; max-width: 1000px; color: #333; position: relative; }
 
 #top { box-shadow: 0 1px 2px rgba(0,0,0,.15); z-index: 100; position: relative;	background-color: #fff; }
 .header { margin: 0 auto; max-width: 1000px; line-height: 50px; display: flex; justify-content: space-between; }
@@ -18,14 +17,15 @@ body, td, th { font-size: 16px; font-family: "Lato", sans-serif; line-height: 24
 a.header-item { font-style: italic; font-weight: bold; color: #555; text-decoration: none; }
 a.header-item:hover { color: #111; text-decoration: none; }
 
-main { margin: 0 auto; max-width: 1000px; color: #333; position: relative; }
-
 #sidebar { width: 180px; float: left; }
 article { margin-left: 200px; padding: 10px; }
 .clear { clear: both; }
 
 h1, h2, h3, h4, h5, h6 { color: #222; font-weight: 300; line-height: 125%; }
-h1 { padding-top: 10px; }
+h1 { padding: 0; margin: 0; font-weight: 900; color: white; text-shadow: 0 1px 2px rgba(0,0,0,.1); }
+
+.article-header { padding: 50px 0; box-shadow: 0 1px 2px rgba(0,0,0,.15); }
+.description { color: #fff; font-weight: bold; margin: 0; padding: 0; font-size: 14px; }
 
 footer { color: #666; border-top: 1px solid #eee; padding: 20px 0; margin: 20px 0; max-width: 1000px; margin: 0 auto; font-size: smaller; display: flex; justify-content: space-between; }
 
@@ -46,18 +46,17 @@ th { vertical-align: bottom; text-align: left; }
 th, td { padding: 8px; line-height: 20px; }
 td { border-top: 1px solid #ddd; vertical-align: top; }
 
-#markdown-toc { padding: 0; margin-bottom: 50px; }
+#markdown-toc { padding: 0; margin-bottom: 10px; }
 #markdown-toc, #markdown-toc ul { list-style-type: none; }
 #markdown-toc li::before { content: "# "; color: #4083C9; opacity: .3; padding-right: 5px; font-weight: bold; }
 #markdown-toc ul a { font-weight: normal; }
 #markdown-toc a:hover { text-decoration: none; color: #59A6F7; }
 
-#sidebar { padding-right: 20px; }
-#sidebar::after { border-right: 1px solid #eee; content: ""; position: absolute; left: 180px; top: 0; bottom: 0; width: 0; }
+#sidebar { padding-right: 20px; padding-top: 20px; font-size: 13px; }
+.sidebar-separator { opacity: .2; border-right: 1px solid #eee; position: absolute; left: 180px; top: 0; bottom: 0; width: 0; }
 #sidebar ul { padding: 0; margin: 0; list-style-type: none; }
 #sidebar .active a { color: #333; }
 #sidebar .active a:hover { cursor: default; text-decoration: none; }
-#sidebar a { font-size: 13px; }
 #sidebar .index { border-bottom: 1px dashed #ddd; display: block; margin-right: -20px; padding: 6px 0; margin: 6px 0; }
 #sidebar .index a { font-weight: normal; }
 
@@ -66,8 +65,12 @@ td { border-top: 1px solid #ddd; vertical-align: top; }
 .text-center { text-align: center; }
 
 .btn { box-shadow: 0 1px 2px rgba(0,0,0,.05); cursor: pointer; border-radius: 2px; border: 1px solid rgba(0,0,0,.05); padding: 8px 15px; font-weight: bold; color: rgba(0,0,0,.8); background-color: #eee; }
+.btn-lg { padding: 15px 25px; border-color: rgba(0,0,0,.1); border-bottom: 2px solid rgba(0,0,0,.2); }
 .btn:disabled { opacity: .5; cursor: default; }
+.btn:hover { text-decoration: none; }
 .btn-green { background-color: #64D15A; }
+.btn-blue { background-color: #08e; }
+.btn-black { color: #fff; background-color: #333; }
 #run-output:empty { display: none; }
 
 .cover { background: #FFF7B8 url("/img/cover.svg") center no-repeat; background-size: cover; height: 300px; box-shadow: 0 1px 2px rgba(0,0,0,.2); border-bottom: 1px solid rgba(0,0,0,.1); }
@@ -78,9 +81,10 @@ td { border-top: 1px solid #ddd; vertical-align: top; }
 	.header { display: block; text-align: center; }
 	.header-item { margin: 0 10px !important; }
 	.project-title { margin-left: -10px !important; }
+	.article-header { padding: 30px 10px; }
 	footer { display: block; text-align: center; }
 	h1 { padding-top: 0; }
-	#sidebar { float: none; width: auto; padding: 10px; border-bottom: 1px solid #eee; padding-bottom: 30px; }
-	#sidebar::after { display: none; }
+	#sidebar { float: none; width: auto; padding: 30px 10px 10px 10px; border-bottom: 1px solid #eee; padding-bottom: 30px; font-size: inherit; }
+	.sidebar-separator { display: none; }
 	article { margin: 0; }
 }

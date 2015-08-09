@@ -6,8 +6,6 @@ layout: default
 * Table of Contents
 {:toc}
 
----
-
 ## Reactor Implementations
 
 It may surprise people to learn that the PHP standard library already has everything we need to write event-driven and non-blocking applications. We only reach the limits of native PHP's functionality in this area when we ask it to poll thousands of file descriptors for IO activity at the same time. Even in this case, though, the fault is not with PHP but the underlying system `select()` call which is linear in its performance  degradation as load increases.

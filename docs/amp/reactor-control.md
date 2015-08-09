@@ -6,8 +6,6 @@ layout: default
 * Table of Contents
 {:toc}
 
----
-
 ## run()
 
 The primary way an application interacts with the event reactor is to schedule events for execution

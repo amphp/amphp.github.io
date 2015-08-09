@@ -1,39 +1,41 @@
 ---
 layout: main
+color: "#333"
 ---
 
+<header style="background-color: {{page.color}}" class="article-header">
+	<div class="content">
+		<h1>{{page.title}}</h1>
+		<p class="description">{{page.description}}</p>
+	</div>
+</header>
+
 <div class="content">
-	<main>
-		<nav id="sidebar">
-			{% assign url_parts = page.url | split: '/' %}
-			{% assign url_parts_size = url_parts | size %}
-			{% assign rm = url_parts | last %}
-			{% assign base_url = page.url | replace: rm %}
+	<nav id="sidebar">
+		{% assign url_parts = page.url | split: '/' %}
+		{% assign url_parts_size = url_parts | size %}
+		{% assign rm = url_parts | last %}
+		{% assign base_url = page.url | replace: rm %}
 
-			<ul>
-			{% for node in site.pages %}
-			  {% if node.url contains base_url %}
-			    {% assign node_url_parts = node.url | split: '/' %}
-			    {% assign node_url_parts_size = node_url_parts | size %}
-			    {% assign filename = node_url_parts | last %}
-			    {% if url_parts_size == node_url_parts_size %}
-					{% if filename != 'index.html' %}
-			      		<li {% if node.url == page.url %}class="active"{% endif %}><a href='{{node.url}}'>{{node.title}}</a></li>
-					{% else %}
-						<li class="index {% if node.url == page.url %}active{% endif %}"><a href='{{node.url}}'>{{node.title}}</a></li>
-					{% endif %}
-			    {% endif %}
-			  {% endif %}
-			{% endfor %}
-			</ul>
-		</nav>
+		<ul>
+		{% for node in site.pages %}
+		  {% if node.url contains base_url %}
+		    {% assign node_url_parts = node.url | split: '/' %}
+		    {% assign node_url_parts_size = node_url_parts | size %}
+		    {% assign filename = node_url_parts | last %}
+		    {% if url_parts_size == node_url_parts_size %}
+		      	<li {% if node.url == page.url %}class="active"{% endif %}><a href='{{node.url}}'>{% if node.title_menu %}{{node.title_menu}}{% else %}{{node.title}}{% endif %}</a></li>
+		    {% endif %}
+		  {% endif %}
+		{% endfor %}
+		</ul>
+	</nav>
 
-		<article>
-			<h1>{{page.title}}</h1>
+	<div class="sidebar-separator" style="border-color: {{page.color}}"></div>
 
-			{{content}}
-		</article>
+	<article>
+		{{content}}
+	</article>
 
-		<div class="clear"></div>
-	</main>
+	<div class="clear"></div>
 </div>

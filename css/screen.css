@@ -3,6 +3,9 @@ body { margin: 0; padding: 0; font-family: "Lato", sans-serif; background-color:
 
 body, td, th { font-size: 16px; font-family: "Lato", sans-serif; line-height: 24px; }
 
+/* so we have some spacing on small screens */
+.content { padding: 0 10px; }
+
 #top { box-shadow: 0 1px 2px rgba(0,0,0,.15); z-index: 100; position: relative;	background-color: #fff; }
 .header { margin: 0 auto; max-width: 1000px; line-height: 50px; display: flex; justify-content: space-between; }
 .header-item { vertical-align: middle; line-height: 50px; margin-right: 20px; }
@@ -21,8 +24,7 @@ main { margin: 0 auto; max-width: 1000px; color: #333; position: relative; }
 article { margin-left: 200px; padding: 10px; }
 .clear { clear: both; }
 
-h1, h2, h3, h4, h5, h6 { color: #222; }
-h1, h2, h3, h4, h5, h6 { font-weight: 300; }
+h1, h2, h3, h4, h5, h6 { color: #222; font-weight: 300; line-height: 125%; }
 h1 { padding-top: 10px; }
 
 footer { color: #666; border-top: 1px solid #eee; padding: 20px 0; margin: 20px 0; max-width: 1000px; margin: 0 auto; font-size: smaller; display: flex; justify-content: space-between; }
@@ -34,7 +36,7 @@ hr { margin: 30px 0; border: 0; border-top: 1px solid #eee; height: 0; }
 
 code, pre { font-size: 14px; font-family: "Source Code Pro", monospace; }
 code { background-color: #fff; border: 1px solid rgba(0,0,0,.05); padding: 2px 5px; border-radius: 3px; }
-pre code { border: 0; background-color: transparent; padding: auto; border-radius: 0; }
+pre code { border: 0;background-color: transparent; padding: auto; border-radius: 0; }
 pre { font-size: 14px; line-height: 20px; background-color: #fff; border: 1px solid rgba(0,0,0,.05); padding: 15px 20px; display: block; border-radius: 4px; color: #222; }
 .hljs { background-color: transparent; padding: 0; }
 blockquote { padding: 5px 20px; background-color: #cef; margin: 10px 0; border-left: 10px solid rgba(0,0,0,.05); }
@@ -70,3 +72,15 @@ td { border-top: 1px solid #ddd; vertical-align: top; }
 
 .cover { background: #FFF7B8 url("/img/cover.svg") center no-repeat; background-size: cover; height: 300px; box-shadow: 0 1px 2px rgba(0,0,0,.2); border-bottom: 1px solid rgba(0,0,0,.1); }
 .cover > div { margin: 0 auto; padding-top: 20px; max-width: 1000px; color: #333; position: relative; }
+
+@media screen and (max-device-width: 600px) {
+	body { overflow-x: hidden; }
+	.header { display: block; text-align: center; }
+	.header-item { margin: 0 10px !important; }
+	.project-title { margin-left: -10px !important; }
+	footer { display: block; text-align: center; }
+	h1 { padding-top: 0; }
+	#sidebar { float: none; width: auto; padding: 10px; border-bottom: 1px solid #eee; padding-bottom: 30px; }
+	#sidebar::after { display: none; }
+	article { margin: 0; }
+}

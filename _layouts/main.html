@@ -42,32 +42,36 @@
 </head>
 <body>
 	<header id="top">
-		<div class="header">
-			<div class="header-left">
-				<a href="/" class="logo-link">
-					<img class="header-item" src="https://avatars1.githubusercontent.com/u/8865682?v=3&s=100" width="50" height="50" />
-					<span class="header-item project-title">amphp</span>
-				</a>
-			</div>
+		<div class="content">
+			<div class="header">
+				<div class="header-left">
+					<a href="/" class="logo-link">
+						<img class="header-item" src="https://avatars1.githubusercontent.com/u/8865682?v=3&s=100" width="50" height="50" />
+						<span class="header-item project-title">amphp</span>
+					</a>
+				</div>
 
-			<div class="header-right">
-				<a class="header-item" href="https://github.com/amphp">Source</a>
-				<a class="header-item" href="https://dev.kelunik.com/">Chat</a>
-				<a class="header-item" href="http://stackoverflow.com/questions/ask?tags=amphp">Ask question</a>
+				<div class="header-right">
+					<a class="header-item" href="https://github.com/amphp">Source</a>
+					<a class="header-item" href="https://dev.kelunik.com/">Chat</a>
+					<a class="header-item" href="http://stackoverflow.com/questions/ask?tags=amphp">Ask question</a>
+				</div>
 			</div>
 		</div>
 	</header>
 
 	{{content}}
 
-	<footer class="bottom">
-		<div class="bottom-left">
-			This content is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
-		</div>
+	<div class="content">
+		<footer class="bottom">
+			<div class="bottom-left">
+				This content is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
+			</div>
 
-		<div class="bottom-right">
-			Found a mistake? <a href="{{site.github.repository_url}}/blob/master/{{page.path}}">Edit this page</a>.
-		</div>
-	</footer>
+			<div class="bottom-right">
+				Found a mistake? <a href="{{site.github.repository_url}}/blob/master/{{page.path}}">Edit this page</a>.
+			</div>
+		</footer>
+	</div>
 </body>
 </html>

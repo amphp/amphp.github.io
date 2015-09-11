@@ -6,7 +6,7 @@ layout: default
 * Table of Contents
 {:toc}
 
-## run()
+## `run()`
 
 The primary way an application interacts with the event reactor is to schedule events for execution
 and then simply let the program run. Once `Reactor::run()` is invoked the event loop will run
@@ -15,7 +15,7 @@ Long-running programs generally execute entirely inside the confines of a single
 call.
 
 
-## tick()
+## `tick()`
 
 The event loop tick is the basic unit of flow control in a non-blocking application. This method
 will execute a single iteration of the event loop before returning. `Reactor::tick()` may be used
@@ -23,7 +23,7 @@ inside a custom `while` loop to implement "wait" functionality in concurrency pr
 futures and promises.
 
 
-## stop()
+## `stop()`
 
 The event reactor loop can be stopped at any time while running. When `Reactor::stop()` is invoked
 the reactor loop will return control to the userland script at the end of the current iteration
@@ -36,7 +36,7 @@ watchable IO streams are still pending.
 
 Amp exposes several ways to schedule timer watchers. Let's look at some details for each function ...
 
-### Amp\immediately()
+### `immediately()`
 
  - Schedule a callback to execute in the next iteration of the event loop
  - This method guarantees a clean call stack to avoid starvation of other events in the
@@ -76,7 +76,7 @@ Amp\run(function () {
 | `"cb_data"`           | mixed  | Optional user data to pass as the final parameter when invoking the watcher callback. If this option is unspecified a callback receives `null` as its final argument.
 
 
-### Amp\once()
+### `once()`
 
  - Schedule a callback to execute after a delay of *n* milliseconds
  - A "once" watcher is also automatically garbage collected by the reactor after execution and
@@ -111,7 +111,7 @@ Amp\run(function () {
 | `"keep_alive"`        | bool   | If no other watchers remain registered should this watcher prevent the event reactor's `run()` loop from exiting (default: true)?
 | `"cb_data"`           | mixed  | Optional user data to pass as the final parameter when invoking the watcher callback. If this option is unspecified a callback receives `null` as its final argument.
 
-### Amp\repeat()
+### `repeat()`
 
  - Schedule a callback to repeatedly execute every *n* millisconds.
  - Like all other watchers, "repeat" timers may be disabled/reenabled at any time.
@@ -161,7 +161,7 @@ There are two types of IO watchers:
  - Readability watchers
  - Writability watchers
 
-### onReadable()
+### `onReadable()`
 
 Watchers registered via `Reactor::onReadable()` trigger their callbacks in the following situations:
 
@@ -202,7 +202,7 @@ In the above example we've done a few very simple things:
    we've allocated for the storage of this stream. This process should always include calling
    `Amp\cancel()` on any reactor watchers we registered in relation to the stream.
 
-### onWritable()
+### `onWritable()`
 
  - Streams are essentially *"always"* writable. The only time they aren't is when their
    respective write buffers are full.
@@ -215,7 +215,7 @@ A common usage pattern for reacting to writability involves initializing a writa
 All watchers, regardless of type, can be temporarily disabled and enabled in addition to being
 cleared via `Amp\cancel()`. This allows for advanced capabilities such as disabling the acceptance of new socket clients in server applications when simultaneity limits are reached. In general, the performance characteristics of watcher reuse via pause/resume are favorable by comparison to repeatedly cancelling and re-registering watchers.
 
-### disable()
+### `disable()`
 
 A simple disable example:
 
@@ -238,7 +238,7 @@ Amp\run();
 
 After our second watcher callback executes the reactor loop exits because there are no longer any enabled watchers registered to process.
 
-### enable()
+### `enable()`
 
 `enable()` is the diametric analog of the `disable()` example demonstrated above:
 
@@ -317,7 +317,7 @@ class Server {
 }
 ```
 
-### cancel()
+### `cancel()`
 
 It's important to *always* cancel persistent watchers once you're finished with them or you'll create memory leaks in your application. This functionality works in exactly the same way as  the above enable/disable examples:
 
@@ -368,21 +368,21 @@ As should be clear from the above example, signal watchers may be enabled, disab
 | Option              | Description                                       |
 | ------------------- | --------------------------------------------------|
 | `"enable"`          | All watchers are enabled by default. Passing the `"enable"` option with a falsy value will create a watcher in a disabled state. |
-| `"ms_delay"`         | Used with `repeat()` watchers to specify a different millisecond timeout for the initial callback invocation. If not specified, repeating timer watchers wait until the `$msInterval` expires before their initial invocation. |
-| `"callback_data"`    | Optional user data to pass as the final parameter when invoking the watcher callback. If this option is unspecified a callback receives `null` as its final argument. |
+| `"ms_delay"`        | Used with `repeat()` watchers to specify a different millisecond timeout for the initial callback invocation. If not specified, repeating timer watchers wait until the `$msInterval` expires before their initial invocation. |
+| `"callback_data"`   | Optional user data to pass as the final parameter when invoking the watcher callback. If this option is unspecified a callback receives `null` as its final argument. |
 
 ### Watcher Callback Parameters
 
 Watcher callbacks are invoked using the following standardized parameter order:
 
-| Watcher Type          | Callback Signature                                |
-| --------------------- | --------------------------------------------------|
-| immediately()         | `function(string $watcherId, $callbackData)`          |
-| once()                | `function(string $watcherId, $callbackData)`          |
-| repeat()              | `function(string $watcherId, $callbackData)` |
-| onReadable()          | `function(string $watcherId, $stream, $callbackData)` |
-| onWritable()          | `function(string $watcherId, $stream, $callbackData)` |
-| onSignal()            | `function(string $watcherId, $signo, $callbackData)`  |
+| Watcher Type            | Callback Signature                                    |
+| ----------------------- | ------------------------------------------------------|
+| `immediately()`         | `function(string $watcherId, $callbackData)`          |
+| `once()`                | `function(string $watcherId, $callbackData)`          |
+| `repeat()`              | `function(string $watcherId, $callbackData)`          |
+| `onReadable()`          | `function(string $watcherId, $stream, $callbackData)` |
+| `onWritable()`          | `function(string $watcherId, $stream, $callbackData)` |
+| `onSignal()`            | `function(string $watcherId, $signo, $callbackData)`  |
 
 
 ### Watcher Cancellation Safety

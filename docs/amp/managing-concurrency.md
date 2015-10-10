@@ -81,10 +81,6 @@ $promise->watch(function($update) {
 });
 ```
 
-> **NOTE**
->
-> `Promise::watch()` updates are variadic in nature. Producers may send consumers as many arguments as they require in any given notification.
-
 #### Optional Callback Data
 
 @TODO

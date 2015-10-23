@@ -1,9 +1,8 @@
 ---
-title: amphp/amp
+title: Amp
 description: Amp is a non-blocking concurrency framework for PHP applications.
 title_menu: Introduction
 layout: default
-color: "#d00"
 ---
 
 * Table of Contents
@@ -32,3 +31,7 @@ color: "#d00"
 ```bash
 $ composer require amphp/amp:^1
 ```
+
+**Blog Posts**
+
+ - [Getting Started with Amp](http://blog.kelunik.com/2015/09/20/getting-started-with-amp.html)

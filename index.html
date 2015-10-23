@@ -2,10 +2,9 @@
 layout: main
 title: Welcome to asynchronous multitasking PHP
 description: Amp is a non-blocking concurrency framework for PHP applications.
-color: "#333"
 ---
 
-<header style="background-color: {{page.color}}" class="article-header">
+<header style="background-color: #333" class="article-header">
 	<div class="content">
 		<h1>{{page.title}}</h1>
 		<p class="description">{{page.description}}</p>
@@ -13,11 +12,24 @@ color: "#333"
 </header>
 
 <div class="content"><main>
-    <p class="text-center" style="margin-top: -30px; padding: 20px">
-        <a class="btn btn-lg btn-blue" href="/docs/amp/" style="box-shadow: 0 1px 2px rgba(0,0,0,.2)">
-            Browse Documentation
-        </a>
-    </p>
+	<ul class="packages">
+	    {% for repository in site.github.public_repositories %}
+	        {% if repository.name != "amphp.github.io" and repository.name != "template" %}
+				{% capture path %}/docs/{{ repository.name }}/index.html{% endcapture %}
+				{% assign found = false %}
+				{% for static_file in site.static_files %}
+					{% if static_file.path == '/' %}
+						<li><a href="/docs/{{repository.name}}/"><i class="fa fa-book"></i><br>{{repository.name}}</a></li>
+						{% assign found = true %}
+					{% endif %}
+				{% endfor %}
+
+				{% if found == false %}
+					<li><a href="/docs/{{repository.name}}/"><i class="fa fa-github"></i><br>{{repository.name}}</a></li>
+				{% endif %}
+	        {% endif %}
+	    {% endfor %}
+	</ul>
 
     <pre><code class="language-php">&lt;?php
 
@@ -74,14 +86,4 @@ echo "after run()\n";</code></pre>
         clearInterval(run);
     }
 </script>
-
-<h2>Packages</h2>
-
-<ul>
-    {% for repository in site.github.public_repositories %}
-        {% if repository.name != "amphp.github.io" and repository.name != "template" %}
-            <li><a href="{{repository.html_url}}">{{repository.name}}</a></li>
-        {% endif %}
-    {% endfor %}
-</ul>
 </main></div>

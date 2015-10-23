@@ -11,7 +11,7 @@
 
 	<!-- metadata -->
 	<meta charset="utf-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no" />
 	<meta name="author" content="amphp" />
 	<meta name="description" content="{{description}}" />
 	<meta name="google-site-verification" content="lX-Oenz4-gpqzuAF71A-3MQBlDfgr9pIQIfrVniz1As" />
@@ -41,37 +41,39 @@
 	<script>hljs.initHighlightingOnLoad();</script>
 </head>
 <body>
-	<header id="top">
+	<div class="wrapper">
+		<header id="top">
+			<div class="content">
+				<div class="header">
+					<div class="header-left"></div>
+
+					<div class="header-right">
+						<a class="header-item" href="https://github.com/amphp">GitHub</a>
+						<a class="header-item" href="https://dev.kelunik.com/">Chat</a>
+						<a class="header-item" href="http://stackoverflow.com/questions/ask?tags=amphp">Ask a Question</a>
+					</div>
+				</div>
+
+				<a href="/" class="logo-link">
+					<img class="header-item" src="https://avatars1.githubusercontent.com/u/8865682?v=3&s=300" width="150" height="150" />
+					<span class="header-item project-title">amphp</span>
+				</a>
+			</div>
+		</header>
+
+		{{content}}
+
 		<div class="content">
-			<div class="header">
-				<div class="header-left">
-					<a href="/" class="logo-link">
-						<img class="header-item" src="https://avatars1.githubusercontent.com/u/8865682?v=3&s=100" width="50" height="50" />
-						<span class="header-item project-title">amphp</span>
-					</a>
+			<footer class="bottom">
+				<div class="bottom-left">
+					Documentation licensed under <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a>.
 				</div>
 
-				<div class="header-right">
-					<a class="header-item" href="https://github.com/amphp">Source</a>
-					<a class="header-item" href="https://dev.kelunik.com/">Chat</a>
-					<a class="header-item" href="http://stackoverflow.com/questions/ask?tags=amphp">Ask a question</a>
+				<div class="bottom-right">
+					Found a mistake? <a href="{{site.github.repository_url}}/blob/master/{{page.path}}">Edit this page</a>.
 				</div>
-			</div>
+			</footer>
 		</div>
-	</header>
-
-	{{content}}
-
-	<div class="content">
-		<footer class="bottom">
-			<div class="bottom-left">
-				Documentation licensed under <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a>.
-			</div>
-
-			<div class="bottom-right">
-				Found a mistake? <a href="{{site.github.repository_url}}/blob/master/{{page.path}}">Edit this page</a>.
-			</div>
-		</footer>
 	</div>
 </body>
 </html>

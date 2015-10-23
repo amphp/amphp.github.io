@@ -18,14 +18,14 @@ description: Amp is a non-blocking concurrency framework for PHP applications.
 				{% capture path %}/docs/{{ repository.name }}/index.html{% endcapture %}
 				{% assign found = false %}
 				{% for static_file in site.static_files %}
-					{% if static_file.path == '/' %}
+					{% if static_file.path == path %}
 						<li><a href="/docs/{{repository.name}}/"><i class="fa fa-book"></i><br>{{repository.name}}</a></li>
 						{% assign found = true %}
 					{% endif %}
 				{% endfor %}
 
 				{% if found == false %}
-					<li><a href="/docs/{{repository.name}}/"><i class="fa fa-github"></i><br>{{repository.name}}</a></li>
+					<li><a href="{{repository.html_url}}/"><i class="fa fa-github"></i><br>{{repository.name}}</a></li>
 				{% endif %}
 	        {% endif %}
 	    {% endfor %}

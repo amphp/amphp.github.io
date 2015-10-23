@@ -96,5 +96,5 @@ td { border-top: 1px solid #ddd; vertical-align: top; }
 .packages { text-align: center; padding: 20px 40px; margin: 0; }
 .packages > li { background-color: #4F5B93; display: inline-block; border-radius: 50%; margin: 5px; width: 100px; height: 100px; color: #fff; text-transform: uppercase; font-weight: bold; }
 .packages > li:hover { background-color: #454F80; text-shadow: 0 0 3px rgba(0,0,0,.3); box-shadow: 0 0 2px rgba(0,0,0,.1); transition: all 200ms; }
-.packages > li > a { padding: 15px 0; color: #fff; line-height: 30px; display: block; transition: all 200ms; }
+.packages > li > a { padding: 20px 0; color: #fff; line-height: 25px; display: block; transition: all 200ms; }
 .packages > li > a:hover { text-decoration: none; }

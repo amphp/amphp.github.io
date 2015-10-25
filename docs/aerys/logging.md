@@ -11,3 +11,5 @@ layout: default
 Aerys includes a logger that can be used to `STDOUT`. While being in production mode Aerys uses multiple workers, so all log data is sent to the master process and logged to `STDOUT` there.
 
 In order to receive an [`Aerys\Logger`](https://github.com/amphp/aerys/blob/master/lib/Logger.php) instance, you have to implement [`Aerys\Bootable`](https://github.com/amphp/aerys/blob/master/lib/Bootable.php) and add it to a host by calling `$host->use($bootable)`. As soon as the server boots up, `boot` will be called and you'll be able to use the logger.
+
+By default only messages of severity `warning` or higher will be shown. In debug mode (`-d / --debug` flag) the default is lowered to be `debug`. You can adjust the log level using the `-l / --log` option.

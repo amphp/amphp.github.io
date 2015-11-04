@@ -22,7 +22,7 @@ layout: default
 
 **Current Stable Version**
 
-Though Aerys has been iterated on for quite a while there no official tagged releases (yet). APIs are still subject to change and you may run into rogue <s>bugs</s> features. We love PRs, though :-)
+Though Aerys has been iterated on for quite a while, there are no official tagged releases (yet). APIs are still subject to small changes and you may run into rogue <s>bugs</s> features. We love PRs, though :-)
 
 **Installation**
 

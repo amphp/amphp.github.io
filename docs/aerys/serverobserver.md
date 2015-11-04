@@ -27,7 +27,7 @@ class MyObserver implements Aerys\Bootable, Aerys\ServerObserver {
             case Aerys\Server::STARTING: /* ... */ break;
             case Aerys\Server::STARTED: /* ... */ break;
             case Aerys\Server::STOPPING: /* ... */ break;
-            case Aerys\Server::STTOPPED: /* ... */ break;
+            case Aerys\Server::STOPPED: /* ... */ break;
         }
         return new Amp\Success;
     }

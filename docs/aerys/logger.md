@@ -14,4 +14,4 @@ The only way to receive the `Logger` instance is to implement [`Bootable`](boota
 
 By default only messages of severity `warning` or higher will be shown. In debug mode (`-d` / `--debug` flag) the default is lowered to be `debug`. You can adjust the log level using the `-l / --log` option.
 
-The `Logger` class implements the [PSR-3 `Psr\Log\LoggerInterface`](http://www.php-fig.org/psr/psr-3/#3-psr-log-loggerinterface) and thus exposes the same methods: `emergency()`, `alert()`, `critical()`, `error()`, `warning()`, `notice()`, `info()`, debug()` and the universal `log()`.
+The `Logger` class implements the [PSR-3 `Psr\Log\LoggerInterface`](http://www.php-fig.org/psr/psr-3/#3-psr-log-loggerinterface) and thus exposes the same methods: `emergency()`, `alert()`, `critical()`, `error()`, `warning()`, `notice()`, `info()`, `debug()` and the universal `log()`.

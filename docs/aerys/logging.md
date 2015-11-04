@@ -1,6 +1,6 @@
 ---
 title: Logging in Aerys
-description: Aerys is a non-blocking HTTP/1.1 application / websocket / static file server.
+description: Aerys is a non-blocking HTTP/1.1 and HTTP/2 application / websocket / static file server.
 title_menu: Logging
 layout: default
 ---

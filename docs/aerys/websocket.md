@@ -1,11 +1,14 @@
 ---
 title: Websocket interface in Aerys
-description: Aerys is a non-blocking HTTP/1.1 application / websocket / static file server.
+description: Aerys is a non-blocking HTTP/1.1 and HTTP/2 application / websocket / static file server.
 title_menu: Websocket
 layout: default
 ---
 
-The `Websocket` interface is the general interface for your websocket class. To set it as a responder, just pass an instance of it to the `websocket()` function whose result must be passed to [`Host::use()`](host.html#use) or a specific route (see [`Router::route`](router.html#route).
+* Table of Contents
+{:toc}
+
+The `Websocket` interface is the general interface for your websocket class. To set it as a responder, just pass an instance of it to the `websocket()` function whose result must be passed to [`Host::use()`](host.html#use) or a specific route (see [`Router::route`](router.html#route)).
 
 > Note: This is a responder callable, it falls under the same rules as every responder callable passed to `use()`: after the first callable started the response, the following ones will be ignored. Make attention to not e.g. `(new Host)->use($router)->use($websocket)` and be then surprised why you get an invalid response with code 200 (OK).
 
@@ -30,7 +33,7 @@ In order to map data (like identification information) to a client, you can retu
 
 ## `onOpen(int $clientId, $handshakeData)`
 
-In case of a successful handshake, this method gets called. `$clientId` is an opaque and unique integer valid through a whole websocket session you can use for identifying a specific client. `$handshakeData` will contain whatever you returned before in `onHandshake()`.
+In case of a successful handshake, this method gets called. `$clientId` is an opaque and unique integer valid through a whole websocket session you can use for identifying a specific client. `$handshakeData` will contain whatever was returned before in `onHandshake()`.
 
 ## `onData(int $clientId, Websocket\Message)`
 

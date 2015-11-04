@@ -1,9 +1,12 @@
 ---
 title: Body or Websocket\Message in Aerys
-description: Aerys is a non-blocking HTTP/1.1 application / websocket / static file server.
+description: Aerys is a non-blocking HTTP/1.1 and HTTP/2 application / websocket / static file server.
 title_menu: Body or Websocket\Message
 layout: default
 ---
+
+* Table of Contents
+{:toc}
 
 The only apparence of the `Websocket\Message` is in [`Websocket::onOpen`](websocket.html#onOpen) respectively of `Body` is in [`Response::getBody`](response.html#getBody) respectively [`InternalRequest->body`](middleware.html#internalrequest-body).
 

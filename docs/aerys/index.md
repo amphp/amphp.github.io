@@ -1,6 +1,6 @@
 ---
 title: Aerys
-description: Aerys is a non-blocking HTTP/1.1 application / websocket / static file server.
+description: Aerys is a non-blocking HTTP/1.1 and HTTP/2 application / websocket / static file server.
 title_menu: Introduction
 layout: default
 ---
@@ -8,7 +8,9 @@ layout: default
 * Table of Contents
 {:toc}
 
-`amphp/aerys` is a non-blocking HTTP/1.1 application, websocket and static file server written in PHP.
+`amphp/aerys` is a non-blocking HTTP/1.1 and HTTP/2 application, websocket and static file server written in PHP.
+
+> **Note:** For developing you may want to use the `-d` flag on command line, the productive default may not be very developer friendly.
 
 **Required PHP Version**
 

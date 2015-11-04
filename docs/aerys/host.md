@@ -28,7 +28,7 @@ A name for non-wildcard domains. Like `"www.example.com"`. There only may be one
 
 You can specify interfaces the server should listen on with IP and port. By default, if `expose()` is never called, it listens on all IPv4 and IPv6 interfaces on port 80 or 443 if encryption is enabled, basically an implicit `expose("*", $https ? 443 : 80)`.
 
-The generic addresses for IPv4 is `"0.0.0.0"`, for IPv6 it is `"[::]"` and `"*"` for both IPv4 and IPv6.
+The generic addresses for IPv4 is `"0.0.0.0"`, for IPv6 it is `"::"` and `"*"` for both IPv4 and IPv6.
 
 ## `encrypt(string $certificatePath, array $additionalSslSettings)`
 

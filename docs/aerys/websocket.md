@@ -61,7 +61,9 @@ class MyAwesomeWebsocket implements Aerys\Websocket {
         $this->endpoint = $endpoint;
     }
 
-    public function onHandshake(Aerys\Request $request, Aerys\Response $response) { /* Do eventual session verification and manipulate Response if needed to abort */ }
+    public function onHandshake(Aerys\Request $request, Aerys\Response $response) {
+        // Do eventual session verification and manipulate Response if needed to abort
+    }
 
     public function onOpen(int $clientId, $handshakeData) {
         $this->endpoint->send($clientId, "Heyho!");
@@ -73,7 +75,9 @@ class MyAwesomeWebsocket implements Aerys\Websocket {
         yield $this->endpoint->send($clientId, $msg);
     }
 
-    public function onClose(int $clientId, int $code, string $reason) { /* client disconnected, we may not send anything to him anymore */ }
+    public function onClose(int $clientId, int $code, string $reason) {
+        // client disconnected, we may not send anything to him anymore
+    }
 
     public function onStop() {
         $this->endpoint->send(null, "Byebye!"); // broadcast

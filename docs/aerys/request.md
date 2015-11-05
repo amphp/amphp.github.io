@@ -64,4 +64,4 @@ Returns various information about the request, a map of the array is:
 
 ## `getLocalVar(string)` / `setLocalVar(string, $value)`
 
-These methods are only important when using [`Middleware`s](Middleware.html). They manipulate the [`InternalRequest->locals`](internalrequest.html#locals) array.
+These methods are only important when using [`Middleware`s](middleware.html). They manipulate the [`InternalRequest->locals`](internalrequest.html#locals) array.

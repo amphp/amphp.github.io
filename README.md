@@ -21,7 +21,7 @@ $ bundle install
 $ bundle exec jekyll serve
 ```
 
-### Alternative using Docker
+### Alternatively using Docker
 
 > **NOTE:** Don't commit your work while Docker runs, otherwise `Gemfile` will be renamed to `Gemfile.docker`!
 

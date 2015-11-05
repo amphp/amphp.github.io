@@ -20,3 +20,13 @@ $ cd amphp/docs
 $ bundle install
 $ bundle exec jekyll serve
 ```
+
+### Alternative using Docker
+
+> **NOTE:** Don't commit your work while Docker runs, otherwise `Gemfile` will be renamed to `Gemfile.docker`!
+
+```bash
+docker run --name=jekyll -v=$(pwd):/srv/jekyll -ti -p 127.0.0.1:4000:4000 jekyll/jekyll:pages
+```
+
+Next time you can just use `docker start jekyll` / `docker stop jekyll` to start /stop it again.

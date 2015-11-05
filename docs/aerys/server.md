@@ -8,11 +8,13 @@ layout: default
 * Table of Contents
 {:toc}
 
-## attach(ServerObserver)
+The `Server` instance controls the whole listening and dispatches the parsed requests.
+
+## `attach(ServerObserver)`
 
 Enables a [`ServerObserver`](serverobserver.html) instance to be notified of the updates.
 
-## detach(ServerObserver)
+## `detach(ServerObserver)`
 
 Disables notifications for the passed [`ServerObserver`](serverobserver.html) instance.
 

@@ -21,12 +21,16 @@ You may return a [`Middleware`](middleware.md) and/or responder callable in orde
 ## Example
 
 ```php
-function boot(Aerys\Server $server, Aerys\Logger $logger) {
-    // we can now use $server in order to register a ServerObserver for example
+class MyBootable implements Aerys\Bootable {
+    function boot(Aerys\Server $server, Aerys\Logger $logger) {
+        // we can now use $server in order to register a ServerObserver for example
 
-    // In case we want to not use this instance for Middlewares or responder callables, we can return an alternate one
-    return new class implements Aerys\Middleware {
-        function do(Aerys\InternalRequest $ireq) { /* ... */ }
-    };
+        // In case we want to not use this instance for Middlewares or responder callables,
+        // we can return an alternate one
+        return new class implements Aerys\Middleware {
+            function do(Aerys\InternalRequest $ireq) { /* ... */ }
+        };
+    }
 }
+(new Aerys\Host)->use(new MyBootable);
 ```

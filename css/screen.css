@@ -1,4 +1,4 @@
-body { margin: 0; padding: 0; font-family: "Lato", sans-serif; background-color: #444750; position: relative; overflow-y: scroll; /* make scrollbar always visible to prevent reflow when changing from short to large content */ }
+body { margin: 0; padding: 0; font-family: "Lato", sans-serif; background-color: #909a9a; position: relative; overflow-y: scroll; /* make scrollbar always visible to prevent reflow when changing from short to large content */ }
 * { outline: 0 !important; box-sizing: border-box; }
 
 body, td, th { font-size: 16px; font-family: "Lato", sans-serif; line-height: 24px; }
@@ -7,12 +7,12 @@ body, td, th { font-size: 16px; font-family: "Lato", sans-serif; line-height: 24
 .content { padding: 20px; color: #333; position: relative; }
 .bottom { padding-bottom: 0; margin-top: -20px; }
 
-#top { box-shadow: 0 1px 2px rgba(0,0,0,.15); z-index: 100; border-top: 2px solid rgba(0,0,0,.2); position: relative; background-color: #F0FF21; }
+#top { box-shadow: 0 1px 2px rgba(0,0,0,.15); z-index: 100; border-top: 2px solid rgba(0,0,0,.03); position: relative; background-color: #F0FF21; }
 #top > .content { margin: -20px -20px 0 -20px; }
 .header { margin: 0 auto; max-width: 1000px; line-height: 50px; display: flex; justify-content: space-between; }
 .header-item { vertical-align: middle; line-height: 50px; margin-right: 20px; font-size: 12px; text-transform: uppercase; }
 .header-right .header-item { margin-left: 0; margin-right: 20px; }
-.project-title { font-weight: bold; margin-left: -20px; font-size: 60px; }
+.project-title { font-weight: bold; margin-left: -20px; font-size: 50px; }
 .logo-link { color: #000; text-align: center; display: block; margin-top: -35px; }
 .logo-link:hover { color: #000; text-decoration: none; }
 .logo-link img { border: 0; }
@@ -26,9 +26,9 @@ article { margin-left: 180px; padding: 0; }
 
 h1, h2, h3, h4, h5, h6 { color: #222; font-weight: 300; line-height: 125%; }
 h1 { padding: 0; margin: 0; font-weight: 900; color: white; text-shadow: 0 1px 2px rgba(0,0,0,.1); }
-h1 > code, h2 > code, h3 > code, h4 > code, h5 > code, h6 > code { font-weight: inherit; color: inherit; padding: 0; margin: 0; display: inline; line-height: 125%; background-color: transparent; border: 0; font-size: inherit; }
+h1 > code, h2 > code, h3 > code, h4 > code, h5 > code, h6 > code { font-weight: inherit; color: inherit; padding: 0; margin: 0; display: inline; line-height: 125%; background-color: transparent; border: 0; font-size: inherit; letter-spacing: -.05em; }
 
-.article-header { padding: 20px 0; box-shadow: 0 1px 2px rgba(0,0,0,.15); text-align: center; }
+.article-header { padding: 15px 0; box-shadow: 0 1px 2px rgba(0,0,0,.15); text-align: center; }
 .description { color: #fff; font-weight: bold; margin: 0; padding: 0; font-size: 14px; }
 
 footer { color: #666; border-top: 1px solid #eee; padding: 20px 0; margin: 20px 0; max-width: 1000px; margin: 0 auto; font-size: smaller; display: flex; justify-content: space-between; }
@@ -38,10 +38,10 @@ a:hover { text-decoration: underline; }
 
 hr { margin: 30px 0; border: 0; border-top: 1px solid #eee; height: 0; }
 
-code, pre { font-size: 14px; font-family: "Source Code Pro", monospace; }
-code { background-color: #fff; border: 1px solid rgba(0,0,0,.05); padding: 2px 5px; border-radius: 3px; }
+code, pre { font-size: 14px; font-family: "Source Code Pro", monospace; letter-spacing: -.02em; }
+code { background-color: #fff; border: 1px solid rgba(0,0,0,.05); padding: 1px 4px; border-radius: 3px; }
 pre code { border: 0; background-color: transparent; padding: auto; border-radius: 0; }
-pre { font-size: 14px; line-height: 20px; background-color: #fff; border: 1px solid rgba(0,0,0,.1); padding: 20px; display: block; margin: 20px -20px; color: #222; border-left: 0; border-right: 0; }
+pre { font-size: 14px; line-height: 20px; background-color: #fff; border: 1px solid rgba(0,0,0,.1); padding: 15px 20px; display: block; margin: 15px -20px; color: #222; border-left: 0; border-right: 0; }
 .hljs { background-color: transparent; padding: 0; }
 blockquote { padding: 5px 20px; background-color: #cef; margin: 10px 0; border-left: 10px solid rgba(0,0,0,.05); }
 

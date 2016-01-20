@@ -35,7 +35,7 @@ Assuming the functions being methods of a class implementing `Middleware`.
 ```php
 function do(Aerys\InternalRequest $ireq) {
     // add a dot after each char when client specified X-INSERT-DOT header
-    if (!empty($ireq->headers["X-INSERT-DOT"][0])) {
+    if (!empty($ireq->headers["x-insert-dot"][0])) { // header names are lowercase
         return; // no header, no processing
     }
 

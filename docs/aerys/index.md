@@ -10,8 +10,6 @@ layout: default
 
 `amphp/aerys` is a non-blocking HTTP/1.1 and HTTP/2 application, websocket and static file server written in PHP.
 
-> **Note:** For developing you may want to use the `-d` flag on command line, the productive default may not be very developer friendly.
-
 **Required PHP Version**
 
 - PHP 7
@@ -20,17 +18,25 @@ layout: default
 
 - [ev](https://pecl.php.net/package/ev)
 - [libevent](https://pecl.php.net/package/libevent)
-- [php-uv](https://github.com/bwoebi/php-uv) (experimental fork)
+- [php-uv](https://github.com/bwoebi/php-uv)
 
 **Current Stable Version**
 
-Though Aerys has been iterated on for quite a while, there are no official tagged releases (yet). APIs are still subject to small changes and you may run into rogue <s>bugs</s> features. We love PRs, though :-)
+Aerys has currently a few 0.x tags. APIs are still subject to very small changes and you may run into rogue <s>bugs</s> features. We love PRs, though :-)
 
 **Installation**
 
 ```bash
 $ composer require amphp/aerys:dev-master
 ```
+
+**First run**
+
+```bash
+$ php bin/aerys -d -c demo.php
+```
+
+> **Note:** In production you'll want to drop the `-d` (debug mode) flag. For development it is pretty helpful though. `-c demo.php` tells the program where to find the config file.
 
 **Blog Posts**
 

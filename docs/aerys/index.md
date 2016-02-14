@@ -33,7 +33,7 @@ $ composer require amphp/aerys:dev-master
 **First run**
 
 ```bash
-$ php bin/aerys -d -c demo.php
+$ php vendor/bin/aerys -d -c demo.php
 ```
 
 > **Note:** In production you'll want to drop the `-d` (debug mode) flag. For development it is pretty helpful though. `-c demo.php` tells the program where to find the config file.

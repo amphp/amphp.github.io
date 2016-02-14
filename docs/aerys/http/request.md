@@ -19,8 +19,8 @@ layout: default
 
 Try accessing `http://localhost/?action=beautiful` in the browser.
 
-`Aerys\Request::getQueryVars()` returns an array of all the query string parameters (as parsed by [`parse_str()`](http://php.net/parse_str)), being (nearly) equivalent to `$_GET`.
+`Aerys\Request::getQueryVars()` returns an array of all the query string parameters (as parsed by [`parse_str()`](http://php.net/parse_str)), being equivalent to `$_GET`.
 
 `Aerys\Request::getHeader(string $name)` returns a headers value.
 
-There are a few more information available about the request, check out the [`Request` docs`](../classes/request.md) for these.
+There is additional information available about the request, check out the [`Request` docs`](../classes/request.md) for it.

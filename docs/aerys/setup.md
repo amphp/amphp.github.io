@@ -13,7 +13,7 @@ layout: default
 (new Aerys\Host)->use(root("/var/www/public_html"));
 ```
 
-Save it under `config.php` and load it via `php vendor/bin/aerys -d -c config.php`.
+Save it as `config.php` and load it via `php vendor/bin/aerys -d -c config.php`.
 
 That's all needed to serve files from a static root. Put an index.html there and try opening `http://localhost/` in the browser.
 

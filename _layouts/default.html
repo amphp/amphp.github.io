@@ -4,7 +4,14 @@ layout: main
 
 <div class="content">
 	<nav id="sidebar">
-		{% assign url_parts = page.url | split: '/' %}
+		{% assign url = page.url | slice: -1 %}
+		{% if url == "/" %}
+			{% assign url = page.url | append: "index.html" %}
+		{% else %}
+			{% assign url = page.url %}
+		{% endif %}
+
+		{% assign url_parts = url | split: '/' %}
 		{% assign url_parts_size = url_parts | size %}
 		{% assign rm = url_parts | last %}
 		{% assign base_url = page.url | replace: rm %}

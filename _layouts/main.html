@@ -71,7 +71,7 @@
 								{% if repository.name != "amphp.github.io" and repository.name != "template" and repository.name != "design" %}
 									{% capture path %}/docs/{{ repository.name }}/index.md{% endcapture %}
 									{% assign found = false %}
-									{% for page in site.pages %}
+									{% for page in site.documents %}
 										{% if page.url == path %}
 											<li><a href="/docs/{{repository.name}}/">{{repository.name}} <i class="fa fa-book"></a></li>
 											{% assign found = true %}

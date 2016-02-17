@@ -8,17 +8,29 @@ body, td, th { font-size: 16px; font-family: "Lato", sans-serif; line-height: 24
 .content { padding: 20px; color: #333; position: relative; }
 .bottom { padding-bottom: 0; margin-top: -20px; }
 
-#top { box-shadow: 0 1px 2px rgba(0,0,0,.15); z-index: 100; border-top: 1px solid #fff; position: relative; background-color: #fff; }
-#top > .content { margin: -20px -20px 0 -20px; padding-bottom: 0; }
+#top { border-top: 1px solid transparent; box-shadow: 0 1px 2px rgba(0,0,0,.15); z-index: 100; position: relative; background-color: #fff; }
+#top > .content { margin: -21px -20px 0 -20px; padding-bottom: 0; }
 
 .header-menu { margin: 0; padding: 0; }
-.header-menu li { list-style: none; display: inline-block; }
+.header-menu > li { list-style: none; display: inline-block; }
 
-.header-menu a { color: #444; font-weight: bold; text-decoration: none; display: inline-block; line-height: 50px; padding: 0 10px; margin: 5px; }
-.header-menu a:hover { color: #000; text-decoration: none; }
+.header-menu > li { margin: 0 5px; position: relative; border-left: 1px solid transparent; border-right: 1px solid transparent; }
+.header-menu > li:hover { border-left: 1px solid rgba(0,0,0,.1); border-right: 1px solid rgba(0,0,0,.1); }
+.header-menu > li > a, .header-menu > li > span { color: #444; font-weight: bold; text-decoration: none; display: inline-block; line-height: 50px; padding: 0 10px; }
+.header-menu > li:hover > a, .header-menu > li:hover > span { color: #000; text-decoration: none; background: rgba(0,0,0,.05); }
 .header-menu-logo { line-height: 50px; vertical-align: top; }
 .header-menu-logo img { vertical-align: top; opacity: 0.75; }
 .header-menu-logo:hover img { opacity: 1; }
+
+.header-menu li:hover ul { display: block; }
+.header-menu ul { display: none; background: white; border: 1px solid rgba(0,0,0,.1); border-top: 0; margin: 0; padding: 0; position: absolute; left: -1px; top: 100%; }
+.header-menu ul > li { border-top: 1px solid transparent; border-bottom: 1px solid transparent; display: block; width: 200px; list-style: none; }
+.header-menu ul > li:hover { border-top: 1px solid rgba(0,0,0,.1); border-bottom: 1px solid rgba(0,0,0,.1); }
+.header-menu ul > li:last-child { border-bottom-width: 0 !important; }
+.header-menu ul > li > a { padding: 0 10px; line-height: 35px; color: #444; text-decoration: none; display: block; }
+.header-menu ul > li > a:hover { color: #000; text-decoration: none; background: rgba(0,0,0,.05); }
+
+.header-menu ul .fa { line-height: 35px; float: right; }
 
 #sidebar { width: 195px; float: left; }
 article { margin-left: 196px; padding: 0; }

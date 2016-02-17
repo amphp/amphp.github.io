@@ -62,6 +62,30 @@
 							<span>amphp</span>
 						</a>
 					</li>
+
+					<li>
+						<span>Packages</span>
+
+						<ul>
+							{% for repository in site.github.public_repositories %}
+								{% if repository.name != "amphp.github.io" and repository.name != "template" %}
+									{% capture path %}/docs/{{ repository.name }}/index.html{% endcapture %}
+									{% assign found = false %}
+									{% for page in site.pages %}
+										{% if page.url == path %}
+											<li><a href="/docs/{{repository.name}}/">{{repository.name}} <i class="fa fa-book"></a></li>
+											{% assign found = true %}
+										{% endif %}
+									{% endfor %}
+
+									{% if found == false %}
+										<li><a href="{{repository.html_url}}/">{{repository.name}} <i class="fa fa-github"></i></a></li>
+									{% endif %}
+								{% endif %}
+							{% endfor %}
+						</ul>
+					</li>
+
 					<li><a href="https://github.com/amphp">GitHub</a></li>
 					<li><a href="https://dev.kelunik.com/">Chat</a></li>
 					<li><a href="http://stackoverflow.com/questions/ask?tags=amphp">Ask a Question</a></li>

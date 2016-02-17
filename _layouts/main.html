@@ -69,7 +69,7 @@
 						<ul>
 							{% for repository in site.github.public_repositories %}
 								{% if repository.name != "amphp.github.io" and repository.name != "template" and repository.name != "design" %}
-									{% capture path %}/docs/{{ repository.name }}/index.html{% endcapture %}
+									{% capture path %}/docs/{{ repository.name }}/index.md{% endcapture %}
 									{% assign found = false %}
 									{% for page in site.pages %}
 										{% if page.url == path %}

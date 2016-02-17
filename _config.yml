@@ -3,3 +3,6 @@ kramdown:
   toc_levels: 2..3
 
 exclude: ["vendor"]
+
+repository: amphp/amphp.github.io
+gems: ['jekyll-github-metadata']

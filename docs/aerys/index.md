@@ -28,7 +28,7 @@ Though Aerys has been iterated on for quite a while, there are no official tagge
 
 **Installation**
 
-```bash
+```plain
 $ composer require amphp/aerys
 ```
 

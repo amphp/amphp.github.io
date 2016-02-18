@@ -34,18 +34,18 @@ In its simplest form the `Amp\Promise` aggregates callbacks for dealing with com
 
 | Method                | Callback Signature                              |
 | --------------------- | ------------------------------------------------|
-| void when(callable)   | `function(Exception $error = null, $result = null, $cbData = null)` |
+| void when(callable)   | `function($error = null, $result = null, $cbData = null)` |
 | void watch(callable)  | `function($updateData, $cbData = null)`                                   |
 
 
-### when()
+### `when()`
 
 `Amp\Promise::when()` accepts an error-first callback. This callback is responsible for reacting to the eventual result of the computation represented by the promise placeholder. For example:
 
 ```php
 <?php
 $promise = someFunctionThatReturnsAPromise();
-$promise->when(function(Exception $error = null, $result = null) {
+$promise->when(function($error = null, $result = null) {
     if ($error) {
         printf(
             "Something went wrong:\n%s\n",
@@ -60,13 +60,17 @@ $promise->when(function(Exception $error = null, $result = null) {
 });
 ```
 
+> **NOTE**
+>
+> We do not use type declarations here, as PHP 7 introduced the new `Throwable` interface and Amp is PHP 5 compatible.
+
 Those familiar with javascript code generally reflect that the above interface quickly devolves into ["callback hell"](http://callbackhell.com/), and they're correct. We will shortly see how to avoid this problem in the [Generators](#generators) section.
 
 #### Optional Callback Data
 
 @TODO
 
-### watch()
+### `watch()`
 
 `Amp\Promise::watch()` affords promise-producers ([Promisors](#promisors)) the ability to broadcast progress updates while a placeholder value resolves. Whether or not to actually send progress updates is left to individual libraries, but the functionality is available should applications require it. A simple example:
 
@@ -96,25 +100,29 @@ interface Promisor {
     public function promise();
     public function update($progress);
     public function succeed($result = null);
-    public function fail(\Exception $error);
+    public function fail($error);
 }
 ```
 
-#### promise()
+#### `promise()`
 
 @TODO
 
-#### update()
+#### `update()`
 
 @TODO
 
-#### succeed()
+#### `succeed()`
 
 @TODO
 
-#### fail()
+#### `fail()`
 
 @TODO
+
+> **NOTE**
+>
+> We do not use type declarations here, as PHP 7 introduced the new `Throwable` interface and Amp is PHP 5 compatible.
 
 ### Deferred
 
@@ -144,7 +152,7 @@ var_dump($result); // int(42)
 
 ## Combinators
 
-### all()
+### `all()`
 
 The `all()` functor combines an array of promise objects into a single promise that will resolve
 when all promises in the group resolve. If any one of the `Amp\Promise` instances fails the
@@ -196,27 +204,27 @@ run(function() {
 ```
 
 
-### some()
+### `some()`
 
 The `some()` functor is the same as `all()` except that it tolerates individual failures. As long
 as at least one promise in the passed array the combined promise will succeed. The successful
 resolution value is an array of the form `[$arrayOfErrors, $arrayOfSuccesses]`. The individual keys
 in the component arrays are preserved from the promise array passed to the functor for evaluation.
 
-### any()
+### `any()`
 
 @TODO
 
-### first()
+### `first()`
 
 Resolves with the first successful result. The resulting Promise will only fail if all
 promises in the group fail or if the promise array is empty.
 
-### map()
+### `map()`
 
 Maps eventual promise results using the specified callable.
 
-### filter()
+### `filter()`
 
 Filters eventual promise results using the specified callable.
 

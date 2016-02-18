@@ -16,6 +16,6 @@ layout: default
 
 **Installation**
 
-```bash
-$ composer require amphp/redis dev-master
+```plain
+$ composer require amphp/redis
 ```

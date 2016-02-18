@@ -28,7 +28,7 @@ layout: default
 
 **Installation**
 
-```bash
+```plain
 $ composer require amphp/amp
 ```
 

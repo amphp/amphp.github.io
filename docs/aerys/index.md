@@ -29,7 +29,7 @@ Though Aerys has been iterated on for quite a while, there are no official tagge
 **Installation**
 
 ```bash
-$ composer require amphp/aerys:dev-master
+$ composer require amphp/aerys
 ```
 
 **Blog Posts**

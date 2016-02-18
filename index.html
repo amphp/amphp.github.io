@@ -4,33 +4,13 @@ title: Welcome to asynchronous multitasking PHP
 description: Amp is a non-blocking concurrency framework for PHP applications.
 ---
 
-<header style="background-color: #333" class="article-header">
-	<div class="content">
+<div class="content"><main>
+	<header class="article-header" style="text-align:center;padding:30px">
 		<h1>{{page.title}}</h1>
 		<p class="description">{{page.description}}</p>
-	</div>
-</header>
+	</header>
 
-<div class="content"><main>
-	<ul class="packages">
-	    {% for repository in site.github.public_repositories %}
-	        {% if repository.name != "amphp.github.io" and repository.name != "template" %}
-				{% capture path %}/docs/{{ repository.name }}/index.html{% endcapture %}
-				{% assign found = false %}
-				{% for page in site.pages %}
-					{% if page.url == path %}
-						<li><a href="/docs/{{repository.name}}/"><i class="fa fa-book"></i><br>{{repository.name}}</a></li>
-						{% assign found = true %}
-					{% endif %}
-				{% endfor %}
-
-				{% if found == false %}
-					<li><a href="{{repository.html_url}}/"><i class="fa fa-github"></i><br>{{repository.name}}</a></li>
-				{% endif %}
-	        {% endif %}
-	    {% endfor %}
-	</ul>
-
+	<h2>Hello World</h2>
     <pre><code class="language-php">&lt;?php
 
 function tick() {
@@ -46,44 +26,56 @@ Amp\run(function() {
 
 echo "after run()\n";</code></pre>
 
-<p class="text-right">
-    <button class="btn btn-green" id="run"><i class="fa fa-play"></i> Run code sample</button>
-</p>
+	<p class="text-right">
+	    <button class="btn btn-green" id="run"><i class="fa fa-play"></i> Run code sample</button>
+	</p>
 
-<pre id="run-output"></pre>
+	<pre id="run-output"></pre>
 
-<script>
-    var button = document.getElementById("run");
-    var output = document.getElementById("run-output");
-    var run = false;
+	<script>
+	    var button = document.getElementById("run");
+	    var output = document.getElementById("run-output");
+	    var run = false;
 
-    button.addEventListener("click", function(e) {
-        if (console) {
-            console.log("before run()");
-        }
+	    button.addEventListener("click", function(e) {
+	        output.textContent = "before run()\n";
+	        button.disabled = true;
 
-        output.textContent = "before run()\n";
-        this.setAttribute("disabled", "disabled");
-        run = setInterval("tick()", 1000);
-        setTimeout("stop()", 5000);
-    });
+			run = setInterval("tick()", 1000);
+	        setTimeout("stop()", 5000);
+	    });
 
-    function tick() {
-        if (console) {
-            console.log("tick");
-        }
+	    function tick() {
+	        output.textContent += "tick\n";
+	    }
 
-        output.textContent += "tick\n";
-    }
+	    function stop() {
+	        output.textContent += "after run()\n";
+	        button.disabled = false;
 
-    function stop() {
-        if (console) {
-            console.log("after run()");
-        }
+			clearInterval(run);
+	    }
+	</script>
 
-        output.textContent += "after run()\n";
-        button.removeAttribute("disabled");
-        clearInterval(run);
-    }
-</script>
+	<h2>Installation</h2>
+
+	<pre><code class="language-bash" id="install">$ composer require amphp/amp</code></pre>
+
+	<script>
+		var install = document.getElementById("install");
+
+		var packages = [
+			{% for repository in site.github.public_repositories %}
+				{% if repository.name != "amphp.github.io" and repository.name != "template" and repository.name != "design" %}
+					{{repository.name | jsonify}},
+				{% endif %}
+			{% endfor %}
+			"amp"
+		];
+
+		setInterval(function() {
+			install.textContent = "$ composer require amphp/" + packages[parseInt(Math.floor(Math.random() * packages.length))];
+		}, 2000);
+	</script>
+
 </main></div>

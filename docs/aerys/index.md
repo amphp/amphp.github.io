@@ -26,8 +26,8 @@ Aerys has currently a few 0.x tags. APIs are still subject to very small changes
 
 **Installation**
 
-```bash
-$ composer require amphp/aerys:dev-master
+```plain
+$ composer require amphp/aerys
 ```
 
 **First run**

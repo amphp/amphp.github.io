@@ -22,14 +22,14 @@ layout: default
 
 **Current Stable Version**
 
- - v1.0.0 (PHP 5.5+)
+ - v1.0.7 (PHP 5.5+)
 
 `amphp/amp` follows the [semver](http://semver.org/) semantic versioning specification.
 
 **Installation**
 
-```bash
-$ composer require amphp/amp:^1
+```plain
+$ composer require amphp/amp
 ```
 
 **Blog Posts**

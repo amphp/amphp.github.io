@@ -18,14 +18,20 @@ layout: main
 
 		<ul>
 		{% for node in site.pages %}
-		  {% if node.url contains base_url %}
-		    {% assign node_url_parts = node.url | split: '/' %}
-		    {% assign node_url_parts_size = node_url_parts | size %}
-		    {% assign filename = node_url_parts | last %}
-		    {% if url_parts_size == node_url_parts_size %}
-		      	<li {% if node.url == page.url %}class="active"{% endif %}><a href='{{node.url}}'>{% if node.title_menu %}{{node.title_menu}}{% else %}{{node.title}}{% endif %}</a></li>
-		    {% endif %}
-		  {% endif %}
+			{% if node.url contains base_url %}
+				{% assign node_url = node.url | slice: -1 %}
+		  		{% if node_url == "/" %}
+		  			{% assign node_url = node.url | append: "index.html" %}
+		  		{% else %}
+		  			{% assign node_url = node.url %}
+		  		{% endif %}
+			    {% assign node_url_parts = node_url | split: '/' %}
+			    {% assign node_url_parts_size = node_url_parts | size %}
+			    {% assign filename = node_url_parts | last %}
+			    {% if url_parts_size == node_url_parts_size %}
+			      	<li {% if node.url == page.url %}class="active"{% endif %}><a href='{{node.url}}'>{% if node.title_menu %}{{node.title_menu}}{% else %}{{node.title}}{% endif %}</a></li>
+			    {% endif %}
+			{% endif %}
 		{% endfor %}
 		</ul>
 	</nav>

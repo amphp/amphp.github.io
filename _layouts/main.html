@@ -4,9 +4,9 @@
 	<title>{% if page.title %}{{page.title}} &ndash; {% endif %}amphp</title>
 
 	{% if page.description %}
-		{% assign description = page.description %}
+	{% assign description = page.description %}
 	{% else %}
-		{% assign description = "Amp is a non-blocking concurrency framework for PHP applications." %}
+	{% assign description = "Amp is a non-blocking concurrency framework for PHP applications." %}
 	{% endif %}
 
 	<!-- metadata -->
@@ -24,7 +24,7 @@
 	<meta property="og:description" content="{{description}}" />
 
 	{% if page.cover %}
-		<meta property="og:image" content="{{page.cover}}" />
+	<meta property="og:image" content="{{page.cover}}" />
 	{% endif %}
 
 	<!-- icons -->
@@ -40,15 +40,15 @@
 	<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/highlight.min.js"></script>
 
 	<script>
-		hljs.initHighlightingOnLoad();
+	hljs.initHighlightingOnLoad();
 
-		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-		ga('create', 'UA-69242348-1', 'auto');
-		ga('send', 'pageview');
+	ga('create', 'UA-69242348-1', 'auto');
+	ga('send', 'pageview');
 	</script>
 </head>
 <body>
@@ -83,43 +83,61 @@
 
 						<ul>
 							{% for repository in site.github.public_repositories %}
-								{% if repository.name != "amphp.github.io" and repository.name != "template" and repository.name != "design" %}
-									{% capture path %}/docs/{{ repository.name }}/{% endcapture %}
-									{% assign found = false %}
-									{% for page in site.pages %}
-										{% if page.url == path %}
-											<li><a href="/docs/{{repository.name}}/">{{repository.name}} <i class="fa fa-book"></i></a></li>
-											{% assign found = true %}
-										{% endif %}
-									{% endfor %}
+							{% if repository.name != "amphp.github.io" and repository.name != "template" and repository.name != "design" %}
+							{% capture path %}/docs/{{ repository.name }}/{% endcapture %}
+							{% assign found = false %}
+							{% for page in site.pages %}
+							{% if page.url == path %}
+							<li><a href="/docs/{{repository.name}}/">{{repository.name}} <i class="fa fa-book"></i></a></li>
+							{% assign found = true %}
+							{% endif %}
+							{% endfor %}
 
-									{% if found == false %}
-										<li><a href="{{repository.html_url}}/">{{repository.name}} <i class="fa fa-github"></i></a></li>
-									{% endif %}
-								{% endif %}
+							{% if found == false %}
+							<li><a href="{{repository.html_url}}/">{{repository.name}} <i class="fa fa-github"></i></a></li>
+							{% endif %}
+							{% endif %}
 							{% endfor %}
 						</ul>
 					</li>
 
-					<li><a href="https://github.com/amphp">GitHub</a></li>
-					<li><a href="https://dev.kelunik.com/">Chat</a></li>
-					<li><a href="http://stackoverflow.com/questions/ask?tags=amphp">Ask a Question</a></li>
+					<li><a href="https://github.com/amphp" target="_blank">GitHub</a></li>
+					<li><a href="https://dev.kelunik.com/" target="_blank">Chat</a></li>
+					<li><a href="http://stackoverflow.com/questions/ask?tags=amphp" target="_blank">Ask a Question</a></li>
+
+					<li class="gcs">
+						<script>
+						(function() {
+							var cx = '004801483940270656526:oot0nn9-msu';
+							var gcse = document.createElement('script');
+							gcse.type = 'text/javascript';
+							gcse.async = true;
+							gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+							'//cse.google.com/cse.js?cx=' + cx;
+							var s = document.getElementsByTagName('script')[0];
+							s.parentNode.insertBefore(gcse, s);
+						})();
+						</script>
+						<gcse:searchbox-only resultsUrl="/search.html"></gcse:searchbox-only>
+					</li>
 				</ul>
 			</div>
 		</header>
 
-		{{content}}
+		<div class="main">
+			{{content}}
 
-		<div class="content">
-			<footer class="bottom">
-				<div class="bottom-left">
-					Documentation licensed under <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a>.
-				</div>
+			<div class="content">
+				<footer class="bottom">
+					<div class="bottom-left">
+						Documentation licensed under <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a>.
+					</div>
 
-				<div class="bottom-right">
-					Found a mistake? <a href="{{site.github.repository_url}}/blob/master/{{page.path}}">Edit this page</a>.
-				</div>
-			</footer>
+					<div class="bottom-right">
+						Found a mistake? <a href="{{site.github.repository_url}}/blob/master/{{page.path}}">Edit this page</a>.
+					</div>
+				</footer>
+			</div>
 		</div>
 	</div>
 </body>

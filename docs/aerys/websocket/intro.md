@@ -1,7 +1,7 @@
 ---
-title: Aerys
+title: Introduction to WebSockets
 description: Aerys is a non-blocking HTTP/1.1 and HTTP/2 application / websocket / static file server.
-title_menu: Introduction to Websockets
+title_menu: Introduction
 layout: default
 ---
 
@@ -17,6 +17,6 @@ layout: default
 }));
 ```
 
-Websockets are real-time full-duplex (two-way) connections between client and server. 
+Websockets are real-time full-duplex (two-way) connections between client and server.
 
 `Aerys\websocket()` is returning a callable handler which can be passed to either `Host::use()` or to the Router by specifing a `->get('/path/to/websocket', Aerys\websocket($handler))` route. It expects an instance of an implementation of `Aerys\Websocket`.

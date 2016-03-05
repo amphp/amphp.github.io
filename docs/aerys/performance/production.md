@@ -1,5 +1,5 @@
 ---
-title: Aerys
+title: Running Aerys in Production
 description: Aerys is a non-blocking HTTP/1.1 and HTTP/2 application / websocket / static file server.
 title_menu: Running in production
 layout: default
@@ -8,14 +8,14 @@ layout: default
 * Table of Contents
 {:toc}
 
-** General
+## General
 
 - Set your `ulimit -n` (maximum open file descriptors) high enough to manage all your connections. Recommended is at least `Options->maxConnections + 100`. [100 is an arbitrary number usually big enough for all the persisting file descriptors. If not enough, add more.]
 - Ratelimit the number of connections from a single IP (at least if you have no clever load-balancer) via for example iptables, to avoid too many connections being dropped off. Be aware that websocket and HTTP/2 connections are persistent. It's recommended to carefully balance the maximum connections per IP (proxys!) and the maxConnections option. It just is a simple layer of security against trivial DoS attacks, but won't help against DDoS, which will be able to just hold all the connections open.
 - In case you are using a properly configured load-balancer in front of Aerys servers, you should set the number of connections near to the maximum the host system can handle.
 - Aerys has a file server, which isn't too bad (use libuv if you use it!), but for heavy loads, a CDN is recommended.
 
-** Options
+## Options
 
 Defaults are chosen in a moderate way between security and performance on a typical machine.
 

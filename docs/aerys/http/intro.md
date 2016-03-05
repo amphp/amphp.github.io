@@ -1,5 +1,5 @@
 ---
-title: Aerys
+title: Introduction to HTTP
 description: Aerys is a non-blocking HTTP/1.1 and HTTP/2 application / websocket / static file server.
 title_menu: Introduction to HTTP
 layout: default
@@ -7,7 +7,7 @@ layout: default
 
 ```php
 (new Aerys\Host)->use(function(Aerys\Request $req, Aerys\Response $res) {
-	$res->end("<h1>Hello, world!</h1>");
+    $res->end("<h1>Hello, world!</h1>");
 });
 ```
 

@@ -1,19 +1,19 @@
 ---
-title: Aerys
+title: Request Basics in Aerys
 description: Aerys is a non-blocking HTTP/1.1 and HTTP/2 application / websocket / static file server.
-title_menu: Request basics
+title_menu: Request Basics
 layout: default
 ---
 
 ```
 (new Aerys\Host)->use(function(Aerys\Request $req, Aerys\Response $res) {
-	# if the header not passed, null is returned
-	$user_agent = $res->getHeader("User-Agent") ?? "";
+    # if the header not passed, null is returned
+    $user_agent = $res->getHeader("User-Agent") ?? "";
 
-	# Get a query string parameter
-	$action = $res->getQueryVars()["action"] ?? "default";
+    # Get a query string parameter
+    $action = $res->getQueryVars()["action"] ?? "default";
 
-	$res->send("Action: <i>$action</i> requested by User-Agent<br><pre>$user_agent</pre>");
+    $res->send("Action: <i>$action</i> requested by User-Agent<br><pre>$user_agent</pre>");
 });
 ```
 

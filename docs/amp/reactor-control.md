@@ -1,6 +1,6 @@
 ---
 title: Controlling the Reactor
-layout: default
+layout: docs
 ---
 
 * Table of Contents

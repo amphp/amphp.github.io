@@ -1,11 +1,6 @@
 ---
 title: amphp/redis
-layout: default
----
-
-* Table of Contents
-{:toc}
-
+layout: docs
 ---
 
 `amphp/redis` is a non-blocking [Redis](http://redis.io) client for use with the [Amp](http://amphp.org/docs/amp/) concurrency framework.

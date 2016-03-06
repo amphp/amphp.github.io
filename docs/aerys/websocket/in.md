@@ -2,7 +2,7 @@
 title: Input Handling with WebSockets
 description: Aerys is a non-blocking HTTP/1.1 and HTTP/2 application / websocket / static file server.
 title_menu: Input Handling
-layout: default
+layout: docs
 ---
 
 ```php

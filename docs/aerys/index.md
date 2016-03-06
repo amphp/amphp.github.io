@@ -2,43 +2,40 @@
 title: Aerys
 description: Aerys is a non-blocking HTTP/1.1 and HTTP/2 application / websocket / static file server.
 title_menu: Introduction
-layout: default
+layout: docs
 ---
-
-* Table of Contents
-{:toc}
 
 `amphp/aerys` is a non-blocking HTTP/1.1 and HTTP/2 application, websocket and static file server written in PHP.
 
-**Required PHP Version**
+## Required PHP Version
 
 - PHP 7
 
-**Optional Extension Backends**
+## Optional Extension Backends
 
 - [ev](https://pecl.php.net/package/ev)
 - [libevent](https://pecl.php.net/package/libevent)
 - [php-uv](https://github.com/bwoebi/php-uv)
 
-**Current Stable Version**
+## Current Stable Version
 
 Aerys has currently a few 0.x tags. APIs are still subject to very small changes and you may run into rogue <s>bugs</s> features. We love PRs, though :-)
 
-**Installation**
+## Installation
 
 ```plain
 $ composer require amphp/aerys
 ```
 
-**First run**
+## First run
 
 ```bash
-$ php vendor/bin/aerys -d -c demo.php
+$ vendor/bin/aerys -d -c demo.php
 ```
 
 > **Note:** In production you'll want to drop the `-d` (debug mode) flag. For development it is pretty helpful though. `-c demo.php` tells the program where to find the config file.
 
-**Blog Posts**
+## Blog Posts
 
  - [Getting Started with Aerys](http://blog.kelunik.com/2015/10/21/getting-started-with-aerys.html)
  - [Getting Started with Aerys WebSockets](http://blog.kelunik.com/2015/10/20/getting-started-with-aerys-websockets.html)

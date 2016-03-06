@@ -1,0 +1,19 @@
+.gcs { vertical-align: top; border-width: 0 !important; float: right; }
+.gsc-control-cse * { box-sizing: content-box; }
+.gcs > div { display: inline-block; vertical-align: top; height: 50px; }
+.gsc-control-searchbox-only { width: 250px; display: inline-block; height: 50px; }
+.gsc-search-box { margin-bottom: 0 !important; height: 50px !important; }
+.gsc-search-button { display: none; }
+.gsc-input-box { border: 1px solid rgba(0,0,0,.1) !important; height: 34px !important; margin: 0; box-shadow: none; border-color: rgba(0,0,0,.1) !important; }
+.gsc-input { background-position: 8px center !important; height: 100% !important; border-top: 0 !important; font-size: 14px !important; padding: 0 8px !important; }
+.gsib_a { padding: 0 !important; border-top: 0 !important; }
+.gsib_b { display: none; }
+.gstl_50 { height: 100%; }
+.gs-snippet { font-size: 14px; }
+.gsc-table-cell-snippet-close { border-top: 0 !important; padding: 0 8px !important; }
+.gsc-resultsHeader td { border-top: 0 !important; }
+.gsc-above-wrapper-area { border-bottom: 0 !important; display: none; /* for now */ }
+.gsc-above-wrapper-area td { border-top: 0 !important; }
+.gsc-orderby-label { font-size: 14px; }
+.gsc-cursor-page { display: inline-block; width: 24px; height: 24px; margin: 4px; border-color: #ddd; text-align: center; }
+.gsc-resultsHeader { display: none; }

@@ -1,11 +1,6 @@
 ---
 title: Quickstart
-layout: default
----
-
-* Table of Contents
-{:toc}
-
+layout: docs
 ---
 
 ```php

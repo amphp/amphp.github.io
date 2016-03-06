@@ -1,20 +1,21 @@
-body { margin: 0; padding: 0; font-family: "Lato", sans-serif; background-color: #fafafa; position: relative; overflow-y: scroll; /* make scrollbar always visible to prevent reflow when changing from short to large content */ }
+body { margin: 0; padding: 0; font-family: "Lato", sans-serif; background-color: #fafafa; position: relative; }
 * { outline: 0 !important; box-sizing: border-box; }
 
 a img { border: 0; }
-body, td, th { font-size: 16px; font-family: "Lato", sans-serif; line-height: 24px; }
+body, td, th { font-size: 14px; font-family: "Lato", sans-serif; line-height: 1.7; color: #444; }
 
 html, body, .wrapper { padding: 0; margin: 0; width: 100%; height: 100%; display: block; overflow: hidden; }
+
 .wrapper { display: flex; flex-direction: column; }
-.content { padding: 20px; color: #333; position: relative; }
-.bottom { padding-bottom: 0; margin-top: -20px; }
+#top { height: 50px; flex: 0 0 auto; box-shadow: 0 2px 2px 0 rgba(0,0,0,.15), 0 3px 1px -2px rgba(0,0,0,.15); z-index: 100; position: relative; background-color: #fff; }
+#content { overflow-y: scroll; flex: 1 1 auto; }
 
-.main { overflow-y: scroll; flex: 1 1 auto; }
+main { display: flex; flex-direction: row; align-items: stretch; justify-content: center; }
 
-#top { height: 50px; flex: 0 0 auto; border-top: 1px solid transparent; box-shadow: 0 1px 2px rgba(0,0,0,.15); z-index: 100; position: relative; background-color: #fff; }
-#top > .content { margin: -21px -20px 0 -20px; padding-bottom: 0; }
+.column-main { max-width: 1000px; flex: 1 1 auto; position: relative; }
+.column-left, .column-right { flex: 1 1 auto; }
 
-.header-menu { margin: 0; padding: 0; }
+.header-menu { margin: 0 auto; padding: 0; max-width: 1000px; }
 .header-menu > li { list-style: none; display: inline-block; }
 
 .header-menu > li { margin: 0 5px; position: relative; border-left: 1px solid transparent; border-right: 1px solid transparent; }
@@ -28,28 +29,35 @@ html, body, .wrapper { padding: 0; margin: 0; width: 100%; height: 100%; display
 .header-menu ul .fa { line-height: 35px; float: right; }
 
 #sidebar { width: 195px; float: left; }
-article { margin-left: 196px; padding: 0; }
+article { padding: 20px; flex: 1 1 auto; max-width: 800px; }
 .clear { clear: both; }
+article > p:last-child { margin-bottom: 0; }
 
 h1, h2, h3, h4, h5, h6 { color: #222; font-weight: bold; line-height: 125%; }
-h1 { padding: 0; margin: 0; font-weight: bold; color: #444; }
-h1 > code, h2 > code, h3 > code, h4 > code, h5 > code, h6 > code { font-weight: inherit; color: inherit; padding: 0; margin: 0; display: inline; line-height: 125%; background-color: transparent; border: 0; font-size: inherit; letter-spacing: -.05em; }
-h1 + p, h2 + p, h3 + p, h4 + p, h5 + p, h6 + p { margin-top: -.75em; }
+h1, h2, h3, h4, h5, h6 { padding: 15px 0 0 0; margin: 10px 0; font-weight: bold; color: #444; }
+h1 > code, h2 > code, h3 > code, h4 > code, h5 > code, h6 > code { font-weight: inherit; color: inherit; padding: 0; margin: 0; display: inline; line-height: 125%; background-color: transparent; border: 0; font-size: inherit; }
+
+h1 { font-size: 18px; margin-top: -20px; }
+h2 { font-size: 16px; }
+h3 { font-size: 14px; }
 
 .article-header { text-align: left; }
 .description { color: #333; font-weight: bold; margin: 0; padding: 0; font-size: 14px; }
 
-footer { color: #666; border-top: 1px solid #eee; padding: 20px 0; margin: 20px 0; max-width: 1000px; margin: 0 auto; font-size: smaller; display: flex; justify-content: space-between; }
+footer { border-top: 1px solid rgba(0,0,0,.1); color: #666; font-size: smaller; }
+footer > div { padding: 20px 0; margin: 0 auto; max-width: 1000px; display: flex; justify-content: space-between; }
 
 a { color: #4083C9; font-weight: bold; text-decoration: none; }
 a:hover { text-decoration: underline; }
 
 hr { margin: 30px 0; border: 0; border-top: 1px solid #eee; height: 0; }
 
-code, pre { font-size: 14px; font-family: "Source Code Pro", monospace; letter-spacing: -.02em; }
+code, pre { font-size: 13px; font-family: "Source Code Pro", monospace; letter-spacing: -.02em; }
 code { background-color: #fff; border: 1px solid rgba(0,0,0,.05); padding: 1px 4px; border-radius: 3px; }
 pre code { border: 0; background-color: transparent; padding: auto; border-radius: 0; }
-pre { font-size: 14px; line-height: 1.3em; background-color: #fff; border: 1px solid rgba(0,0,0,.1); padding: 15px 18px; display: block; margin: 15px -20px; color: #222; border-left: 0; border-right: 0; }
+pre { font-size: 13px; line-height: 1.3em; background-color: #fff; border: 1px solid rgba(0,0,0,.1); padding: 15px 18px; display: block; color: #222; /* These are technically the same, but use both */ overflow-wrap: break-word; word-wrap: break-word; -ms-word-break: break-all; /* This is the dangerous one in WebKit, as it breaks things wherever */ word-break: break-all; /* Instead use this non-standard one: */ word-break: break-word; }
+.docs pre { margin: 15px -20px; border-left: 0; }
+.landing pre { margin: 15px 0; border-radius: 2px; }
 .hljs { background-color: transparent; padding: 0; }
 blockquote { padding: 5px 20px; background-color: #cef; margin: 10px 0; border-left: 10px solid rgba(0,0,0,.05); }
 
@@ -64,8 +72,8 @@ td { border-top: 1px solid #ddd; vertical-align: top; }
 #markdown-toc ul a { font-weight: normal; }
 #markdown-toc a:hover { text-decoration: none; color: #59A6F7; }
 
-#sidebar { padding-right: 22px; padding-top: 5px; font-size: 13px; }
-.sidebar-separator { opacity: .2; border-right: 1px solid #ccc; position: absolute; left: 195px; top: 0; bottom: 0; width: 0; }
+#sidebar { padding: 15px 20px; font-size: 13px; }
+.sidebar-separator { border-right: 1px solid rgba(0,0,0,.1); position: absolute; left: 175px; top: 0; bottom: 0; width: 0; }
 #sidebar ul { padding: 0; margin: 0; }
 #sidebar li { list-style: none; }
 #sidebar .active a { color: #333; }
@@ -96,6 +104,8 @@ td { border-top: 1px solid #ddd; vertical-align: top; }
 .sidebar-sub input { display: none; }
 .sidebar-sub input:checked + .sidebar-sub-menu { display: block; }
 .sidebar-sub-menu li { margin-left: 15px; }
+
+.dark { background: #eee; }
 
 @media screen and (min-device-width: 601px) {
 	.header-menu li:hover ul { display: block; }
@@ -133,16 +143,3 @@ td { border-top: 1px solid #ddd; vertical-align: top; }
 	.sidebar-separator { display: none; }
 	article { margin: 0; }
 }
-
-/* Google Custom Search */
-
-.gcs { vertical-align: top; border-width: 0 !important; }
-#___gcse_0 { display: inline-block; vertical-align: top; height: 50px; }
-.gsc-control-searchbox-only { width: 250px; display: inline-block; height: 50px; }
-.gsc-search-box { margin-bottom: 0 !important; height: 50px !important; }
-.gsc-search-button { display: none; }
-.gsc-input-box { border: 1px solid rgba(0,0,0,.1) !important; height: 34px !important; margin: 0; box-shadow: none; border-color: rgba(0,0,0,.1) !important; }
-.gsc-input { background-position: 8px center !important; height: 100% !important; border-top: 0 !important; font-size: 14px !important; padding: 0 8px !important; }
-.gsib_a { padding: 0 !important; border-top: 0 !important; }
-.gsib_b { display: none; }
-.gstl_50 { height: 100%; }

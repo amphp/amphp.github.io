@@ -2,7 +2,7 @@
 title: Cookies
 description: Aerys is a non-blocking HTTP/1.1 and HTTP/2 application / websocket / static file server.
 title_menu: Cookies
-layout: default
+layout: docs
 ---
 
 ```php
@@ -11,7 +11,7 @@ layout: default
         if (isset($req->getQueryVars()['eat'])) {
             $res->setCookie("tasty", "", ["Expires" => date("r", 784111777)]); # somewhen in the past
             $res->end("Mhhhhhhhm. A veeeery tasty cookie from ".date("d.m.Y H:i:s", (int) $date)."!<br />
-                       No cookie there now ... <a href="?set">GET A NEW ONE!</a> or <a href="/">Go back.</a>'");
+                       No cookie there now ... <a href=\"?set\">GET A NEW ONE!</a> or <a href=\"/\">Go back.</a>'");
         } else {
             $res->end("A tasty cookie had been produced at ".date("d.m.Y H:i:s", (int) $date));
         }

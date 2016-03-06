@@ -2,7 +2,7 @@
 title: Handling WebSocket Handshakes
 description: Aerys is a non-blocking HTTP/1.1 and HTTP/2 application / websocket / static file server.
 title_menu: Handshake
-layout: default
+layout: docs
 ---
 
 ```php

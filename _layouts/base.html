@@ -35,6 +35,7 @@
 	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" />
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900|Source+Code+Pro:300,400,700" />
 	<link rel="stylesheet" href="/css/screen.css" />
+	<link rel="stylesheet" href="/css/google-custom-search.css" />
 
 	<!-- scripts -->
 	<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/highlight.min.js"></script>
@@ -124,11 +125,13 @@
 			</div>
 		</header>
 
-		<div class="main">
-			{{content}}
+		<div id="content">
+			<main>
+				{{content}}
+			</main>
 
-			<div class="content">
-				<footer class="bottom">
+			<footer class="bottom">
+				<div>
 					<div class="bottom-left">
 						Documentation licensed under <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a>.
 					</div>
@@ -136,8 +139,8 @@
 					<div class="bottom-right">
 						Found a mistake? <a href="{{site.github.repository_url}}/blob/master/{{page.path}}">Edit this page</a>.
 					</div>
-				</footer>
-			</div>
+				</div>
+			</footer>
 		</div>
 	</div>
 </body>

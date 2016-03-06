@@ -1,6 +1,6 @@
 ---
 title: Event Reactor Concepts
-layout: default
+layout: docs
 ---
 
 * Table of Contents
@@ -26,9 +26,9 @@ Amp currently exposes two separate implementations for its standard `Reactor` in
 
 The first thing we need to understand to program effectively using an event loop is this:<br>*The event reactor is our task scheduler.*
 
-The reactor controls program flow as long as it runs. Once we tell the reactor to run it will
-maintain control until the application errors out, has nothing left to do, or is explicitly
-stopped. Consider this very simple example:
+The reactor controls program flow as long as it runs. Once we tell the reactor to run it will maintain control until the application errors out, has nothing left to do, or is explicitly stopped.
+
+Consider this very simple example:
 
 ```php
 <?php

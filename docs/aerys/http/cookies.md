@@ -7,20 +7,20 @@ layout: docs
 
 ```php
 (new Aerys\Host)->use(function (Aerys\Request $req, Aerys\Response $res) {
-    if (($date = $req->getCookie('tasty')) !== null) {
-        if (isset($req->getQueryVars()['eat'])) {
-            $res->setCookie("tasty", "", ["Expires" => date("r", 784111777)]); # somewhen in the past
-            $res->end("Mhhhhhhhm. A veeeery tasty cookie from ".date("d.m.Y H:i:s", (int) $date)."!<br />
-                       No cookie there now ... <a href=\"?set\">GET A NEW ONE!</a> or <a href=\"/\">Go back.</a>'");
-        } else {
-            $res->end("A tasty cookie had been produced at ".date("d.m.Y H:i:s", (int) $date));
-        }
-    } elseif (isset($req->getQueryVars()['produce'])) {
-        $res->setCookie("tasty", time(), ["HttpOnly"]);
-        $res->end('A tasty cookie was produced right now. <a href="/">Go back.</a>');
-    } else {
-        $res->end('No cookie availables yet ... <a href="?produce">GET ONE RIGHT NOW!</a>');
-    }
+	if (($date = $req->getCookie('tasty')) !== null) {
+		if (isset($req->getQueryVars()['eat'])) {
+			$res->setCookie("tasty", "", ["Expires" => date("r", 784111777)]); # somewhen in the past
+			$res->end("Mhhhhhhhm. A veeeery tasty cookie from ".date("d.m.Y H:i:s", (int) $date)."!<br />
+					   No cookie there now ... <a href=\"?set\">GET A NEW ONE!</a> or <a href=\"/\">Go back.</a>'");
+		} else {
+			$res->end("A tasty cookie had been produced at ".date("d.m.Y H:i:s", (int) $date));
+		}
+	} elseif (isset($req->getQueryVars()['produce'])) {
+		$res->setCookie("tasty", time(), ["HttpOnly"]);
+		$res->end('A tasty cookie was produced right now. <a href="/">Go back.</a>');
+	} else {
+		$res->end('No cookie availables yet ... <a href="?produce">GET ONE RIGHT NOW!</a>');
+	}
 });
 ```
 

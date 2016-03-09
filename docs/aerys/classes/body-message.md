@@ -36,7 +36,7 @@ $string = yield $message; // gets the string all at once
 
 ```php
 while (yield $message->valid()) {
-    $incrementalProcessor->feed($message->consume());
+	$incrementalProcessor->feed($message->consume());
 }
 ```
 

@@ -7,7 +7,7 @@ layout: docs
 
 ```php
 (new Aerys\Host)->use(function(Aerys\Request $req, Aerys\Response $res) {
-    $res->end("<h1>Hello, world!</h1>");
+	$res->end("<h1>Hello, world!</h1>");
 });
 ```
 

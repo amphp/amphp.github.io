@@ -7,13 +7,13 @@ layout: docs
 
 ```
 (new Aerys\Host)->use(function(Aerys\Request $req, Aerys\Response $res) {
-    # if the header not passed, null is returned
-    $user_agent = $res->getHeader("User-Agent") ?? "";
+	# if the header not passed, null is returned
+	$user_agent = $res->getHeader("User-Agent") ?? "";
 
-    # Get a query string parameter
-    $action = $res->getQueryVars()["action"] ?? "default";
+	# Get a query string parameter
+	$action = $res->getQueryVars()["action"] ?? "default";
 
-    $res->send("Action: <i>$action</i> requested by User-Agent<br><pre>$user_agent</pre>");
+	$res->send("Action: <i>$action</i> requested by User-Agent<br><pre>$user_agent</pre>");
 });
 ```
 
@@ -23,4 +23,4 @@ Try accessing `http://localhost/?action=beautiful` in the browser.
 
 `Aerys\Request::getHeader(string $name)` returns a headers value.
 
-There is additional information available about the request, check out the [`Request` docs`](../classes/request.md) for it.
+There is additional information available about the request, check out the [`Request` docs](../classes/request.md) for it.

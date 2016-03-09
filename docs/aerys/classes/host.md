@@ -38,9 +38,9 @@ This needs to be set on every `Host` which wants to use https. You may not have 
 
 ```php
 (new Aerys\Host)
-    ->expose("127.0.0.1", 80) // Yup, this is the only host here,
-    ->name("localhost") //       so expose() and name() aren't necessary
-    ->use(function(Aerys\Request $req, Aerys\Response $res) {
-        $res->end("<h1>Hello world!</h1>");
-    });
+	->expose("127.0.0.1", 80) // Yup, this is the only host here,
+	->name("localhost") //	   so expose() and name() aren't necessary
+	->use(function(Aerys\Request $req, Aerys\Response $res) {
+		$res->end("<h1>Hello world!</h1>");
+	});
 ```

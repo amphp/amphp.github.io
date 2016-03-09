@@ -7,11 +7,11 @@ layout: docs
 
 ```php
 (new Aerys\Host)->use(function(Aerys\Request $req, Aerys\Response $res) {
-    # This is the default status and does not need to be set explicitly
-    # $res->setStatus(200);
+	# This is the default status and does not need to be set explicitly
+	# $res->setStatus(200);
 
-    $res->setHeader("X-LIFE", "Very nice!");
-    $res->end("With a bit text");
+	$res->setHeader("X-LIFE", "Very nice!");
+	$res->end("With a bit text");
 });
 ```
 

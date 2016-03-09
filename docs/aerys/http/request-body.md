@@ -8,7 +8,7 @@ layout: docs
 ```php
 (new Aerys\Host)->use(function(Aerys\Request $req, Aerys\Response $res) {
 	$body = yield Aerys\parseBody($req);
-	$webserver = $body->getString("webserver");
+	$webserver = $body->get("webserver");
 
 	if (!isset($webserver)) {
 		$res->end('<form action="" method="post">Which one is the best webserver? <input type="text" name="webserver" /> <input type="submit" value="check" /></form>');

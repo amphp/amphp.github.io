@@ -11,7 +11,7 @@ layout: docs
 	$user_agent = $res->getHeader("User-Agent") ?? "";
 
 	# Get a query string parameter
-	$action = $res->getQueryVars()["action"] ?? "default";
+	$action = $res->getVar("action") ?? "default";
 
 	$res->send("Action: <i>$action</i> requested by User-Agent<br><pre>$user_agent</pre>");
 });
@@ -19,7 +19,7 @@ layout: docs
 
 Try accessing `http://localhost/?action=beautiful` in the browser.
 
-`Aerys\Request::getQueryVars()` returns an array of all the query string parameters (as parsed by [`parse_str()`](http://php.net/parse_str)), being equivalent to `$_GET`.
+`Aerys\Request::getVar()` returns a string if the query string parameter was passed (if multiple ones with the same name exist, the first one), else null.
 
 `Aerys\Request::getHeader(string $name)` returns a headers value.
 

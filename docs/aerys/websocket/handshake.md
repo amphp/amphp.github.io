@@ -16,7 +16,7 @@ class MyWs implements Aerys\Websocket {
 	}
 
 	public function onHandshake(Aerys\Request $req, Aerys\Response $res) {
-		if (($request->getQueryVars()["password"] ?? "") == "reallyverysecure") {
+		if ($request->getVar("password") == "reallyverysecure") {
 			return $request;
 		} else {
 			# if status set to anything else than 101, no WebSocket connection will be established

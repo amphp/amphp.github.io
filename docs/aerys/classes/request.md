@@ -22,27 +22,35 @@ Returns the requested URI, e.g. `"/"`.
 
 Currently it will return one of the three supported versions: `"1.0"`, `"1.1"` or `"2.0"`.
 
+## `getHeader(string): string | null`
+
+Gets the first value of all the headers with that name.
+
 ## `getHeaderArray(string): array<string>`
 
 Gets an array with headers. HTTP allows for multiple headers with the same name, so this returns an array. Usually only a single header is needed and expected, in this case there is `getHeader()`.
 
-## `getHeader(string): string | null`
-
-Gets the first value of all the headers with that name
-
 ## `getAllHeaders(): array<array<string>>`
 
 Returns all the headers in an associative map with the keys being normalized header names in lowercase.
+
+## `getVar(string): string | null`
+
+Gets the first value of all the query string parameters with that name.
+
+## `getHeaderArray(string): array<string>`
+
+Gets an array with the values of the query string parameters with that name.
+
+## `getAllVars(): array<array<string>>`
+
+Get decoded query string as associative array.
 
 ## `getBody(): Body`
 
 Returns a representation of the request body. The [`Body`](body-message.html) can be `yield`ed to get the actual string.
 
 There also exists a [`parseBody()`](parsedbody.html) function for processing of a typical HTTP form data.
-
-## `getQueryVars(): array`
-
-Get a `parse_str()` decoded query string as array.
 
 ## `getCookie(string): string | null`
 
@@ -65,3 +73,7 @@ Returns various information about the request, a map of the array is:
 ## `getLocalVar(string)` / `setLocalVar(string, $value)`
 
 These methods are only important when using [`Middleware`s](middleware.html). They manipulate the [`InternalRequest->locals`](internalrequest.html#locals) array.
+
+## `getOption(string)`
+
+Gets an [`option`](options.html).

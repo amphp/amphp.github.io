@@ -8,7 +8,7 @@ layout: docs
 ```php
 $router = Aerys\router()
 	->get('/', function (Aerys\Request $req, Aerys\Response $res) {
-		$res->end('<form action="form" method="POST"><input type="submit" value="1" name="typ" /> or <input type="submit" value="2" name="typ" /></form>')
+		$res->end('<form action="form" method="POST"><input type="submit" value="1" name="typ" /> or <input type="submit" value="2" name="typ" /></form>');
 	})
 	->post('/form', function (Aerys\Request $req, Aerys\Response $res) {
 		$body = yield Aerys\parseBody($req);

@@ -16,7 +16,7 @@ Returns the used method, e.g. `"GET"`.
 
 ## `getUri(): string`
 
-Returns the requested URI, e.g. `"/"`.
+Returns the requested URI (path and query string), e.g. `"/foo?bar"`.
 
 ## `getProtocolVersion(): string`
 

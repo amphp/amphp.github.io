@@ -5,7 +5,7 @@ title_menu: Request Basics
 layout: docs
 ---
 
-```
+```php
 (new Aerys\Host)->use(function(Aerys\Request $req, Aerys\Response $res) {
 	# if the header not passed, null is returned
 	$user_agent = $res->getHeader("User-Agent") ?? "";
@@ -19,7 +19,7 @@ layout: docs
 
 Try accessing `http://localhost/?action=beautiful` in the browser.
 
-`Aerys\Request::getVar()` returns a string if the query string parameter was passed (if multiple ones with the same name exist, the first one), else null.
+`Aerys\Request::getVar(string $parameter)` returns a string if the query string parameter was passed (if multiple ones with the same name exist, the first one), else null.
 
 `Aerys\Request::getHeader(string $name)` returns a headers value.
 

@@ -1,7 +1,7 @@
 ---
-title: Introduction to HTTP
+title: Introduction to HTTP with Aerys
 description: Aerys is a non-blocking HTTP/1.1 and HTTP/2 application / websocket / static file server.
-title_menu: Introduction to HTTP
+title_menu: Introduction
 layout: docs
 ---
 

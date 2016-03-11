@@ -10,7 +10,7 @@ layout: docs
 	$body = yield Aerys\parseBody($req);
 	$webserver = $body->get("webserver");
 
-	if (!isset($webserver)) {
+	if ($webserver === null) {
 		$res->end('<form action="" method="post">Which one is the best webserver? <input type="text" name="webserver" /> <input type="submit" value="check" /></form>');
 	} elseif (strtolower($webserver) == "aerys") {
 		$res->end("Correct! Aerys is definitely the ultimate best webserver!");
@@ -20,7 +20,7 @@ layout: docs
 });
 ```
 
-`Aerys\parseBody($request)` returns a [`ParsedBody`](../classes/parsedbody.md) instance exposing a `getString($name)` and a `getArray($name)`. `getString()` always returns a string or null if the parameter was an array or not defined. Analog for `getArray()`.
+`yield Aerys\parseBody($request)` returns a [`ParsedBody`](../classes/parsedbody.md) instance exposing a `get($name)` and a `getArray($name)`. `get()` always returns a string (first parameter) or null if the parameter was not defined. `getArray()` returns all the parameters with the same name in an array.
 
 To get all the passed parameter names, use the `getNames()` method on the `ParsedBody` instance.
 

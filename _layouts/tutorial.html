@@ -1,0 +1,85 @@
+---
+layout: base
+---
+
+<div class="column-left"></div>
+<div class="column-main tutorial">
+	<nav>
+	{% assign url = page.url | slice: -1 %}
+	{% if url == "/" %}
+	{% assign url = page.url | append: "index.html" %}
+	{% else %}
+	{% assign url = page.url %}
+	{% endif %}
+	{% assign url_parts = url | split: '/' | slice: 0, 4 %}
+	{% assign url_parts_size = url_parts | size %}
+	{% assign base_url = url | split: '/' | slice: 0, url_parts_size - 1 | join: '/' %}
+	{% assign node_dir = url_parts | last %}
+	{% assign next = "" %}
+	{% for dirs in site.data.aerys.tutorial_order %}
+		{% if dirs[0] == node_dir %}
+		<span>{{dirs[1].title}}</span>
+		<ul>
+			{% for entry in dirs[1].entries %}
+			{% assign entry_file = entry | append: ".html" %}
+			{% for node in site.pages %}
+			{% assign node_url = node.url | slice: -1 %}
+			{% if node_url == "/" %}
+			{% assign node_url = node.url | append: "index.html" %}
+			{% else %}
+			{% assign node_url = node.url %}
+			{% endif %}
+
+			{% assign node_url_parts = node_url | split: '/' %}
+			{% assign filename = node_url_parts | last %}
+
+			{% assign node_title = node.url | split: '/' | slice: -1, 1 | first | capitalize %}
+
+			{% if node.url contains base_url and filename == entry_file %}
+				{% if next == "1" %}
+					{% assign next = "" %}
+					{% assign next_title = node.title_menu %}
+					{% assign next_url = entry_file %}
+				{% endif %}
+
+			<li {% if node.url == page.url %}class="active"{% assign next = "1" %}{% endif %}>
+				<a href="{{entry_file}}">{{node.title_menu}}</a>
+			</li>
+			{% endif %}
+			{% endfor %}
+			{% endfor %}
+		</ul>
+		{% endif %}
+	{% endfor %}
+	</nav>
+
+	<article class="tutorial">
+		<header class="article-header">
+			<h1>{{page.title}}</h1>
+		</header>
+
+		{{content}}
+	</article>
+
+	<div>
+		{% if next == "1" %}
+		{% assign next = "" %}
+		{% for dirs in site.data.aerys.tutorial_order %}
+			{% if next == "1" %}
+				{% assign next = "" %}
+				Go back to <a href="../overview.html">the overview</a> or continue with next chapter:
+				<a href="../{{dirs[0]}}/{{dirs[1].entries[0]}}.html">{{dirs[1].title}}</a>
+			{% endif %}
+			{% if dirs[0] == node_dir %}
+				{% assign next = "1" %}
+			{% endif %}
+		{% endfor %}
+		{% if next == "1" %}
+			The tutorial ends here, go back to <a href="../overview.html">the overview</a> or check the <a href="../classes">class docs</a> out
+		{% endif %}
+		{% else %}
+		Next up: <a href="{{next_url}}">{{next_title}}</a>
+		{% endif %}
+	</div>
+</div>
+<div class="column-right"></div>

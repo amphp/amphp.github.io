@@ -43,7 +43,7 @@ layout: base
 		{% endif %}
 
 		<li {% if node.url == page.url %}class="active"{% endif %}><a href='{{node.url}}'>{% if node.title_menu %}{{node.title_menu}}{% else %}{{node.title}}{% endif %}</a></li>
-		{% elsif node.url contains base_url and url_parts_size < node_url_parts_size %}
+		{% elsif node.url contains base_url and url_parts_size < node_url_parts_size and node.layout != "tutorial" %}
 		{% if node_title != last_sub %}
 		{% if last_sub != "" %}
 		{% assign closed = "1" %}

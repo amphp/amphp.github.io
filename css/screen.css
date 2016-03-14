@@ -100,10 +100,15 @@ td { border-top: 1px solid #ddd; vertical-align: top; }
 .mobile-header { display: none; }
 #menu { display: none; }
 
-.sidebar-sub-menu { display: none; }
+/*.sidebar-sub-menu { display: none; }*/
 .sidebar-sub input { display: none; }
 .sidebar-sub input:checked + .sidebar-sub-menu { display: block; }
 .sidebar-sub-menu li { margin-left: 15px; }
+
+.tutorial nav ul, .tutorial nav li, .tutorial nav { display: inline-block; margin: 0; padding: 0; }
+.tutorial nav { border: 1px solid grey; display: inline-block; }
+.tutorial nav li { border-left: 1px solid grey; padding: 10px; }
+
 
 .dark { background: #eee; }
 

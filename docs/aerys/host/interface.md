@@ -2,7 +2,7 @@
 title: Exposing Aerys Hosts
 description: Aerys is a non-blocking HTTP/1.1 and HTTP/2 application / websocket / static file server.
 title_menu: Exposing
-layout: docs
+layout: tutorial
 ---
 
 ```php

@@ -2,7 +2,7 @@
 title: Pushing Data to Clients with WebSockets
 description: Aerys is a non-blocking HTTP/1.1 and HTTP/2 application / websocket / static file server.
 title_menu: Pushing Data to Clients
-layout: docs
+layout: tutorial
 ---
 
 ```php

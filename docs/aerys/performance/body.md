@@ -2,7 +2,7 @@
 title: Incremental body handling
 description: Aerys is a non-blocking HTTP/1.1 and HTTP/2 application / websocket / static file server.
 title_menu: Incremental bodies
-layout: docs
+layout: tutorial
 ---
 ```php
 (new Aerys\Host)->use(function (Aerys\Request $req, Aerys\Response $res) {

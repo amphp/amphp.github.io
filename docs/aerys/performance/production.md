@@ -2,7 +2,7 @@
 title: Running Aerys in Production
 description: Aerys is a non-blocking HTTP/1.1 and HTTP/2 application / websocket / static file server.
 title_menu: Running in production
-layout: docs
+layout: tutorial
 ---
 
 ## General

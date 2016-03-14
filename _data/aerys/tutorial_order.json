@@ -1,4 +1,10 @@
 {
+  "setup": {
+    "title": "Setup",
+    "entries": [
+      "start"
+    ]
+  },
   "http": {
     "title": "Basic HTTP",
     "entries": [

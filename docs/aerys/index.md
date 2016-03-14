@@ -39,3 +39,5 @@ $ vendor/bin/aerys -d -c demo.php
 
  - [Getting Started with Aerys](http://blog.kelunik.com/2015/10/21/getting-started-with-aerys.html)
  - [Getting Started with Aerys WebSockets](http://blog.kelunik.com/2015/10/20/getting-started-with-aerys-websockets.html)
+
+<div class="tutorial-next">Start with the <a href="setup/start.html">Tutorial</a></div>

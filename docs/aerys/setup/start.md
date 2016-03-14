@@ -1,11 +1,9 @@
 ---
-title: Aerys
+title: A first config file
 description: Aerys is a non-blocking HTTP/1.1 and HTTP/2 application / websocket / static file server.
-title_menu: Setup
-layout: docs
+title_menu: Start
+layout: tutorial
 ---
-
-**A first config file**
 
 ```php
 <?php

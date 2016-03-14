@@ -76,8 +76,8 @@ td { border-top: 1px solid #ddd; vertical-align: top; }
 .sidebar-separator { border-right: 1px solid rgba(0,0,0,.1); position: absolute; left: 175px; top: 0; bottom: 0; width: 0; }
 #sidebar ul { padding: 0; margin: 0; }
 #sidebar li { list-style: none; }
-#sidebar .active a { color: #333; }
-#sidebar .active a:hover { cursor: default; text-decoration: none; }
+nav .active a { color: #333; }
+nav .active a:hover { cursor: default; text-decoration: none; }
 #sidebar .index { border-bottom: 1px dashed #ddd; display: block; margin-right: -20px; padding: 6px 0; margin: 6px 0; }
 #sidebar .index a { font-weight: normal; }
 
@@ -100,7 +100,8 @@ td { border-top: 1px solid #ddd; vertical-align: top; }
 .mobile-header { display: none; }
 #menu { display: none; }
 
-.sidebar-sub label { font-weight: bold; display: block; }
+.sidebar-sub label { font-weight: bold; display: block; cursor: pointer; color: #4083C9; }
+.sidebar-sub label:hover { text-decoration: underline; }
 .sidebar-sub label .fa { float: right; line-height: 21px; }
 .sidebar-sub input:checked ~ label .fa::before { content: "\f106"; /* angle-up */ }
 .sidebar-sub-menu { display: none; }

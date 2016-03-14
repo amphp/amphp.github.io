@@ -16,7 +16,9 @@ layout: tutorial
 # Open this route twice, you'll have to wait until the 5 seconds are over, until the next request is handled. (To try, start Aerys with only one worker)
 ```
 
-> **WARNING**: DO NOT USE BLOCKING I/O FUNCTIONS IN AERYS!!!
+> **WARNING**
+>
+> DO NOT USE BLOCKING I/O FUNCTIONS IN AERYS!
 
 Nearly every function built-in in PHP is doing blocking I/O, that means, the executing thread (equivalent to the process in the case of Aerys) will effectively be halted until the response is received. A few examples of such functions: `mysqli_query`, `file_get_contents`, `usleep` and many more.
 

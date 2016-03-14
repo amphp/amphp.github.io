@@ -51,8 +51,12 @@ layout: base
 	{% endif %}
 
 	<li class="sidebar-sub">
-		<label for="sidebar-sub-menu-{{node_title}}">{{node_title}}</label>
 		<input type="checkbox" id="sidebar-sub-menu-{{node_title}}" {% if node.url contains sub_url %}checked="checked"{% endif %}>
+
+		<label for="sidebar-sub-menu-{{node_title}}">
+			{{node_title}}
+			<i class="fa fa-angle-down"></i>
+		</label>
 
 		<ul class="sidebar-sub-menu">
 			{% assign closed = "" %}

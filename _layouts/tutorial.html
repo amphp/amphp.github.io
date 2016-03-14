@@ -2,24 +2,96 @@
 layout: base
 ---
 
-<div class="column-left"></div>
-<div class="column-main tutorial">
-	<nav>
-	{% assign url = page.url | slice: -1 %}
-	{% if url == "/" %}
-	{% assign url = page.url | append: "index.html" %}
-	{% else %}
-	{% assign url = page.url %}
-	{% endif %}
-	{% assign url_parts = url | split: '/' | slice: 0, 4 %}
-	{% assign url_parts_size = url_parts | size %}
-	{% assign base_url = url | split: '/' | slice: 0, url_parts_size - 1 | join: '/' %}
-	{% assign node_dir = url_parts | last %}
-	{% assign next = "" %}
-	{% for dirs in site.data.aerys.tutorial_order %}
-		{% if dirs[0] == node_dir %}
-		<span>{{dirs[1].title}}</span>
+<div class="column-left dark"></div>
+<div class="column-main docs" style="display: flex; flex-direction: row; justify-content: center; align-items: stretch;">
+	<nav id="sidebar" class="dark" style="border-right: 1px solid rgba(0,0,0,.05); width: 200px; flex: 0 0 auto;">
+		{% assign url = page.url | slice: -1 %}
+		{% if url == "/" %}
+		{% assign url = page.url | append: "index.html" %}
+		{% else %}
+		{% assign url = page.url %}
+		{% endif %}
+
+		{% assign url_parts = url | split: '/' | slice: 0, 4 %}
+		{% assign url_parts_size = url_parts | size %}
+		{% assign base_url = url | split: '/' | slice: 0, 3 | join: '/' %}
+		{% assign sub_url = url_parts | join: '/' %}
+
+		{% assign pages = site.pages | sort: "url" %}
+		{% assign last_sub = "" %}
+		{% assign closed = "" %}
+
 		<ul>
+			{% for node in pages %}
+			{% assign node_url = node.url | slice: -1 %}
+			{% if node_url == "/" %}
+			{% assign node_url = node.url | append: "index.html" %}
+			{% else %}
+			{% assign node_url = node.url %}
+			{% endif %}
+
+			{% assign node_url_parts = node_url | split: '/' %}
+			{% assign node_url_parts_size = node_url_parts | size %}
+			{% assign filename = node_url_parts | last %}
+
+			{% assign node_title = node.url | split: '/' | slice: 3, 1 | first | capitalize %}
+
+			{% if node.url contains base_url and url_parts_size == node_url_parts_size %}
+			{% if closed == "" %}
+		</ul></li>
+		{% assign closed = "1" %}
+		{% endif %}
+
+		<li {% if node.url == page.url %}class="active"{% endif %}><a href='{{node.url}}'>{% if node.title_menu %}{{node.title_menu}}{% else %}{{node.title}}{% endif %}</a></li>
+		{% elsif node.url contains base_url and url_parts_size < node_url_parts_size and node.layout != "tutorial" %}
+		{% if node_title != last_sub %}
+		{% if last_sub != "" %}
+		{% assign closed = "1" %}
+	</ul></li>
+	{% endif %}
+
+	<li class="sidebar-sub">
+		<input type="checkbox" id="sidebar-sub-menu-{{node_title}}" {% if node.url contains sub_url %}checked="checked"{% endif %}>
+
+		<label for="sidebar-sub-menu-{{node_title}}">
+			{{node_title}}
+			<i class="fa fa-angle-down"></i>
+		</label>
+
+		<ul class="sidebar-sub-menu">
+			{% assign closed = "" %}
+			{% endif %}
+
+			<li {% if node.url == page.url %}class="active"{% endif %}><a href='{{node.url}}'>{% if node.title_menu %}{{node.title_menu}}{% else %}{{node.title}}{% endif %}</a></li>
+
+			{% assign last_sub = node_title %}
+			{% endif %}
+			{% endfor %}
+
+			{% if closed == "" %}
+		</ul></li>
+		{% assign closed = "1" %}
+		{% endif %}
+
+	</ul>
+	</nav>
+
+	<article class="tutorial">
+		<nav class="tutorial-nav">
+		{% assign url = page.url | slice: -1 %}
+		{% if url == "/" %}
+		{% assign url = page.url | append: "index.html" %}
+		{% else %}
+		{% assign url = page.url %}
+		{% endif %}
+		{% assign url_parts = url | split: '/' | slice: 0, 4 %}
+		{% assign url_parts_size = url_parts | size %}
+		{% assign base_url = url | split: '/' | slice: 0, url_parts_size - 1 | join: '/' %}
+		{% assign node_dir = url_parts | last %}
+		{% assign next = "" %}
+		{% for dirs in site.data.aerys.tutorial_order %}
+			{% if dirs[0] == node_dir %}
+			<span>{{dirs[1].title}}</span>
 			{% for entry in dirs[1].entries %}
 			{% assign entry_file = entry | append: ".html" %}
 			{% for node in site.pages %}
@@ -42,44 +114,42 @@ layout: base
 					{% assign next_url = entry_file %}
 				{% endif %}
 
-			<li {% if node.url == page.url %}class="active"{% assign next = "1" %}{% endif %}>
+			<span {% if node.url == page.url %}class="active"{% assign next = "1" %}{% endif %}>
 				<a href="{{entry_file}}">{{node.title_menu}}</a>
-			</li>
+			</span>
 			{% endif %}
 			{% endfor %}
 			{% endfor %}
-		</ul>
-		{% endif %}
-	{% endfor %}
-	</nav>
+			{% endif %}
+		{% endfor %}
+		</nav>
 
-	<article class="tutorial">
 		<header class="article-header">
 			<h1>{{page.title}}</h1>
 		</header>
 
 		{{content}}
-	</article>
 
-	<div>
-		{% if next == "1" %}
-		{% assign next = "" %}
-		{% for dirs in site.data.aerys.tutorial_order %}
+		<div class="tutorial-next">
 			{% if next == "1" %}
-				{% assign next = "" %}
-				Go back to <a href="../overview.html">the overview</a> or continue with next chapter:
-				<a href="../{{dirs[0]}}/{{dirs[1].entries[0]}}.html">{{dirs[1].title}}</a>
+			{% assign next = "" %}
+			{% for dirs in site.data.aerys.tutorial_order %}
+				{% if next == "1" %}
+					{% assign next = "" %}
+					Go back to <a href="../overview.html">the overview</a> or continue with
+					<a href="../{{dirs[0]}}/{{dirs[1].entries[0]}}.html">{{dirs[1].title}}</a>
+				{% endif %}
+				{% if dirs[0] == node_dir %}
+					{% assign next = "1" %}
+				{% endif %}
+			{% endfor %}
+			{% if next == "1" %}
+				Our tutorial ends here, go back to <a href="../overview.html">the overview</a> or check the <a href="../classes">class docs</a> out.
 			{% endif %}
-			{% if dirs[0] == node_dir %}
-				{% assign next = "1" %}
+			{% else %}
+			Continue with <a href="{{next_url}}">{{next_title}}</a>
 			{% endif %}
-		{% endfor %}
-		{% if next == "1" %}
-			The tutorial ends here, go back to <a href="../overview.html">the overview</a> or check the <a href="../classes">class docs</a> out
-		{% endif %}
-		{% else %}
-		Next up: <a href="{{next_url}}">{{next_title}}</a>
-		{% endif %}
-	</div>
+		</div>
+	</article>
 </div>
 <div class="column-right"></div>

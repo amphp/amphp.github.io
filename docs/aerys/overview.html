@@ -3,9 +3,7 @@ layout: docs
 title_menu: Tutorial
 ---
 
-
-
-<div class="tutorial">
+<div>
 	{% assign url = page.url | slice: -1 %}
 	{% if url == "/" %}
 	{% assign url = page.url | append: "index.html" %}
@@ -43,6 +41,5 @@ title_menu: Tutorial
 			{% endfor %}
 		</ul>
 	</nav>
-	<br /><br />
 	{% endfor %}
 </div>

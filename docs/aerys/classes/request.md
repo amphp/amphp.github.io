@@ -34,15 +34,15 @@ Gets an array with headers. HTTP allows for multiple headers with the same name,
 
 Returns all the headers in an associative map with the keys being normalized header names in lowercase.
 
-## `getVar(string): string | null`
+## `getParam(string): string | null`
 
 Gets the first value of all the query string parameters with that name.
 
-## `getHeaderArray(string): array<string>`
+## `getParamArray(string): array<string>`
 
 Gets an array with the values of the query string parameters with that name.
 
-## `getAllVars(): array<array<string>>`
+## `getAllParams(): array<array<string>>`
 
 Get decoded query string as associative array.
 

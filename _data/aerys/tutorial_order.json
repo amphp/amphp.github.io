@@ -55,6 +55,13 @@
       "usage"
     ]
   },
+  "options": {
+    "title": "Options",
+    "entries": [
+      "set",
+      "common"
+    ]
+  },
   "performance": {
     "title": "Performance",
     "entries": [

@@ -23,4 +23,4 @@ Try accessing `http://localhost/?action=beautiful` in the browser.
 
 `Aerys\Request::getHeader(string $name)` returns a headers value.
 
-There is additional information available about the request, check out the [`Request` docs](../classes/request.md) for it.
+There is additional information available about the request, check out the [`Request` docs](../classes/request.html) for it.

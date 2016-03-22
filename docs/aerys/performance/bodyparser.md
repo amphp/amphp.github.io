@@ -28,9 +28,9 @@ Apart from implementing `Amp\Promise` (to be able to return `Aerys\ParsedBody` u
 
 `stream($field, $size = 0): Aerys\FieldBody` with `$size` being the maximum size of the field [the size is added to the general size passed to `Aerys\parseBody()`].
 
-This returned `Aerys\FieldBody` instance extends `Aerys\Body` and thus has [the same semantics than it](body.md).
+This returned `Aerys\FieldBody` instance extends `Aerys\Body` and thus has [the same semantics than it](body.html).
 
-Additionally, to provide the metadata information, the `Aerys\FieldBody` class has a `getMetadata()` function to return [the metadata array](../http/request-body.md).
+Additionally, to provide the metadata information, the `Aerys\FieldBody` class has a `getMetadata()` function to return [the metadata array](../http/request-body.html).
 
 The `Aerys\BodyParser::stream()` function can be called multiple times on the same field name in order to fetch all the fields with the same name:
 

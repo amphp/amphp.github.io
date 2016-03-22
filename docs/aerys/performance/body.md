@@ -34,4 +34,4 @@ Hence, incremental handling is important, accessible via [the `valid()` / `consu
 
 In case a client disconnects (or size limits are exceeded) the `Aerys\Body` instance (which implements `Amp\Promise`) is failed with an `Aerys\ClientException`.
 
-> **Note**: This describes only the direct return value of `getBody($size = -1)` respectively the `Aerys\Websocket\Message` usage; there is [similar handling for parsed bodies](bodyparser.md).
+> **Note**: This describes only the direct return value of `getBody($size = -1)` respectively the `Aerys\Websocket\Message` usage; there is [similar handling for parsed bodies](bodyparser.html).

@@ -14,11 +14,11 @@ $router = Aerys\router()
 		$body = yield Aerys\parseBody($req);
 		if ($body->getString("typ") == "2") {
 			$res->end('2 is the absolutely right choice.');
-		} else {
-			$res->setStatus(303);
-			$res->setHeader("Location", "/form");
-			$res->end(); # try removing this line to see why it is necessary
 		}
+	}, function (Aerys\Request $req, Aerys\Response $res) {
+		$res->setStatus(303);
+		$res->setHeader("Location", "/form");
+		$res->end(); # try removing this line to see why it is necessary
 	})
 	->get('/form', function (Aerys\Request $req, Aerys\Response $res) {
 		# if this route would not exist, we'd get a 405 Method Not Allowed
@@ -34,10 +34,10 @@ $router = Aerys\router()
 	});
 ```
 
-A router is instantiated by `Aerys\router()`. To define routes: `->method($location, $callable)`, e.g. `->get('/foo', $callable)` or `->put('/foo', $callable)`.
+A router is instantiated by `Aerys\router()`. To define routes: `->method($location, $callable[, ...$callableOrMiddleware[, ...]])`, e.g. `->get('/foo', $callable)` or `->put('/foo', $callable, $middleware)`.
 
 An alternate callable can be defined to have a custom 404 Not Found page (precise: when no response was _started_ in the callable(s) before).
 
 It is also possible to define routes with dynamic parts in them, see [the next step on dynamic route definitions](dynamic-routes.html).
 
-If there are more and more routes, there might be the desire to split them up. Refer to [the managing routes guide](../http-advanced/routes.md).
+If there are more and more routes, there might be the desire to split them up. Refer to [the managing routes guide](../http-advanced/routes.html).

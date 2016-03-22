@@ -5,7 +5,7 @@ title_menu: Common options
 layout: tutorial
 ---
 
-This describes the common options, not affecting performance; to fine-tune your servers limits, look at the [production specific options](../performance/production.md).
+This describes the common options, not affecting performance; to fine-tune your servers limits, look at the [production specific options](../performance/production.html).
 
 - `defaultContentType` The default content type of responses (Default: `"text/html"`)
 - `defaultTextCharset` The default charset of `text/` content types (Default: `"utf-8"`)

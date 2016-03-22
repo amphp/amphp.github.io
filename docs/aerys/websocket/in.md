@@ -67,10 +67,10 @@ ws.onerror = ws.onmessage = ws.onclose = function(e) {
 
 Each connection is identified by an unique client id, which is passed to `onOpen()`, `onData()` and `onClose()`.
 
-`onOpen($clientId, $handshakeData)` is called at the moment where the websocket connection has been successfully established (i.e. after the handshake has been sent). For `$handshakeData`, check the [Handshake handling](handshake.md) out.
+`onOpen($clientId, $handshakeData)` is called at the moment where the websocket connection has been successfully established (i.e. after the handshake has been sent). For `$handshakeData`, check the [Handshake handling](handshake.html) out.
 
 `onData($clientId, $msg)` is called upon each received Websocket frame. At the time when `onData()` is called, the message may not yet have been fully received. Thus use `yield $msg` to wait on data to complete. The return value of that `yield` is a string with the full data.
 
 `onClose($clientId, $code, $reason)` is called when any direction (ingoing or outgoing) of the websocket connection gets closed.
 
-> **Note**: Possibly it is not intuitive to have `onData()` called before the full message has been received, but it allows for incremental processing where needed, like large uploads over websockets. See the [usage and performance considerations about this](../performance/body.md).
+> **Note**: Possibly it is not intuitive to have `onData()` called before the full message has been received, but it allows for incremental processing where needed, like large uploads over websockets. See the [usage and performance considerations about this](../performance/body.html).

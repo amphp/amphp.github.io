@@ -12,6 +12,6 @@ layout: tutorial
 ;
 ```
 
-`Aerys\Host::redirect(string $absoluteUri, int $statusCode = 307)` redirects to the location specified by `$absoluteUri . $req->getUri()`, if no other handler (set via [`use()`](use.md)) has started a response.
+`Aerys\Host::redirect(string $absoluteUri, int $statusCode = 307)` redirects to the location specified by `$absoluteUri . $req->getUri()`, if no other handler (set via [`use()`](use.html)) has started a response.
 
 It boils down to a simple `Aerys\Response::setStatus($statusCode);` and `Aerys\Request::setHeader("location", $absoluteUri . $req->getUri());` then.

@@ -62,11 +62,21 @@
       "common"
     ]
   },
+  "http-advanced": {
+    "title": "Advanced HTTP",
+    "entries": [
+      "streaming",
+      "pushing",
+      "routes"
+    ]
+  },
   "performance": {
     "title": "Performance",
     "entries": [
+      "bottlenecks",
       "body",
       "bodyparser",
+      "streamend",
       "production"
     ]
   }

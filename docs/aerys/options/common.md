@@ -13,3 +13,4 @@ This describes the common options, not affecting performance; to fine-tune your 
 - `normalizeMethodCase` Whether method names should be always automatically uppercased (Default: `true`)
 - `allowedMethods` An array of allowed methods - if the method is not in the list, the request is terminated with a 405 Method not allowed (Default: `["GET", "POST", "PUT", "PATCH", "HEAD", "OPTIONS", "DELETE"]`)
 - `shutdownTimeout` A timeout in milliseconds the server is given to gracefully shutdown (Default: `3000`)
+- `user` The user (only relevant for Unix) under which the server runs. [This is important from a security perspective in order to limit damage if there's ever a breach in your application!] (No default - set it yourself!)

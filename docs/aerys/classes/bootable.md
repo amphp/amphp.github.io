@@ -12,7 +12,7 @@ layout: docs
 
 ## `boot(Server, Logger): Middleware|callable|null`
 
-This method is called exactly once when the [`Server`](server.html) is in `STARTING` mode.
+This method is called exactly once when the [`Server`](server.html) is in `Server::STARTING` state.
 
 You may return a [`Middleware`](middleware.html) and/or responder callable in order to use an alternate instance for middleware/responder.
 

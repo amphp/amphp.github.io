@@ -32,6 +32,8 @@ layout: tutorial
 
 Hence, incremental handling is important, accessible via [the `valid()` / `consume()` API of Amp\PromiseStream](../../amp) [@TODO bogus link, Amp\PromiseStream docs missing], which is inherited by `Aerys\Body`.
 
-In case a client disconnects (or size limits are exceeded) the `Aerys\Body` instance (which implements `Amp\Promise`) is failed with an `Aerys\ClientException`.
+In case a client disconnects (or size limits are exceeded, then it's a `ClientSizeException`) the `Aerys\Body` instance (which implements `Amp\Promise`) is failed with an `Aerys\ClientException`.
+
+> **Note**: `ClientException`s do not *need* to be caught. You may catch them if you want to continue, but don't have to. The Server will silently end the request cycle and discard that exception then.
 
 > **Note**: This describes only the direct return value of `getBody($size = -1)` respectively the `Aerys\Websocket\Message` usage; there is [similar handling for parsed bodies](bodyparser.html).

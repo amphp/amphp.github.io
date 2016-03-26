@@ -8,7 +8,7 @@ layout: docs
 * Table of Contents
 {:toc}
 
-The `Request` class generally finds its only use in responder callables (or [`Websocket::onOpen()`](websocket.html#onopen)). [`Middleware`s](middleware.html) do never see the `Request`; the `Request` class is supposed to be a simple request API reading from and manipulating [`InternalRequest`](internalrequest.html) under the hood.
+The `Request` interface generally finds its only use in responder callables (or [`Websocket::onOpen()`](websocket.html#onopen)). [`Middleware`s](middleware.html) do never see the `Request`; the `StandardRequest` class is supposed to be a simple request API reading from and manipulating [`InternalRequest`](internalrequest.html) under the hood.
 
 ## `getMethod(): string`
 
@@ -76,4 +76,10 @@ These methods are only important when using [`Middleware`s](middleware.html). Th
 
 ## `getOption(string)`
 
-Gets an [`option`](options.html).
+Gets an [option](options.html).
+
+## `StandardRequest::__construct(InternalRequest)`
+
+The constructor accepts an [`InternalRequest`](internalrequest.html) object the `StandardRequest` class is reading and writing to.
+
+> **Note**: It may be helpful in integration tests to provide a `StandardRequest` class initialized with an adequately preset `InternalRequest` object.

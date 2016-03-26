@@ -8,7 +8,7 @@ layout: docs
 * Table of Contents
 {:toc}
 
-The `ServerObserver` is necessary to be able to watch for state changes of the [`Server`](server.html).
+The `ServerObserver` interface is necessary to be able to watch for state changes of the [`Server`](server.html).
 
 ## `update(Server): Promise`
 

@@ -10,15 +10,15 @@ layout: docs
 
 The only apparence of the `Websocket\Message` is in [`Websocket::onOpen`](websocket.html#onOpen) respectively of `Body` is in [`Response::getBody`](response.html#getBody) respectively [`InternalRequest->body`](middleware.html#internalrequest-body).
 
-It is the `Promise` to the message string.
+It is the `Promise` to the message string, but also implementing `PromiseStream` (important for larger bodies).
 
 ## `Promise::when(callable(ClientException|null, string))`
 
-If an instance of this class is yielded or `when()` is used, it will either throw respectively pass a `ClientException` as first parameter or return a string respectively pass it as second parameter, which conatins the whole data, when all data has been fetched.
+If an instance of this class is yielded or `when()` is used, it will either throw respectively pass a `ClientException` as first parameter or return a string respectively pass it as second parameter, which contains the whole data, when all data has been fetched.
 
 ## `Promise::watch(callable(string))`
 
-Partial string updates are passed to the passed callable. You probably don't want this methods, but use `consume()` and `valid()`, as with `watch()` the string parts are still buffered.
+Partial string updates are passed to the passed callable. You probably don't want this method, but use `consume()` and `valid()`, as with `watch()` the string parts are still buffered.
 
 ## `PromiseStream::valid(): Promise<bool>`
 
@@ -31,7 +31,7 @@ Gets the next part of the message. Only call this method when the `Promise` retu
 ## Example
 
 ```php
-$string = yield $message; // gets the string all at once
+$string = yield $message; // gets the data string all at once
 ```
 
 ```php

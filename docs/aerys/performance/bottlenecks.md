@@ -1,11 +1,11 @@
 ---
 title: Performance Introduction: Aerys is not a bottleneck
 description: Aerys is a non-blocking HTTP/1.1 and HTTP/2 application / websocket / static file server.
-title_menu: Intro
+title_menu: Introduction
 layout: tutorial
 ---
 
-Aerys is general is not a bottleneck. Misconfigurations, use of blocking I/O or inefficient applications are.
+Aerys in general is not a bottleneck. Misconfigurations, use of blocking I/O or inefficient applications are.
 
 Aerys is well-optimized and can handle tens of thousands of requests per second on typical hardware while maintaining a high level of concurrency of thousands of clients.
 

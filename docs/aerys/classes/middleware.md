@@ -34,7 +34,7 @@ Assuming the functions being methods of a class implementing `Middleware`.
 
 ```php
 function do(Aerys\InternalRequest $ireq) {
-	// add a dot after each char when client specified X-INSERT-DOT header
+	// add a dot after each byte when client specified X-INSERT-DOT header
 	if (!empty($ireq->headers["x-insert-dot"][0])) { // header names are lowercase
 		return; // no header, no processing
 	}
@@ -50,7 +50,7 @@ function do(Aerys\InternalRequest $ireq) {
 		$processed = implode(".", [-1 => ""] + str_split($data));
 	} while (($data = yield $processed) !== null);
 	/* yup, the yield may return false, but it's coerced to "" when used as string,
-	 * so it doesn't matter. */
+	 * so it doesn't matter here. */
 
 	return "."; // and a final dot!
 }

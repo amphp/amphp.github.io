@@ -16,13 +16,12 @@ class MyWs implements Aerys\Websocket {
 	}
 
 	public function onHandshake(Aerys\Request $req, Aerys\Response $res) {
-		if ($req->getParam("password") == "reallyverysecure") {
-			return $request;
-		} else {
+		if ($req->getParam("password") != "reallyverysecure") {
 			# if status set to anything else than 101, no WebSocket connection will be established
 			$res->setStatus(403);
 			$res->end("Nope. Valid password required.");
 		}
+		# Nothing necessary for successful handshake (though one may set cookies for example)
 	}
 
 	public function onOpen(int $clientId, $request) {

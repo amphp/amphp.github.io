@@ -27,6 +27,7 @@ $router = Aerys\router()
 
 (new Aerys\Host)
 	->use($router)
+	->use(Aerys\root('/path/to/docroot'))
 	->use(function (Aerys\Request $req, Aerys\Response $res) {
 		# if no response was started in the router (or no match found), we can have a custom 404 page here
 		$res->setStatus(404);
@@ -36,7 +37,7 @@ $router = Aerys\router()
 
 A router is instantiated by `Aerys\router()`. To define routes: `->method($location, $callable[, ...$callableOrMiddleware[, ...]])`, e.g. `->get('/foo', $callable)` or `->put('/foo', $callable, $middleware)`.
 
-An alternate callable can be defined to have a custom 404 Not Found page (precise: when no response was _started_ in the callable(s) before).
+Alternate callables can be defined as fallback to have e.g. a static files handler or a custom 404 Not Found page (precise: when no response was _started_ in the callable(s) before).
 
 It is also possible to define routes with dynamic parts in them, see [the next step on dynamic route definitions](dynamic-routes.html).
 

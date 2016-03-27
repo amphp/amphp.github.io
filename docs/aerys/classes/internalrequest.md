@@ -38,7 +38,7 @@ HTTP method string.
 
 ## `$headers`
 
-Associative array of HTTP headers containing arrays of values. (E.g. `["Connection" => ["Keep-Alive", "Upgrade"], "Host" => ["example.com"]]`)
+Associative array of HTTP headers containing arrays of values. The header field names are always lowercased. (E.g. `["connection" => ["Keep-Alive", "Upgrade"], "host" => ["example.com"]]`)
 
 ## `$body`
 
@@ -88,4 +88,4 @@ HTTP compatibly formatted date string at request initialization.
 
 ## `$locals`
 
-Array with "local" variables, to be used by [`Middleware`s](middleware.md) in combination with [`Request::getLocalVar($key)`](request.md).
+Array with "local" variables, to be used by [`Middleware`s](middleware.md) in combination with [`Request::getLocalVar($key)` and `Request::setLocalVar($key, $value)`](request.md).

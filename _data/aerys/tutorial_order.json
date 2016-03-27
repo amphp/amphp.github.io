@@ -79,5 +79,13 @@
       "streamend",
       "production"
     ]
+  },
+  "middlewares": {
+    "title": "Middlewares",
+    "entries": [
+      "intro",
+      "do",
+      "internalrequest"
+    ]
   }
 }

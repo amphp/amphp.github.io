@@ -16,7 +16,7 @@ class MyWs implements Aerys\Websocket {
 	}
 
 	public function onHandshake(Aerys\Request $req, Aerys\Response $res) {
-		if ($request->getParam("password") == "reallyverysecure") {
+		if ($req->getParam("password") == "reallyverysecure") {
 			return $request;
 		} else {
 			# if status set to anything else than 101, no WebSocket connection will be established
@@ -73,6 +73,6 @@ $root = Aerys\root(__DIR__ . "/public");
 
 `onHandshake($req, $res)` is like a normal request handler, it is the time to determine whether a request shall be successful or not. (E.g. validating a session cookie, a password, ...)
 
-Setting the status (via `Aerys\Response::setStatus()`) to another value than 101 prevents establishing the websocket connection and sends a normal HTTP reply back.
+Setting the status (via `Aerys\Response::setStatus()`) to any other value than 101 prevents establishing the websocket connection and sends a normal HTTP reply back.
 
 The return value of the `onHandshake()` call is passed as second argument to `onOpen()` in order to allow passing authentication information and assigning it to a $clientId, as there is no clientId yet before the connection has been established.

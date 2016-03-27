@@ -18,6 +18,7 @@ layout: tutorial
 Handlers are executed in the order they are passed to `use()`, as long as no previous handler has started the response.
 
 With the concrete example here:
+
 - the path is `/`: the first handler is executed, and, as the route is matched, a response is initiated (`end()` or `stream()`), thus subsequent handlers are not executed.
 - the path is `/foo.txt`: first handler is executed, but the response is not started (as no route starting a response was matched), then the second, which responds with the contents of the `foo.txt` file.
 - the path is `/inexistent`: first and second handlers are executed, but they don't start a response, so the last handler is executed too, returning `My 404!`.

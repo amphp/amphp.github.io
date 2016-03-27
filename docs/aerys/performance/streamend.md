@@ -19,4 +19,4 @@ layout: tutorial
 
 This allows avoiding spending too much processing time when fetching and returning large data incrementally as well as having too big buffers.
 
-Thus, this isn't relevant for most handlers, except the ones possibly generating very much data (on the order of more than a few hundred kilobytes - the lowest size the buffer typically is, is at least 64 KiB).
+Thus, this isn't relevant for most handlers, except the ones possibly generating very much data (on the order of more than a few hundred kilobytes - the lowest size the buffer typically is at least 64 KiB).

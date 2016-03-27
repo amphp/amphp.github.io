@@ -13,6 +13,7 @@ layout: docs
 Returns an instance of [`Router`](router.html).
 
 There is currently only one option:
+
 - `max_cache_entries`: number of cached routes (direct map of route-to-result)
 
 ## `websocket(Websocket|Bootable $app, array $options = []): Bootable`
@@ -28,6 +29,7 @@ Defines a static file root handler based on `$docroot`.
 It returns an instance of something usable with [`Host::use()`](host.html) (or in [`Router`](router.html)).
 
 Available `$options` are:
+
 - `indexes`: An array of files serving as default files when a directory is requested (Default: `["index.html", "index.htm"]`)
 - `useEtagInode`: Boolean whether inodes should be included in the etag (Default: `true`)
 - `expiresPeriod`: TTL of client side cached files (`Expires` header) (Default: 7 days)

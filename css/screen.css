@@ -55,7 +55,7 @@ hr { margin: 30px 0; border: 0; border-top: 1px solid #eee; height: 0; }
 code, pre { font-size: 13px; font-family: "Source Code Pro", monospace; tab-size: 4; -moz-tab-size: 4; }
 code { background-color: #fff; border: 1px solid rgba(0,0,0,.05); padding: 1px 4px; border-radius: 3px; }
 pre code { border: 0; background-color: transparent; padding: auto; border-radius: 0; }
-pre { font-size: 13px; line-height: 1.3em; background-color: #fff; border: 1px solid rgba(0,0,0,.1); padding: 15px 18px; display: block; color: #222; /* These are technically the same, but use both */ overflow-wrap: break-word; word-wrap: break-word; -ms-word-break: break-all; /* This is the dangerous one in WebKit, as it breaks things wherever */ word-break: break-all; /* Instead use this non-standard one: */ word-break: break-word; /* because firefox requires it ... */ white-space: pre-wrap; }
+pre { font-size: 13px; line-height: 1.3em; background-color: #fff; border: 1px solid rgba(0,0,0,.1); padding: 15px 18px; display: block; color: #222; /* These are technically the same, but use both */ overflow-wrap: break-word; word-wrap: break-word; -ms-word-wrap: break-word; /* Instead use this non-standard one: */ word-break: break-word; /* because firefox requires it ... */ white-space: pre-wrap; }
 .docs pre { margin: 15px -20px; border-left: 0; }
 .landing pre { margin: 15px 0; border-radius: 2px; }
 .hljs { background-color: transparent; padding: 0; }

@@ -8,13 +8,13 @@ layout: docs
 * Table of Contents
 {:toc}
 
-The only apparence of the `Websocket\Message` is in [`Websocket::onOpen`](websocket.html#onOpen) respectively of `Body` is in [`Response::getBody`](response.html#getBody) respectively [`InternalRequest->body`](middleware.html#internalrequest-body).
+The only appearance of the `Websocket\Message` is in [`Websocket::onOpen`](websocket.html#onOpen) and of `Body` is in [`Response::getBody`](response.html#getBody) and [`InternalRequest->body`](middleware.html#internalrequest-body).
 
 It is the `Promise` to the message string, but also implementing `PromiseStream` (important for larger bodies).
 
 ## `Promise::when(callable(ClientException|null, string))`
 
-If an instance of this class is yielded or `when()` is used, it will either throw respectively pass a `ClientException` as first parameter or return a string respectively pass it as second parameter, which contains the whole data, when all data has been fetched.
+If an instance of this class is yielded or `when()` is used, it will either throw or pass a `ClientException` as first parameter, or return a string or pass it as second parameter, which contains the whole data, when all data has been fetched.
 
 ## `Promise::watch(callable(string))`
 

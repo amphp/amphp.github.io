@@ -15,7 +15,7 @@ layout: tutorial
 });
 ```
 
-`Response::stream()` respectively `Websocket\Endpoint::send()` return a `Promise` which is fulfilled at the first moment where the buffers aren't full. That `Promise` may also fail with a `ClientException` if the clients write stream was closed.
+`Response::stream()` and `Websocket\Endpoint::send()` return a `Promise` which is fulfilled at the first moment where the buffers aren't full. That `Promise` may also fail with a `ClientException` if the clients write stream was closed.
 
 This allows avoiding spending too much processing time when fetching and returning large data incrementally as well as having too big buffers.
 

@@ -38,7 +38,7 @@ This needs to be set on every `Host` which wants to use https. You may not have 
 
 The `$keyPath` may be set to `null` if the certificate file also contains the private key.
 
-The `$additionalSslSettings` array is passed directly as SSL context options and thus equivalent to what is specified by the PHP documentation at [http://php.net/context.ssl](http://php.net/context.ssl). The `$certificate` and `$key` parameters are equivalent to the `local_cert` respectively `local_pk` options.
+The `$additionalSslSettings` array is passed directly as SSL context options and thus equivalent to what is specified by the PHP documentation at [http://php.net/context.ssl](http://php.net/context.ssl). The `$certificate` and `$key` parameters are equivalent to the `local_cert` and `local_pk` options, respectively.
 
 ## Example
 

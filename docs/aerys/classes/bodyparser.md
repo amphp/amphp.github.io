@@ -14,7 +14,7 @@ You typically get a `BodyParser` instance by calling the `parseBody(Request, int
 
 ## `Promise::when(callable(ClientException|null, string))`
 
-If an instance of this class is yielded or `when()` is used, it will either throw respectively pass a `ClientException` as first parameter or return an instance of [`ParsedBody`](parsedbody.html) respectively pass it as second parameter, when all data has been fetched.
+If an instance of this class is yielded or `when()` is used, it will either throw or pass a `ClientException` as first parameter, or return an instance of [`ParsedBody`](parsedbody.html) or pass it as second parameter, when all data has been fetched.
 
 ## `Promise::watch(callable(string))`
 

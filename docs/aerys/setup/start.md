@@ -11,7 +11,7 @@ layout: tutorial
 (new Aerys\Host)->use(Aerys\root("/var/www/public_html"));
 ```
 
-Save it as `config.php` and load it via `sudo php vendor/bin/aerys -d -c config.php`. [The `sudo` may be necessary as it binds by default on port 80.]
+Save it as `config.php` and load it via `sudo php vendor/bin/aerys -d -c config.php`. [The `sudo` may be necessary as it binds by default on port 80 - for this case there is an [`user` option to drop the privileges](../options/common.html).]
 
 That's all needed to serve files from a static root. Put an index.html there and try opening `http://localhost/` in the browser.
 

@@ -8,12 +8,12 @@ layout: tutorial
 ```php
 (new Aerys\Host)->use(function(Aerys\Request $req, Aerys\Response $res) {
 	# if the header not passed, null is returned
-	$user_agent = $res->getHeader("User-Agent") ?? "";
+	$user_agent = $req->getHeader("User-Agent") ?? "";
 
 	# Get a query string parameter
 	$action = $res->getParam("action") ?? "default";
 
-	$res->send("Action: <i>$action</i> requested by User-Agent<br><pre>$user_agent</pre>");
+	$res->end("Action: <i>$action</i> requested by User-Agent<br><pre>$user_agent</pre>");
 });
 ```
 

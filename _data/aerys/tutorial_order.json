@@ -87,5 +87,11 @@
       "do",
       "internalrequest"
     ]
+  },
+  "epilogue": {
+    "title": "Summing it up",
+    "entries": [
+      "overview"
+    ]
   }
 }

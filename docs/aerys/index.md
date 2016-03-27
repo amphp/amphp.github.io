@@ -23,7 +23,7 @@ Aerys has currently a few 0.x tags. APIs are still subject to very small changes
 
 ## Installation
 
-```plain
+```bash
 $ composer require amphp/aerys
 ```
 
@@ -40,4 +40,4 @@ $ vendor/bin/aerys -d -c demo.php
  - [Getting Started with Aerys](http://blog.kelunik.com/2015/10/21/getting-started-with-aerys.html)
  - [Getting Started with Aerys WebSockets](http://blog.kelunik.com/2015/10/20/getting-started-with-aerys-websockets.html)
 
-<div class="tutorial-next">Start with the <a href="setup/start.html">Tutorial</a></div>
+<div class="tutorial-next">Start with the <a href="setup/start.html">Tutorial</a> or check the <a href="classes">Classes docs</a> out</div>

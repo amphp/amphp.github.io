@@ -72,7 +72,7 @@ td { border-top: 1px solid #ddd; vertical-align: top; }
 #markdown-toc ul a { font-weight: normal; }
 #markdown-toc a:hover { text-decoration: none; color: #59A6F7; }
 
-#sidebar { padding: 15px 20px; font-size: 13px; }
+#sidebar { padding: 20px 15px 20px 0; font-size: 13px; }
 .sidebar-separator { border-right: 1px solid rgba(0,0,0,.1); position: absolute; left: 175px; top: 0; bottom: 0; width: 0; }
 #sidebar ul { padding: 0; margin: 0; }
 #sidebar li { list-style: none; }

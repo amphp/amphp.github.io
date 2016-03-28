@@ -13,7 +13,7 @@ layout: tutorial
 });
 ```
 
-Aerys is built of to of [the non-blocking concurrency framework Amp](../../amp).
+Aerys is built on top of [the non-blocking concurrency framework Amp](../../amp).
 
 Thus it inherits full support of all its primitives and it is possible to use all the non-blocking libraries built on top it.
 

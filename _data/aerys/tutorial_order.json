@@ -12,9 +12,10 @@
       "response",
       "request",
       "request-body",
+      "file-upload",
+      "cookies",
       "router",
-      "dynamic-routes",
-      "cookies"
+      "dynamic-routes"
     ]
   },
   "websocket": {

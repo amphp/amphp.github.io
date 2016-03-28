@@ -20,10 +20,10 @@ layout: tutorial
 });
 ```
 
-`yield Aerys\parseBody($request, $size = 0)` expects an `Aerys\Request` instance and a maximum body size (there is [a configurable default](../performance/production.html)) as parameters and returns a [`ParsedBody`](../classes/parsedbody.html) instance exposing a `get($name)` and a `getArray($name)`. `get()` always returns a string (first parameter) or null if the parameter was not defined. `getArray()` returns all the parameters with the same name in an array.
+`yield Aerys\parseBody($request, $size = 0)` expects an `Aerys\Request` instance and a maximum body size (there is [a configurable default](../performance/production.html)) as parameters and returns a [`ParsedBody`](../classes/parsedbody.html) instance exposing a `get($name)` and a `getArray($name)`.
+
+`get()` always returns a string (first parameter) or null if the parameter was not defined.
+
+`getArray()` returns all the parameters with the same name in an array.
 
 To get all the passed parameter names, use the `getNames()` method on the `ParsedBody` instance.
-
-There is also a method for handling uploads, namely `getMetadata($name)`, which returns an array with the fields `"mime"` and `"filename"` (if the client passed these).
-
-> **Warning**: Avoid setting the `$size` parameter very high, that may impact performance with many users accessing it. Check [the guide for larger parsed bodies](../performance/bodyparser.html) out if you want to do that.

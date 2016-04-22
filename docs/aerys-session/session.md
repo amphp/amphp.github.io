@@ -12,7 +12,7 @@ If an [`aerys\session() middleware`](middleware.html) is present, a Session inst
 
 A Session typically can exist in three states:
 
-- locked: you hold a lock (= no other request can read from or write to it) on the session and can write to it
+- locked: you hold a lock (= no other request can lock it) on the session and can write to it
 - unlocked: you can read from the session, but not write to it
 - pending: a lock is waiting to be acquired; all operations (except `unlock()`) will throw an `Aerys\Session\LockException`
 

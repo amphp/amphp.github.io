@@ -31,7 +31,7 @@ $redis = new Amp\Redis\Client($redisURI);
 $mutex = new Amp\Redis\Mutex($redisURI, []);
 
 (new Aerys\Host)
-	->use(Aerys\session(["driver" => new Aerys\Session\Redis($redis, $mutex)]))
+	->use(Aerys\session(new Aerys\Session\Redis($redis, $mutex)))
 	->use(function(Aerys\Request $req, Aerys\Response $res) {
 		$session = yield (new Aerys\Session($req))->open();
 		$count = $session->get("requestcount") + 1;

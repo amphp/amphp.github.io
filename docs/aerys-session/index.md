@@ -1,6 +1,6 @@
 ---
 title: Aerys\Session
-description: Aerys\Session is a session module to be used with Aerys
+description: Aerys\Session is a session module to be used with Aerys.
 title_menu: Introduction
 layout: docs
 ---
@@ -13,12 +13,12 @@ layout: docs
 
 ## Current Stable Version
 
-`Aerys\Session` currently still is quite experimental and may contain bugs. It has a few 0.x tags currently.
+`Aerys\Session` is currently still experimental and may contain bugs. It has a few 0.x tags and follows semantic versioning for `0.x.y`, that means `x` is a major version and every `y` is a minor / bugfix version as long as there's no `1.0.0`.
 
 ## Installation
 
 ```bash
-$ composer require amphp/aerys-session
+composer require amphp/aerys-session
 ```
 
 ## Example config file
@@ -26,9 +26,9 @@ $ composer require amphp/aerys-session
 ```php
 <?php
 
-$redisURI = "tcp://127.0.0.1:6379";
-$redis = new Amp\Redis\Client($redisURI);
-$mutex = new Amp\Redis\Mutex($redisURI, []);
+$redisUri = "tcp://127.0.0.1:6379";
+$redis = new Amp\Redis\Client($redisUri);
+$mutex = new Amp\Redis\Mutex($redisUri, []);
 
 (new Aerys\Host)
 	->use(Aerys\session(new Aerys\Session\Redis($redis, $mutex)))
@@ -37,6 +37,5 @@ $mutex = new Amp\Redis\Mutex($redisURI, []);
 		$count = $session->get("requestcount") + 1;
 		$session->set("requestcount", $count);
 		yield $session->save();
-	})
-;
+	});
 ```

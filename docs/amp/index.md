@@ -26,7 +26,7 @@ layout: docs
 ## Installation
 
 ```plain
-$ composer require amphp/amp
+composer require amphp/amp
 ```
 
 ## Blog Posts

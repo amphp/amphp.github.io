@@ -24,13 +24,13 @@ Aerys has currently a few 0.x tags. APIs are still subject to very small changes
 ## Installation
 
 ```bash
-$ composer require amphp/aerys
+composer require amphp/aerys
 ```
 
-## First run
+## First Run
 
 ```bash
-$ vendor/bin/aerys -d -c demo.php
+vendor/bin/aerys -d -c demo.php
 ```
 
 > **Note:** In production you'll want to drop the `-d` (debug mode) flag. For development it is pretty helpful though. `-c demo.php` tells the program where to find the config file.

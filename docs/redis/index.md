@@ -12,5 +12,5 @@ layout: docs
 **Installation**
 
 ```plain
-$ composer require amphp/redis
+composer require amphp/redis
 ```

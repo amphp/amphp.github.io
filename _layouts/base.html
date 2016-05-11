@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>{% if page.title %}{{page.title}} &ndash; {% endif %}amphp</title>
+	<title>{% if page.title %}{{page.title}} &sdot; {% endif %}amphp</title>
 
 	{% if page.description %}
 	{% assign description = page.description %}
@@ -24,7 +24,7 @@
 	<meta property="og:description" content="{{description}}" />
 
 	{% if page.cover %}
-	<meta property="og:image" content="{{page.cover}}" />
+	<meta property="og:image" content="//amphp.org{{page.cover}}" />
 	{% endif %}
 
 	<!-- icons -->
@@ -33,7 +33,7 @@
 	<!-- stylesheets -->
 	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/styles/docco.min.css" />
 	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" />
-	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900|Source+Code+Pro:300,400,700" />
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Arvo:400,700|Source+Code+Pro:300,400,700" />
 	<link rel="stylesheet" href="/css/screen.css" />
 	<link rel="stylesheet" href="/css/google-custom-search.css" />
 
@@ -55,93 +55,88 @@
 <body>
 	<input type="checkbox" id="menu" name="menu" />
 
-	<div class="wrapper">
-		<header id="top">
-			<div class="content">
-				<ul class="mobile-header">
-					<li>
-						<label for="menu"><i class="fa fa-bars"></i></label>
-					</li>
+	<header id="top">
+		<div class="content">
+			<ul class="mobile-header">
+				<li>
+					<label for="menu"><i class="fa fa-bars"></i></label>
+				</li>
 
-					<li class="header-menu-logo mobile-header-menu-logo">
-						<a href="/">
-							<img src="https://avatars1.githubusercontent.com/u/8865682?v=3&s=200" width="50" height="50" />
-							<span>amphp</span>
-						</a>
-					</li>
-				</ul>
+				<li class="header-menu-logo mobile-header-menu-logo">
+					<a href="/">
+						<img src="/img/logo.png" width="50" height="50" />
+						<span>amphp</span>
+					</a>
+				</li>
+			</ul>
 
-				<ul class="header-menu">
-					<li class="header-menu-logo">
-						<a href="/">
-							<img src="https://avatars1.githubusercontent.com/u/8865682?v=3&s=200" width="50" height="50" />
-							<span>amphp</span>
-						</a>
-					</li>
+			<ul class="header-menu">
+				<li class="header-menu-logo">
+					<a href="/">
+						<img src="/img/logo.png" width="50" height="50" />
+						<span>amphp</span>
+					</a>
+				</li>
 
-					<li>
-						<span>Packages</span>
+				<li>
+					<span>Packages</span>
 
-						<ul>
-							{% for repository in site.github.public_repositories %}
-							{% if repository.name != "amphp.github.io" and repository.name != "template" and repository.name != "design" %}
-							{% capture path %}/docs/{{ repository.name }}/{% endcapture %}
-							{% assign found = false %}
-							{% for page in site.pages %}
-							{% if page.url == path %}
-							<li><a href="/docs/{{repository.name}}/">{{repository.name}} <i class="fa fa-book"></i></a></li>
-							{% assign found = true %}
-							{% endif %}
-							{% endfor %}
+					<ul>
+						{% for repository in site.github.public_repositories %}
+						{% if repository.name != "amphp.github.io" and repository.name != "template" and repository.name != "design" %}
+						{% capture path %}/docs/{{ repository.name }}/{% endcapture %}
+						{% assign found = false %}
+						{% for page in site.pages %}
+						{% if page.url == path %}
+						<li><a href="/docs/{{repository.name}}/">{{repository.name}} <i class="fa fa-book"></i></a></li>
+						{% assign found = true %}
+						{% endif %}
+						{% endfor %}
 
-							{% if found == false %}
-							<li><a href="{{repository.html_url}}/">{{repository.name}} <i class="fa fa-github"></i></a></li>
-							{% endif %}
-							{% endif %}
-							{% endfor %}
-						</ul>
-					</li>
+						{% if found == false %}
+						<li><a href="{{repository.html_url}}/">{{repository.name}} <i class="fa fa-github"></i></a></li>
+						{% endif %}
+						{% endif %}
+						{% endfor %}
+					</ul>
+				</li>
 
-					<li><a href="https://github.com/amphp" target="_blank">GitHub</a></li>
-					<li><a href="https://dev.kelunik.com/" target="_blank">Chat</a></li>
-					<li><a href="http://stackoverflow.com/questions/ask?tags=amphp" target="_blank">Ask a Question</a></li>
+				<li><a href="https://github.com/amphp" target="_blank">GitHub</a></li>
+				<li><a href="http://chat.stackoverflow.com/rooms/11/php" target="_blank">Chat</a></li>
+				<li><a href="http://stackoverflow.com/questions/ask?tags=amphp" target="_blank">Ask a Question</a></li>
 
-					<li class="gcs">
-						<script>
-						(function() {
-							var cx = '004801483940270656526:oot0nn9-msu';
-							var gcse = document.createElement('script');
-							gcse.type = 'text/javascript';
-							gcse.async = true;
-							gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
-							'//cse.google.com/cse.js?cx=' + cx;
-							var s = document.getElementsByTagName('script')[0];
-							s.parentNode.insertBefore(gcse, s);
-						})();
-						</script>
-						<gcse:searchbox-only resultsUrl="/search.html"></gcse:searchbox-only>
-					</li>
-				</ul>
-			</div>
-		</header>
-
-		<div id="content">
-			<main>
-				{{content}}
-			</main>
-
-			<footer class="bottom">
-				<div>
-					<div class="bottom-left">
-						Documentation licensed under <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a>.
-					</div>
-
-					<div class="bottom-right">
-						Found a mistake? <a href="{{site.github.repository_url}}/blob/master/{{page.path}}">Edit this page</a>.
-					</div>
-				</div>
-			</footer>
+				<li class="gcs">
+					<script>
+					  (function() {
+					    var cx = '004801483940270656526:oot0nn9-msu';
+					    var gcse = document.createElement('script');
+					    gcse.type = 'text/javascript';
+					    gcse.async = true;
+					    gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+					    var s = document.getElementsByTagName('script')[0];
+					    s.parentNode.insertBefore(gcse, s);
+					  })();
+					</script>
+					<gcse:searchbox-only resultsUrl="/search.html"></gcse:searchbox-only>
+				</li>
+			</ul>
 		</div>
-	</div>
+	</header>
+
+	<main id="content">
+		{{content}}
+	</main>
+
+	<footer id="footer">
+		<div>
+			<div class="bottom-left">
+				Documentation licensed under <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a>.
+			</div>
+
+			<div class="bottom-right">
+				Found a mistake? <a href="{{site.github.repository_url}}/blob/master/{{page.path}}">Edit this page</a>.
+			</div>
+		</div>
+	</footer>
 </body>
 </html>

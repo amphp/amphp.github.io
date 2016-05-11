@@ -1,14 +1,11 @@
-body { margin: 0; padding: 0; font-family: "Lato", sans-serif; background-color: #fafafa; position: relative; }
-* { outline: 0 !important; box-sizing: border-box; }
-
+body { margin: 0; padding: 0; background-color: #fafafa; position: relative; min-height: 100vh; display: flex; flex-direction: column; overflow-y: scroll; }
+body, td, th { font-size: 15px; font-family: "Arvo", serif; line-height: 27px; color: #111; }
 a img { border: 0; }
-body, td, th { font-size: 14px; font-family: "Lato", sans-serif; line-height: 1.7; color: #444; }
 
-html, body, .wrapper { padding: 0; margin: 0; width: 100%; height: 100%; display: block; overflow: hidden; }
-
-.wrapper { display: flex; flex-direction: column; }
-#top { height: 50px; flex: 0 0 auto; box-shadow: 0 2px 2px 0 rgba(0,0,0,.15), 0 3px 1px -2px rgba(0,0,0,.15); z-index: 100; position: relative; background-color: #fff; }
-#content { overflow-y: scroll; flex: 1 1 auto; }
+#top { height: 60px; flex: 0 0 auto; box-shadow: 0 0 0 1px rgba(0,0,0,.15); z-index: 100; position: relative; background-color: #48e; }
+#content { flex: 1 1 auto; }
+#footer { border-top: 1px solid rgba(0,0,0,.1); color: #666; font-size: smaller; }
+#footer > div { padding: 20px 0; margin: 0 auto; max-width: 1000px; display: flex; justify-content: space-between; }
 
 main { display: flex; flex-direction: row; align-items: stretch; justify-content: center; }
 
@@ -18,14 +15,14 @@ main { display: flex; flex-direction: row; align-items: stretch; justify-content
 .header-menu { margin: 0 auto; padding: 0; max-width: 1000px; }
 .header-menu > li { list-style: none; display: inline-block; }
 
-.header-menu > li { margin: 0 5px; position: relative; border-left: 1px solid transparent; border-right: 1px solid transparent; }
+.header-menu > li { margin: 0 2px; position: relative; border-left: 1px solid transparent; border-right: 1px solid transparent; }
 .header-menu > li:hover { border-left: 1px solid rgba(0,0,0,.1); border-right: 1px solid rgba(0,0,0,.1); }
-.header-menu > li > a, .header-menu > li > span { color: #444; font-weight: bold; text-decoration: none; display: inline-block; line-height: 50px; padding: 0 10px; }
-.header-menu > li:hover > a, .header-menu > li:hover > span { color: #000; text-decoration: none; background: rgba(0,0,0,.05); }
-.header-menu-logo { line-height: 50px; vertical-align: top; }
-.header-menu-logo img { vertical-align: top; opacity: 0.75; }
-.header-menu-logo:hover img { opacity: 1; }
-
+.header-menu > li > a, .header-menu > li > span { color: #fff; opacity: 0.75; font-weight: bold; text-decoration: none; display: inline-block; line-height: 60px; padding: 0 15px; }
+.header-menu > li > span { cursor: default; }
+.header-menu > li:hover > a, .header-menu > li:hover > span { color: #fff; opacity: 1; text-decoration: none; background: rgba(0,0,0,.05); }
+.header-menu-logo { line-height: 60px; vertical-align: top; }
+.header-menu-logo img { vertical-align: top; margin: 5px 5px 5px -5px; opacity: 0.75; }
+.header-menu-logo:hover img { opacity: 0.9; }
 .header-menu ul .fa { line-height: 35px; float: right; }
 
 #sidebar { width: 195px; float: left; }
@@ -44,18 +41,17 @@ h3 { font-size: 14px; }
 .article-header { text-align: left; }
 .description { color: #333; font-weight: bold; margin: 0; padding: 0; font-size: 14px; }
 
-footer { border-top: 1px solid rgba(0,0,0,.1); color: #666; font-size: smaller; }
-footer > div { padding: 20px 0; margin: 0 auto; max-width: 1000px; display: flex; justify-content: space-between; }
+.column-left, .column-right { min-width: 20px; }
 
 a { color: #4083C9; font-weight: bold; text-decoration: none; }
 a:hover { text-decoration: underline; }
 
 hr { margin: 30px 0; border: 0; border-top: 1px solid #eee; height: 0; }
 
-code, pre { font-size: 13px; font-family: "Source Code Pro", monospace; tab-size: 4; -moz-tab-size: 4; }
-code { background-color: #fff; border: 1px solid rgba(0,0,0,.05); padding: 1px 4px; border-radius: 3px; }
+code, pre { font-size: 14px; font-family: "Source Code Pro", monospace; tab-size: 4; -moz-tab-size: 4; }
+code { background-color: rgba(255,255,255,.6); border: 1px solid rgba(0,0,0,.15); padding: 3px 8px; border-radius: 3px; }
 pre code { border: 0; background-color: transparent; padding: auto; border-radius: 0; }
-pre { font-size: 13px; line-height: 1.3em; background-color: #fff; border: 1px solid rgba(0,0,0,.1); padding: 15px 18px; display: block; color: #222; /* These are technically the same, but use both */ overflow-wrap: break-word; word-wrap: break-word; -ms-word-wrap: break-word; /* Instead use this non-standard one: */ word-break: break-word; /* because firefox requires it ... */ white-space: pre-wrap; }
+pre { font-size: 13px; line-height: 20px; background-color: #fff; border: 1px solid rgba(0,0,0,.1); padding: 15px 18px; display: block; color: #222; /* These are technically the same, but use both */ overflow-wrap: break-word; word-wrap: break-word; -ms-word-wrap: break-word; /* Instead use this non-standard one: */ word-break: break-word; /* because firefox requires it ... */ white-space: pre-wrap; }
 .docs pre { margin: 15px -20px; border-left: 0; }
 .landing pre { margin: 15px 0; border-radius: 2px; }
 .hljs { background-color: transparent; padding: 0; }
@@ -118,28 +114,29 @@ nav .active a:hover { cursor: default; text-decoration: none; }
 
 @media screen and (min-device-width: 601px) {
 	.header-menu li:hover ul { display: block; }
-	.header-menu ul { display: none; background: white; border: 1px solid rgba(0,0,0,.1); border-top: 0; margin: 0; padding: 0; position: absolute; left: -1px; top: 100%; }
-	.header-menu ul > li { border-top: 1px solid transparent; border-bottom: 1px solid transparent; display: block; width: 200px; list-style: none; }
+	.header-menu ul { display: none; background: white; box-shadow: 0 0 8px rgba(0,0,0,.1), 0 0 3px rgba(0,0,0,.1); margin: 0; padding: 0; position: absolute; left: -1px; top: 100%; }
+	.header-menu ul > li { border-top: 1px solid transparent; border-bottom: 1px solid transparent; display: block; width: 250px; list-style: none; }
 	.header-menu ul > li:hover { border-top: 1px solid rgba(0,0,0,.1); border-bottom: 1px solid rgba(0,0,0,.1); }
 	.header-menu ul > li:last-child { border-bottom-width: 0 !important; }
-	.header-menu ul > li > a { padding: 0 10px; line-height: 35px; color: #444; text-decoration: none; display: block; }
+	.header-menu ul > li > a { font-weight: normal; padding: 0 15px; line-height: 35px; color: #111; text-decoration: none; display: block; }
 	.header-menu ul > li > a:hover { color: #000; text-decoration: none; background: rgba(0,0,0,.05); }
 }
 
 @media screen and (max-device-width: 600px) {
-	#top { position: fixed; width: 100vw; }
-	#top > .content { margin: 0; padding: 0; }
-	.mobile-header { display: block; list-style: none; margin: 0; padding: 0; }
-	.mobile-header li { display: inline-block; line-height: 50px; min-width: 50px; text-align: center; }
-	body { overflow-x: hidden; }
-	html, body, .wrapper { margin: 0; display: flex; width: 100%; height: 100%; }
+	.column-left, .column-right { min-width: 0; }
+	.mobile-header { display: block; list-style: none; margin: 0; padding: 0; color: #fff; }
+	.mobile-header li { display: inline-block; line-height: 60px; min-width: 60px; text-align: center; }
+	.mobile-header-menu-logo span { color: white; opacity: .75; }
+	.mobile-header-menu-logo:hover span { opacity: 1; }
+	html, body, .wrapper { margin: 0; display: flex; width: 100%; min-height: 100%; }
 	.header-menu { display: none; }
-	#menu:checked + .wrapper .header-menu { display: block; width: 80vh; max-width: 250px; position: fixed; top: 52px; bottom: 0; overflow-y: scroll; box-shadow: 1px 0 2px rgba(0,0,0,.2); background: white; }
-	#menu:checked + .wrapper .header-menu li { display: block; width: auto; }
-	#menu:checked + .wrapper .header-menu ul { display: block; position: relative; }
+	#menu:checked + header .header-menu { display: block; width: 80vh; max-width: 250px; position: fixed; top: 60px; bottom: 0; overflow-y: scroll; box-shadow: 1px 0 2px rgba(0,0,0,.2); background: white; }
+	#menu:checked + header .header-menu li { display: block; width: auto; border-bottom: 1px solid #ddd; }
+	#menu:checked + header .header-menu ul { display: block; position: relative; }
+	.header-menu > li > a, .header-menu > li > span { color: #111; }
 	.header-menu li:hover ul { display: block; }
 	.header-menu ul { display: none; border-top: 1px solid rgba(0,0,0,.1); margin: 0; padding: 0; }
-	.header-menu ul > li { border-top: 1px solid rgba(0,0,0,.1); display: block; list-style: none; }
+	.header-menu ul > li { display: block; list-style: none; }
 	.header-menu ul > li:last-child { border-bottom: 1px solid rgba(0,0,0,.1); }
 	.header-menu ul > li > a { padding: 0 10px; line-height: 35px; color: #444; text-decoration: none; display: block; }
 	.header-menu ul > li > a:hover { color: #000; text-decoration: none; background: rgba(0,0,0,.05); }
@@ -148,7 +145,11 @@ nav .active a:hover { cursor: default; text-decoration: none; }
 	.header { display: block; text-align: center; }
 	footer { display: block; text-align: center; }
 	h1 { padding-top: 0; }
-	#sidebar { float: none; width: auto; padding: 30px 10px 10px 10px; border-bottom: 1px solid #eee; padding-bottom: 30px; font-size: inherit; }
+	.column-main { flex-direction: column !important; justify-content: flex-start !important; align-items: flex-start !important; }
+	#sidebar { box-sizing: border-box !important; width: 100% !important; padding: 15px; border: 1px solid #ddd; border-top: 0; margin: 0 0 20px 0; font-size: inherit; background: transparent; }
 	.sidebar-separator { display: none; }
-	article { margin: 0; }
+	article { margin: 0; padding-left: 0; padding-right: 0; }
+	pre { border: 1px solid rgba(0,0,0,.1); border-left: 0; border-right: 0; }
+	#footer > div { display: block; }
+	#content { padding: 0 20px; }
 }

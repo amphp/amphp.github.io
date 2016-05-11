@@ -1,5 +1,5 @@
 ---
-title: Writing middlewares in Aerys
+title: Writing Middlewares for Aerys
 description: Aerys is a non-blocking HTTP/1.1 and HTTP/2 application / websocket / static file server.
 title_menu: Middleware::do()
 layout: tutorial
@@ -56,4 +56,4 @@ Later `yield`s may return as much data as they want.
 
 You can use `return` instead of `yield` in order to immediately detach with eventual final data. (In case you buffered a bit first and still hold the headers, use `return $data . yield $headers;`.)
 
-> **Note**: You cannot wait for Promises inside Middlewares. This is by design (as flushes should be propagates immediately etc.).
+> **Note**: You cannot wait for promises inside middlewares. This is by design (as flushes should be propagates immediately etc.). If you need I/O, either move it to a responder in front of your actual responder or move it into your responder and call it explicitly.

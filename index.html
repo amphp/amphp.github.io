@@ -9,7 +9,7 @@ description: Amp is a non-blocking concurrency framework for PHP applications.
 		<p class="description">{{page.description}}</p>
 	</header>
 
-	<h2>Hello World</h2>
+	<h2 id="hello-world">Hello World</h2>
     <pre><code class="language-php">&lt;?php
 
 function tick() {
@@ -56,9 +56,9 @@ echo "after run()\n";</code></pre>
 	    }
 	</script>
 
-	<h2>Installation</h2>
+	<h2 id="installation">Installation</h2>
 
-	<pre><code class="language-bash" id="install">$ composer require amphp/amp</code></pre>
+	<pre><code class="language-bash" id="install">composer require amphp/amp</code></pre>
 
 	<script>
 		var install = document.getElementById("install");
@@ -73,6 +73,6 @@ echo "after run()\n";</code></pre>
 		];
 
 		setInterval(function() {
-			install.textContent = "$ composer require amphp/" + packages[parseInt(Math.floor(Math.random() * packages.length))];
+			install.textContent = "composer require amphp/" + packages[parseInt(Math.floor(Math.random() * packages.length))];
 		}, 2000);
 	</script>

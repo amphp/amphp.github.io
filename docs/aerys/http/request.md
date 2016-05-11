@@ -19,8 +19,8 @@ layout: tutorial
 
 Try accessing `http://localhost/?action=beautiful` in the browser.
 
-`Aerys\Request::getParam(string $parameter)` returns a string if the query string parameter was passed (if multiple ones with the same name exist, the first one), else null.
+`Aerys\Request::getParam(string $parameter)` returns a string if the query string parameter was passed (if multiple ones with the same name exist, the first one), otherwise `null`.
 
-`Aerys\Request::getHeader(string $name)` returns a headers value.
+`Aerys\Request::getHeader(string $name)` returns a headers value. If multiple headers with the same name exist, it will return the first value. If none exists, it will return `null`.
 
-There is additional information available about the request, check out the [`Request` docs](../classes/request.html) for it.
+There is additional information available about the full request API, check out the [`Request` docs](../classes/request.html).

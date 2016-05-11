@@ -14,7 +14,7 @@ layout: base
 
 		{% assign url_parts = url | split: '/' | slice: 0, 4 %}
 		{% assign url_parts_size = url_parts | size %}
-		{% assign base_url = url | split: '/' | slice: 0, 3 | join: '/' %}
+		{% assign base_url = url | split: '/' | slice: 0, 3 | join: '/' | append: "/" %}
 		{% assign sub_url = url_parts | join: '/' %}
 
 		{% assign pages = site.pages | sort: "url" %}

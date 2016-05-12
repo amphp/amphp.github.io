@@ -440,3 +440,7 @@ will need to manually specify the appropriate integer signal numbers when regist
 ### Avoiding Memory Leaks
 
 @TODO Discuss cancelling persistent watchers (i.e. repeat/onReadable/onWritable)
+
+<div class="tutorial-next">
+    Continue with <a href="./managing-concurrency.html">Managing Concurrency</a>.
+</div>

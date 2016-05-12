@@ -32,10 +32,10 @@ interface Promise {
 In its simplest form the `Amp\Promise` aggregates callbacks for dealing with computational results once they eventually resolve. While most code will not interact with this API directly thanks to the magic of [Generators](#generators), let's take a quick look at the two simple API methods exposed on `Amp\Promise` implementations:
 
 
-| Method                | Callback Signature                              |
-| --------------------- | ------------------------------------------------|
-| void when(callable)   | `function($error = null, $result = null, $cbData = null)` |
-| void watch(callable)  | `function($updateData, $cbData = null)`                                   |
+| Method    | Callback Signature                                        |
+| --------- | ----------------------------------------------------------|
+| when      | `function($error = null, $result = null, $cbData = null)` |
+| watch     | `function($updateData, $cbData = null)`                   |
 
 
 ### `when()`
@@ -68,7 +68,7 @@ Those familiar with javascript code generally reflect that the above interface q
 
 #### Optional Callback Data
 
-@TODO
+The optional `$cbData` can be used to avoid creating a new closure binding the value and thus avoiding the overhead. It is passed as a parameter to the callback.
 
 ### `watch()`
 
@@ -87,7 +87,7 @@ $promise->watch(function($update) {
 
 #### Optional Callback Data
 
-@TODO
+The optional `$cbData` can be used to avoid creating a new closure binding the value and thus avoiding the overhead. It is passed as a parameter to the callback.
 
 ## Promisors
 
@@ -106,19 +106,19 @@ interface Promisor {
 
 #### `promise()`
 
-@TODO
+Returns the corresponding `Promise` instance. `Promisor` and `Promise` are separated, so the consumer of the promise can't fulfill it.
 
 #### `update()`
 
-@TODO
+Updates the promise. Invokes all registered `Promise::watch()` callbacks.
 
 #### `succeed()`
 
-@TODO
+Resolves the promise with the first parameter as value, otherwise `null`. If a `Amp\Promise` is passed, the resolution will wait until the passed promise has been resolved. Invokes all registered `Promise::when()` callbacks.
 
 #### `fail()`
 
-@TODO
+Makes the promise fail. Invokes all registered `Promise::when()` callbacks with the passed `Exception` / `Throwable` as `$error` argument.
 
 > **NOTE**
 >
@@ -160,11 +160,12 @@ combinator's `Promise` will fail. Otherwise the resulting `Promise` succeeds wit
 keys from the input array to their resolved values.
 
 The `all()` combinator is extremely powerful because it allows us to concurrently execute many
-asynchronous operations at the same time. Let's look at a simple example using the amp HTTP client
-([artax](https://github.com/amphp/artax)) to retrieve multiple HTTP resources concurrently ...
+asynchronous operations at the same time. Let's look at a simple example using the Amp HTTP client
+([Artax](https://github.com/amphp/artax)) to retrieve multiple HTTP resources concurrently ...
 
 ```php
 <?php
+
 use function Amp\run;
 use function Amp\all;
 use function Amp\stop;
@@ -192,7 +193,7 @@ run(function() {
                 $response->getReason()
             );
         }
-    } catch (Exception $e) {
+    } catch (Amp\CombinatorException $e) {
         // If any one of the requests fails the combo
         // promise returned by Amp\all() will fail and
         // be thrown back into our generator here.
@@ -203,7 +204,6 @@ run(function() {
 });
 ```
 
-
 ### `some()`
 
 The `some()` functor is the same as `all()` except that it tolerates individual failures. As long
@@ -213,7 +213,7 @@ in the component arrays are preserved from the promise array passed to the funct
 
 ### `any()`
 
-@TODO
+The `any()` functor is the same as `some()` except that it tolerates all failures. It will succeed even if all promises failed.
 
 ### `first()`
 
@@ -234,7 +234,7 @@ discarded. Array keys are retained for any results not filtered out by the funct
 
 ## Generators
 
-The addition of Generators in PHP 5.5 trivializes synchronization and error handling in async contexts. The Amp event reactor builds in co-routine support for all reactor callbacks so we can use the `yield` keyword to make async code feel synchronous. Let's look at a simple example executing inside the event reactor run loop:
+The addition of generators in PHP 5.5 trivializes synchronization and error handling in async contexts. The Amp event reactor builds in coroutine support for all reactor callbacks so we can use the `yield` keyword to make async code feel synchronous. Let's look at a simple example executing inside the event reactor run loop:
 
 ```php
 <?php
@@ -266,7 +266,7 @@ are still pending.
 
 ### Subgenerators
 
-@TODO Discuss `yield from`
+Using PHP 7, you can use `yield from` to delegate a sub task to another generator. That generator will be embedded into the currently running generator. If you're using PHP 5, you can achieve the same using `yield Amp\resolve($generator);`.
 
 ### Implicit Yield Behavior
 
@@ -280,4 +280,4 @@ Any value yielded without an associated string yield key is referred to as an "i
 
 > **IMPORTANT**
 >
-> Any yielded value that is not an `Amp\Promise` or `Generator` will be treated as an **error** and an appropriate exception will be thrown back into the original yielding generator. This strict behavior differs from older versions of the library in which implicit yield values were simply sent back to the yielding generator function.
+> Any yielded value that is not an `Amp\Promise` or `null` will be treated as an **error** and an appropriate exception will be thrown back into the original yielding generator. This strict behavior differs from older versions of the library in which implicit yield values were simply sent back to the yielding generator function.

@@ -4,12 +4,58 @@ title: Welcome to asynchronous multitasking PHP
 description: Amp is a non-blocking concurrency framework for PHP applications.
 ---
 
-	<header class="article-header" style="text-align:center;padding:30px">
+<div class="landing">
+	<header class="article-header">
 		<h1>{{page.title}}</h1>
-		<p class="description">{{page.description}}</p>
 	</header>
 
+	<p>
+		Amp is a non-blocking concurrency framework for PHP applications.
+	</p>
+
+	<h2 id="non-blocking-io">What's asynchronious non-blocking I/O?</h2>
+
+	<p>
+		Usually, at least in the PHP world, everything happens synchronious in your code.
+		If you make a database query, you call a function. That function sends the query to the server,
+		then it waits until it gets a response and returns the fetched value.
+	</p>
+
+	<p>
+		We can do better than that. With non-blocking I/O we can perform other tasks while waiting for the database
+		server to return a result. We could fire off a second query in the meantime or perform any other task.
+	</p>
+
+	<p>
+		You might ask what's so bad about waiting, the kernel will just schedule other tasks during that waiting time?
+		That's true, it's how most applications work today. But let's compare it to cooking a soup.
+		With blocking I/O, you first have to peel the potatos and other vegetables and then slice them (CPU work). Once you're finished, you
+		can turn on the stove. Now you're waiting for the water in the pot to become hot. It's hot now, so you can put all vegetables into the pot and wait
+		for it to be done.
+	</p>
+
+	<p>
+		With non-blocking I/O, you could have turned on your stove directly. You could delegate the actual hard work of slicing the vegetables to workers (your children).
+		While being in idle waiting for the stove and the workers, you could stream a video from YouTube and watch it. Once everything is ready, you can put it into the pot.
+		While you're waiting for it to be done, you can play a game with your children.
+	</p>
+
+	<p>
+		But how does it work in reality? All I/O is managed by the kernel. We just write to the kernel's buffer, we don't wait until the data is actually sent to the other side.
+		In the mean time, we can do other things. Once we can an answer, the kernel will notify us that there's a new readable event.
+	</p>
+
+	<p>
+		This waiting time isn't limited to databases, it's more and more important as you add I/O to your application, e.g. by using microservices.
+		Non-blocking I/O makes more efficient use of your processes, because you know, processes cost memory and need to be scheduled.
+	</p>
+
 	<h2 id="hello-world">Hello World</h2>
+
+	<p>
+		Let's see how it would actually look like in code. We don't use I/O in this hello world, but we use another type of events, timers. Just click <i>"Run"</i> to see what happens.
+	</p>
+
     <pre><code class="language-php">&lt;?php
 
 function tick() {
@@ -58,6 +104,12 @@ echo "after run()\n";</code></pre>
 
 	<h2 id="installation">Installation</h2>
 
+	<p>
+		We already have a good set of libraries and packages you can use. Not all of them have a documentation yet, <a href="https://github.com/amphp/amphp.github.io">you're welcome to help</a>.
+		You can install all our libraries using <a href="https://getcomposer.org">Composer</a>. Just have a look at the blue top menu listing the packages. It's indicated whether they have documentation
+		here already or not through the icon on the right.
+	</p>
+
 	<pre><code class="language-bash" id="install">composer require amphp/amp</code></pre>
 
 	<script>
@@ -76,3 +128,4 @@ echo "after run()\n";</code></pre>
 			install.textContent = "composer require amphp/" + packages[parseInt(Math.floor(Math.random() * packages.length))];
 		}, 2000);
 	</script>
+</div>

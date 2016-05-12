@@ -38,6 +38,7 @@ h1 { font-size: 18px; margin-top: -20px; }
 h2 { font-size: 16px; }
 h3 { font-size: 14px; }
 
+.landing { padding-top: 20px; }
 .article-header { text-align: left; }
 .description { color: #333; font-weight: bold; margin: 0; padding: 0; font-size: 14px; }
 

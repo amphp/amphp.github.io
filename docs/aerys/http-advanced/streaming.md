@@ -10,7 +10,7 @@ $db = new Amp\Mysql\Pool("host=localhost;user=user;pass=pass;db=db");
 (new Aerys\Host)->use(function(Aerys\Request $req, Aerys\Response $res) use ($db) {
 	$result = yield $db->prepare("SELECT data FROM table WHERE key = ?", [$req->getParam("key") ?? "default"]);
 	while ($row = yield $result->fetchObject()) {
-		$res->stream("$row->data");
+		$res->stream($row->data);
 		$res->stream("\n");
 		$res->flush();
 	}

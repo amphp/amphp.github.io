@@ -83,7 +83,7 @@
 
 					<ul>
 						{% for repository in site.github.public_repositories %}
-						{% if repository.name != "amphp.github.io" and repository.name != "template" and repository.name != "design" %}
+						{% if repository.name != "amphp.github.io" and repository.name != "template" and repository.name != "design" and repository.name != "hello-world" %}
 						{% capture path %}/docs/{{ repository.name }}/{% endcapture %}
 						{% assign found = false %}
 						{% for page in site.pages %}

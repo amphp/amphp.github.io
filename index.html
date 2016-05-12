@@ -66,6 +66,12 @@ description: Amp is a non-blocking concurrency framework for PHP applications.
 		another type of event - timers. Just click <i>"Run"</i> to see what happens.
 	</p>
 
+	<p>
+		We emulate this simple example in javascript, but if you want to see it live on your local machine with PHP,
+		just clone our <a href="https://github.com/amphp/hello-world"><code>hello-world</code></a> repository and run
+		<code>php timer.php</code>.
+	</p>
+
 	<pre><code class="language-php">&lt;?php
 
 function tick() {
@@ -129,7 +135,7 @@ echo "after run()\n";</code></pre>
 
 		var packages = [
 			{% for repository in site.github.public_repositories %}
-				{% if repository.name != "amphp.github.io" and repository.name != "template" and repository.name != "design" %}
+				{% if repository.name != "amphp.github.io" and repository.name != "template" and repository.name != "design" and repository.name != "hello-world" %}
 					{{repository.name | jsonify}},
 				{% endif %}
 			{% endfor %}

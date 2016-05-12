@@ -281,3 +281,29 @@ Any value yielded without an associated string yield key is referred to as an "i
 > **IMPORTANT**
 >
 > Any yielded value that is not an `Amp\Promise` or `null` will be treated as an **error** and an appropriate exception will be thrown back into the original yielding generator. This strict behavior differs from older versions of the library in which implicit yield values were simply sent back to the yielding generator function.
+
+## Helpers
+
+### `pipe()`
+
+TBD
+
+### `promises()`
+
+TBD
+
+### `timeout()`
+
+TBD
+
+### `coroutine()`
+
+TBD
+
+### `resolve()`
+
+TBD
+
+### `wait()`
+
+TBD

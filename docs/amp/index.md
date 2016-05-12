@@ -19,7 +19,7 @@ layout: docs
 
 ## Current Stable Version
 
- - v1.0.8
+ - v1.2.1
 
 `amphp/amp` follows the [semver](http://semver.org/) semantic versioning specification.
 

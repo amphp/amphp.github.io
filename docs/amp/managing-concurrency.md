@@ -275,14 +275,9 @@ Any value yielded without an associated string yield key is referred to as an "i
 | Yieldable        | Description                                                                                                                                                                                                                      |
 | -----------------| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `Amp\Promise`    | Any promise instance may be yielded and control will be returned to the generator once the promise resolves. If resolution fails the relevant exception is thrown into the generator and must be handled by the application or it will bubble up. If resolution succeeds the promise's resolved value is sent back into the generator. |
-| `null`      | @TODO |
+| `null`      | Gives the event loop time to run other tasks. Continues the generator in the next tick of the loop, just like `Amp\immediately`. |
 
 
 > **IMPORTANT**
 >
 > Any yielded value that is not an `Amp\Promise` or `Generator` will be treated as an **error** and an appropriate exception will be thrown back into the original yielding generator. This strict behavior differs from older versions of the library in which implicit yield values were simply sent back to the yielding generator function.
-
-
-### Extending Coroutine Resolution
-
-@TODO Discuss custom promisifier callables

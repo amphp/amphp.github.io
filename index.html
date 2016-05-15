@@ -50,7 +50,7 @@ description: Amp is a non-blocking concurrency framework for PHP applications.
 	<p>
 		But how does it work in reality? All I/O is managed by the kernel. We just write to the kernel's buffer,
 		we don't wait until the data is actually sent to the other side. In the mean time, we can do other
-		things. Once we can an answer, the kernel will notify us that there's a new readable event.
+		things. Once we have an answer, the kernel will notify us that there's a new readable event.
 	</p>
 
 	<p>

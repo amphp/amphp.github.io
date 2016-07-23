@@ -32,3 +32,4 @@ Stops the Aerys instance.
 $command = new Aerys\CommandClient($server->getOption("configPath"));
 yield $command->stop();
 # Successfully stopped server!
+```

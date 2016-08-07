@@ -23,6 +23,7 @@ In every case the `$parseResult` array needs to contain an `"id"` key with an id
 A _request initializing_ `$parseResult` array requires a `"trace"` key (raw string trace or array with `[field, value]` header pairs), with optional `"uri"` (string &mdash; default: `"/"`), `"method"` (string &mdash; default: `"GET"`), `"protocol"` (string &mdash; default: `"1.0"`) and `"headers"` (array with `[field, value]` pairs &mdash; default: `[]`).
 
 Depending on `$eventType` value, different `$parseResult` contents are expected:
+
 - `HttpDriver::RESULT`: the request has no entity body and `$parseResult` must be _request initializing_.
 - `HttpDriver::ENTITY_HEADERS`: the request will be followed by subsequent body (`HttpDriver::ENTITY_PART` / `HttpDriver::ENITITY_RESULT`) and `$parseResult` must be _request initializing_.
 - `HttpDriver::ENTITY_PART`: contains the next part of the entity body, inside a `"body"` key inside the `$parseResult` array.

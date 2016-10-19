@@ -7,7 +7,7 @@ layout: tutorial
 
 ```php
 (new Aerys\Host)
-	->expose("*", 443) // bind to everywhere on port 80
+	->expose("*", 443) // bind to everywhere on port 443
 	->encrypt("/path/to/certificate.crt", "/path/to/private.key")
 	->use(Aerys\root("/var/www/public_html"))
 ;

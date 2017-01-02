@@ -70,8 +70,24 @@ $root = Aerys\root(__DIR__ . "/public");
 </script>
 ```
 
-`onHandshake($req, $res)` is like a normal request handler, it is the time to determine whether a request shall be successful or not. (E.g. validating a session cookie, a password, ...)
+`onHandshake($req, $res)` is like a normal request handler, it is the time to determine whether a request shall be successful or not. (e.g. validating a session cookie, a password, ...)
 
 Setting the status (via `Aerys\Response::setStatus()`) to any other value than 101 prevents establishing the websocket connection and sends a normal HTTP reply back.
 
-The return value of the `onHandshake()` call is passed as second argument to `onOpen()` in order to allow passing authentication information and assigning it to a $clientId, as there is no clientId yet before the connection has been established.
+The return value of the `onHandshake()` call is passed as second argument to `onOpen()` in order to allow passing authentication information and assigning it to a `$clientId`, as there is no `$clientId` yet before the connection has been established.
+
+**Example**
+
+`onHandshake()`'s return value can be used to store the client IP of the connection:
+
+```php
+public function onHandshake(Request $request, Response $response) {
+    // Potentially check origin header
+	/* ... */
+
+	// Potentially check authentication
+	/* ... */
+
+    return $request->getConnectionInfo()["client_addr"];
+}
+```

@@ -10,7 +10,7 @@ layout: docs
 
 This is a value class exposing the whole data of the clients request via public properties. It is only accessible from within [`Middleware`s](middleware.html) as well as [`HttpDriver`](httpdriver.html).
 
-Values marked with a <sup>†</sup> **_must_** not be altered in order to not bring the server down.
+Values marked with a <sup>†</sup> **_must not be altered_** in order to not bring the server down.
 
 ## `$client`<sup>†</sup>
 

@@ -10,7 +10,7 @@ layout: docs
 
 This is a value class exposing the whole data of the clients request via public properties. It is only accessible via [`InternalRequest`](internalrequest.html) as well as [`HttpDriver`](httpdriver.html).
 
-Values marked with a <sup>†</sup> **_must_** not be altered in order to not bring the server down.
+Values marked with a <sup>†</sup> **_must not be altered_** in order to not bring the server down.
 
 ## `$id`<sup>†</sup>
 
@@ -116,7 +116,7 @@ If the `$client->bodyPromisors[$internalRequest->streamId]` entry exists, this m
 
 ## `$parserEmitLock`
 
-A boolean available for use by a [`HttpDriver`](httpdriver.html) instance (to regulate parser halts and avoid resuming already active Generators).
+A boolean available for use by an [`HttpDriver`](httpdriver.html) instance (to regulate parser halts and avoid resuming already active Generators).
 
 ## `$allowsPush`
 

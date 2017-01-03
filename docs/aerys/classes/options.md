@@ -80,7 +80,7 @@ Type: integer greater than or equal to 16 &mdash; Default: 128
 
 ## `$normalizeMethodCase`
 
-Whether method names shall be lowercased.
+Whether HTTP method names shall be uppercased.
 
 Type: boolean &mdash; Default: true
 

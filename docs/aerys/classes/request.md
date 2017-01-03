@@ -58,7 +58,7 @@ Gets a cookie value by name.
 
 ## `getConnectionInfo(): array`
 
-Returns various information about the request, a map of the array is:
+Returns various information about the request, such as the client IP address. A map of the array is:
 
 ```php
 ["client_port"  => int,

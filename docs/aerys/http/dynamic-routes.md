@@ -7,7 +7,7 @@ layout: tutorial
 
 ```php
 $router = Aerys\router()
-	->get('/foo/?', function (Aerys\Request $req, Aerys\Request $res) {
+	->get('/foo/?', function (Aerys\Request $req, Aerys\Response $res) {
 		# This just works for trailing slashes
 		$res->end("You got here by either requesting /foo or redirected here from /foo/ to /foo.");
 	})

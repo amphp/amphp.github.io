@@ -286,7 +286,7 @@ Any value yielded without an associated string yield key is referred to as an "i
 
 ### `pipe()`
 
-TBD
+Takes a `Promise` as first and a `callable` as second argument. Upon resolution of the promise, the `callable` is invoked in case of a success and can be used to transform the value. The returned promise resolves to the returned value in case of a success. In case of a thrown exception or promise failure, the promise is failed with that exception.
 
 ### `promises()`
 
@@ -294,16 +294,24 @@ TBD
 
 ### `timeout()`
 
-TBD
+Takes a `Promise` as first and timeout in milliseconds as second parameter. Returns a promise that's resolved / failed with the original promise's return value / failure reason or a `TimeoutException` in case the given promise doesn't resolve within the specified timeout.
 
 ### `coroutine()`
 
-TBD
+Transforms a `callable` given as first argument into a coroutine function.
 
 ### `resolve()`
 
-TBD
+Resolves a `Generator` coroutine into a promise. It accepts the `Generator` or a `callable` returning a `Generator` as first and only argument.
+
+Upon resolution the `Generator` return value is used to succeed the promised result. If an error occurs during coroutine resolution the returned promise fails.
+
+A `Generator` coroutine executes the `Generator` until a `Promise` is yielded. It waits for the promise to complete and resumes the `Generator` execution with the resolution value of the yielded promise or throws an exception into the `Generator` in case the yielded promise failed.
 
 ### `wait()`
 
-TBD
+Block script execution indefinitely until the specified `Promise` resolves. The `Promise` is passed as the first and only argument.
+
+In the event of promise failure this method will throw the exception responsible for the failure. Otherwise the promise's resolved value is returned.
+
+This function should only be used outside of `Amp\run` when mixing synchronous and asynchronous code.

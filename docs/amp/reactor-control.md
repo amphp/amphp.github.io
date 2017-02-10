@@ -299,17 +299,14 @@ Amp\run(function() {
 });
 ```
 
-## Process Signal Watchers
+## `onSignal()`
 
-The `Amp\SignalReactor` extends the base reactor interface to expose an API for handling process
-control signals in your application like any other event. Simply use a compatible event reactor
-implementation (`UvReactor` or `LibeventReactor`, preferably the former) and interact with its
-`SignalReactor::onSignal()` method. Consider:
+`Amp\onSignal()` can be used to react to signals sent to the process.
 
 ```php
 <?php
 
-reactor(new Amp\UvReactor)->run(function() {
+Amp\run(function() {
     // Let's tick off output once per second so we can see activity.
     Amp\repeat(function() {
             echo "tick: ", date('c'), "\n";

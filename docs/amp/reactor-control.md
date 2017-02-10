@@ -8,46 +8,29 @@ layout: docs
 
 ## `run()`
 
-The primary way an application interacts with the event reactor is to schedule events for execution
-and then simply let the program run. Once `Reactor::run()` is invoked the event loop will run
-indefinitely until there are no watchable timer events, IO streams or signals remaining to watch.
-Long-running programs generally execute entirely inside the confines of a single `Reactor::run()`
-call.
+The primary way an application interacts with the event reactor is to schedule events for execution and then simply let the program run. Once `Amp\run()` is invoked the event loop will run indefinitely until there are no watchable timer events, IO streams or signals remaining to watch. Long-running programs generally execute entirely inside the confines of a single `Amp\run()` call.
 
 
 ## `tick()`
 
-The event loop tick is the basic unit of flow control in a non-blocking application. This method
-will execute a single iteration of the event loop before returning. `Reactor::tick()` may be used
-inside a custom `while` loop to implement "wait" functionality in concurrency primitives such as
-futures and promises.
+The event loop tick is the basic unit of flow control in a non-blocking application. This method will execute a single iteration of the event loop before returning. `Amp\tick()` may be used inside a custom `while` loop to implement "wait" functionality in concurrency primitives such as futures and promises, but its use is discouraged. It's better to just let `Amp\run` handle everything.
 
 
 ## `stop()`
 
-The event reactor loop can be stopped at any time while running. When `Reactor::stop()` is invoked
-the reactor loop will return control to the userland script at the end of the current iteration
-of the event loop. This method may be used to yield control from the reactor even if events or
-watchable IO streams are still pending.
-
+The event reactor loop can be stopped at any time while running. When `Amp\stop()` is invoked the reactor loop will return control to the userland script at the end of the current tick of the event loop. This method may be used to yield control from the reactor even if events or watchable IO streams are still pending.
 
 
 ## Timer Watchers
 
-Amp exposes several ways to schedule timer watchers. Let's look at some details for each function ...
+Amp exposes several ways to schedule timer watchers. Let's look at some details for each function.
 
 ### `immediately()`
 
- - Schedule a callback to execute in the next iteration of the event loop
- - This method guarantees a clean call stack to avoid starvation of other events in the
-   current iteration of the loop. An "immediately" callback is *always* executed in the next
-   tick of the event loop.
- - After an "immediately" timer watcher executes it is automatically garbage collected by
-   the reactor so there is no need for applications to manually cancel the associated watcher ID.
- - Like all watchers, "immediately" timers may be disabled and reenabled. If you disable this
-   watcher between the time you schedule it and the time that it actually runs the reactor *will
-   not* be able to garbage collect it until it executes. Therefore you must manually cancel an
-   immediately watcher yourself if it never actually executes to free any associated resources.
+ - Schedules a callback to execute in the next iteration of the event loop
+ - This method guarantees a clean call stack to avoid starvation of other events in the current iteration of the loop. An `immediately` callback is *always* executed in the next tick of the event loop.
+ - After an `immediately` timer watcher executes it is automatically garbage collected by the reactor so there is no need for applications to manually cancel the associated watcher.
+ - Like all watchers, `immediately` timers may be disabled and reenabled. If you disable this watcher between the time you schedule it and the time that it actually runs the reactor *will not* be able to garbage collect it until it executes. Therefore you must manually cancel an immediately watcher yourself if it never actually executes to free any associated resources.
 
 **Example**
 
@@ -72,21 +55,16 @@ Amp\run(function () {
 | Key                   | Type   |                                     |
 | --------------------- | ------ | ----------------------------------- |
 | `"enable"`            | bool   | All watchers are enabled by default. Passing the `"enable"` option with a falsy value will create the watcher in a disabled state. |
-| `"keep_alive"`        | bool   | If no other watchers remain registered should this watcher prevent the event reactor's `run()` loop from exiting (default: true)?
+| `"keep_alive"`        | bool   | If no other watchers remain registered should this watcher prevent the event reactor's `run()` loop from exiting (default: `true`)?
 | `"cb_data"`           | mixed  | Optional user data to pass as the final parameter when invoking the watcher callback. If this option is unspecified a callback receives `null` as its final argument.
 
 
 ### `once()`
 
- - Schedule a callback to execute after a delay of *n* milliseconds
- - A "once" watcher is also automatically garbage collected by the reactor after execution and
-   applications should not manually cancel it unless they wish to discard the watcher entirely
-   prior to execution.
- - A "once" watcher that is disabled has its delay time reset so that the original delay time
-   starts again from zero once reenabled.
- - Like "immediately" watchers, a timer scheduled for one-time execution must be manually
-   cancelled to free resources if it never runs due to being disabled by the application after
-   creation.
+ - Schedules a callback to execute after a delay of *n* milliseconds
+ - A "once" watcher is also automatically garbage collected by the reactor after execution and applications should not manually cancel it unless they wish to discard the watcher entirely prior to execution.
+ - A "once" watcher that is disabled has its delay time reset so that the original delay time starts again from zero once reenabled.
+ - Like `immediately` watchers, a timer scheduled for one-time execution must be manually cancelled to free resources if it never runs due to being disabled by the application after creation.
 
 **Example**
 
@@ -113,11 +91,9 @@ Amp\run(function () {
 
 ### `repeat()`
 
- - Schedule a callback to repeatedly execute every *n* millisconds.
+ - Schedules a callback to repeatedly execute every *n* millisconds.
  - Like all other watchers, "repeat" timers may be disabled/reenabled at any time.
- - Unlike `once()` and `immediately()` watchers, `repeat()` timers must be explicitly cancelled to free
-   associated resources. Failure to free "repeat" watchers via `cancel()` once their purpose is fulfilled
-   will result in memory leaks in your application. It is not enough to simply disable repeat watchers as their data is only freed upon cancellation.
+ - Unlike `once()` and `immediately()` watchers, `repeat()` timers must be explicitly cancelled to free associated resources. Failure to free "repeat" watchers via `cancel()` once their purpose is fulfilled will result in memory leaks in your application. It is not enough to simply disable repeat watchers as their data is only freed upon cancellation.
 
 ```php
 <?php // using repeat()
@@ -147,14 +123,9 @@ Amp\run(function () {
 | `"cb_data"`           | mixed  | Optional user data to pass as the final parameter when invoking the watcher callback. If this option is unspecified a callback receives `null` as its final argument.
 | `"ms_delay"`          | int    | Used with `repeat()` watchers to specify a different millisecond timeout for the initial callback invocation. If not specified, repeating timer watchers wait until the `$msInterval` expires before their initial invocation.
 
-
-
 ## Stream IO Watchers
 
-Stream watchers are how we know when we can read and write to sockets and other streams. These
-events are how we're able to actually *create* things like http servers and asynchronous
-database libraries using the event reactor. As such, stream IO watchers form the backbone of any useful
-non-blocking amp application.
+Stream watchers are how we know when we can read and write to sockets and other streams. These events are how we're able to actually *create* things like HTTP servers and asynchronous database libraries using the event reactor. As such, stream IO watchers form the backbone of any useful non-blocking Amp application.
 
 There are two types of IO watchers:
 
@@ -163,7 +134,7 @@ There are two types of IO watchers:
 
 ### `onReadable()`
 
-Watchers registered via `Reactor::onReadable()` trigger their callbacks in the following situations:
+Watchers registered via `Amp\onReadable()` trigger their callbacks in the following situations:
 
  - When data is available to read on the stream under observation
  - When the stream is at EOF (for sockets, this means the connection is broken)
@@ -192,20 +163,13 @@ Amp\onReadable($socket, function($watcherId, $socket) {
 
 In the above example we've done a few very simple things:
 
- - Register a readability watcher for a socket that will trigger our callback when there is
-   data available to read.
-
- - When we read data from the stream in our triggered callback we pass that to a stateful parser
-   that does something domain-specific when certain conditions are met.
-
- - If the `fread()` call indicates that the socket connection is dead we clean up any resources
-   we've allocated for the storage of this stream. This process should always include calling
-   `Amp\cancel()` on any reactor watchers we registered in relation to the stream.
+ - Register a readability watcher for a socket that will trigger our callback when there is data available to read.
+ - When we read data from the stream in our triggered callback we pass that to a stateful parser that does something domain-specific when certain conditions are met.
+ - If the `fread()` call indicates that the socket connection is dead we clean up any resources we've allocated for the storage of this stream. This process should always include calling `Amp\cancel()` on any reactor watchers we registered in relation to the stream.
 
 ### `onWritable()`
 
- - Streams are essentially *"always"* writable. The only time they aren't is when their
-   respective write buffers are full.
+ - Streams are essentially *"always"* writable. The only time they aren't is when their respective write buffers are full.
 
 A common usage pattern for reacting to writability involves initializing a writability watcher without enabling it when a client first connects to a server. Once incomplete writes occur we're then able to "unpause" the write watcher using `Amp\enable()` until data is fully sent without having to create and cancel new watcher resources on the same stream multiple times.
 
@@ -319,7 +283,7 @@ class Server {
 
 ### `cancel()`
 
-It's important to *always* cancel persistent watchers once you're finished with them or you'll create memory leaks in your application. This functionality works in exactly the same way as  the above enable/disable examples:
+It's important to *always* cancel persistent watchers once you're finished with them or you'll create memory leaks in your application. This functionality works in exactly the same way as  the above `enable` / `disable` examples:
 
 ```php
 <?php
@@ -369,7 +333,7 @@ As should be clear from the above example, signal watchers may be enabled, disab
 | ------------------- | --------------------------------------------------|
 | `"enable"`          | All watchers are enabled by default. Passing the `"enable"` option with a falsy value will create a watcher in a disabled state. |
 | `"ms_delay"`        | Used with `repeat()` watchers to specify a different millisecond timeout for the initial callback invocation. If not specified, repeating timer watchers wait until the `$msInterval` expires before their initial invocation. |
-| `"callback_data"`   | Optional user data to pass as the final parameter when invoking the watcher callback. If this option is unspecified a callback receives `null` as its final argument. |
+| `"cb_data"`   | Optional user data to pass as the final parameter when invoking the watcher callback. If this option is unspecified a callback receives `null` as its final argument. |
 
 ### Watcher Callback Parameters
 
@@ -402,11 +366,7 @@ Amp\repeat(function($watcherId) use (&$increment) {
 
 ### An Important Note on Writability
 
-Because streams are essentially *"always"* writable you should only enable writability watchers
-while you have data to send. If you leave these watchers enabled when your application doesn't have
-anything to write the watcher will trigger endlessly until disabled or cancelled. This will max out
-your CPU. If you're seeing inexplicably high CPU usage in your application it's a good bet you've
-got a writability watcher that you failed to disable or cancel after you were finished with it.
+Because streams are essentially *"always"* writable you should only enable writability watchers while you have data to send. If you leave these watchers enabled when your application doesn't have anything to write the watcher will trigger endlessly until disabled or cancelled. This will max out your CPU. If you're seeing inexplicably high CPU usage in your application it's a good bet you've got a writability watcher that you failed to disable or cancel after you were finished with it.
 
 A standard pattern in this area is to initialize writability watchers in a disabled state before subsequently enabling them at a later time as shown here:
 

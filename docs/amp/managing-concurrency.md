@@ -290,7 +290,7 @@ Takes a `Promise` as first and a `callable` as second argument. Upon resolution 
 
 ### `promises()`
 
-TBD
+Normalizes an array of mixed values / Promises / Promisors to an array of promises.
 
 ### `timeout()`
 

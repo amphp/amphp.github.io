@@ -24,7 +24,7 @@ class MiniChat implements Aerys\Websocket {
 	public function onData(int $clientId, Aerys\Websocket\Message $msg) {
 		$text = yield $msg;
 		$this->ws->send($clientId, "<i>Message received ... Sending in 5 seconds ...</i>");
-		yield new Amp\Pause(5000);
+		yield new Amp\Delayed(5000);
 		$this->ws->send(null, "Client $clientId said: $text");
 	}
 

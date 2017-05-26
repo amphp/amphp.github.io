@@ -3,13 +3,13 @@
     overflow-x: auto;
     padding: 0;
     color: #000;
-    background: #fff;
-    -webkit-text-size-adjust: none
+    background: transparent;
+    -webkit-text-size-adjust: none;
 }
 
 .hljs-comment,
 .diff .hljs-header {
-    color: #A0A1A7
+    color: #606167
 }
 
 .hljs-keyword,

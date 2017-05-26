@@ -1,0 +1,61 @@
+{% assign asset_path = site.baseurl | append: "/shared/asset" %}
+
+<!doctype html>
+<html>
+<head>
+    <link href="https://fonts.googleapis.com/css?family=Handlee|Source+Code+Pro:400,600|Source+Sans+Pro"
+          rel="stylesheet">
+
+    <meta charset="utf-8">
+
+    <link rel="stylesheet" href="{{ asset_path }}/css/tooltip.css"/>
+    <link rel="stylesheet" href="{{ asset_path }}/css/code.css"/>
+    <link rel="stylesheet" href="{{ asset_path }}/css/screen.css"/>
+    <link rel="stylesheet" href="{{ asset_path }}/css/font-awesome.min.css"/>
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/highlight.min.js"></script>
+
+    <script>
+        hljs.initHighlightingOnLoad();
+    </script>
+</head>
+<body>
+<div class="site-wrapper">
+    <div id="top" class="site-full-width">
+        <div class="site-width cols cols-no-wrap">
+            <div>
+                <a class="logo" href="/">
+                    <img src="/img/logo.png" class="logo-img">
+                    AMPHP
+                </a>
+            </div>
+            <div>
+                <a class="menu-item" href="#">
+                    Documentation
+                </a>
+
+                <a class="menu-item" href="/packages.html">
+                    Packages
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="content site-width">
+		{{content}}
+	</div>
+
+    <div id="footer" class="site-full-width">
+        <div class="site-width">
+            <ul>
+                <li><a href="https://github.com/amphp/amp"><i class="fa fa-github"></i> GitHub</a></li>
+                <li><a href="https://twitter.com/asyncphp"><i class="fa fa-twitter"></i> Twitter</a></li>
+                <li><a href="irc://irc.freenode.net/amphp"><i class="fa fa-hashtag"></i> IRC</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<script src="/js/tooltip.min.js"></script>
+<script src="/js/help.js"></script>
+</body>
+</html>

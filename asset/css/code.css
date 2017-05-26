@@ -1,0 +1,118 @@
+.hljs {
+    display: block;
+    overflow-x: auto;
+    padding: 0;
+    color: #000;
+    background: #fff;
+    -webkit-text-size-adjust: none
+}
+
+.hljs-comment,
+.diff .hljs-header {
+    color: #A0A1A7
+}
+
+.hljs-keyword,
+.assignment,
+.hljs-literal,
+.css .rule .hljs-keyword,
+.hljs-winutils,
+.javascript .hljs-title,
+.lisp .hljs-title,
+.hljs-subst {
+    color: #8d34bd;
+}
+
+.hljs-number,
+.hljs-hexcolor {
+    color: #f0425f
+}
+
+.hljs-string,
+.hljs-tag .hljs-value,
+.hljs-doctag,
+.tex .hljs-formula,
+.hljs-name {
+    color: #2da372
+}
+
+.hljs-id {
+    color: #d67e3b
+}
+
+.javascript .hljs-title,
+.lisp .hljs-title,
+.hljs-subst {
+    font-weight: normal
+}
+
+.hljs-class .hljs-title,
+.haskell .hljs-label,
+.tex .hljs-command {
+    color: #458;
+    font-weight: bold
+}
+
+.hljs-tag,
+.hljs-tag .hljs-title,
+.hljs-rule .hljs-property,
+.django .hljs-tag .hljs-keyword {
+    color: #000080;
+    font-weight: normal
+}
+
+.hljs-params,
+.hljs-symbol,
+.ruby .hljs-symbol .hljs-string,
+.ruby .hljs-symbol .hljs-keyword,
+.ruby .hljs-symbol .keymethods,
+.lisp .hljs-keyword,
+.tex .hljs-special,
+.input_number,
+.builtin,
+.constructor,
+.hljs-built_in,
+.lisp .hljs-title,
+.hljs-class,
+.hljs-attribute,
+.hljs-variable,
+.instancevar,
+.lisp .hljs-body,
+.diff .hljs-change {
+    color: #1377de
+}
+
+.hljs-regexp {
+    color: #b68
+}
+
+.hljs-class {
+    font-weight: bold
+}
+
+.hljs-preprocessor,
+.hljs-pragma,
+.hljs-pi,
+.hljs-doctype,
+.hljs-shebang,
+.hljs-cdata {
+    color: #999;
+    font-weight: bold
+}
+
+.hljs-deletion {
+    background: #fdd
+}
+
+.hljs-addition {
+    background: #dfd
+}
+
+.hljs-chunk {
+    color: #aaa
+}
+
+.tex .hljs-formula {
+    opacity: 0.5
+}
+

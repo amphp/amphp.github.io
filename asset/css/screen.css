@@ -340,7 +340,6 @@ h3 {
 }
 
 #footer {
-    background: rgba(0,0,0,.05);
     border-top: 1px solid rgba(0,0,0,.1);
     padding: 20px;
 }
@@ -369,4 +368,26 @@ h3 {
 
 #footer a {
     color: #333;
+}
+
+.note {
+    margin: 15px 0;
+    padding: 15px 15px 15px 60px;
+    background-color: rgba(0,0,0,.05);
+    position: relative;
+}
+
+.note::before {
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 45px;
+    height: 100%;
+    background-color: #00a4e4;
+    content: "\f129";
+    font: normal normal normal 14px/1 FontAwesome;
+    color: white;
+    text-align: center;
+    line-height: 55px;
 }

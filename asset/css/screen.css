@@ -174,7 +174,11 @@ h2 code, h3 code, h4 code, h5 code, h6 code {
 .content td,
 .content th {
     border: 1px solid #ccc;
-    padding: 8px 15px;
+    padding: 8px;
+}
+
+.content td {
+    vertical-align: top;
 }
 
 .block h2 {

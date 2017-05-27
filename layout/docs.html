@@ -45,9 +45,21 @@
     <div class="content site-width content-with-sidebar">
         <div class="content-sidebar">
             <ul class="sidebar-menu">
+                {% for page in site.pages %}
+                    {% if page.url == "/" %}
+                        <li class="sitebar-level-1"><a href="{{ site.baseurl }}{{ page.url }}">{{ page.title }}</a></li>
+                    {% endif %}
+                {% endfor %}
+
                 {% assign site_pages = site.pages | sort: "url" %}
-                {% for page in site_pages %}
-                    <li class="sidebar-level-{{ page.url | replace: '/',' ' | strip | split: ' ' | size }}"><a href="{{ site.baseurl }}{{ page.url }}">{{ page.title }}</a></li>
+
+                {% for item in site.navigation %}
+                    {% for page in site_pages %}
+                        {% assign page_url_first = page.url | split: '/' | slice: 1, 1 | first %}
+                        {% if page_url_first == item %}
+                            <li class="sidebar-level-{{ page.url | replace: '/',' ' | strip | split: ' ' | size }}"><a href="{{ site.baseurl }}{{ page.url }}">{{ page.title }}</a></li>
+                        {% endif %}
+                    {% endfor %}
                 {% endfor %}
             </ul>
         </div>

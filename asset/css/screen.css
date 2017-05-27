@@ -10,13 +10,18 @@ body {
 code {
     font-family: "Source Code Pro", monospace;
     font-size: 15px; /* font is very large, this makes it about the size of the other texts */
-    background-color: rgba(255, 255, 255, .2);
-    border: 1px solid rgba(0, 0, 0, .1);
-    box-decoration-break: clone;
-    -webkit-box-decoration-break: clone;
-    padding: 1px 4px; /* not too much padding not to break with multiline */
-    margin: 0 2px;
-    border-radius: 2px;
+    border-bottom: 2px solid rgba(0,0,0,.1);
+}
+
+a code {
+    border-color: rgba(19, 119, 222, .2);
+}
+
+pre {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    background: rgba(255, 255, 255, .5);
 }
 
 pre > code {
@@ -25,6 +30,8 @@ pre > code {
     padding: 0;
     margin: 0;
     border-radius: inherit;
+    line-height: 145%;
+    font-size: 14px;
 }
 
 a {

@@ -1,5 +1,3 @@
-{% assign asset_path = site.baseurl | append: "/shared/asset" %}
-
 <!doctype html>
 <html>
 <head>
@@ -9,12 +7,13 @@
 
     <meta charset="utf-8">
 
-    <link rel="stylesheet" href="{{ asset_path }}/css/tooltip.css"/>
-    <link rel="stylesheet" href="{{ asset_path }}/css/code.css"/>
-    <link rel="stylesheet" href="{{ asset_path }}/css/screen.css"/>
-    <link rel="stylesheet" href="{{ asset_path }}/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="{{ site.asset_path }}/css/tooltip.css"/>
+    <link rel="stylesheet" href="{{ site.asset_path }}/css/code.css"/>
+    <link rel="stylesheet" href="{{ site.asset_path }}/css/screen.css"/>
+    <link rel="stylesheet" href="{{ site.asset_path }}/css/font-awesome.min.css"/>
 
     <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/highlight.min.js"></script>
+    <script src="{{ site.asset_path }}/js/anchor.min.js"></script>
 
     <script>
         hljs.initHighlightingOnLoad();
@@ -26,7 +25,7 @@
         <div class="site-width cols cols-no-wrap">
             <div>
                 <a class="logo" href="/">
-                    <img src="{{ asset_path }}/img/logo.png" class="logo-img">
+                    <img src="{{ site.asset_path }}/img/logo.png" class="logo-img">
                     AMPHP
                 </a>
             </div>
@@ -35,7 +34,7 @@
                     Documentation
                 </a>
 
-                <a class="menu-item" href="/packages.html">
+                <a class="menu-item" href="/packages">
                     Packages
                 </a>
             </div>
@@ -81,7 +80,13 @@
         </div>
     </div>
 </div>
-<script src="{{ asset_path }}/js/tooltip.min.js"></script>
-<script src="{{ asset_path }}/js/help.js"></script>
+<script>
+var anchors = new AnchorJS();
+anchors.options.icon = "#";
+anchors.options.placement = "left";
+anchors.add("h2,h3,h4,h5,h6");
+</script>
+<script src="{{ site.asset_path }}/js/tooltip.min.js"></script>
+<script src="{{ site.asset_path }}/js/help.js"></script>
 </body>
 </html>

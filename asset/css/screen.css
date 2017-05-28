@@ -453,9 +453,14 @@ h2 code, h3 code, h4 code, h5 code, h6 code {
 
 .anchorjs-link {
     color: rgba(0,0,0,.5);
+    transition: all .25s linear;
 }
 
 .anchorjs-link:hover {
     text-decoration: none;
     color: rgba(0,0,0,.6);
+}
+
+*:hover > .anchorjs-link {
+  margin-left: -1.125em !important;
 }

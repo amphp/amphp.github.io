@@ -464,3 +464,123 @@ h2 code, h3 code, h4 code, h5 code, h6 code {
 *:hover > .anchorjs-link {
   margin-left: -1.125em !important;
 }
+
+#menu {
+    display: none;
+}
+
+#sidebar-menu {
+    display: none;
+}
+
+@media (min-width: 500px) {
+    .mobile-only {
+        display: none;
+    }
+}
+
+@media (max-width: 499px) {
+    .logo-text {
+        display: none;
+    }
+
+    .no-mobile {
+        display: none;
+    }
+
+    #top, .site-wrapper {
+        padding: 0 30px;
+    }
+
+    .content {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    #menu-switch {
+        text-align: right;
+    }
+
+    #top-menu {
+        display: none;
+        max-width: none;
+        padding: 5px 0;
+    }
+
+    #menu:checked + .site-wrapper #top-menu {
+        position: absolute;
+        display: block;
+        top: 70px;
+        left: 0;
+        right: 0;
+        margin: 0;
+        background: white;
+        box-shadow: 0 15px 15px -15px rgba(0,0,0,.1) inset, 0 15px 15px -15px rgba(0,0,0,.1);
+        border-bottom: 1px solid #ddd;
+    }
+
+    #top-menu a {
+        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        padding: 0 30px;
+        text-align: left;
+    }
+
+    .content-with-sidebar {
+        display: block;
+    }
+
+    .content-sidebar {
+        width: 100%;
+        margin: 30px 0;
+    }
+
+    .sidebar-menu-switch {
+        border: 2px solid #def;
+        border-radius: 4px;
+        padding: 8px;
+        display: block;
+        text-align: center;
+    }
+
+    .sidebar-menu {
+        display: none;
+    }
+
+    #sidebar-menu:checked ~ .sidebar-menu {
+        display: block;
+    }
+
+    #sidebar-menu:checked ~ .sidebar-menu-switch {
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+    }
+
+    .sidebar-menu-switch-close {
+        display: none;
+    }
+
+    #sidebar-menu:checked ~ .sidebar-menu-switch .sidebar-menu-switch-close {
+        display: block;
+    }
+
+    #sidebar-menu:checked ~ .sidebar-menu-switch .sidebar-menu-switch-open {
+        display: none;
+    }
+
+    .sidebar-menu li {
+        border: 2px solid #def;
+        border-top: 0;
+    }
+
+    .sidebar-menu a {
+        padding: 8px;
+        display: block;
+    }
+
+    .sidebar-menu li:last-child {
+        border-bottom-left-radius: 4px;
+        border-bottom-right-radius: 4px;
+    }
+}

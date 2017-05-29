@@ -12,24 +12,50 @@
     <link rel="stylesheet" href="{{ site.asset_path }}/css/screen.css"/>
     <link rel="stylesheet" href="{{ site.asset_path }}/css/font-awesome.min.css"/>
 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+
+    <meta name="google-site-verification" content="lX-Oenz4-gpqzuAF71A-3MQBlDfgr9pIQIfrVniz1As">
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@asyncphp">
+    <meta name="twitter:creator" content="@asyncphp">
+    <meta property="og:url" content="{{page.url}}">
+    <meta property="og:title" content="{{page.title}}">
+
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+
     <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/highlight.min.js"></script>
     <script src="{{ site.asset_path }}/js/anchor.min.js"></script>
 
     <script>
         hljs.initHighlightingOnLoad();
+
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-69242348-1', 'auto');
+        ga('send', 'pageview');
     </script>
 </head>
 <body>
+<input type="checkbox" id="menu" name="menu">
 <div class="site-wrapper">
     <div id="top" class="site-full-width">
         <div class="site-width cols cols-no-wrap">
             <div>
                 <a class="logo" href="/">
                     <img src="{{ site.asset_path }}/img/logo.png" class="logo-img">
-                    AMPHP
+                    <span class="logo-text">AMPHP</span>
                 </a>
             </div>
-            <div>
+
+            <div class="mobile-only" id="menu-switch">
+                <label for="menu"><i class="fa fa-bars"></i></label>
+            </div>
+
+            <div id="top-menu">
                 <a class="menu-item" href="#">
                     Documentation
                 </a>
@@ -43,6 +69,13 @@
 
     <div class="content site-width content-with-sidebar">
         <div class="content-sidebar">
+            <input type="checkbox" id="sidebar-menu" name="sidebar-menu">
+
+            <label class="mobile-only sidebar-menu-switch" for="sidebar-menu">
+                <span class="sidebar-menu-switch-open">Open page overview</span>
+                <span class="sidebar-menu-switch-close">Close page overview</span>
+            </label>
+
             <ul class="sidebar-menu">
                 {% for page in site.pages %}
                     {% if page.url == "/" %}

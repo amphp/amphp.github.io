@@ -1,125 +1,38 @@
-<!doctype html>
-<html>
-<head>
-    <title>{{ page.title }}</title>
+---
+layout: base
+---
+<div class="content site-width content-with-sidebar">
+    <div class="content-sidebar">
+        <input type="checkbox" id="sidebar-menu" name="sidebar-menu">
 
-    <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:400,600|Source+Sans+Pro" rel="stylesheet">
+        <label class="mobile-only sidebar-menu-switch" for="sidebar-menu">
+            <span class="sidebar-menu-switch-open">Open page overview</span>
+            <span class="sidebar-menu-switch-close">Close page overview</span>
+        </label>
 
-    <meta charset="utf-8">
+        <ul class="sidebar-menu">
+            {% for page in site.pages %}
+            {% if page.url == "/" %}
+            <li class="sitebar-level-1"><a href="{{ site.baseurl }}{{ page.url }}">{{ page.title }}</a></li>
+            {% endif %}
+            {% endfor %}
 
-    <link rel="stylesheet" href="{{ site.asset_path }}/css/tooltip.css"/>
-    <link rel="stylesheet" href="{{ site.asset_path }}/css/code.css"/>
-    <link rel="stylesheet" href="{{ site.asset_path }}/css/screen.css"/>
-    <link rel="stylesheet" href="{{ site.asset_path }}/css/font-awesome.min.css"/>
+            {% assign site_pages = site.pages | sort: "url" %}
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-
-    <meta name="google-site-verification" content="lX-Oenz4-gpqzuAF71A-3MQBlDfgr9pIQIfrVniz1As">
-
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:site" content="@asyncphp">
-    <meta name="twitter:creator" content="@asyncphp">
-    <meta property="og:url" content="{{page.url}}">
-    <meta property="og:title" content="{{page.title}}">
-
-    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
-
-    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/highlight.min.js"></script>
-    <script src="{{ site.asset_path }}/js/anchor.min.js"></script>
-
-    <script>
-        hljs.initHighlightingOnLoad();
-
-        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-        ga('create', 'UA-69242348-1', 'auto');
-        ga('send', 'pageview');
-    </script>
-</head>
-<body>
-<input type="checkbox" id="menu" name="menu">
-<div class="site-wrapper">
-    <div id="top" class="site-full-width">
-        <div class="site-width cols cols-no-wrap">
-            <div>
-                <a class="logo" href="/">
-                    <img src="{{ site.asset_path }}/img/logo.png" class="logo-img">
-                    <span class="logo-text">AMPHP</span>
-                </a>
-            </div>
-
-            <div class="mobile-only" id="menu-switch">
-                <label for="menu"><i class="fa fa-bars"></i></label>
-            </div>
-
-            <div id="top-menu">
-                <a class="menu-item" href="#">
-                    Documentation
-                </a>
-
-                <a class="menu-item" href="/packages">
-                    Packages
-                </a>
-            </div>
-        </div>
+            {% for item in site.navigation %}
+            {% for page in site_pages %}
+            {% assign page_url_first = page.url | split: '/' | slice: 1, 1 | first %}
+            {% if page_url_first == item %}
+            <li class="sidebar-level-{{ page.url | replace: '/',' ' | strip | split: ' ' | size }}"><a href="{{ site.baseurl }}{{ page.url }}">{{ page.title }}</a></li>
+            {% endif %}
+            {% endfor %}
+            {% endfor %}
+        </ul>
     </div>
 
-    <div class="content site-width content-with-sidebar">
-        <div class="content-sidebar">
-            <input type="checkbox" id="sidebar-menu" name="sidebar-menu">
+    <div class="content-main">
+        <h1>{{ page.title }}</h1>
 
-            <label class="mobile-only sidebar-menu-switch" for="sidebar-menu">
-                <span class="sidebar-menu-switch-open">Open page overview</span>
-                <span class="sidebar-menu-switch-close">Close page overview</span>
-            </label>
-
-            <ul class="sidebar-menu">
-                {% for page in site.pages %}
-                    {% if page.url == "/" %}
-                        <li class="sitebar-level-1"><a href="{{ site.baseurl }}{{ page.url }}">{{ page.title }}</a></li>
-                    {% endif %}
-                {% endfor %}
-
-                {% assign site_pages = site.pages | sort: "url" %}
-
-                {% for item in site.navigation %}
-                    {% for page in site_pages %}
-                        {% assign page_url_first = page.url | split: '/' | slice: 1, 1 | first %}
-                        {% if page_url_first == item %}
-                            <li class="sidebar-level-{{ page.url | replace: '/',' ' | strip | split: ' ' | size }}"><a href="{{ site.baseurl }}{{ page.url }}">{{ page.title }}</a></li>
-                        {% endif %}
-                    {% endfor %}
-                {% endfor %}
-            </ul>
-        </div>
-
-        <div class="content-main">
-            <h1>{{ page.title }}</h1>
-
-            {{content}}
-        </div>
-    </div>
-
-    <div id="footer" class="site-full-width">
-        <div class="site-width">
-            <ul>
-                <li><a href="https://github.com/amphp/amp"><i class="fa fa-github"></i> GitHub</a></li>
-                <li><a href="https://twitter.com/asyncphp"><i class="fa fa-twitter"></i> Twitter</a></li>
-                <li><a href="irc://irc.freenode.net/amphp"><i class="fa fa-hashtag"></i> IRC</a></li>
-            </ul>
-        </div>
+        {{content}}
     </div>
 </div>
-<script>
-var anchors = new AnchorJS();
-anchors.options.icon = "#";
-anchors.options.placement = "left";
-anchors.add("h2,h3,h4,h5,h6");
-</script>
-<script src="{{ site.asset_path }}/js/tooltip.min.js"></script>
-<script src="{{ site.asset_path }}/js/help.js"></script>
-</body>
-</html>

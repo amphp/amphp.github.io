@@ -256,7 +256,7 @@ h2 code, h3 code, h4 code, h5 code, h6 code {
 .menu-item {
     display: inline-block;
     line-height: 48px; /* border + padding */
-    padding: 13px 10px 8px 10px;
+    padding: 13px 15px 8px 15px;
     font-size: 16px;
     text-decoration: none;
     color: black;
@@ -283,6 +283,8 @@ h2 code, h3 code, h4 code, h5 code, h6 code {
 
 .highlight-area pre {
     margin: 0;
+    background: transparent;
+    border-color: transparent;
 }
 
 .highlight-area pre > code {
@@ -401,6 +403,7 @@ h2 code, h3 code, h4 code, h5 code, h6 code {
 #footer {
     border-top: 1px solid rgba(0,0,0,.1);
     padding: 20px;
+    margin-top: 40px;
 }
 
 #footer ul {

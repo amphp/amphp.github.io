@@ -65,14 +65,14 @@ p:last-child {
 h1 {
     font-size: 24px;
     padding: 0;
-    margin: 0 0 15px 0;
+    margin: 45px 0 0 0;
     font-weight: bold;
 }
 
 h2 {
     font-size: 24px;
     padding: 0;
-    margin: 25px 0 10px 0;
+    margin: 25px 0 15px 0;
 }
 
 h3 {
@@ -275,6 +275,10 @@ h2 code, h3 code, h4 code, h5 code, h6 code {
     padding-top: 10px;
     padding-bottom: 15px;
     border-bottom: 1px solid rgba(0,0,0,.05);
+}
+
+.highlight-area h1 {
+    margin: 5px 0 15px 0;
 }
 
 .highlight-area .cols div:last-child {

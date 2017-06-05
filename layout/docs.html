@@ -2,6 +2,7 @@
 layout: base
 ---
 <div class="content site-width content-with-sidebar">
+    {% if site.navigation %}
     <div class="content-sidebar">
         <input type="checkbox" id="sidebar-menu" name="sidebar-menu">
 
@@ -29,6 +30,7 @@ layout: base
             {% endfor %}
         </ul>
     </div>
+    {% endif %}
 
     <div class="content-main">
         <h1>{{ page.title }}</h1>

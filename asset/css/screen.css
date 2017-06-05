@@ -160,6 +160,10 @@ h2 code, h3 code, h4 code, h5 code, h6 code {
     flex-grow: 1;
 }
 
+.content-main h1 {
+    margin-top: 5px;
+}
+
 .sidebar-menu {
     margin: 0;
     padding: 0;

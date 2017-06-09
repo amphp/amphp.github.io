@@ -33,6 +33,10 @@ layout: base
     {% endif %}
 
     <div class="content-main">
+        <div class="content-actions">
+            <a href="{{site.github.repository_url}}/blob/{{site.github.build_revision}}/docs/{{page.path}}"><i class="fa fa-pencil"></i> Suggest edit</a>
+        </div>
+
         <h1>{{ page.title }}</h1>
 
         {{content}}

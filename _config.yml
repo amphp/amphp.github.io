@@ -10,6 +10,7 @@ include: [".shared"]
 
 repository: amphp/amphp.github.io
 gems:
+ - "jekyll-redirect-from"
  - "jekyll-github-metadata"
  - "jekyll-relative-links"
 

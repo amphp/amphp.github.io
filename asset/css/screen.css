@@ -102,9 +102,9 @@ h2 code, h3 code, h4 code, h5 code, h6 code {
 
 #top .logo {
     font-weight: bold;
-    vertical-align: middle;
+    vertical-align: top;
     height: 70px;
-    line-height: 70px;
+    line-height: 68px;
     display: inline-block;
     font-size: 20px;
     text-decoration: none;

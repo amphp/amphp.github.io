@@ -163,6 +163,7 @@ h2 code, h3 code, h4 code, h5 code, h6 code {
 
 .content-main h1 {
     margin-top: 5px;
+    margin-bottom: 15px;
 }
 
 .content-actions {

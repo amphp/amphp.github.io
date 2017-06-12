@@ -1,0 +1,183 @@
+---
+title: Packages
+permalink: /packages
+layout: base
+---
+<style>
+    .h-center h1, .h-center h2 { text-align: center }
+    .h-center h2 { margin-top: 50px; }
+    .h-center > p { text-align: center }
+</style>
+<div class="content site-width h-center">
+    <h2><a href="https://github.com/amphp/amp">Amp</a></h2>
+
+    <p>
+        Amp provides all basic features. It defines the basic interfaces and
+        contains standard implementations for those.
+    </p>
+
+    <h2>Basic Components</h2>
+
+    <div class="cols">
+        <div>
+            <h3><a href="https://github.com/amphp/byte-stream">byte-stream</a></h3>
+            <p>
+                Streams are an abstraction over ordered sequences of bytes. This package provides the
+                <code>InputStream</code> and <code>OutputStream</code> interfaces and basic implementations
+                of those.
+            </p>
+        </div>
+
+        <div>
+            <h3><a href="https://github.com/amphp/socket">socket</a></h3>
+            <p>
+                Provides helper functions to easily connect asynchronously to servers and creating server sockets.
+                Also contains higher-level server and client socket implementations.
+            </p>
+        </div>
+
+        <div>
+            <h3><a href="https://github.com/amphp/dns">dns</a></h3>
+            <p>
+                Provides asynchronous DNS resolution and queries. This package has built-in support for OS specific
+                system configurations and respects e.g. <code>/etc/hosts</code> and <code>/etc/resolve.conf</code>.
+            </p>
+        </div>
+    </div>
+
+    <h2>HTTP Components</h2>
+
+    <div class="cols">
+        <div>
+            <h3><a href="https://github.com/amphp/aerys">aerys</a></h3>
+            <p>
+                An advanced HTTP application, WebSocket and file server with support for HTTP/1.1 and HTTP/2.
+            </p>
+        </div>
+
+        <div>
+            <h3><a href="https://github.com/amphp/aerys-session">aerys-session</a></h3>
+            <p>
+                Session management for the Aerys HTTP server.
+            </p>
+        </div>
+
+        <div>
+            <h3><a href="https://github.com/amphp/aerys-reverse">aerys-reverse</a></h3>
+            <p>
+                Reverse HTTP proxy handler for Aerys.
+            </p>
+        </div>
+    </div>
+
+    <div class="cols">
+        <div>
+            <h3><a href="https://github.com/amphp/artax">artax</a></h3>
+            <p>
+                An advanced HTTP client with support for automatic compression, keep-alive and cookie support.
+            </p>
+        </div>
+
+        <div>
+            <h3><a href="https://github.com/amphp/websocket">websocket</a></h3>
+            <p>
+                A WebSocket client compliant with <a href="https://tools.ietf.org/html/rfc6455">RFC 6455</a>.
+            </p>
+        </div>
+
+        <div><!-- for correct alignment --></div>
+    </div>
+
+    <h2>Database Components</h2>
+
+    <div class="cols">
+        <div>
+            <h3><a href="https://github.com/amphp/mysql">mysql</a></h3>
+            <p>
+                MySQL client with support for connection pooling.
+            </p>
+        </div>
+
+        <div>
+            <h3><a href="https://github.com/amphp/postgres">postgres</a></h3>
+            <p>
+                Postgres client.
+            </p>
+        </div>
+
+        <div>
+            <h3><a href="https://github.com/amphp/redis">redis</a></h3>
+            <p>
+                Redis client with support for PubSub.
+            </p>
+        </div>
+    </div>
+
+    <h2>Message Queue Components</h2>
+
+    <div class="cols">
+        <div>
+            <h3><a href="https://github.com/amphp/beanstalk">beanstalk</a></h3>
+            <p>
+                BeanstalkD client.
+            </p>
+        </div>
+
+        <div>
+            <h3><a href="https://github.com/amphp/postgres">stomp</a></h3>
+            <p>
+                STOMP client.
+            </p>
+        </div>
+    </div>
+
+    <h2>Utility Components</h2>
+
+    <div class="cols">
+        <div>
+            <h3><a href="https://github.com/amphp/cache">cache</a></h3>
+            <p>
+                Promise-aware caching API specification and implementation.
+            </p>
+        </div>
+
+        <div>
+            <h3><a href="https://github.com/amphp/process">process</a></h3>
+            <p>
+                Async child-process dispatcher.
+            </p>
+        </div>
+
+        <div>
+            <h3><a href="https://github.com/amphp/uri">uri</a></h3>
+            <p>
+                Uri Parser and Resolver.
+            </p>
+        </div>
+
+        <div>
+            <h3><a href="https://github.com/amphp/parallel">parallel</a></h3>
+            <p>
+                Parallel processing using native threading and multiprocessing.
+            </p>
+        </div>
+    </div>
+</div>
+
+<hr class="section-separator">
+
+<div class="content site-width h-center">
+    <h2>More Compatible Packages</h2>
+
+    <p>
+        Apart from the listed packages, there are other compatible packages from other vendors. Compatible packages
+        should use the <a href="https://github.com/search?p=1&q=topic%3Aamphp&type=Repositories&utf8=%E2%9C%93"><code>amphp</code></a>
+        tag on GitHub.
+    </p>
+
+    <p>
+        Additionally, all libraries compatible with
+        <a href="http://reactphp.org/" rel="nofollow">ReactPHP</a> are fully compatible with Amp by using <a
+            href="https://github.com/amphp/react-adapter">our adapter</a>.
+    </p>
+</div>

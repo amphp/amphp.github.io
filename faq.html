@@ -1,0 +1,49 @@
+---
+title: FAQ - Frequently Asked Questions
+permalink: /faq
+layout: base
+---
+<div class="content site-width">
+    <h1>FAQ - Frequently Asked Questions</h1>
+
+    <h3>What is Amp?</h3>
+    <p>
+        Amp is a concurrency framework for PHP providing primitives to manage concurrency such as an event loop,
+        promises, and asynchronous iterators.
+    </p>
+
+    <h3>What is AMPHP?</h3>
+    <p>
+        AMPHP is the group behind Amp maintaining it and its core components.
+    </p>
+
+    <h3>Why / when should I use Amp?</h3>
+    <p>
+        Amp is always useful if you have I/O-bound tasks that can run concurrently, e.g. making two HTTP requests
+        concurrently instead of sequentially and operating on the result of both. Such I/O-bound tasks include <a
+            href="https://github.com/amphp/aerys">WebSocket servers</a> and <a href="https://github.com/Room-11/Jeeves">chat
+        bots</a>.
+    </p>
+
+    <h3>What is the status of Amp?</h3>
+    <p>
+        Amp is very stable. Its first stable version dates back to 2015 with v1.0.0. v2.0.0 is a result of the discussions
+        in the <a href="https://github.com/async-interop/event-loop"><code>async-interop</code></a> group and the merge
+        with <a href="https://github.com/icicleio/icicle">Icicle</a>, providing even better APIs for writing concurrent
+        and even <a href="https://github.com/amphp/parallel">parallel</a> code now.
+    </p>
+    <p>
+        Other components might not be as stable as Amp itself. If you want to know more about the stability of a specific
+        component, just have a look at its documentation.
+    </p>
+
+    <h3>How can I contribute?</h3>
+    <p>
+        Everyone can help. To get started, there are open <a
+            href="https://github.com/issues?utf8=%E2%9C%93&q=is%3Aopen+is%3Aissue+user%3Aamphp">discussions on
+        GitHub</a> you can contribute to.
+        Found something you could work on? Comment and open a pull request. Missing a specific package that isn't async
+        compatible? Write it.
+        Have feedback? Great!
+    </p>
+</div>

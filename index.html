@@ -1,0 +1,128 @@
+---
+title: Amp - Asynchronous concurrency made simple
+permalink: /
+layout: base
+---
+<style>
+    h2 { text-align: center }
+</style>
+<div class="site-full-width highlight-area">
+    <div class="content site-width">
+        <div class="cols">
+            <div>
+                <h1>
+                    Asynchronous concurrency made simple
+                </h1>
+                <p>
+                    Amp is a concurrency framework for PHP providing primitives to manage concurrency such as an
+                    event loop, promises, and asynchronous iterators.
+                </p>
+                <p>
+                    It implements coroutines using PHP's generators to avoid callback or <code>then()</code> hells.
+                    Promise consumption works without callbacks and allows ordinary <code>catch</code> clauses just
+                    as synchronous code for handling errors.
+                </p>
+            </div>
+            <div>
+                <pre><code class="php">try {
+    $url = "https://github.com/";
+    $response = yield <span class="help-bubble" data-tooltip="Promise consumption without callbacks"></span> $httpClient->request($url);
+} catch (HttpException $e) <span class="help-bubble" data-tooltip="Ordinary catch clauses to handle errors"></span> {
+    // handle error
+}</code></pre>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="content site-width">
+    <h2>Basic Building Blocks</h2>
+
+    <div class="cols">
+        <div>
+            <h3>Event Loop</h3>
+            <p>
+                The event loop is the main task scheduler of every asynchronous application. It dispatches
+                associ&shy;ated handlers once the registered events happen.
+                <a href="http://amphp.org/amp/event-loop" class="section-continue-reading">Read
+                    more about the event loop</a>
+            </p>
+        </div>
+
+        <div>
+            <h3>Promises</h3>
+            <p>
+                A promise is a placeholder for the result of an asynchronous operation. While synchronous
+                programs block until a result is available, do asynchronous programs return a placeholder which gets
+                filled in with the result at a later time.
+                <a href="http://amphp.org/amp/promises" class="section-continue-reading">Read
+                    more about promises</a>
+            </p>
+        </div>
+
+        <div>
+            <h3>Coroutines</h3>
+            <p>
+                Coroutines are interruptible functions that can be paused and resumed. Amp uses
+                <code>Generator</code>s
+                to allow promise consumption without callbacks.
+                <a href="http://amphp.org/amp/coroutines" class="section-continue-reading">Read
+                    more about coroutines</a>
+            </p>
+        </div>
+    </div>
+
+    <h2>Advanced Building Blocks</h2>
+
+    <div class="cols">
+        <div>
+            <h3>Iterators</h3>
+            <p>
+                Asynchronous iterators allow the consumption of collections of values, one at a time. Instead of
+                resolving a promise once all results are available, iterators make it possible to consume items of a
+                collection as soon as they become available.
+                <a href="http://amphp.org/amp/iterators" class="section-continue-reading">Read
+                    more about iterators</a>
+            </p>
+        </div>
+
+        <div>
+            <h3>Streams</h3>
+            <p>
+                Amp provides a stream abstraction that makes working with non-blocking I/O way easier. Don't worry
+                about read- and write-watchers, buffering, and backpressure.
+                <a href="http://amphp.org/byte-stream" class="section-continue-reading">Read
+                    more about streams</a>
+            </p>
+        </div>
+    </div>
+</div>
+
+<hr class="section-separator">
+
+<div class="content site-width">
+    <h2>Compatible Packages</h2>
+
+    <p>
+        AMPHP offers a number of high-quality packages ranging from basic network components to more advanced
+        components like our Aerys HTTP server. All compatible packages should use the <a
+            href="https://github.com/search?p=1&q=topic%3Aamphp&type=Repositories&utf8=%E2%9C%93"><code>amphp</code></a>
+        tag on GitHub. Many packages are listed on our dedicated <a href="/packages">Packages</a> page.
+    </p>
+
+    <p>
+        Apart from libraries built directly on Amp, all libraries compatible with
+        <a href="http://reactphp.org/" rel="nofollow">ReactPHP</a> are fully compatible with Amp by using <a
+            href="http://amphp.org/react-adapter">our adapter</a>.
+    </p>
+</div>
+
+<hr class="section-separator">
+
+<div class="content site-width">
+    <h2>Sounds Interesting?</h2>
+
+    <div class="get-started-container">
+        <a href="/getting-started" class="get-started">Get Started</a>
+    </div>
+</div>

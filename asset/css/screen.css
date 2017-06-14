@@ -243,12 +243,20 @@ h2 code, h3 code, h4 code, h5 code, h6 code {
     margin: -2px -6px;
 }
 
+.content .cols {
+    margin: 20px 0;
+}
+
 .cols {
     display: flex;
 }
 
 .cols {
     align-items: flex-start;
+}
+
+.cols h3 {
+    margin-top: 5px;
 }
 
 .cols > div {

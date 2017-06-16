@@ -17,12 +17,25 @@ layout: base
         Amphp is the group behind Amp maintaining it and its core components.
     </p>
 
-    <h3>Why / when should I use Amp?</h3>
+    <h3>When should I use Amp?</h3>
     <p>
         Amp is always useful if you have I/O-bound tasks that can run concurrently, e.g. making two HTTP requests
         concurrently instead of sequentially and operating on the result of both. Such I/O-bound tasks include <a
             href="https://github.com/amphp/aerys">WebSocket servers</a> and <a href="https://github.com/Room-11/Jeeves">chat
         bots</a>.
+    </p>
+
+    <h3>Why should I use Amp over other solutions like <a href="http://reactphp.org/" rel="nofollow">ReactPHP</a>?<h3>
+    <p>
+        <a href="http://amphp.org/react-adapter/">Why not both?</a> Amp is fully compatible with any ReactPHP library.
+    </p>
+
+    <h3>Why did you develop Amp instead of contributing to ReactPHP?</h3>
+    <p>
+        It might surprise you, but Amp isn't that much younger than ReactPHP. At the time Amp was started, ReactPHP was
+        still very young. ReactPHP was inspired a lot by Node and thus offers a lot of callback based APIs. Amp follows
+        a different approach and uses PHP's generators to build coroutines which make async code way easier to reason
+        about. We think `then()`-style promises are sub-optimal in a world with generators.
     </p>
 
     <h3>What is the status of Amp?</h3>

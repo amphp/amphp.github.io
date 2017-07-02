@@ -100,6 +100,10 @@ h2 code, h3 code, h4 code, h5 code, h6 code {
     padding: 0 60px;
 }
 
+#top .cols {
+    justify-content: space-between;
+}
+
 #top .logo {
     font-weight: bold;
     vertical-align: top;
@@ -117,6 +121,14 @@ h2 code, h3 code, h4 code, h5 code, h6 code {
     margin-right: 5px;
     vertical-align: top;
     border: 0;
+}
+
+#top-menu {
+    max-width: none;
+}
+
+#logo-container {
+    flex: 0 0 180px;
 }
 
 .site-wrapper {
@@ -535,13 +547,13 @@ h2 code, h3 code, h4 code, h5 code, h6 code {
     display: none;
 }
 
-@media (min-width: 500px) {
+@media (min-width: 900px) {
     .mobile-only {
         display: none;
     }
 }
 
-@media (max-width: 499px) {
+@media (max-width: 899px) {
     .logo-text {
         display: none;
     }

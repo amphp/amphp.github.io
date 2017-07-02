@@ -24,6 +24,14 @@ pre {
     background: rgba(255, 255, 255, .5);
     line-height: 145%; /* prevent jumping before highlight */
     font-size: 14px;
+    /* These are technically the same, but use both */
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    -ms-word-wrap: break-word;
+    /* Instead use this non-standard one: */
+    word-break: break-word;
+    /* because firefox requires it ... */
+    white-space: pre-wrap;
 }
 
 pre > code {
@@ -498,7 +506,7 @@ h2 code, h3 code, h4 code, h5 code, h6 code {
     color: #333;
 }
 
-.note {
+.note, .warning {
     margin: 15px 0;
     padding: 15px 15px 15px 60px;
     background-color: rgba(255, 255, 255, .5);
@@ -507,7 +515,7 @@ h2 code, h3 code, h4 code, h5 code, h6 code {
     position: relative;
 }
 
-.note::before {
+.note::before, .warning::before {
     display: block;
     position: absolute;
     left: -1px;
@@ -515,14 +523,22 @@ h2 code, h3 code, h4 code, h5 code, h6 code {
     width: 47px;
     height: 100%;
     background-color: white;
-    content: "\f129";
     font: normal normal normal 14px/1 FontAwesome;
-    color: #1377de;
     text-align: center;
     line-height: 55px;
     border: 1px solid rgba(0,0,0,.1);
     box-shadow: 1px 0 3px -1px rgba(0,0,0,.1);
     border-radius: 3px 0 0 3px;
+}
+
+.note::before {
+    color: #1377de;
+    content: "\f129";
+}
+
+.warning::before {
+    color: #de3614;
+    content: "\f12a";
 }
 
 .anchorjs-link {

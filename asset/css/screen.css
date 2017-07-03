@@ -9,8 +9,11 @@ body {
 
 code {
     font-family: "Source Code Pro", monospace;
-    font-size: .9; /* font is very large, this makes it about the size of the other texts */
-    border-bottom: 2px solid rgba(0,0,0,.1);
+    font-size: 88%; /* font is very large, this makes it about the size of the other texts */
+    background-color: rgba(0,0,0,.05);
+    padding: 2px 4px;
+    margin: -2px 1px;
+    border-radius: 3px;
 }
 
 a code {

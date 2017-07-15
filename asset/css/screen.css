@@ -5,7 +5,7 @@ body {
     margin: 0;
     font-family: "Source Sans Pro", sans-serif;
     font-size: 15px;
-    line-height: 155%;
+    line-height: 1.55;
     background: #f2f9ff;
     overflow-y: scroll; /* prevent jumping on too short pages */
 }
@@ -28,7 +28,7 @@ pre {
     border-radius: 4px;
     border: 1px solid rgba(0,0,0,.1);
     background: rgba(255, 255, 255, .5);
-    line-height: 145%; /* prevent jumping before highlight */
+    line-height: 1.45; /* prevent jumping before highlight */
     font-size: 14px;
     /* These are technically the same, but use both */
     overflow-wrap: break-word;
@@ -46,7 +46,7 @@ pre > code {
     padding: 0;
     margin: 0;
     border-radius: inherit;
-    line-height: 145%;
+    line-height: 1.45;
     font-size: 14px;
 }
 

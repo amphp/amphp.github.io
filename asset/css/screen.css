@@ -1,3 +1,6 @@
+---
+layout: nil
+---
 body {
     margin: 0;
     font-family: "Source Sans Pro", sans-serif;
@@ -108,7 +111,7 @@ h2 code, h3 code, h4 code, h5 code, h6 code {
 
 #top-separator {
     height: 3px;
-    background: url(/.shared/asset/img/top-separator.png);
+    background: url({{ site.asset_path }}/img/top-separator.png);
 }
 
 #top {

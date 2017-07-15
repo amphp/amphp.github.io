@@ -145,7 +145,7 @@ h2 code, h3 code, h4 code, h5 code, h6 code {
     margin: -18px 5px;
     vertical-align: top;
     border: 0;
-    position: absolute;
+    position: relative;
     z-index: 2;
 }
 

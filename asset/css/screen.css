@@ -97,6 +97,7 @@ h3 {
 }
 
 h2 code, h3 code, h4 code, h5 code, h6 code {
+    font-family: 'Yanone Kaffeesatz', sans-serif;
     font-size: inherit;
     background: transparent;
     border: 0;

@@ -7,10 +7,10 @@
 
     <meta charset="utf-8">
 
-    <link rel="stylesheet" href="{{ site.asset_path }}/css/tooltip.css"/>
-    <link rel="stylesheet" href="{{ site.asset_path }}/css/code.css"/>
-    <link rel="stylesheet" href="{{ site.asset_path }}/css/screen.css"/>
-    <link rel="stylesheet" href="{{ site.asset_path }}/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="{{ site.asset_path }}/css/tooltip.css?v={{site.github.build_revision}}"/>
+    <link rel="stylesheet" href="{{ site.asset_path }}/css/code.css?v={{site.github.build_revision}}"/>
+    <link rel="stylesheet" href="{{ site.asset_path }}/css/screen.css?v={{site.github.build_revision}}"/>
+    <link rel="stylesheet" href="{{ site.asset_path }}/css/font-awesome.min.css?v={{site.github.build_revision}}"/>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 
@@ -25,7 +25,7 @@
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
 
     <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/highlight.min.js"></script>
-    <script src="{{ site.asset_path }}/js/anchor.min.js"></script>
+    <script src="{{ site.asset_path }}/js/anchor.min.js?v={{site.github.build_revision}}"></script>
 
     <script>
         hljs.configure({ tabReplace: "    ", languages: ["php", "js"] });
@@ -101,7 +101,7 @@
     anchors.options.placement = "left";
     anchors.add("h2,h3,h4,h5,h6");
 </script>
-<script src="{{ site.asset_path }}/js/tooltip.min.js"></script>
-<script src="{{ site.asset_path }}/js/help.js"></script>
+<script src="{{ site.asset_path }}/js/tooltip.min.js?v={{site.github.build_revision}}"></script>
+<script src="{{ site.asset_path }}/js/help.js?v={{site.github.build_revision}}"></script>
 </body>
 </html>

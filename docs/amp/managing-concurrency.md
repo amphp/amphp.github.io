@@ -1,3 +1,3 @@
 ---
-redirect_to: http://amphp.org/amp/promises
+redirect_to: //amphp.org/amp/promises
 ---

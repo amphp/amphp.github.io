@@ -1,3 +1,3 @@
 ---
-redirect_to: //amphp.org/amp/
+redirect_to: https://amphp.org/amp/
 ---

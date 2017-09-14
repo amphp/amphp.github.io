@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="{{ site.asset_path }}/css/code.css?v={{site.github.build_revision}}"/>
     <link rel="stylesheet" href="{{ site.asset_path }}/css/screen.css?v={{site.github.build_revision}}"/>
     <link rel="stylesheet" href="{{ site.asset_path }}/css/font-awesome.min.css?v={{site.github.build_revision}}"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.css" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 
@@ -25,8 +26,6 @@
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
 
     <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/highlight.min.js"></script>
-    <script src="{{ site.asset_path }}/js/anchor.min.js?v={{site.github.build_revision}}"></script>
-
     <script>
         hljs.configure({ tabReplace: "    ", languages: ["php", "js"] });
         hljs.initHighlightingOnLoad();
@@ -79,6 +78,14 @@
                 <a class="menu-item" href="/support">
                     Support
                 </a>
+
+                <input type="checkbox" id="search-toggle">
+                <label class="menu-item" id="search-toggle-button" for="search-toggle">
+                    <i class="fa fa-search"></i>
+                </label>
+                <span class="menu-item menu-item-inactive" id="search-box">
+                    <input type="search" id="search" placeholder="Search documentation…">
+                </span>
             </div>
         </div>
     </div>
@@ -95,13 +102,33 @@
         </div>
     </div>
 </div>
+<script src="{{ site.asset_path }}/js/anchor.min.js?v={{site.github.build_revision}}"></script>
+<script src="{{ site.asset_path }}/js/tooltip.min.js?v={{site.github.build_revision}}"></script>
+<script src="{{ site.asset_path }}/js/help.js?v={{site.github.build_revision}}"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.js"></script>
 <script>
     var anchors = new AnchorJS();
     anchors.options.icon = "#";
     anchors.options.placement = "left";
     anchors.add("h2,h3,h4,h5,h6");
+
+    document.getElementById("search-toggle-button").addEventListener("click", function () {
+        // Requires setTimeout, because the element isn't visible before
+        window.setTimeout(function () {
+            document.getElementById("search").focus();
+        }, 0);
+    });
+
+    document.getElementById("search").addEventListener("blur", function () {
+        document.getElementById("search-toggle").checked = false;
+    });
+
+    docsearch({
+        apiKey: '66ba9573f59edbd7616bbb725b387c2e',
+        indexName: 'amphp',
+        inputSelector: '#search',
+        debug: false
+    });
 </script>
-<script src="{{ site.asset_path }}/js/tooltip.min.js?v={{site.github.build_revision}}"></script>
-<script src="{{ site.asset_path }}/js/help.js?v={{site.github.build_revision}}"></script>
 </body>
 </html>

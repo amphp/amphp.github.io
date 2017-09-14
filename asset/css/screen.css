@@ -106,7 +106,7 @@ h2 code, h3 code, h4 code, h5 code, h6 code {
 }
 
 #top-pre {
-    height: 22px; 
+    height: 22px;
     background: #fff;
 }
 
@@ -365,6 +365,10 @@ h2 code, h3 code, h4 code, h5 code, h6 code {
     border-color: #ce3a6e;
 }
 
+.menu-item-inactive:hover {
+    border-color: transparent;
+}
+
 .highlight-area {
     background-color: #d9ecff;
     margin-top: -1px;
@@ -575,6 +579,44 @@ h2 code, h3 code, h4 code, h5 code, h6 code {
 .anchorjs-link:hover {
     text-decoration: none;
     color: rgba(0,0,0,.6);
+}
+
+#search-toggle,
+#search-box {
+    display: none;
+}
+
+#search-toggle:checked ~ #search-box {
+    display: inline-block;
+}
+
+#search-toggle:checked ~ #search-toggle-button {
+    display: none;
+}
+
+#search-toggle-button {
+    cursor: pointer;
+}
+
+#search {
+    margin: 4px 0;
+    height: 40px;
+    border: 0;
+    border-bottom: 2px solid #ccc;
+    background: transparent;
+    padding: 2px 10px 0 10px;
+    font-family: "Source Sans Pro", sans-serif;
+    font-size: 15px;
+    font-weight: normal;
+}
+
+#search:focus {
+    outline: 0;
+    border-bottom-color: #ce3a6e;
+}
+
+#search::-webkit-search-cancel-button {
+    -webkit-appearance: none;
 }
 
 *:hover > .anchorjs-link {

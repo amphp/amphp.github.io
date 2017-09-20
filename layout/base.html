@@ -1,7 +1,10 @@
 <!doctype html>
 <html>
 <head>
-    <title>{{ page.title }} ⋅ amphp</title>
+    {% assign packageWords = site.repository | split: '/' | last | split: '-' %}
+    {% capture packageName %}{% for word in packageWords %}{{ word | capitalize }}{% endfor %}{% endcapture %}
+
+    <title>{{ packageName }} ⋅ {{ page.title }} ⋅ amphp</title>
 
     <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:400,600|Source+Sans+Pro|Yanone+Kaffeesatz" rel="stylesheet">
 

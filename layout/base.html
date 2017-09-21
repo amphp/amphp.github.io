@@ -2,7 +2,7 @@
 <html>
 <head>
     {% assign packageWords = site.repository | split: '/' | last | split: '-' %}
-    {% capture packageName %}{% for word in packageWords %}{{ word | capitalize }}{% endfor %}{% endcapture %}
+    {% capture packageName %}{% for word in packageWords %}{{ word | capitalize }} {% endfor %}{% endcapture %}
 
     <title>{{ packageName }} ⋅ {{ page.title }} ⋅ amphp</title>
 

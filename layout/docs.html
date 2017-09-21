@@ -38,7 +38,7 @@ layout: base
         </div>
 
         {% assign packageWords = site.repository | split: '/' | last | split: '-' %}
-        {% capture packageName %}{% for word in packageWords %}{{ word | capitalize }}{% endfor %}{% endcapture %}
+        {% capture packageName %}{% for word in packageWords %}{{ word | capitalize }} {% endfor %}{% endcapture %}
 
         <h1>{{ packageName }} ⋅ {{ page.title }}</h1>
 

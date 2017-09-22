@@ -6,6 +6,24 @@ layout: base
 <style>
     h2 { text-align: center }
 </style>
+
+<div id="news" class="site-full-width" style="display: none"><div id="news-inner" class="content site-width"></div></div>
+
+<script>
+(function () {
+    var now = new Date;
+    var month = now.getMonth();
+
+    if (month == 9) { // yes, it's 0 based, so 9 is hacktober
+        var news = document.getElementById("news");
+        news.style.display = "block";
+
+        var newsInner = document.getElementById("news-inner");
+        newsInner.innerHTML = 'Participate in <a href="https://hacktoberfest.digitalocean.com/">Hacktoberfest<\/a>? We have tagged some <a href="https://github.com/search?utf8=%E2%9C%93&q=is%3Aopen+is%3Aissue+user%3Aamphp+label%3Ahacktoberfest&type=">easy to tackle issues.<\/a>';
+    }
+})();
+</script>
+
 <div class="site-full-width highlight-area">
     <div class="content site-width">
         <div class="cols">

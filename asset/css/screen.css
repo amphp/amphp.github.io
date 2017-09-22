@@ -742,3 +742,20 @@ h2 code, h3 code, h4 code, h5 code, h6 code {
         border-bottom-right-radius: 4px;
     }
 }
+
+h1:target, h2:target, h3:target, h4:target, h5:target, h6:target {
+  animation: target-highlight 5s ease;
+  -webkit-animation: target-highlight 5s ease;
+}
+
+@keyframes target-highlight {
+  0% { color: #ce3a6e; }
+  50% { color: #ce3a6e; }
+  100% { color: black; }
+}
+
+@-webkit-keyframes target-highlight {
+  0% { color: #ce3a6e; }
+  50% { color: #ce3a6e; }
+  100% { color: black; }
+}

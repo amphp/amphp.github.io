@@ -343,6 +343,26 @@ h2 code, h3 code, h4 code, h5 code, h6 code {
     }
 }
 
+#news {
+    text-align: center;
+    border-top: 1px solid rgba(0,0,0,.1);
+    border-bottom: 1px solid rgba(0,0,0,.1);
+    padding: 1px;
+    font-size: 18px;
+    color: #eee;
+    background-color: #ff725f;
+    background: linear-gradient(90deg, #ff927f, #ff725f, #ff927f);
+}
+
+#news a, #news a:hover {
+    color: white;
+}
+
+#news-inner {
+    margin-top: 9px;
+    margin-bottom: 9px;
+}
+
 .section-intro {
     max-width: 700px;
     text-align: center;

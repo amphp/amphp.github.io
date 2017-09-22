@@ -4,7 +4,11 @@
     {% assign packageWords = site.repository | split: '/' | last | split: '-' %}
     {% capture packageName %}{% for word in packageWords %}{{ word | capitalize }} {% endfor %}{% endcapture %}
 
-    <title>{{ packageName }} ⋅ {{ page.title }} ⋅ amphp</title>
+    {% if site.repository == "amphp/amphp.github.io" %}
+        <title>{{ page.title }} ⋅ amphp</title>
+    {% else %}
+        <title>{{ packageName }} ⋅ {{ page.title }} ⋅ amphp</title>
+    {% endif %}
 
     <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:400,600|Source+Sans+Pro|Yanone+Kaffeesatz" rel="stylesheet">
 

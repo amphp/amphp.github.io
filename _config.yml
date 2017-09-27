@@ -2,11 +2,10 @@ kramdown:
   input: GFM
   toc_levels: 2..3
 
-baseurl: "/"
-layouts_dir: ".shared/layout"
+baseurl: ""
+layouts_dir: "layout"
 
-exclude: ["Gemfile", "Gemfile.lock", "README.md", "vendor"]
-include: [".shared"]
+exclude: ["Gemfile", "Gemfile.lock", "README.md", "vendor", "layout"]
 
 repository: amphp/amphp.github.io
 gems:
@@ -14,4 +13,4 @@ gems:
  - "jekyll-github-metadata"
  - "jekyll-relative-links"
 
-asset_path: "/.shared/asset"
+asset_path: "/asset"

@@ -16,10 +16,7 @@
 
     <meta charset="utf-8">
 
-    {% if page.description %}
-        <meta name="description" content="{{ page.description }}">
-    {% endif %}
-
+    <meta name="description" content="{{ page.description | default: 'Amp is a non-blocking concurrency framework for PHP providing primitives to manage concurrency such as an event loop, promises, and asynchronous iterators.' }}">
     <meta name="keywords" content="{{ page.keywords | join: ', ' | default: 'amp, amphp, non-blocking, concurrency, io, php, promises, coroutines' }}">
 
     <link rel="stylesheet" href="{{ shared_asset_path }}/css/screen.css?v={{site.github.build_revision}}"/>
@@ -34,9 +31,7 @@
     <meta property="og:url" content="{{ page.url }}">
     <meta property="og:title" content="{{ page.title }}">
     <meta property="og:image" content="{{ page.ogImage | default: 'https://amphp.org/asset/img/og-image.png' }}">
-    {% if page.description %}
-        <meta property="og:description" content="{{ page.description }}">
-    {% endif %}
+    <meta property="og:description" content="{{ page.description | default: 'Amp is a non-blocking concurrency framework for PHP providing primitives to manage concurrency such as an event loop, promises, and asynchronous iterators.' }}">
 
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
 

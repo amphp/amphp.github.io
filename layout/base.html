@@ -14,6 +14,12 @@
 
     <meta charset="utf-8">
 
+    {% if page.description %}
+        <meta name="description" content="{{ page.description }}">
+    {% endif %}
+
+    <meta name="keywords" content="{{ page.keywords | join: ', ' | default: 'amp, amphp, non-blocking, concurrency, io, php, promises, coroutines' }}">
+
     <link rel="stylesheet" href="{{ site.asset_path }}/css/tooltip.css?v={{site.github.build_revision}}"/>
     <link rel="stylesheet" href="{{ site.asset_path }}/css/code.css?v={{site.github.build_revision}}"/>
     <link rel="stylesheet" href="{{ site.asset_path }}/css/screen.css?v={{site.github.build_revision}}"/>
@@ -29,8 +35,13 @@
     <meta name="twitter:creator" content="@asyncphp">
     <meta property="og:url" content="{{page.url}}">
     <meta property="og:title" content="{{page.title}}">
+    <meta property="og:image" content="{{ page.ogImage | default: 'https://amphp.org/.shared/asset/img/og-image.png' }}">
 
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+
+    <meta name="apple-mobile-web-app-title" content="Amp">
+    <meta name="application-name" content="Amp">
+    <meta name="theme-color" content="#1377de">
 
     <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/highlight.min.js"></script>
     <script>

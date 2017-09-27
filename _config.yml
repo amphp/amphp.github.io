@@ -13,4 +13,4 @@ gems:
  - "jekyll-github-metadata"
  - "jekyll-relative-links"
 
-asset_path: "/asset"
+shared_asset_path: ""

@@ -112,7 +112,7 @@ h2 code, h3 code, h4 code, h5 code, h6 code {
 
 #top-separator {
     height: 3px;
-    background: url({{ site.asset_path }}/img/top-separator.png);
+    background: url({{ site.asset_path }}/img/top-separator.png) #5489cd;
 }
 
 #top {
@@ -616,6 +616,8 @@ h2 code, h3 code, h4 code, h5 code, h6 code {
 
 #search-toggle-button {
     cursor: pointer;
+    width: 15px; /* prevent jumping on load */
+    text-align: center;
 }
 
 #search {

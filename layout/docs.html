@@ -1,0 +1,47 @@
+---
+layout: base
+---
+<div class="content site-width content-with-sidebar">
+    {% if site.navigation %}
+    <div class="content-sidebar">
+        <input type="checkbox" id="sidebar-menu" name="sidebar-menu">
+
+        <label class="mobile-only sidebar-menu-switch" for="sidebar-menu">
+            <span class="sidebar-menu-switch-open">Open page overview</span>
+            <span class="sidebar-menu-switch-close">Close page overview</span>
+        </label>
+
+        <ul class="sidebar-menu">
+            {% for page in site.pages %}
+            {% if page.url == "/" %}
+            <li class="sitebar-level-1"><a href="{{ site.baseurl }}{{ page.url }}">Introduction</a></li>
+            {% endif %}
+            {% endfor %}
+
+            {% assign site_pages = site.pages | sort: "url" %}
+
+            {% for item in site.navigation %}
+            {% for page in site_pages %}
+            {% assign page_url_first = page.url | split: '/' | slice: 1, 1 | first %}
+            {% if page_url_first == item %}
+            <li class="sidebar-level-{{ page.url | replace: '/',' ' | strip | split: ' ' | size }}"><a href="{{ site.baseurl }}{{ page.url }}">{{ page.title }}</a></li>
+            {% endif %}
+            {% endfor %}
+            {% endfor %}
+        </ul>
+    </div>
+    {% endif %}
+
+    <div class="content-main">
+        <div class="content-actions">
+            <a href="{{site.github.repository_url}}/blob/{{site.github.build_revision}}/docs/{{page.path}}"><i class="fa fa-pencil"></i> Suggest edit</a>
+        </div>
+
+        {% assign packageWords = site.repository | split: '/' | last | split: '-' %}
+        {% capture packageName %}{% for word in packageWords %}{{ word | capitalize }} {% endfor %}{% endcapture %}
+
+        <h1>{{ packageName }} ⋅ {{ page.title }}</h1>
+
+        {{content}}
+    </div>
+</div>

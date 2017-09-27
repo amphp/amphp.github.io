@@ -1,5 +1,5 @@
 {% if jekyll.environment == "production" %}
     {% assign shared_asset_path = '/asset' %}
 {% else %}
-    {% capture shared_asset_path %}/asset{{ site.shared_asset_path}}{% endcapture %}
+    {% capture shared_asset_path %}{{ site.shared_asset_path}}{% endcapture %}
 {% endif %}

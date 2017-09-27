@@ -4,6 +4,7 @@ kramdown:
 
 baseurl: ""
 layouts_dir: "layout"
+includes_dir: "includes"
 
 exclude: ["Gemfile", "Gemfile.lock", "README.md", "vendor", "layout"]
 

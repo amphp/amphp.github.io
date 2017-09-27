@@ -1,6 +1,8 @@
 ---
 layout: null
 ---
+{% include shared-asset-path.jekyll %}
+
 body {
     margin: 0;
     font-family: "Source Sans Pro", sans-serif;
@@ -112,7 +114,7 @@ h2 code, h3 code, h4 code, h5 code, h6 code {
 
 #top-separator {
     height: 3px;
-    background: url({{ site.asset_path }}/img/top-separator.png) #5489cd;
+    background: url({{ shared_asset_path }}/img/top-separator.png) #5489cd;
 }
 
 #top {

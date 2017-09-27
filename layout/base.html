@@ -1,11 +1,7 @@
 <!doctype html>
 <html>
 <head>
-    {% if jekyll.environment == "production" %}
-        {% assign shared_asset_path = '' %}
-    {% else %}
-        {% assign shared_asset_path = site.shared_asset_path %}
-    {% endif %}
+    {% include shared-asset-path.jekyll %}
 
     {% assign packageWords = site.repository | split: '/' | last | split: '-' %}
     {% capture packageName %}{% for word in packageWords %}{{ word | capitalize }} {% endfor %}{% endcapture %}

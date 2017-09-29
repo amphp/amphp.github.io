@@ -197,12 +197,14 @@ h2 code, h3 code, h4 code, h5 code, h6 code {
 
 .content-with-sidebar {
     display: flex;
+    flex-direction: row-reverse;
 }
 
 .content-sidebar {
     width: 200px;
     flex-shrink: 0;
-    margin-right: 30px;
+    margin-left: 30px;
+    margin-top: 15px;
 }
 
 .content-main {
@@ -217,7 +219,7 @@ h2 code, h3 code, h4 code, h5 code, h6 code {
 .content-actions {
     float: right;
     font-size: 13px;
-    line-height: 24px; /* same as h1 */
+    line-height: 37px; /* same as h1 */
     padding-top: 5px;
 }
 
@@ -262,7 +264,11 @@ h2 code, h3 code, h4 code, h5 code, h6 code {
 
 .sidebar-menu a {
     font-weight: normal;
-    color: black;
+    color: #111;
+}
+
+.sidebar-level-2 a {
+    color: #333;
 }
 
 .content table {

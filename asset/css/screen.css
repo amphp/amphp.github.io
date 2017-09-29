@@ -612,10 +612,21 @@ h2 code, h3 code, h4 code, h5 code, h6 code {
 #search-toggle,
 #search-box {
     display: none;
+    padding: 0;
+    line-height: 73px;
+    border-bottom: 0;
 }
 
 #search-toggle:checked ~ #search-box {
     display: inline-block;
+}
+
+#search-box {
+    display: inline-block !important; /* disable search toggle */
+}
+
+#search-toggle-button {
+    display: none !important; /* disable search toggle */
 }
 
 #search-toggle:checked ~ #search-toggle-button {
@@ -629,12 +640,13 @@ h2 code, h3 code, h4 code, h5 code, h6 code {
 }
 
 #search {
-    margin: 4px 0;
-    height: 40px;
+    vertical-align: top;
+    margin: 0;
+    line-height: 48px;
     border: 0;
     border-bottom: 2px solid #ccc;
     background: transparent;
-    padding: 2px 10px 0 10px;
+    padding: 13px 15px 8px 15px;
     font-family: "Source Sans Pro", sans-serif;
     font-size: 15px;
     font-weight: normal;

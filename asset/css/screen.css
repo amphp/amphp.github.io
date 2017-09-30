@@ -653,6 +653,7 @@ h2 code, h3 code, h4 code, h5 code, h6 code {
     font-size: 16px;
     font-weight: normal;
     margin-bottom: -2px;
+    width: 220px;
 }
 
 #search:focus {
@@ -676,17 +677,13 @@ h2 code, h3 code, h4 code, h5 code, h6 code {
     display: none;
 }
 
-@media (min-width: 900px) {
+@media (min-width: 1025px) {
     .mobile-only {
         display: none;
     }
 }
 
-@media (max-width: 899px) {
-    .logo-text {
-        display: none;
-    }
-
+@media (max-width: 1024px) {
     .no-mobile {
         display: none;
     }
@@ -728,6 +725,16 @@ h2 code, h3 code, h4 code, h5 code, h6 code {
         box-sizing: border-box;
         padding: 0 30px;
         text-align: left;
+    }
+
+    #search-box, #search-box > span, #search {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    #search {
+        padding-left: 30px;
+        padding-right: 30px;
     }
 
     .content-with-sidebar {

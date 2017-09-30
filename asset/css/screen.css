@@ -380,7 +380,7 @@ h2 code, h3 code, h4 code, h5 code, h6 code {
 .menu-item {
     display: inline-block;
     line-height: 48px; /* border + padding */
-    padding: 13px 15px 8px 15px;
+    padding: 13px 15px 7px 15px;
     font-size: 16px;
     text-decoration: none;
     color: black;
@@ -612,9 +612,11 @@ h2 code, h3 code, h4 code, h5 code, h6 code {
 #search-toggle,
 #search-box {
     display: none;
+    line-height: 70px;
+    height: 70px;
     padding: 0;
-    line-height: 73px;
-    border-bottom: 0;
+    position: relative;
+    vertical-align: top;
 }
 
 #search-toggle:checked ~ #search-box {
@@ -646,10 +648,11 @@ h2 code, h3 code, h4 code, h5 code, h6 code {
     border: 0;
     border-bottom: 2px solid #ccc;
     background: transparent;
-    padding: 13px 15px 8px 15px;
+    padding: 13px 15px 7px 15px;
     font-family: "Source Sans Pro", sans-serif;
-    font-size: 15px;
+    font-size: 16px;
     font-weight: normal;
+    margin-bottom: -2px;
 }
 
 #search:focus {

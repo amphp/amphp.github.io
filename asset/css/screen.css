@@ -697,8 +697,15 @@ h2 code, h3 code, h4 code, h5 code, h6 code {
         padding-right: 0;
     }
 
+    #logo-container {
+        flex: 1 1 200px;
+        max-width: none;
+    }
+
     #menu-switch {
         text-align: right;
+        width: 30px;
+        flex-grow: 0;
     }
 
     #top-menu {

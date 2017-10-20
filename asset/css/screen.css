@@ -3,25 +3,6 @@ layout: null
 ---
 {% include shared-asset-path.jekyll %}
 
-/*!
- * font-awesome.min.css
- */
-{% include_relative font-awesome.min.css %}
-
-/*!
- * code.css
- */
-{% include_relative code.css %}
-
-/*!
- * tooltip.css
- */
-{% include_relative tooltip.css %}
-
-/*!
- * screen.css
- */
-
 body {
     margin: 0;
     font-family: "Source Sans Pro", sans-serif;

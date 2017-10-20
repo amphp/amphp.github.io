@@ -1,3 +1,8 @@
+---
+layout: null
+---
+{% include_relative tooltip.min.js %}
+
 var helpTip = null;
 
 Tooltip.defaults = {

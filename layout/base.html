@@ -7,9 +7,9 @@
     {% capture packageName %}{% for word in packageWords %}{{ word | capitalize }} {% endfor %}{% endcapture %}
 
     {% if site.repository == "amphp/amphp.github.io" %}
-        <title>{{ page.title }} ⋅ amphp</title>
+    <title>{{ page.title }} ⋅ amphp</title>
     {% else %}
-        <title>{{ packageName }} ⋅ {{ page.title }} ⋅ amphp</title>
+    <title>{{ packageName }} ⋅ {{ page.title }} ⋅ amphp</title>
     {% endif %}
 
     <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:400,600|Source+Sans+Pro|Yanone+Kaffeesatz" rel="stylesheet">
@@ -20,6 +20,7 @@
     <meta name="keywords" content="{{ page.keywords | join: ', ' | default: 'amp, amphp, non-blocking, concurrency, io, php, promises, coroutines' }}">
 
     <link rel="stylesheet" href="{{ shared_asset_path }}/css/screen.css?v={{site.github.build_revision}}"/>
+    <link rel="preload" href="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.css" as="style" type="text/css">
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="google-site-verification" content="lX-Oenz4-gpqzuAF71A-3MQBlDfgr9pIQIfrVniz1As">
@@ -48,7 +49,48 @@
         ga('send', 'pageview');
     </script>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/highlight.min.js" async onload="hljs.configure({ tabReplace: '    ', languages: ['php', 'js'] }); hljs.initHighlightingOnLoad();"></script>
+    <script>
+        function loadScript(src, onload) {
+            var script = document.createElement("script");
+            script.type = "application/javascript";
+            script.async = true;
+            script.onload = function () {
+                script.onload = null;
+                if (onload) {
+                    onload();
+                }
+            };
+
+            (document.getElementsByTagName("head")[0]).appendChild(script);
+            script.src = src;
+        }
+    </script>
+
+    <script>
+        loadScript('{{ shared_asset_path }}/js/help.js?v={{site.github.build_revision}}');
+
+        loadScript('{{ shared_asset_path }}/js/anchor.min.js?v={{site.github.build_revision}}', function () {
+            var anchors = new AnchorJS();
+            anchors.options.icon = "#";
+            anchors.options.placement = "left";
+            anchors.add("h2,h3,h4,h5,h6");
+        });
+
+        loadScript('https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/highlight.min.js', function () {
+            hljs.configure({tabReplace: '    ', languages: ['php', 'js']});
+            hljs.initHighlightingOnLoad();
+        });
+
+        loadScript('https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.js', function () {
+            docsearch({
+                apiKey: '66ba9573f59edbd7616bbb725b387c2e',
+                indexName: 'amphp',
+                inputSelector: '#search',
+                debug: false
+            });
+        });
+    </script>
+
 </head>
 <body>
 <input type="checkbox" id="menu" name="menu">
@@ -97,6 +139,19 @@
                 <span class="menu-item menu-item-inactive" id="search-box">
                     <input type="search" id="search" placeholder="Search documentation…">
                 </span>
+
+                <script>
+                    document.getElementById("search-toggle-button").addEventListener("click", function () {
+                        // Requires setTimeout, because the element isn't visible before
+                        window.setTimeout(function () {
+                            document.getElementById("search").focus();
+                        }, 0);
+                    });
+
+                    document.getElementById("search").addEventListener("blur", function () {
+                        document.getElementById("search-toggle").checked = false;
+                    });
+                </script>
             </div>
         </div>
     </div>
@@ -115,34 +170,5 @@
 </div>
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.css"/>
-<script src="{{ shared_asset_path }}/js/anchor.min.js?v={{site.github.build_revision}}"></script>
-<script src="{{ shared_asset_path }}/js/tooltip.min.js?v={{site.github.build_revision}}"></script>
-<script src="{{ shared_asset_path }}/js/help.js?v={{site.github.build_revision}}"></script>
-
-<script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.js"></script>
-<script>
-    var anchors = new AnchorJS();
-    anchors.options.icon = "#";
-    anchors.options.placement = "left";
-    anchors.add("h2,h3,h4,h5,h6");
-
-    document.getElementById("search-toggle-button").addEventListener("click", function () {
-        // Requires setTimeout, because the element isn't visible before
-        window.setTimeout(function () {
-            document.getElementById("search").focus();
-        }, 0);
-    });
-
-    document.getElementById("search").addEventListener("blur", function () {
-        document.getElementById("search-toggle").checked = false;
-    });
-
-    docsearch({
-        apiKey: '66ba9573f59edbd7616bbb725b387c2e',
-        indexName: 'amphp',
-        inputSelector: '#search',
-        debug: false
-    });
-</script>
 </body>
 </html>

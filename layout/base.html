@@ -20,7 +20,6 @@
     <meta name="keywords" content="{{ page.keywords | join: ', ' | default: 'amp, amphp, non-blocking, concurrency, io, php, promises, coroutines' }}">
 
     <link rel="stylesheet" href="{{ shared_asset_path }}/css/screen.css?v={{site.github.build_revision}}"/>
-    <link rel="stylesheet" href="{{ shared_asset_path }}/css/font-awesome.min.css?v={{site.github.build_revision}}"/>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="google-site-verification" content="lX-Oenz4-gpqzuAF71A-3MQBlDfgr9pIQIfrVniz1As">
@@ -48,6 +47,8 @@
         ga('create', 'UA-69242348-1', 'auto');
         ga('send', 'pageview');
     </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/highlight.min.js" async onload="hljs.configure({ tabReplace: '    ', languages: ['php', 'js'] }); hljs.initHighlightingOnLoad();"></script>
 </head>
 <body>
 <input type="checkbox" id="menu" name="menu">
@@ -113,15 +114,10 @@
     </div>
 </div>
 
-<link rel="stylesheet" href="{{ shared_asset_path }}/css/tooltip.css?v={{site.github.build_revision}}"/>
-<link rel="stylesheet" href="{{ shared_asset_path }}/css/code.css?v={{site.github.build_revision}}"/>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.css"/>
-
 <script src="{{ shared_asset_path }}/js/anchor.min.js?v={{site.github.build_revision}}"></script>
 <script src="{{ shared_asset_path }}/js/tooltip.min.js?v={{site.github.build_revision}}"></script>
 <script src="{{ shared_asset_path }}/js/help.js?v={{site.github.build_revision}}"></script>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/highlight.min.js" onload="hljs.configure({ tabReplace: '    ', languages: ['php', 'js'] }); hljs.initHighlightingOnLoad();"></script>
 
 <script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.js"></script>
 <script>

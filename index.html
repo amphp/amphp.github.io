@@ -3,10 +3,6 @@ title: Amp - Asynchronous concurrency made simple
 permalink: /
 layout: base
 ---
-<style>
-    h2 { text-align: center }
-</style>
-
 <div id="news" class="site-full-width" style="display: none"><div id="news-inner" class="content site-width"></div></div>
 
 <script>
@@ -44,8 +40,8 @@ layout: base
             <div>
                 <pre><code class="php">try {
     $url = "https://github.com/";
-    $response = yield <span class="help-bubble" data-tooltip="Promise consumption without callbacks"></span> $httpClient->request($url);
-} catch (HttpException $e) <span class="help-bubble" data-tooltip="Ordinary catch clauses to handle errors"></span> {
+    $response = yield <span class="help-bubble" title="Promise consumption without callbacks"></span> $httpClient->request($url);
+} catch (HttpException $e) <span class="help-bubble" title="Ordinary catch clauses to handle errors"></span> {
     // handle error
 }</code></pre>
             </div>
@@ -54,7 +50,7 @@ layout: base
 </div>
 
 <div class="content site-width">
-    <h2>Basic Building Blocks</h2>
+    <h2 style="text-align: center">Basic Building Blocks</h2>
 
     <div class="cols">
         <div>
@@ -90,7 +86,7 @@ layout: base
         </div>
     </div>
 
-    <h2>Advanced Building Blocks</h2>
+    <h2 style="text-align: center">Advanced Building Blocks</h2>
 
     <div class="cols">
         <div>
@@ -119,7 +115,7 @@ layout: base
 <hr class="section-separator">
 
 <div class="content site-width">
-    <h2>Compatible Packages</h2>
+    <h2 style="text-align: center">Compatible Packages</h2>
 
     <p>
         Amphp offers a number of high-quality packages ranging from basic network components to more advanced
@@ -129,7 +125,7 @@ layout: base
     </p>
 
     <p>
-        An <a href="//amphp.org/react-adapter">adapter</a> is also provided to allow Amp to operate 
+        An <a href="//amphp.org/react-adapter">adapter</a> is also provided to allow Amp to operate
         <a href="http://reactphp.org/" rel="nofollow">ReactPHP</a> components.
     </p>
 </div>
@@ -137,7 +133,7 @@ layout: base
 <hr class="section-separator">
 
 <div class="content site-width">
-    <h2>Sounds Interesting?</h2>
+    <h2 style="text-align: center">Sounds Interesting?</h2>
 
     <div class="get-started-container">
         <a href="/getting-started" class="get-started">Get Started</a>

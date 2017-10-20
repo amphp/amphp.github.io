@@ -452,6 +452,7 @@ h2 code, h3 code, h4 code, h5 code, h6 code {
     vertical-align: middle;
     background-color: #ce3a6e;
     position: relative;
+    cursor: help;
 }
 
 .help-bubble::after {

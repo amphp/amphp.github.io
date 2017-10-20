@@ -1,6 +1,8 @@
 <!doctype html>
-<html>
+<html lang="en" dir="ltr">
 <head>
+    <meta charset="utf-8">
+
     {% include shared-asset-path.jekyll %}
 
     {% assign packageWords = site.repository | split: '/' | last | split: '-' %}
@@ -12,13 +14,10 @@
     <title>{{ packageName }} ⋅ {{ page.title }} ⋅ amphp</title>
     {% endif %}
 
-    <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:400,600|Source+Sans+Pro|Yanone+Kaffeesatz" rel="stylesheet">
-
-    <meta charset="utf-8">
-
     <meta name="description" content="{{ page.description | default: 'Amp is a non-blocking concurrency framework for PHP providing primitives to manage concurrency such as an event loop, promises, and asynchronous iterators.' }}">
     <meta name="keywords" content="{{ page.keywords | join: ', ' | default: 'amp, amphp, non-blocking, concurrency, io, php, promises, coroutines' }}">
 
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Code+Pro:400,600|Source+Sans+Pro%7cYanone+Kaffeesatz">
     <link rel="stylesheet" href="{{ shared_asset_path }}/css/screen.css?v={{site.github.build_revision}}"/>
     <link rel="preload" href="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.css" as="style" type="text/css">
 
@@ -28,10 +27,12 @@
     <meta name="twitter:card" content="summary">
     <meta name="twitter:site" content="@asyncphp">
     <meta name="twitter:creator" content="@asyncphp">
+    <meta property="og:type" content="website">
     <meta property="og:url" content="{{ page.url }}">
     <meta property="og:title" content="{{ page.title }}">
     <meta property="og:image" content="{{ page.ogImage | default: 'https://amphp.org/asset/img/og-image.png' }}">
     <meta property="og:description" content="{{ page.description | default: 'Amp is a non-blocking concurrency framework for PHP providing primitives to manage concurrency such as an event loop, promises, and asynchronous iterators.' }}">
+    <meta property="og:locale" content="en_US">
 
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
 

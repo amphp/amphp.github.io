@@ -191,8 +191,7 @@ h2 code, h3 code, h4 code, h5 code, h6 code {
 }
 
 .content em {
-    font-weight: bold;
-    font-style: normal;
+    font-style: italic;
 }
 
 .content-with-sidebar {
@@ -598,6 +597,18 @@ h2 code, h3 code, h4 code, h5 code, h6 code {
 .warning::before {
     color: #de3614;
     content: "\f12a";
+}
+
+.table-full-width {
+    width: 100%;
+}
+
+.table-no-border, .table-no-border th, .table-no-border td {
+    border: 0;
+}
+
+.table-text-center td, .table-text-center th {
+    text-align: center;
 }
 
 .anchorjs-link {

@@ -115,6 +115,34 @@ layout: base
 <hr class="section-separator">
 
 <div class="content site-width">
+    <h2 style="text-align: center">Use Cases</h2>
+
+    <div>
+        Amp can be used wherever you have to wait for multiple I/O activities to happen without them having to happen in a specific order (sequentially). It can be used in all SAPIs reaching from Apache and PHP-FPM to PHP-CLI. If you don't have a long running application, you might find <a href="/amp/promises/miscellaneous#wait"><code>Amp\Promise\wait()</code></a> helpful.
+    </div>
+
+    <div class="cols">
+        <div>
+            <h3>Multiplexing I/O</h3>
+            <p>
+                The key benefit of non-blocking I/O is that it can be multiplexed. Multiple I/O requests can happen concurrently. The event loop simply waits for any I/O event to occurr instead of waiting for a single I/O operations.
+                This enables <a href="/artax/">parallel HTTP requests</a>, <a href="https://github.com/amphp/mysql">SQL queries</a> or any other I/O related activity.
+            </p>
+        </div>
+
+        <div>
+            <h3>Reacting to I/O</h3>
+            <p>
+                Maybe you're not interested in speeding up your application by using concurrent I/O (we bet you are), but want to write a daemon that only wakes up the CPU if some I/O event occurred so you can react to that event?
+                Amp's <a href="/amp/event-loop/">event loop</a> provides exactly that. It lets you register callbacks to react to I/O events.
+            </p>
+        </div>
+    </div>
+</div>
+
+<hr class="section-separator">
+
+<div class="content site-width">
     <h2 style="text-align: center">Compatible Packages</h2>
 
     <p>

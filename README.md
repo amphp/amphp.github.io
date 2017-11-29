@@ -7,6 +7,7 @@ git submodule add https://github.com/amphp/amphp.github.io docs/.shared
 # copy .gitignore, _config.yml and Gemfile from another repository
 # adjust navigation and paths in _config.yml
 cd docs
+ln -s .shared/asset asset
 bundle install --path vendor/bundle
 bundle exec jekyll serve
 ```

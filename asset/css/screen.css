@@ -830,3 +830,16 @@ h1:target, h2:target, h3:target, h4:target, h5:target, h6:target {
   50% { color: #ce3a6e; }
   100% { color: black; }
 }
+
+.algolia-docsearch-suggestion--subcategory-column {
+    display: none !important;
+}
+
+.algolia-autocomplete .algolia-docsearch-suggestion--content:before {
+    display: none !important;
+}
+
+.algolia-autocomplete .algolia-docsearch-suggestion--content {
+    width: auto !important;
+    float: none !important;
+}

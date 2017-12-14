@@ -15,10 +15,11 @@ body {
 code {
     font-family: "Source Code Pro", monospace;
     font-size: 88%; /* font is very large, this makes it about the size of the other texts */
-    background-color: rgba(0,0,0,.05);
-    padding: 2px 4px;
-    margin: -2px 1px;
-    border-radius: 3px;
+    background-color: rgba(255,255,255,.3);
+    padding: 3px 4px;
+    margin: -3px 1px;
+    border-radius: 2px;
+    border: 1px solid rgba(0,0,0,.1);
 }
 
 a code {
@@ -27,9 +28,9 @@ a code {
 
 pre {
     padding: 15px;
-    border-radius: 4px;
+    border-radius: 2px;
     border: 1px solid rgba(0,0,0,.1);
-    background: rgba(255, 255, 255, .5);
+    background: white;
     line-height: 1.45; /* prevent jumping before highlight */
     font-size: 14px;
     /* These are technically the same, but use both */
@@ -585,6 +586,7 @@ h2 code, h3 code, h4 code, h5 code, h6 code {
     text-align: center;
     line-height: 55px;
     border: 1px solid rgba(0,0,0,.1);
+    border-right: 0;
     box-shadow: 1px 0 3px -1px rgba(0,0,0,.1);
     border-radius: 3px 0 0 3px;
 }
@@ -594,9 +596,17 @@ h2 code, h3 code, h4 code, h5 code, h6 code {
     content: "\f129";
 }
 
+.note, .note::before {
+    border-color: #85b1de;
+}
+
 .warning::before {
     color: #de3614;
     content: "\f12a";
+}
+
+.warning, .warning::before {
+    border-color: #de8f85;
 }
 
 .table-full-width {

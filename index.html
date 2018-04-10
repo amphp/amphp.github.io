@@ -39,8 +39,8 @@ layout: base
             </div>
             <div>
                 <pre><code class="php">try {
-    $url = "https://github.com/";
-    $response = yield <span class="help-bubble" title="Promise consumption without callbacks"></span> $httpClient->request($url);
+    $gh = "https://github.com/";
+    $response = yield <span class="help-bubble" title="Promise consumption without callbacks"></span> $http->request($gh);
 } catch (HttpException $e) <span class="help-bubble" title="Ordinary catch clauses to handle errors"></span> {
     // handle error
 }</code></pre>

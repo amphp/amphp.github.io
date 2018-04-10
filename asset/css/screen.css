@@ -109,8 +109,7 @@ h2 code, h3 code, h4 code, h5 code, h6 code {
 }
 
 #top-pre {
-    height: 22px;
-    background: #fff;
+    height: 0;
 }
 
 #top-separator {
@@ -122,10 +121,15 @@ h2 code, h3 code, h4 code, h5 code, h6 code {
     background-color: white;
     height: 70px;
     line-height: 70px;
-    box-shadow: 0 0 15px rgba(0,0,0,.1);
     z-index: 2;
     position: relative;
-    padding: 0 60px;
+    padding: 0 3px 0 15px;
+    border-bottom: 1px dashed rgba(0,0,0,.1);
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#000000+0,000000+100&0+0,0.05+100 */
+    background: -moz-linear-gradient(-45deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.05) 100%);
+    background: -webkit-linear-gradient(-45deg, rgba(0,0,0,0) 0%,rgba(0,0,0,0.05) 100%);
+    background: linear-gradient(135deg, rgba(0,0,0,0) 0%,rgba(0,0,0,0.05) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#0d000000',GradientType=1 );
 }
 
 #top .cols {
@@ -170,6 +174,10 @@ h2 code, h3 code, h4 code, h5 code, h6 code {
 
 .site-wrapper {
     padding: 0 30px;
+    max-width: 950px;
+    margin: 30px auto;
+    background: white;
+    box-shadow: 0 2px 4px rgba(0,0,0,.1), 0 0 30px rgba(0,0,0,.05);
 }
 
 .site-full-width {
@@ -557,8 +565,8 @@ h2 code, h3 code, h4 code, h5 code, h6 code {
 }
 
 #footer {
-    border-top: 1px solid rgba(0,0,0,.1);
-    padding: 20px;
+    border-top: 1px dashed rgba(0,0,0,.1);
+    padding: 10px 20px;
     margin-top: 40px;
 }
 
@@ -688,17 +696,16 @@ h2 code, h3 code, h4 code, h5 code, h6 code {
 
 #search {
     vertical-align: top;
-    margin: 0;
-    line-height: 48px;
-    border: 0;
-    border-bottom: 2px solid #ccc;
-    background: transparent;
-    padding: 13px 15px 7px 15px;
+    padding: 0 10px;
+    line-height: 34px;
+    border-radius: 4px;
+    border: 1px solid rgba(0,0,0,.1);
+    background: white;
+    margin: 18px 15px 7px 15px;
     font-family: "Source Sans Pro", sans-serif;
     font-size: 16px;
     font-weight: normal;
-    margin-bottom: -2px;
-    width: 220px;
+    width: 195px;
 }
 
 #search:focus {

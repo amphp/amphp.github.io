@@ -54,7 +54,7 @@ pre > code {
 }
 
 a {
-    color: #1377de;
+    color: #1376dd;
     text-decoration: none;
     font-weight: bold;
 }
@@ -555,7 +555,7 @@ h2 code, h3 code, h4 code, h5 code, h6 code {
     border: 1px solid rgba(0,0,0,.1);
     display: inline-block;
     border-radius: 3px;
-    background: #1377de;
+    background: #1376dd;
     color: white;
 }
 
@@ -623,7 +623,7 @@ h2 code, h3 code, h4 code, h5 code, h6 code {
 }
 
 .note::before {
-    color: #1377de;
+    color: #1376dd;
     content: "\f129";
 }
 
@@ -653,7 +653,7 @@ h2 code, h3 code, h4 code, h5 code, h6 code {
 }
 
 .anchorjs-link {
-    color: #1377de;
+    color: #1376dd;
     transition: all .25s linear;
 }
 

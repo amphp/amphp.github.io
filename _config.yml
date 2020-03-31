@@ -9,7 +9,7 @@ includes_dir: "includes"
 exclude: ["Gemfile", "Gemfile.lock", "README.md", "vendor", "layout"]
 
 repository: amphp/amphp.github.io
-gems:
+plugins:
  - "jekyll-redirect-from"
  - "jekyll-github-metadata"
  - "jekyll-relative-links"

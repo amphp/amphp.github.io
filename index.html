@@ -3,6 +3,8 @@ title: Amp - Asynchronous concurrency made simple
 permalink: /
 layout: base
 ---
+{% include shared-asset-path.jekyll %}
+
 <div id="news" class="site-full-width" style="display: none"><div id="news-inner" class="content site-width"></div></div>
 
 <script>
@@ -25,26 +27,54 @@ layout: base
         <div class="cols">
             <div>
                 <h1>
-                    Asynchronous concurrency made simple
+                    Leading PHP into an asynchronous future
                 </h1>
                 <p>
-                    Amp is a non-blocking concurrency framework for PHP providing primitives to manage concurrency such as an
+                    Amp is an event-driven concurrency framework for PHP providing primitives to manage cooperative multitasking building upon an
                     event loop, promises, and asynchronous iterators.
                 </p>
                 <p>
-                    It implements coroutines using PHP's generators to avoid callback or <code>then()</code> hells.
-                    Promise consumption works without callbacks and allows ordinary <code>catch</code> clauses just
-                    as synchronous code for handling errors.
+                    Event driven programming requires a different mindset, so Amp provides synchronous feeling APIs to ease the transition.
+                </p>
+                <p>
+                    <a href="/getting-started" class="highlight-area-cta">Get Started</a>
                 </p>
             </div>
+
+            <div class="text-center no-mobile">
+                <img src="{{ shared_asset_path }}/img/undraw/tree_swing.svg" width="300"/>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="content site-width">
+    <div class="cols" style="margin: 50px 0;">
+        <div style="flex: 60 60 0; align-self: center">
             <div>
-                <pre><code class="php">try {
-    $gh = "https://github.com/";
-    $response = yield <span class="help-bubble" title="Promise consumption without callbacks"></span> $http->request($gh);
+                <pre style="border: 0; padding: 0"><code class="php">try {
+    $request = new Request("https://amphp.org/");
+    $response = yield <span class="help-bubble" title="Promise consumption without callbacks"></span> $http->request($request);
+
+    if ($response->getStatus() !== 200) {
+        <span class="help-bubble" title="Throw normal exceptions to indicate errors"></span> throw new HttpException;
+    }
 } catch (HttpException $e) <span class="help-bubble" title="Ordinary catch clauses to handle errors"></span> {
     // handle error
 }</code></pre>
             </div>
+        </div>
+
+        <div style="flex: 40 40 0; align-self: center">
+            <p>
+                Consumption of asynchronous results was traditionally solved via callbacks.
+                Promises shift the callback from a parameter to the return value, while coroutines automate the boilerplate of callbacks entirely.
+            </p>
+            <p>
+                Amp implements coroutines using PHP's generators to avoid callback or <code>then()</code> hells.
+                Promise consumption works without callbacks and allows ordinary <code>catch</code> clauses just
+                as synchronous code for handling errors.
+            </p>
         </div>
     </div>
 </div>

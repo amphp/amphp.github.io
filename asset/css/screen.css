@@ -6,15 +6,26 @@ layout: null
 body {
     margin: 0;
     font-family: "Source Sans Pro", sans-serif;
-    font-size: 15px;
     line-height: 1.55;
-    background: #f2f9ff;
+    background: #fff;
     overflow-y: scroll; /* prevent jumping on too short pages */
+}
+
+.text-left {
+    text-align: left;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-right {
+    text-align: right;
 }
 
 code {
     font-family: "Source Code Pro", monospace;
-    font-size: 88%; /* font is very large, this makes it about the size of the other texts */
+    font-size: .875em; /* font is very large, this makes it about the size of the other texts */
     background-color: rgba(255,255,255,.3);
     padding: 3px 4px;
     margin: -3px 1px;
@@ -32,7 +43,7 @@ pre {
     border: 1px solid rgba(0,0,0,.1);
     background: white;
     line-height: 1.45; /* prevent jumping before highlight */
-    font-size: 14px;
+    font-size: .875em;
     /* These are technically the same, but use both */
     overflow-wrap: break-word;
     word-wrap: break-word;
@@ -429,7 +440,8 @@ h2 code, h3 code, h4 code, h5 code, h6 code {
 }
 
 .highlight-area {
-    background-color: #F6FBFF;
+    background-color: #1376dd;
+    color: #fafafa;
     margin-top: -1px;
     padding-top: 10px;
     padding-bottom: 15px;
@@ -440,7 +452,15 @@ h2 code, h3 code, h4 code, h5 code, h6 code {
     margin: 5px 0 15px 0;
 }
 
-.highlight-area .cols div:last-child {
+.highlight-area .cols > div:first-child {
+    max-width: 55%;
+}
+
+.highlight-area .cols > div:last-child {
+    max-width: 45%;
+}
+
+.highlight-area .cols > div {
     align-self: center;
 }
 
@@ -527,8 +547,22 @@ h2 code, h3 code, h4 code, h5 code, h6 code {
     font-weight: normal;
 }
 
-.highlight-area a {
-    color: #eef443;
+.highlight-area-cta {
+    font-size: 1em;
+    font-weight: normal;
+    padding: 10px 40px 11px 40px;
+    margin: 10px 0 0 0;
+    border: 1px solid rgba(0,0,0,.15);
+    display: inline-block;
+    border-radius: 3px;
+    background: transparent;
+    color: white;
+    box-shadow: 0 0 100px rgba(0,0,0,.1) inset;
+}
+
+.highlight-area-cta:hover {
+    text-decoration: none;
+    box-shadow: 0 0 100px rgba(0,0,0,.2) inset;
 }
 
 .section-continue-reading {
@@ -736,6 +770,10 @@ h2 code, h3 code, h4 code, h5 code, h6 code {
 }
 
 @media (max-width: 1024px) {
+    .highlight-area .cols > div:first-child {
+        max-width: 100%;
+    }
+
     .no-mobile {
         display: none;
     }

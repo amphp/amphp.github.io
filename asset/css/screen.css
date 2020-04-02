@@ -373,7 +373,7 @@ h2 code, h3 code, h4 code, h5 code, h6 code {
     text-align: right;
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 1024px) {
     .cols:not(.cols-no-wrap) {
         display: block;
     }

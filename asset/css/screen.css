@@ -26,11 +26,11 @@ body {
 code {
     font-family: "Source Code Pro", monospace;
     font-size: .875em; /* font is very large, this makes it about the size of the other texts */
-    background-color: rgba(255,255,255,.3);
+    background-color: rgba(255, 255, 255, .3);
     padding: 3px 4px;
     margin: -3px 1px;
     border-radius: 2px;
-    border: 1px solid rgba(0,0,0,.1);
+    border: 1px solid rgba(0, 0, 0, .1);
 }
 
 a code {
@@ -40,7 +40,7 @@ a code {
 pre {
     padding: 15px;
     border-radius: 2px;
-    border: 1px solid rgba(0,0,0,.1);
+    border: 1px solid rgba(0, 0, 0, .1);
     background: white;
     line-height: 1.45; /* prevent jumping before highlight */
     font-size: .875em;
@@ -135,12 +135,12 @@ h2 code, h3 code, h4 code, h5 code, h6 code {
     z-index: 2;
     position: relative;
     padding: 0 3px 0 15px;
-    border-bottom: 1px dashed rgba(0,0,0,.1);
+    border-bottom: 1px dashed rgba(0, 0, 0, .1);
     /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#000000+0,000000+100&0+0,0.05+100 */
-    background: -moz-linear-gradient(-45deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.05) 100%);
-    background: -webkit-linear-gradient(-45deg, rgba(0,0,0,0) 0%,rgba(0,0,0,0.05) 100%);
-    background: linear-gradient(135deg, rgba(0,0,0,0) 0%,rgba(0,0,0,0.05) 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#0d000000',GradientType=1 );
+    background: -moz-linear-gradient(-45deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.05) 100%);
+    background: -webkit-linear-gradient(-45deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.05) 100%);
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.05) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00000000', endColorstr='#0d000000', GradientType=1);
 }
 
 #top .cols {
@@ -188,7 +188,7 @@ h2 code, h3 code, h4 code, h5 code, h6 code {
     max-width: 950px;
     margin: 30px auto;
     background: white;
-    box-shadow: 0 2px 4px rgba(0,0,0,.1), 0 0 30px rgba(0,0,0,.05);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, .1), 0 0 30px rgba(0, 0, 0, .05);
 }
 
 .site-full-width {
@@ -279,14 +279,14 @@ h2 code, h3 code, h4 code, h5 code, h6 code {
 
 .content-actions a:hover {
     text-decoration: none;
-    border-color: rgba(0,0,0,.1);
-    box-shadow: 0 0 4px rgba(0,0,0,.05);
-    background-color: rgba(0,0,0,.02);
+    border-color: rgba(0, 0, 0, .1);
+    box-shadow: 0 0 4px rgba(0, 0, 0, .05);
+    background-color: rgba(0, 0, 0, .02);
 }
 
 .content-actions a:focus {
-    background-color: rgba(0,0,0,.02);
-    border-color: rgba(0,0,0,.2);
+    background-color: rgba(0, 0, 0, .02);
+    border-color: rgba(0, 0, 0, .2);
 }
 
 .content-actions .fa {
@@ -395,8 +395,8 @@ h2 code, h3 code, h4 code, h5 code, h6 code {
 
 #news {
     text-align: center;
-    border-top: 1px solid rgba(0,0,0,.1);
-    border-bottom: 1px solid rgba(0,0,0,.1);
+    border-top: 1px solid rgba(0, 0, 0, .1);
+    border-bottom: 1px solid rgba(0, 0, 0, .1);
     padding: 1px;
     font-size: 18px;
     color: #eee;
@@ -445,7 +445,7 @@ h2 code, h3 code, h4 code, h5 code, h6 code {
     margin-top: -1px;
     padding-top: 10px;
     padding-bottom: 15px;
-    border-bottom: 1px solid rgba(0,0,0,.05);
+    border-bottom: 1px solid rgba(0, 0, 0, .05);
 }
 
 .highlight-area h1 {
@@ -523,7 +523,7 @@ h2 code, h3 code, h4 code, h5 code, h6 code {
 }
 
 .card h3 {
-    border-bottom: 1px solid rgba(0,0,0,.1);
+    border-bottom: 1px solid rgba(0, 0, 0, .1);
     margin: -15px -15px 10px -15px;
     padding: 10px 15px;
     font-family: "Source Sans Pro", sans-serif;
@@ -541,8 +541,8 @@ h2 code, h3 code, h4 code, h5 code, h6 code {
     color: white;
     display: inline-block;
     padding: 10px 15px;
-    border: 1px dashed rgba(255,255,255,.5);
-    background-color: rgba(255,255,255,.05);
+    border: 1px dashed rgba(255, 255, 255, .5);
+    background-color: rgba(255, 255, 255, .05);
     border-radius: 4px;
     font-weight: normal;
 }
@@ -552,17 +552,17 @@ h2 code, h3 code, h4 code, h5 code, h6 code {
     font-weight: normal;
     padding: 10px 40px 11px 40px;
     margin: 10px 0 0 0;
-    border: 1px solid rgba(0,0,0,.15);
+    border: 1px solid rgba(0, 0, 0, .15);
     display: inline-block;
     border-radius: 3px;
     background: transparent;
     color: white;
-    box-shadow: 0 0 100px rgba(0,0,0,.1) inset;
+    box-shadow: 0 0 100px rgba(0, 0, 0, .1) inset;
 }
 
 .highlight-area-cta:hover {
     text-decoration: none;
-    box-shadow: 0 0 100px rgba(0,0,0,.2) inset;
+    box-shadow: 0 0 100px rgba(0, 0, 0, .2) inset;
 }
 
 .section-continue-reading {
@@ -572,7 +572,7 @@ h2 code, h3 code, h4 code, h5 code, h6 code {
 
 .section-separator {
     border: 0;
-    border-bottom: 1px dashed rgba(0,0,0,.2);
+    border-bottom: 1px dashed rgba(0, 0, 0, .2);
     margin: 50px -30px;
 }
 
@@ -586,7 +586,7 @@ h2 code, h3 code, h4 code, h5 code, h6 code {
     font-weight: normal;
     padding: 10px 40px;
     margin: 0 auto;
-    border: 1px solid rgba(0,0,0,.1);
+    border: 1px solid rgba(0, 0, 0, .1);
     display: inline-block;
     border-radius: 3px;
     background: #1376dd;
@@ -595,39 +595,70 @@ h2 code, h3 code, h4 code, h5 code, h6 code {
 
 .get-started:hover {
     text-decoration: none;
-    box-shadow: 0 0 100px rgba(0,0,0,.2) inset;
+    box-shadow: 0 0 100px rgba(0, 0, 0, .2) inset;
 }
 
 #footer {
-    border-top: 1px dashed rgba(0,0,0,.1);
-    padding: 10px 20px;
+    border-top: 1px solid rgba(0, 0, 0, .1);
+    background: rgba(0, 0, 0, .025);
+    padding: 30px 60px;
     margin-top: 40px;
 }
 
-#footer ul {
+.footer-list, .footer-networking-list {
     list-style: none;
-    text-align: center;
     margin: 0;
     padding: 0;
 }
 
-#footer ul > li {
-    display: inline-block;
-    margin: 0 10px;
-}
-
-#footer ul > li > a {
-    display: inline-block;
-    padding: 10px;
-    width: 100px;
+.footer-list-item {
+    display: block;
+    margin: 0;
 }
 
 #footer .fa {
     margin-right: 8px;
+    opacity: .75;
 }
 
 #footer a {
-    color: #333;
+    color: #555;
+    font-weight: normal;
+}
+
+#footer a:hover {
+    color: #1376dd;
+    text-decoration: none;
+}
+
+.footer-columns, .footer-networking-list {
+    display: grid;
+    grid-auto-columns: 1fr;
+    grid-auto-flow: column;
+}
+
+.footer-columns + .footer-columns {
+    margin-top: 24px;
+}
+
+.text-uppercase {
+    text-transform: uppercase;
+}
+
+@media (max-width: 1024px) {
+    .footer-columns {
+        grid-auto-flow: row;
+    }
+
+    .footer-columns > div + div {
+        margin-top: 24px;
+    }
+
+    .footer-networking-list {
+        display: grid;
+        grid-auto-flow: row;
+        grid-auto-rows: 1fr;
+    }
 }
 
 .note, .warning {
@@ -635,7 +666,7 @@ h2 code, h3 code, h4 code, h5 code, h6 code {
     padding: 15px 15px 15px 60px;
     background-color: rgba(255, 255, 255, .5);
     border-radius: 4px;
-    border: 1px solid rgba(0,0,0,.1);
+    border: 1px solid rgba(0, 0, 0, .1);
     position: relative;
 }
 
@@ -650,9 +681,9 @@ h2 code, h3 code, h4 code, h5 code, h6 code {
     font: normal normal normal 14px/1 FontAwesome;
     text-align: center;
     line-height: 55px;
-    border: 1px solid rgba(0,0,0,.1);
+    border: 1px solid rgba(0, 0, 0, .1);
     border-right: 0;
-    box-shadow: 1px 0 3px -1px rgba(0,0,0,.1);
+    box-shadow: 1px 0 3px -1px rgba(0, 0, 0, .1);
     border-radius: 3px 0 0 3px;
 }
 
@@ -693,7 +724,7 @@ h2 code, h3 code, h4 code, h5 code, h6 code {
 
 .anchorjs-link:hover {
     text-decoration: none;
-    color: rgba(0,0,0,.6);
+    color: rgba(0, 0, 0, .6);
 }
 
 #search-toggle,
@@ -733,7 +764,7 @@ h2 code, h3 code, h4 code, h5 code, h6 code {
     padding: 0 10px;
     line-height: 34px;
     border-radius: 4px;
-    border: 1px solid rgba(0,0,0,.1);
+    border: 1px solid rgba(0, 0, 0, .1);
     background: white;
     margin: 18px 15px 7px 15px;
     font-family: "Source Sans Pro", sans-serif;
@@ -752,7 +783,7 @@ h2 code, h3 code, h4 code, h5 code, h6 code {
 }
 
 *:hover > .anchorjs-link {
-  margin-left: -1.125em !important;
+    margin-left: -1.125em !important;
 }
 
 #menu {
@@ -812,7 +843,7 @@ h2 code, h3 code, h4 code, h5 code, h6 code {
         right: 0;
         margin: 0;
         background: white;
-        box-shadow: 0 15px 15px -15px rgba(0,0,0,.1) inset, 0 15px 15px -15px rgba(0,0,0,.1);
+        box-shadow: 0 15px 15px -15px rgba(0, 0, 0, .1) inset, 0 15px 15px -15px rgba(0, 0, 0, .1);
         border-bottom: 1px solid #ddd;
     }
 
@@ -893,20 +924,32 @@ h2 code, h3 code, h4 code, h5 code, h6 code {
 }
 
 h1:target, h2:target, h3:target, h4:target, h5:target, h6:target {
-  animation: target-highlight 5s ease;
-  -webkit-animation: target-highlight 5s ease;
+    animation: target-highlight 5s ease;
+    -webkit-animation: target-highlight 5s ease;
 }
 
 @keyframes target-highlight {
-  0% { color: #ce3a6e; }
-  50% { color: #ce3a6e; }
-  100% { color: black; }
+    0% {
+        color: #ce3a6e;
+    }
+    50% {
+        color: #ce3a6e;
+    }
+    100% {
+        color: black;
+    }
 }
 
 @-webkit-keyframes target-highlight {
-  0% { color: #ce3a6e; }
-  50% { color: #ce3a6e; }
-  100% { color: black; }
+    0% {
+        color: #ce3a6e;
+    }
+    50% {
+        color: #ce3a6e;
+    }
+    100% {
+        color: black;
+    }
 }
 
 .algolia-docsearch-suggestion--subcategory-column {

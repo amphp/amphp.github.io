@@ -5,45 +5,30 @@ layout: base
 ---
 {% include shared-asset-path.jekyll %}
 
-<div id="news" class="site-full-width" style="display: none"><div id="news-inner" class="content site-width"></div></div>
+<div class="content site-width">
+    <div class="cols">
+        <div>
+            <h1>
+                Leading PHP into an asynchronous future
+            </h1>
+            <p>
+                Amp is an event-driven concurrency framework for PHP providing primitives to manage cooperative multitasking building upon an
+                event loop, and promises.
+            </p>
+            <p>
+                Event driven programming requires a different mindset, so Amp provides synchronous feeling APIs to ease the transition.
+            </p>
+            <p>
+                A wide range of packages allows creating entire applications using non-blocking I/O and taking advantage of long running processes.
+                It's also possible to integrate Amp into existing applications for concurrent data access.
+            </p>
+            <p>
+                <a href="/getting-started" class="highlight-area-cta">Get Started <i class="fa fa-angle-right"></i></a>
+            </p>
+        </div>
 
-<script>
-(function () {
-    var now = new Date;
-    var month = now.getMonth();
-
-    if (month == 9) { // yes, it's 0 based, so 9 is hacktober
-        var news = document.getElementById("news");
-        news.style.display = "block";
-
-        var newsInner = document.getElementById("news-inner");
-        newsInner.innerHTML = 'Participate in <a href="https://hacktoberfest.digitalocean.com/">Hacktoberfest<\/a>? We have tagged some <a href="https://github.com/search?utf8=%E2%9C%93&q=is%3Aopen+is%3Aissue+user%3Aamphp+label%3Ahacktoberfest&type=">easy to tackle issues.<\/a>';
-    }
-})();
-</script>
-
-<div class="site-full-width highlight-area">
-    <div class="content site-width">
-        <div class="cols cols-no-wrap">
-            <div>
-                <h1>
-                    Leading PHP into an asynchronous future
-                </h1>
-                <p>
-                    Amp is an event-driven concurrency framework for PHP providing primitives to manage cooperative multitasking building upon an
-                    event loop, promises, and asynchronous iterators.
-                </p>
-                <p>
-                    Event driven programming requires a different mindset, so Amp provides synchronous feeling APIs to ease the transition.
-                </p>
-                <p>
-                    <a href="/getting-started" class="highlight-area-cta">Get Started</a>
-                </p>
-            </div>
-
-            <div class="text-center no-mobile">
-                <img src="{{ shared_asset_path }}/img/undraw/tree_swing.svg" width="300"/>
-            </div>
+        <div class="text-center no-mobile">
+            <img src="{{ shared_asset_path }}/img/undraw/tree_swing.svg" width="300"/>
         </div>
     </div>
 </div>
@@ -80,72 +65,58 @@ layout: base
 </div>
 
 <div class="content site-width">
-    <h2 style="text-align: center">Basic Building Blocks</h2>
+    <h2>Building Blocks</h2>
 
     <div class="cols">
         <div>
-            <h3>Event Loop</h3>
+            <h3 class="headline-link"><a href="//amphp.org/amp/event-loop">Event Loop<i class="fa fa-angle-right"></i></a></h3>
             <p>
                 The event loop is the main task scheduler of every asynchronous application. It dispatches
                 associ&shy;ated handlers once the registered events happen.
-                <a href="//amphp.org/amp/event-loop" class="section-continue-reading">Read
-                    more about the event loop</a>
             </p>
         </div>
 
         <div>
-            <h3>Promises</h3>
+            <h3 class="headline-link"><a href="//amphp.org/amp/promises">Promises<i class="fa fa-angle-right"></i></a></h3>
             <p>
                 A promise is a placeholder for the result of an asynchronous operation. While synchronous
                 programs block until a result is available, asynchronous programs return a placeholder which gets
                 filled in with the result at a later time.
-                <a href="//amphp.org/amp/promises" class="section-continue-reading">Read
-                    more about promises</a>
             </p>
         </div>
 
         <div>
-            <h3>Coroutines</h3>
+            <h3 class="headline-link"><a href="//amphp.org/amp/coroutines">Coroutines<i class="fa fa-angle-right"></i></a></h3>
             <p>
                 Coroutines are interruptible functions that can be paused and resumed. Amp uses
                 <code>Generator</code>s
                 to allow promise consumption without callbacks.
-                <a href="//amphp.org/amp/coroutines" class="section-continue-reading">Read
-                    more about coroutines</a>
             </p>
         </div>
     </div>
 
-    <h2 style="text-align: center">Advanced Building Blocks</h2>
-
     <div class="cols">
         <div>
-            <h3>Iterators</h3>
+            <h3 class="headline-link"><a href="//amphp.org/amp/iterators">Iterators<i class="fa fa-angle-right"></i></a></h3>
             <p>
                 Asynchronous iterators allow the consumption of collections of values, one at a time. Instead of
                 resolving a promise once all results are available, iterators make it possible to consume items of a
                 collection as soon as they become available.
-                <a href="//amphp.org/amp/iterators" class="section-continue-reading">Read
-                    more about iterators</a>
             </p>
         </div>
 
         <div>
-            <h3>Streams</h3>
+            <h3 class="headline-link"><a href="//amphp.org/byte-stream">Streams<i class="fa fa-angle-right"></i></a></h3>
             <p>
                 Amp provides a stream abstraction that makes working with non-blocking I/O way easier. Don't worry
                 about read- and write-watchers, buffering, and backpressure.
-                <a href="//amphp.org/byte-stream" class="section-continue-reading">Read
-                    more about streams</a>
             </p>
         </div>
     </div>
 </div>
 
-<hr class="section-separator">
-
 <div class="content site-width">
-    <h2 style="text-align: center">Use Cases</h2>
+    <h2>Use Cases</h2>
 
     <div>
         Amp can be used wherever you have to wait for multiple I/O activities to happen without them having to happen in a specific order (sequentially). It can be used in all SAPIs reaching from Apache and PHP-FPM to PHP-CLI. If you don't have a long running application, you might find <a href="/amp/promises/miscellaneous#wait"><code>Amp\Promise\wait()</code></a> helpful.
@@ -170,30 +141,17 @@ layout: base
     </div>
 </div>
 
-<hr class="section-separator">
-
 <div class="content site-width">
-    <h2 style="text-align: center">Compatible Packages</h2>
+    <h2>Compatible Packages</h2>
 
     <p>
         Amphp offers a number of high-quality packages ranging from basic network components to more advanced
-        components like our Aerys HTTP server. All compatible packages should use the <a
+        components like our HTTP application server. All compatible packages should use the <a
             href="https://github.com/search?p=1&q=topic%3Aamphp&type=Repositories&utf8=%E2%9C%93"><code>amphp</code></a>
         tag on GitHub. Many packages are listed on our dedicated <a href="/packages">Packages</a> page.
     </p>
 
     <p>
-        An <a href="//amphp.org/react-adapter">adapter</a> is also provided to allow Amp to operate
-        <a href="http://reactphp.org/" rel="nofollow">ReactPHP</a> components.
+        <a href="//amphp.org/react-adapter">Every ReactPHP library is compatible with Amp</a>, so you don't need to choose between those two.
     </p>
-</div>
-
-<hr class="section-separator">
-
-<div class="content site-width">
-    <h2 style="text-align: center">Sounds Interesting?</h2>
-
-    <div class="get-started-container">
-        <a href="/getting-started" class="get-started">Get Started</a>
-    </div>
 </div>

@@ -103,21 +103,22 @@
 </head>
 <body>
 <input type="checkbox" id="menu" name="menu">
-<div class="site-wrapper">
-    <div id="top-pre" class="site-full-width"></div>
-    <div id="top-separator" class="site-full-width"></div>
-
-    <div id="top" class="site-full-width">
-        <div class="site-width cols cols-no-wrap">
+<header class="top-header" id="top">
+    <div class="top-width">
+        <div class="cols cols-no-wrap">
             <div id="logo-container">
                 <a class="logo" href="/">
-                    <img src="{{ shared_asset_path }}/img/logo.png" srcset="{{ shared_asset_path }}/img/logo_100.png 100w, {{ shared_asset_path }}/img/logo_200.png 200w, {{ shared_asset_path }}/img/logo.png 360w" class="logo-img" width="100" height="100" alt="Amp Logo">
+                    <img src="{{ shared_asset_path }}/img/logo.png" srcset="{{ shared_asset_path }}/img/logo_100.png 100w, {{ shared_asset_path }}/img/logo_200.png 200w, {{ shared_asset_path }}/img/logo.png 360w" class="logo-img" width="64" height="64" alt="Amp Logo">
                     <span class="logo-text">Amp</span>
                 </a>
             </div>
 
+            <div class="sponsor-button">
+                <iframe src="https://github.com/sponsors/amphp/button" title="Sponsor amphp" height="35" width="107" style="border: 0; margin-top: 3px"></iframe>
+            </div>
+
             <div class="mobile-only" id="menu-switch">
-                <label for="menu"><i class="fa fa-bars"></i></label>
+                <label for="menu"><i class="fa fa-lg fa-bars"></i></label>
             </div>
 
             <div id="top-menu">
@@ -129,14 +130,6 @@
                     Packages
                 </a>
 
-                <a class="menu-item" href="/getting-started">
-                    Getting Started
-                </a>
-
-                <a class="menu-item" href="/faq">
-                    FAQ
-                </a>
-
                 <a class="menu-item" href="/support">
                     Support
                 </a>
@@ -145,8 +138,9 @@
                 <label class="menu-item" id="search-toggle-button" for="search-toggle">
                     <i class="fa fa-search"></i>
                 </label>
-                <span class="menu-item menu-item-inactive" id="search-box">
-                    <input type="search" id="search" placeholder="Search documentation…">
+                <span class="menu-item menu-item-inactive" id="search-box" style="position: relative">
+                    <input type="search" id="search" placeholder="Search Documentation">
+                    <i class="fa fa-search menu-search-icon"></i>
                 </span>
 
                 <script>
@@ -164,7 +158,8 @@
             </div>
         </div>
     </div>
-
+</header>
+<div class="site-wrapper">
     {{content}}
 
     <div id="footer" class="site-full-width">

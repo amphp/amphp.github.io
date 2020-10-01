@@ -11,6 +11,10 @@ body {
     overflow-y: scroll; /* prevent jumping on too short pages */
 }
 
+.menu-item:hover {
+    text-decoration: underline;
+}
+
 .text-left {
     text-align: left;
 }

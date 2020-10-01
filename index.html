@@ -44,9 +44,10 @@ layout: base
     if ($response->getStatus() !== 200) {
         <span class="help-bubble" title="Throw normal exceptions to indicate errors"></span> throw new HttpException;
     }
-} catch (HttpException $e) <span class="help-bubble" title="Ordinary catch clauses to handle errors"></span> {
-    // handle error
-}</code></pre>
+} catch (HttpException $e) <span class="help-bubble" title="Ordinary catch clauses to handle errors"></span> 
+{
+    // handle error }
+    </code></pre>
             </div>
         </div>
 
@@ -117,12 +118,13 @@ layout: base
 
 <div class="content site-width">
     <h2>Use Cases</h2>
-
+</div>
     <div>
         Amp can be used wherever you have to wait for multiple I/O activities to happen without them having to happen in a specific order (sequentially). It can be used in all SAPIs reaching from Apache and PHP-FPM to PHP-CLI. If you don't have a long running application, you might find <a href="/amp/promises/miscellaneous#wait"><code>Amp\Promise\wait()</code></a> helpful.
     </div>
 
     <div class="cols">
+</div>
         <div>
             <h3>Multiplexing I/O</h3>
             <p>

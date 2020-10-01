@@ -3,6 +3,7 @@ This repository contains shared files for all documentation pages as well as the
 ## Setup for a new repository
 
 ```bash
+<a href:https://github.com/>Github</a>
 git submodule add https://github.com/amphp/amphp.github.io docs/.shared
 # copy .gitignore, _config.yml and Gemfile from another repository
 # adjust navigation and paths in _config.yml

@@ -1,0 +1,54 @@
+---
+title: Sponsors
+permalink: /sponsors
+layout: base
+---
+<style>
+    .h-center h1, .h-center h2 { text-align: center }
+    .h-center h2 { margin-top: 50px; }
+    .h-center > p { text-align: center }
+    .business-sponsors { display: flex; flex-wrap: wrap; justify-content: center; }
+    .business-sponsors > div { margin: 0 20px 20px; }
+    .individual-sponsors { max-width: 300px; margin: 10px auto; }
+    .individual-sponsors > ul > li > a { font-weight: normal; }
+    .individual-sponsors > ul > li.sponsor-highlight > a { font-weight: bold; }
+    .sponsor-button { text-align: center; }
+    .sponsor-description { text-align: center; }
+    .sponsor-description > h3 { margin-top: 0; }
+    .sponsor-description > p { margin-bottom: 0; }
+    img.sponsor-logo { max-width: 200px; }
+</style>
+<div class="content site-width h-center">
+
+    <div class="sponsor-button">
+        <h2>Show your support for Amp by becoming a sponsor on GitHub!</h2>
+        <iframe src="https://github.com/sponsors/amphp/button" title="Sponsor amphp" height="35" width="107" style="border: 0; margin-top: 3px"></iframe>
+    </div>
+
+    <h2>Business Sponsors</h2>
+
+    <div class="business-sponsors">
+        {% for sponsor in site.data.sponsors.business %}
+        <div class="sponsor-description">
+            <p><a href="{{ sponsor.link }}"><img class="sponsor-logo" src="{{ sponsor.logo }}" alt="{{ sponsor.name }}"/></a></p>
+            <h3><a href="{{ sponsor.link }}">{{ sponsor.name }}</a></h3>
+            <p>{{ sponsor.description }}</p>
+        </div>
+        {% endfor %}
+
+    </div>
+
+    <h2>Individual Sponsors</h2>
+
+    <div class="individual-sponsors">
+        <p>Thank you to all our individual sponsors!</p>
+        <ul>
+        {% for sponsor in site.data.sponsors.individual %}
+            <li class="sponsor-github {% if sponsor.highlight %}sponsor-highlight{% endif %}">
+                <a title="{{ sponsor.github }}" href="https://github.com/{{ sponsor.github }}">{{ sponsor.github }}</a>
+            </li>
+        {% endfor %}
+        </ul>
+    </div>
+
+</div>

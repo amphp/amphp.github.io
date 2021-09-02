@@ -9,9 +9,11 @@ layout: base
     .h-center > p { text-align: center }
     .business-sponsors { display: flex; flex-wrap: wrap; justify-content: center; }
     .business-sponsors > div { margin: 0 20px 20px; }
-    .individual-sponsors { max-width: 300px; margin: 10px auto; }
-    .individual-sponsors > ul > li > a { font-weight: normal; }
-    .individual-sponsors > ul > li.sponsor-highlight > a { font-weight: bold; }
+    .other-sponsors { max-width: 230px; margin: 10px auto; }
+    .other-sponsors > ul { list-style: circle; }
+    .other-sponsors > ul > li > a { font-weight: normal; }
+    .other-sponsors > ul > li.sponsor-highlight > a { font-weight: bold; }
+    .other-sponsors > p { text-align: center }
     .sponsor-button { text-align: center; }
     .sponsor-description { text-align: center; }
     .sponsor-description > h3 { margin-top: 0; }
@@ -38,12 +40,12 @@ layout: base
 
     </div>
 
-    <h2>Individual Sponsors</h2>
+    <h2>Other Sponsors</h2>
 
-    <div class="individual-sponsors">
-        <p>Thank you to all our individual sponsors!</p>
+    <div class="other-sponsors">
+        <p>Thank you to all our sponsors!</p>
         <ul>
-        {% for sponsor in site.data.sponsors.individual %}
+        {% for sponsor in site.data.sponsors.other %}
             <li class="sponsor-github {% if sponsor.highlight %}sponsor-highlight{% endif %}">
                 <a title="{{ sponsor.github }}" href="https://github.com/{{ sponsor.github }}">{{ sponsor.github }}</a>
             </li>

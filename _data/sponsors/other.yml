@@ -1,7 +1,7 @@
+- github: Clearfacts
+  highlight: false
 - github: cspray
   highlight: true
-- github: dfelton
-  highlight: false
 - github: ekinhbayar
   highlight: true
 - github: markrandall
@@ -11,6 +11,8 @@
 - github: oqq
   highlight: false
 - github: raghuveer
+  highlight: false
+- github: tiffany-taylor
   highlight: false
 - github: tristanpemble
   highlight: true

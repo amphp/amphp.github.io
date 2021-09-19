@@ -4,6 +4,8 @@
   highlight: true
 - github: ekinhbayar
   highlight: true
+- github: iHeat
+  highlight: false
 - github: markrandall
   highlight: false
 - github: muglug

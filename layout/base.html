@@ -21,8 +21,8 @@
     <link rel="stylesheet" href="{{ shared_asset_path }}/css/screen.css?v={{site.github.build_revision}}"/>
 
     <!-- non-critical CSS is lazy-loaded -->
-    <link rel="preload" href="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.css" as="style" type="text/css">
-    <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.css" type="text/css"></noscript>
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/@docsearch/css@alpha" as="style" type="text/css">
+    <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@alpha" type="text/css"></noscript>
     <link rel="preload" href="{{ shared_asset_path }}/css/font-awesome.min.css?v={{site.github.build_revision}}" as="style" type="text/css">
     <noscript><link rel="stylesheet" href="{{ shared_asset_path }}/css/font-awesome.min.css?v={{site.github.build_revision}}" type="text/css"></noscript>
     <link rel="preload" href="{{ shared_asset_path }}/css/code.css?v={{site.github.build_revision}}" as="style" type="text/css">
@@ -74,7 +74,7 @@
     </script>
 
     <script>
-        loadCss('https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.css');
+        loadCss('https://cdn.jsdelivr.net/npm/@docsearch/css@alpha');
         loadCss('{{ shared_asset_path }}/css/font-awesome.min.css?v={{site.github.build_revision}}');
         loadCss('{{ shared_asset_path }}/css/code.css?v={{site.github.build_revision}}');
 
@@ -90,11 +90,12 @@
             hljs.initHighlightingOnLoad();
         });
 
-        loadScript('https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.js', function () {
+        loadScript('https://cdn.jsdelivr.net/npm/@docsearch/js@alpha', function () {
             docsearch({
-                apiKey: '66ba9573f59edbd7616bbb725b387c2e',
+                appId: 'A5ZG0Y68AG',
+                apiKey: '3985e2b9114d3ebec8a721b2a281ae3b',
                 indexName: 'amphp',
-                inputSelector: '#search',
+                container: '#docsearch',
                 debug: false
             });
         });
@@ -169,22 +170,7 @@
 
 <div class="site-wrapper">
   <header class="site-header">
-    <span id="search-box" style="position: relative">
-        <input type="search" id="search" placeholder="Search documentation...">
-    </span>
-
-    <script>
-        document.getElementById("search-toggle-button").addEventListener("click", function () {
-            // Requires setTimeout, because the element isn't visible before
-            window.setTimeout(function () {
-                document.getElementById("search").focus();
-            }, 0);
-        });
-
-        document.getElementById("search").addEventListener("blur", function () {
-            document.getElementById("search-toggle").checked = false;
-        });
-    </script>
+      <div id="docsearch"></div>
   </header>
 
     {{content}}

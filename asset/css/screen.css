@@ -241,10 +241,6 @@ h2 code, h3 code, h4 code, h5 code, h6 code {
     background: #fbfaf9;
 }
 
-.site-full-width {
-    margin: 32px -32px;
-}
-
 .site-width {
     max-width: 1100px;
     margin: 0 auto;

@@ -41,7 +41,7 @@ pre {
     padding: 15px;
     border-radius: 2px;
     border: 1px solid rgba(0, 0, 0, .1);
-    background: white;
+    background: transparent;
     line-height: 1.45; /* prevent jumping before highlight */
     font-size: .875em;
     /* These are technically the same, but use both */

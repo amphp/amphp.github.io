@@ -203,11 +203,20 @@ h2 code, h3 code, h4 code, h5 code, h6 code {
 
 .logo-text {
     font-size: 32px;
-    margin: 16px;
-    display: inline-block;
-    line-height: 32px;
+    display: block;
+    position: absolute;
+    left: 115px;
+    top: 15px;
     z-index: 3;
-    position: relative;
+}
+
+.logo-description {
+    font-size: 13px;
+    display: block;
+    position: absolute;
+    left: 115px;
+    top: 35px;
+    color: #d57a1f;
 }
 
 #top-menu {
@@ -621,8 +630,8 @@ a.menu-item:hover {
 
 #footer {
     border-top: 2px solid rgba(0, 0, 0, .05);
-    padding: 32px 64px;
-    margin-top: 32px;
+    padding: 1rem 2rem;
+    margin-top: 1rem;
 }
 
 .footer-list, .footer-networking-list {
@@ -826,11 +835,21 @@ a.menu-item:hover {
         top: calc(1rem - 2px);
     }
 
+    .logo-text {
+        left: 71px;
+        top: -7px;
+    }
+
+    .logo-description {
+        left: 71px;
+        top: 13px;
+    }
+
     .content {
         padding-left: 0;
         padding-right: 0;
-        margin-left: 16px;
-        margin-right: 16px;
+        margin-left: 1rem;
+        margin-right: 1rem;
     }
 
     #menu-switch {
@@ -931,9 +950,9 @@ a.menu-item:hover {
     }
 
     #footer {
-        padding-left: 48px;
-        padding-right: 48px;
-        padding-bottom: 0;
+        padding-left: 1rem;
+        padding-right: 1rem;
+        padding-bottom: 1rem;
     }
 }
 

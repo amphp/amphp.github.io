@@ -28,7 +28,7 @@
     <link rel="preload" href="{{ shared_asset_path }}/css/code.css?v={{site.github.build_revision}}" as="style" type="text/css">
     <noscript><link rel="stylesheet" href="{{ shared_asset_path }}/css/code.css?v={{site.github.build_revision}}" type="text/css"></noscript>
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
     <meta name="google-site-verification" content="lX-Oenz4-gpqzuAF71A-3MQBlDfgr9pIQIfrVniz1As">
 
     <meta name="twitter:card" content="summary">
@@ -99,71 +99,94 @@
             });
         });
     </script>
-
 </head>
 <body>
 <input type="checkbox" id="menu" name="menu">
-<header class="top-header" id="top">
-    <div class="top-width">
-        <div class="cols cols-no-wrap">
-            <div id="logo-container">
-                <a class="logo" href="/">
-                    <img src="{{ shared_asset_path }}/img/logo.png" srcset="{{ shared_asset_path }}/img/logo_100.png 100w, {{ shared_asset_path }}/img/logo_200.png 200w, {{ shared_asset_path }}/img/logo.png 360w" class="logo-img" width="64" height="64" alt="Amp Logo">
-                    <span class="logo-text">Amp</span>
-                </a>
-            </div>
-
-            <div class="sponsor-button no-mobile">
-                <iframe src="https://github.com/sponsors/amphp/button" title="Sponsor amphp" height="35" width="107" style="border: 0; margin-top: 3px"></iframe>
-            </div>
-
-            <div class="mobile-only" id="menu-switch">
-                <label for="menu"><i class="fa fa-lg fa-bars"></i></label>
-            </div>
-
-            <div id="top-menu">
-                <a class="menu-item" href="/amp/">
-                    Documentation
-                </a>
-
-                <a class="menu-item" href="/packages">
-                    Packages
-                </a>
-
-                <a class="menu-item" href="/support">
-                    Support
-                </a>
-
-                <a class="menu-item" href="/sponsors">
-                    Sponsors
-                </a>
-
-                <input type="checkbox" id="search-toggle">
-                <label class="menu-item" id="search-toggle-button" for="search-toggle">
-                    <i class="fa fa-search"></i>
-                </label>
-                <span class="menu-item menu-item-inactive" id="search-box" style="position: relative">
-                    <input type="search" id="search" placeholder="Search Documentation">
-                    <i class="fa fa-search menu-search-icon"></i>
-                </span>
-
-                <script>
-                    document.getElementById("search-toggle-button").addEventListener("click", function () {
-                        // Requires setTimeout, because the element isn't visible before
-                        window.setTimeout(function () {
-                            document.getElementById("search").focus();
-                        }, 0);
-                    });
-
-                    document.getElementById("search").addEventListener("blur", function () {
-                        document.getElementById("search-toggle").checked = false;
-                    });
-                </script>
-            </div>
-        </div>
+<aside class="navigation">
+  <div class="navigation-scroll">
+    <div id="logo-container">
+        <a class="logo" href="/">
+            <img src="{{ shared_asset_path }}/img/logo.png" srcset="{{ shared_asset_path }}/img/logo_100.png 100w, {{ shared_asset_path }}/img/logo_200.png 200w, {{ shared_asset_path }}/img/logo.png 360w" class="logo-img" width="64" height="64" alt="Amp Logo">
+            <span class="logo-text">Amp</span>
+        </a>
     </div>
-</header>
+
+    <div class="mobile-only" id="menu-switch">
+        <label for="menu"><i class="fa fa-lg fa-bars"></i></label>
+    </div>
+
+    <div id="top-menu">
+        <a class="menu-item" href="/amp/">
+            Fundamentals
+        </a>
+
+        <a class="menu-item" href="/packages">
+            Packages
+        </a>
+
+        <a class="menu-item" href="/support">
+            Support
+        </a>
+
+        <a class="menu-item" href="/sponsors">
+            Funding
+        </a>
+
+        <a class="menu-item" href="/amp/">
+            Fundamentals
+        </a>
+
+        <a class="menu-item" href="/packages">
+            Packages
+        </a>
+
+        <a class="menu-item" href="/support">
+            Support
+        </a>
+
+        <a class="menu-item" href="/sponsors">
+            Funding
+        </a>
+
+        <a class="menu-item" href="/amp/">
+            Fundamentals
+        </a>
+
+        <a class="menu-item" href="/packages">
+            Packages
+        </a>
+
+        <a class="menu-item" href="/support">
+            Support
+        </a>
+
+        <a class="menu-item" href="/sponsors">
+            Funding
+        </a>
+    </div>
+  </div>
+</aside>
+
 <div class="site-wrapper">
+  <header class="site-header">
+    <span id="search-box" style="position: relative">
+        <input type="search" id="search" placeholder="Search documentation...">
+    </span>
+
+    <script>
+        document.getElementById("search-toggle-button").addEventListener("click", function () {
+            // Requires setTimeout, because the element isn't visible before
+            window.setTimeout(function () {
+                document.getElementById("search").focus();
+            }, 0);
+        });
+
+        document.getElementById("search").addEventListener("blur", function () {
+            document.getElementById("search-toggle").checked = false;
+        });
+    </script>
+  </header>
+
     {{content}}
 
     <div id="footer" class="site-full-width">

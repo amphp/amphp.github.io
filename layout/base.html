@@ -9,12 +9,12 @@
     {% capture packageName %}{% for word in packageWords %}{{ word | capitalize }} {% endfor %}{% endcapture %}
 
     {% if site.repository == "amphp/amphp.github.io" %}
-    <title>{{ page.title }} ⋅ amphp</title>
+    <title>{{ page.title }} | AMPHP</title>
     {% else %}
-    <title>{{ packageName }} ⋅ {{ page.title }} ⋅ amphp</title>
+    <title>{{ page.title }} in {{ packageName }} | AMPHP</title>
     {% endif %}
 
-    <meta name="description" content="{{ page.description | default: 'Amp is a non-blocking concurrency framework for PHP based on Revolt.' }}">
+    <meta name="description" content="{{ page.description | default: 'Amp is a non-blocking concurrency library for PHP based on Revolt.' }}">
     <meta name="keywords" content="{{ page.keywords | join: ', ' | default: 'amp, amphp, non-blocking, concurrency, io, php, future, coroutines, revolt' }}">
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Code+Pro:400,600%7cSource+Sans+Pro%7cYanone+Kaffeesatz&display=swap">
@@ -38,7 +38,7 @@
     <meta property="og:url" content="{{ page.url }}">
     <meta property="og:title" content="{{ page.title }}">
     <meta property="og:image" content="{{ page.ogImage | default: 'https://amphp.org/asset/img/og-image.png' }}">
-    <meta property="og:description" content="{{ page.description | default: 'Amp is a non-blocking concurrency framework for PHP based on Revolt.' }}">
+    <meta property="og:description" content="{{ page.description | default: 'Amp is a non-blocking concurrency library for PHP based on Revolt.' }}">
     <meta property="og:locale" content="en_US">
 
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
@@ -107,9 +107,15 @@
   <div class="navigation-scroll">
     <div id="logo-container">
         <a class="logo" href="/">
-            <img src="{{ shared_asset_path }}/img/logo.png" srcset="{{ shared_asset_path }}/img/logo_100.png 100w, {{ shared_asset_path }}/img/logo_200.png 200w, {{ shared_asset_path }}/img/logo.png 360w" class="logo-img" width="64" height="64" alt="Amp Logo">
-            <span class="logo-text">AMPHP</span>
-            <span class="logo-description">Asynchronous Multitasking PHP</span>
+            <span class="logo-text">
+                <span class="logo-spacer"></span>
+                <span class="logo-title">AMPHP</span>
+                <span class="logo-description">Asynchronous Multitasking PHP</span>
+            </span>
+
+            <span class="logo-img-container">
+                <img src="{{ shared_asset_path }}/img/logo.png" srcset="{{ shared_asset_path }}/img/logo_100.png 100w, {{ shared_asset_path }}/img/logo_200.png 200w, {{ shared_asset_path }}/img/logo.png 360w" class="logo-img" width="64" height="64" alt="Amp Logo">
+            </span>
         </a>
     </div>
 
@@ -118,53 +124,53 @@
     </div>
 
     <div id="top-menu">
-        <a class="menu-item" href="/amp/">
-            Fundamentals
-        </a>
+        <ul>
+            <li>
+                <span class="menu-section">
+                    Getting Started
+                </span>
 
-        <a class="menu-item" href="/packages">
-            Packages
-        </a>
+                <ul>
+                    <li>
+                        <a class="menu-item" href="/amp/">
+                            Installation
+                        </a>
+                    </li>
 
-        <a class="menu-item" href="/support">
-            Support
-        </a>
+                    <li>
+                        <a class="menu-item" href="/amp/">
+                            Upgrade Guide
+                        </a>
+                    </li>
+                </ul>
+            </li>
 
-        <a class="menu-item" href="/sponsors">
-            Funding
-        </a>
+            <li>
+                <span class="menu-section">
+                    Core Concepts
+                </span>
 
-        <a class="menu-item" href="/amp/">
-            Fundamentals
-        </a>
+                <ul>
+                    <li>
+                        <a class="menu-item" href="/amp/">
+                            Coroutines
+                        </a>
+                    </li>
 
-        <a class="menu-item" href="/packages">
-            Packages
-        </a>
+                    <li>
+                        <a class="menu-item" href="/amp/">
+                            Futures
+                        </a>
+                    </li>
 
-        <a class="menu-item" href="/support">
-            Support
-        </a>
-
-        <a class="menu-item" href="/sponsors">
-            Funding
-        </a>
-
-        <a class="menu-item" href="/amp/">
-            Fundamentals
-        </a>
-
-        <a class="menu-item" href="/packages">
-            Packages
-        </a>
-
-        <a class="menu-item" href="/support">
-            Support
-        </a>
-
-        <a class="menu-item" href="/sponsors">
-            Funding
-        </a>
+                    <li>
+                        <a class="menu-item" href="/amp/">
+                            Cancellation
+                        </a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
     </div>
   </div>
 </aside>

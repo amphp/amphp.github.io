@@ -5,6 +5,8 @@ layout: null
 
 html {
     --navigation-width: 240px;
+    --docsearch-primary-color: #1376dd !important;
+    --docsearch-logo-color: #444 !important;
 }
 
 body {
@@ -458,7 +460,8 @@ h2 code, h3 code, h4 code, h5 code, h6 code {
 }
 
 #top-menu ul ul {
-    gap: 4px;
+    gap: 0;
+    padding: 0;
 }
 
 .menu-section {
@@ -468,10 +471,9 @@ h2 code, h3 code, h4 code, h5 code, h6 code {
 
 .menu-item {
     display: block;
-    padding: 4px 8px 4px 5px;
+    padding: 1px 8px 1px 5px; /* border */
     margin: 0;
     border-left: 3px solid transparent;
-    border-radius: 4px;
     font-size: 16px;
     text-decoration: none;
     font-weight: normal;
@@ -482,7 +484,6 @@ h2 code, h3 code, h4 code, h5 code, h6 code {
 a.menu-item:hover {
     text-decoration: none;
     color: black;
-    background: #ccc8c4;
     border-color: #d57a1f;
 }
 

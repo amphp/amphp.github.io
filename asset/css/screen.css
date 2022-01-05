@@ -4,14 +4,19 @@ layout: null
 {% include shared-asset-path.jekyll %}
 
 html {
-    --navigation-width: 240px;
+    --navigation-width: 265px;
+    --color-primary: #1376dd;
+    --color-highlight: #d57a1f;
+
     --docsearch-primary-color: #1376dd !important;
     --docsearch-logo-color: #444 !important;
+
+    --font-sans-serif: "Source Sans Pro", sans-serif;
 }
 
 body {
     margin: 0;
-    font-family: "Source Sans Pro", sans-serif;
+    font-family: var(--font-sans-serif);
     line-height: 1.55;
     background: #fff;
     overflow-y: scroll; /* prevent jumping on too short pages */
@@ -99,19 +104,19 @@ p:last-child {
 }
 
 h1 {
-    font-size: 24px;
+    font-size: 2rem;
     padding: 0;
     margin: 0;
 }
 
 h2 {
-    font-size: 24px;
+    font-size: 1.5rem;
     padding: 0;
     margin: 25px 0 15px 0;
 }
 
 h3 {
-    font-size: 20px;
+    font-size: 1.25rem;
     padding: 0;
     margin: 25px 0 10px 0;
 }
@@ -125,13 +130,18 @@ h2 code, h3 code, h4 code, h5 code, h6 code {
     padding: 0;
 }
 
+.intro {
+    font-size: 1.125rem;
+}
+
 .navigation {
     position: fixed;
     left: 0;
     top: 0;
     bottom: 0;
     width: var(--navigation-width);
-    background: #e6e3e1;
+    background: #e6ecf2;
+    box-shadow: -1px 0 0 rgba(0,0,0,.1) inset;
     z-index: 2;
     padding: 0;
     overflow-y: hidden;
@@ -140,7 +150,7 @@ h2 code, h3 code, h4 code, h5 code, h6 code {
 
 /* Firefox */
 .navigation {
-    scrollbar-color: #d57a1f;
+    scrollbar-color: var(--color-highlight);
     scrollbar-width: thin;
 }
 
@@ -154,7 +164,7 @@ h2 code, h3 code, h4 code, h5 code, h6 code {
 }
 
 .navigation::-webkit-scrollbar-thumb {
-    background: #d57a1f;
+    background: var(--color-highlight);
     border-radius: 1px;
 }
 
@@ -183,6 +193,7 @@ h2 code, h3 code, h4 code, h5 code, h6 code {
     position: relative;
     padding: 1rem;
     justify-content: space-between;
+    margin-right: 4px;
 }
 
 .logo:hover {
@@ -227,17 +238,17 @@ h2 code, h3 code, h4 code, h5 code, h6 code {
 }
 
 .logo-spacer {
-    height: 4px;
+    height: 2px;
 }
 
 .logo-title {
-    font-size: 26px;
+    font-size: 32px;
     letter-spacing: 0.05em;
 }
 
 .logo-description {
-    font-size: 12px;
-    color: #d57a1f;
+    font-size: 14px;
+    color: var(--color-highlight);
 }
 
 #top-menu {
@@ -484,7 +495,7 @@ h2 code, h3 code, h4 code, h5 code, h6 code {
 a.menu-item:hover {
     text-decoration: none;
     color: black;
-    border-color: #d57a1f;
+    border-color: var(--color-highlight);
 }
 
 .menu-item-inactive:hover {
@@ -521,7 +532,7 @@ a.menu-item:hover {
     height: 10px;
     display: inline-block;
     vertical-align: middle;
-    background-color: #d57a1f;
+    background-color: var(--color-highlight);
     position: relative;
     cursor: help;
 }
@@ -1018,4 +1029,89 @@ h1:target, h2:target, h3:target, h4:target, h5:target, h6:target {
     margin: 16px 10px !important;
     text-align: left;
     max-width: none !important;
+}
+
+.float-left {
+    float: left;
+}
+
+.float-right {
+    float: right;
+}
+
+.github-releases {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    gap: 16px;
+}
+
+.github-release {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 16px;
+}
+
+.github-release h3 {
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    line-height: 1;
+}
+
+.github-release-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin: 8px 0;
+    color: #555;
+}
+
+.github-release-meta a {
+    color: inherit;
+    font-weight: normal;
+}
+
+.github-release-meta .fa {
+    opacity: 0.65;
+}
+
+.github-release-meta .fa-tag {
+    transform: translateY(1px);
+}
+
+.github-release-body ul {
+    list-style-type: disc;
+    padding: 0 0 0 24px;
+}
+
+.github-release-revolt {
+    margin: 0 !important;
+    box-shadow: 0 0 0 1px rgba(0,0,0,0.1);
+    border-radius: 4px;
+    background: #fdd837;
+    cursor: help;
+}
+
+.github-release-legacy {
+    margin: 0 !important;
+    cursor: help;
+}
+
+.badge {
+    display: inline-block;
+    border: 1px solid #ccc;
+    font-size: 12px;
+    line-height: 1;
+    padding: 4px 8px;
+    border-radius: 100vw; /* https://stackoverflow.com/a/29966500/2373138 */
+    font-family: var(--font-sans-serif);
+}
+
+.badge-warning {
+    border-color: #d57a1f;
+    background: rgba(214, 123, 32, 0.3);
+    color: #543;
 }

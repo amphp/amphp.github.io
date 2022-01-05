@@ -1048,9 +1048,19 @@ h1:target, h2:target, h3:target, h4:target, h5:target, h6:target {
 }
 
 .github-release {
-    border: 1px solid #ccc;
     border-radius: 4px;
     padding: 16px;
+    box-shadow: 0 1px 2px rgba(0,0,0,.15), 0 2px 8px rgba(0,0,0,.05);
+    background: #ffffff;
+}
+
+.github-release-preview {
+    opacity: 0.5;
+    transition: opacity 200ms;
+}
+
+.github-release-preview:hover {
+    opacity: 1;
 }
 
 .github-release h3 {
@@ -1110,8 +1120,8 @@ h1:target, h2:target, h3:target, h4:target, h5:target, h6:target {
     font-family: var(--font-sans-serif);
 }
 
-.badge-warning {
-    border-color: #d57a1f;
-    background: rgba(214, 123, 32, 0.3);
-    color: #543;
+.badge-preview {
+    border-color: var(--color-primary);
+    background: #fafafa;
+    color: var(--color-primary);
 }

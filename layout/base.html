@@ -17,7 +17,7 @@
     <meta name="description" content="{{ page.description | default: 'Amp is a non-blocking concurrency library for PHP based on Revolt.' }}">
     <meta name="keywords" content="{{ page.keywords | join: ', ' | default: 'amp, amphp, non-blocking, concurrency, io, php, future, coroutines, revolt' }}">
 
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Code+Pro:400,600%7cSource+Sans+Pro%7cYanone+Kaffeesatz%7cExpletus+Sans&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Code+Pro:400,600%7cSource+Sans+Pro:300,400,600%7cYanone+Kaffeesatz%7cExpletus+Sans:400,600&display=swap">
     <link rel="stylesheet" href="{{ shared_asset_path }}/css/screen.css?v={{site.github.build_revision}}"/>
 
     <!-- non-critical CSS is lazy-loaded -->
@@ -124,6 +124,10 @@
     </div>
 
     <div id="top-menu">
+        <div class="search">
+            <div id="docsearch"></div>
+        </div>
+
         <ul>
             <li>
                 <span class="menu-section">
@@ -144,12 +148,6 @@
                     </li>
 
                     <li>
-                        <a class="menu-item" href="/packages">
-                            Packages
-                        </a>
-                    </li>
-
-                    <li>
                         <a class="menu-item" href="/revolt-migration">
                             Upgrade Guide
                         </a>
@@ -159,25 +157,151 @@
 
             <li>
                 <span class="menu-section">
-                    Core Concepts
+                    Packages
                 </span>
 
                 <ul>
                     <li>
-                        <a class="menu-item" href="/amp/coroutines/">
-                            Coroutines
+                        <a class="menu-item" href="/byte-stream/">
+                            <code>amphp/byte-stream</code>
                         </a>
                     </li>
 
                     <li>
-                        <a class="menu-item" href="/amp/futures/">
-                            Futures
+                        <a class="menu-item" href="/beanstalk/">
+                            <code>amphp/beanstalk</code>
                         </a>
                     </li>
 
                     <li>
-                        <a class="menu-item" href="/amp/cancellation/">
-                            Cancellation
+                        <a class="menu-item" href="/cache/">
+                            <code>amphp/cache</code>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a class="menu-item" href="/cluster/">
+                            <code>amphp/cluster</code>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a class="menu-item" href="/dns/">
+                            <code>amphp/dns</code>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a class="menu-item" href="/file/">
+                            <code>amphp/file</code>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a class="menu-item" href="/http-client/">
+                            <code>amphp/http-client</code>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a class="menu-item" href="/http-server/">
+                            <code>amphp/http-server</code>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a class="menu-item" href="/log/">
+                            <code>amphp/log</code>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a class="menu-item" href="/mysql/">
+                            <code>amphp/mysql</code>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a class="menu-item" href="/parallel/">
+                            <code>amphp/parallel</code>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a class="menu-item" href="/parser/">
+                            <code>amphp/parser</code>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a class="menu-item" href="/phpunit-util/">
+                            <code>amphp/phpunit-util</code>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a class="menu-item" href="/pipeline/">
+                            <code>amphp/pipeline</code>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a class="menu-item" href="/postgres/">
+                            <code>amphp/postgres</code>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a class="menu-item" href="/process/">
+                            <code>amphp/process</code>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a class="menu-item" href="/redis/">
+                            <code>amphp/redis</code>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a class="menu-item" href="/rpc/">
+                            <code>amphp/rpc</code>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a class="menu-item" href="/serialization/">
+                            <code>amphp/serialization</code>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a class="menu-item" href="/socket/">
+                            <code>amphp/socket</code>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a class="menu-item" href="/sync/">
+                            <code>amphp/sync</code>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a class="menu-item" href="/websocket-client/">
+                            <code>amphp/websocket-client</code>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a class="menu-item" href="/websocket-server/">
+                            <code>amphp/websocket-server</code>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a class="menu-item" href="/windows-registry/">
+                            <code>amphp/windows-registry</code>
                         </a>
                     </li>
                 </ul>
@@ -190,14 +314,14 @@
 
                 <ul>
                     <li>
-                        <a class="menu-item" href="/debugging">
-                            Debugging tools
+                        <a class="menu-item" href="/testing">
+                            Writing tests
                         </a>
                     </li>
 
                     <li>
-                        <a class="menu-item" href="/testing">
-                            Testing
+                        <a class="menu-item" href="/debugging">
+                            Debugging tools
                         </a>
                     </li>
                 </ul>
@@ -212,13 +336,13 @@
                 <ul>
                     <li>
                         <a class="menu-item" href="/extensions">
-                            Extensions
+                            Scaling with extensions
                         </a>
                     </li>
 
                     <li>
-                        <a class="menu-item" href="/assertions">
-                            Assertions
+                        <a class="menu-item" href="/performance">
+                            Production performance
                         </a>
                     </li>
                 </ul>
@@ -249,124 +373,20 @@
 </aside>
 
 <div class="site-wrapper">
-  <header class="site-header">
-      <div class="site-width">
-          <div class="content my-0">
-              <div id="docsearch"></div>
-          </div>
-      </div>
-  </header>
-
     {{content}}
 
-    <div id="footer">
+    <div id="footer" style="background: #fff">
         <div class="site-width">
-            <div class="content footer-columns">
-                <div>
-                    <span class="text-uppercase">Core</span>
-
-                    <ul class="footer-list">
-                        <li class="footer-list-item"><a href="https://amphp.org/amp/">amp</a></li>
-                        <li class="footer-list-item"><a href="https://amphp.org/byte-stream/">byte-stream</a></li>
-                        <li class="footer-list-item"><a href="https://github.com/amphp/cache">cache</a> / <a
-                                href="https://github.com/amphp/serialization">serialization</a></li>
-                        <li class="footer-list-item"><a href="https://amphp.org/react-adapter/">react-adapter</a></li>
-                        <li class="footer-list-item"><a href="https://amphp.org/socket/">socket</a> / <a
-                                href="https://amphp.org/dns/">dns</a></li>
-                        <li class="footer-list-item"><a href="https://amphp.org/sync/">sync</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <span class="text-uppercase">HTTP Server</span>
-                    <ul class="footer-list">
-                        <li class="footer-list-item"><a href="https://amphp.org/http-server/">http-server</a></li>
-                        <li class="footer-list-item"><a href="https://github.com/amphp/http-server-form-parser">http-server-form-parser</a>
-                        </li>
-                        <li class="footer-list-item"><a href="https://github.com/amphp/http-server-router">http-server-router</a>
-                        </li>
-                        <li class="footer-list-item"><a
-                                href="https://github.com/amphp/http-server-session">http-server-session</a></li>
-                        <li class="footer-list-item"><a href="https://github.com/amphp/http-server-static-content">http-server-static-content</a>
-                        </li>
-                        <li class="footer-list-item"><a
-                                href="https://github.com/amphp/websocket-server">websocket-server</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <span class="text-uppercase">HTTP Client</span>
-                    <ul class="footer-list">
-                        <li class="footer-list-item"><a href="https://amphp.org/http-client/">http-client</a></li>
-                        <li class="footer-list-item"><a
-                                href="https://github.com/amphp/http-client-cookies">http-client-cookies</a></li>
-                        <li class="footer-list-item"><a
-                                href="https://github.com/amphp/http-client-cache">http-client-cache</a>
-                        </li>
-                        <li class="footer-list-item"><a
-                                href="https://github.com/amphp/http-client-psr7">http-client-psr7</a></li>
-                        <li class="footer-list-item"><a href="https://github.com/amphp/http-tunnel">http-tunnel</a></li>
-                        <li class="footer-list-item"><a href="https://amphp.org/websocket-client/">websocket-client</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-        <div class="site-width">
-            <div class="content footer-columns">
-                <div>
-                    <span class="text-uppercase">Multiprocessing</span>
-
-                    <ul class="footer-list">
-                        <li class="footer-list-item"><a href="https://github.com/amphp/process">process</a></li>
-                        <li class="footer-list-item"><a href="https://amphp.org/parallel/">parallel</a></li>
-                        <li class="footer-list-item"><a href="https://amphp.org/parallel-functions/">parallel-functions</a>
-                        </li>
-                        <li class="footer-list-item"><a href="https://github.com/amphp/cluster">cluster</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <span class="text-uppercase">Persistence</span>
-
-                    <ul class="footer-list">
-                        <li class="footer-list-item"><a href="https://github.com/amphp/file">file</a></li>
-                        <li class="footer-list-item"><a href="https://github.com/amphp/mysql">mysql</a> / <a
-                                href="https://github.com/amphp/postgres">postgres</a></li>
-                        <li class="footer-list-item"><a href="https://github.com/amphp/sql">sql</a> / <a
-                                href="https://github.com/amphp/sql-common">sql-common</a></li>
-                        <li class="footer-list-item"><a href="https://github.com/amphp/redis">redis</a> / <a
-                                href="https://amphp.org/beanstalk/">beanstalk</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <span class="text-uppercase">Other</span>
-
-                    <ul class="footer-list">
-                        <li class="footer-list-item"><a href="https://github.com/amphp/phpunit-util">phpunit-util</a></li>
-                        <li class="footer-list-item"><a href="https://amphp.org/windows-registry/">windows-registry</a></li>
-                        <li class="footer-list-item"><a href="https://amphp.org/http/">http</a> / <a
-                                href="https://github.com/amphp/hpack">hpack</a> / <a
-                                href="https://github.com/amphp/websocket">websocket</a></li>
-                        <li class="footer-list-item"><a href="https://github.com/amphp/log">log</a> / <a
-                                href="https://github.com/amphp/ssh">ssh</a> / <a href="https://github.com/amphp/rpc">rpc</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-        <div class="site-width">
-            <div class="content footer-columns">
-                <div>
-                    <span class="text-uppercase">Networking</span>
-
-                    <ul class="footer-networking-list" style="padding-top: 8px">
+            <div class="content footer-columns my-0">
+                <div class="text-center">
+                    <ul class="footer-networking-list">
                         <li class="footer-list-item"><a href="https://github.com/amphp/amp"><i
                                 class="fa fa-fw fa-github"></i>GitHub</a></li>
-                        <li class="footer-list-item"><a href="https://twitter.com/asyncphp"><i class="fa fa-fw fa-twitter"></i>Twitter</a>
-                        </li>
-                        <li class="footer-list-item"><a href="https://t.me/amphpchat"><i class="fa fa-fw fa-telegram"></i>Telegram</a>
-                        </li>
                         <li class="footer-list-item"><a href="https://stackoverflow.com/questions/tagged/amphp"><i
                                 class="fa fa-fw fa-stack-overflow"></i>Stack Overflow</a></li>
+                        <li class="footer-list-item"><a href="https://t.me/amphpchat"><i class="fa fa-fw fa-telegram"></i>Telegram</a>
+                        </li>
+                        <li class="footer-list-item"><a href="https://twitter.com/asyncphp"><i class="fa fa-fw fa-twitter"></i>Twitter</a></li>
                     </ul>
                 </div>
             </div>

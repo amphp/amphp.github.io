@@ -8,7 +8,7 @@ html {
     --color-primary: #2a6e99;
     --color-highlight: #d57a1f;
 
-    --docsearch-searchbox-background: #fff !important;
+    --docsearch-searchbox-background: #eee !important;
     --docsearch-searchbox-shadow: inset 0 0 0 1px #ccc !important;
     --docsearch-primary-color: #1376dd !important;
     --docsearch-logo-color: #444 !important;
@@ -22,7 +22,7 @@ body {
     margin: 0;
     font-family: var(--font-sans-serif);
     line-height: 1.55;
-    background: linear-gradient(to bottom, #ebe9e8 0, #f6f5f4 150px);
+    background: linear-gradient(to bottom, #fff 0, #fff 220px, #f6f5f4 300px);
     overflow-y: scroll; /* prevent jumping on too short pages */
 }
 
@@ -113,15 +113,18 @@ p:last-child {
 }
 
 h1 {
-    font-size: 1.5rem;
+    font-size: 2rem;
     padding: 0;
-    margin: 0 0 8px 0;
+    margin: 0 0 4px 0;
+    line-height: 1.25;
+    color: #000;
 }
 
 h2 {
     font-size: 1.375rem;
     padding: 0;
-    margin: 25px 0 16px 0;
+    margin: 24px 0 0 0;
+    line-height: 1.15;
 }
 
 h3 {
@@ -131,7 +134,7 @@ h3 {
 }
 
 h2 code, h3 code, h4 code, h5 code, h6 code {
-    font-family: 'Yanone Kaffeesatz', sans-serif;
+    font-family: var(--font-sans-serif);
     font-size: inherit;
     background: transparent;
     border: 0;
@@ -150,7 +153,7 @@ h2 code, h3 code, h4 code, h5 code, h6 code {
     bottom: 0;
     width: var(--navigation-width);
     background: #fff;
-    box-shadow: 1px 0 2px rgba(0,0,0,.2), 0 32px 32px -32px rgba(169, 193, 222, 0.5) inset;
+    box-shadow: 1px 0 2px rgba(0,0,0,.2);
     z-index: 5;
     padding: 0;
     overflow-y: hidden;
@@ -169,7 +172,7 @@ h2 code, h3 code, h4 code, h5 code, h6 code {
 }
 
 .navigation::-webkit-scrollbar-track {
-    background: rgba(0, 0, 0, 0.1);
+    background: #fff;
 }
 
 .navigation::-webkit-scrollbar-thumb {
@@ -183,6 +186,11 @@ h2 code, h3 code, h4 code, h5 code, h6 code {
 
 .navigation-scroll {
     width: var(--navigation-width);
+}
+
+.search {
+    padding: 0 8px;
+    margin: 0 0 16px 0;
 }
 
 #logo-container {
@@ -346,18 +354,15 @@ h2 code, h3 code, h4 code, h5 code, h6 code {
 }
 
 .content-actions {
-    float: right;
-    font-size: 13px;
-    line-height: 37px; /* same as h1 */
-    padding-top: 5px;
+    font-size: 14px;
+    margin-top: 8px;
 }
 
 .content-actions a {
-    padding: 3px 8px;
-    margin: 0 5px;
+    padding: 3px 0;
+    margin: 0 4px;
     text-decoration: none;
-    border: 1px solid transparent;
-    border-radius: 2px;
+    color: #789;
 }
 
 .content-actions a:last-child {
@@ -365,7 +370,7 @@ h2 code, h3 code, h4 code, h5 code, h6 code {
 }
 
 .content-actions a:hover {
-    text-decoration: none;
+    text-decoration: underline;
     border-color: rgba(0, 0, 0, .1);
     box-shadow: 0 0 4px rgba(0, 0, 0, .05);
     background-color: rgba(0, 0, 0, .02);
@@ -378,7 +383,7 @@ h2 code, h3 code, h4 code, h5 code, h6 code {
 
 .content-actions .fa {
     font-size: 14px;
-    margin-right: 5px;
+    margin-right: 8px;
 }
 
 .sidebar-menu {
@@ -496,8 +501,10 @@ h2 code, h3 code, h4 code, h5 code, h6 code {
 }
 
 .menu-section {
+    font-family: 'Expletus Sans', sans-serif;
     font-weight: bold;
     display: block;
+    font-size: 14px;
 }
 
 .menu-item {
@@ -520,6 +527,13 @@ a.menu-item:hover {
 
 .menu-item-inactive:hover {
     border-color: transparent;
+}
+
+.menu-item code {
+    box-shadow: none;
+    padding: 0;
+    margin: 0;
+    border: 0;
 }
 
 .highlight-area .cols > div:first-child {
@@ -837,7 +851,7 @@ a.menu-item:hover {
     background: white;
     border: 0;
     margin: 0 3px 0 0;
-    font-family: "Source Sans Pro", sans-serif;
+    font-family: var(--font-sans-serif);
     font-size: 16px;
     font-weight: normal;
     width: 100%;
@@ -1063,6 +1077,10 @@ h1:target, h2:target, h3:target, h4:target, h5:target, h6:target {
     float: right;
 }
 
+.clear-both {
+    clear: both;
+}
+
 .github-releases {
     list-style: none;
     padding: 0;
@@ -1168,4 +1186,27 @@ h1:target, h2:target, h3:target, h4:target, h5:target, h6:target {
 .my-0 {
     margin-top: 0 !important;
     margin-bottom: 0 !important;
+}
+
+.article-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.article-intro {
+    padding: 1rem 0;
+    font-size: 1.25rem;
+    font-weight: 400;
+    color: #444;
+}
+
+.article-intro p {
+    margin: 0;
+}
+
+.article-header-image-container {
+    max-width: 20% !important;
+    padding: 0 3rem;
+    margin: 0 5rem 0 3rem;
 }

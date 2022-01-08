@@ -1,6 +1,8 @@
 ---
 layout: base
 ---
+{% include shared-asset-path.jekyll %}
+
 <div class="site-width">
     <div class="content content-with-sidebar">
         {% if site.navigation %}
@@ -34,14 +36,27 @@ layout: base
         {% endif %}
 
         <div class="content-main">
-            <div class="content-actions">
-                <a href="{{site.github.repository_url}}/blob/{{site.github.build_revision}}/docs/{{page.path}}"><i class="fa fa-pencil"></i> Suggest edit</a>
-            </div>
-
             {% assign packageWords = site.repository | split: '/' | last | split: '-' %}
             {% capture packageName %}{% for word in packageWords %}{{ word | capitalize }} {% endfor %}{% endcapture %}
 
-            <h1>{{ page.title }}</h1>
+            <div class="article-header">
+                <div class="article-intro">
+                    <h1>{{ page.title }}</h1>
+                    <p>{{ page.description }}</p>
+
+                    <div class="content-actions">
+                        <a href="{{site.github.repository_url}}/blob/{{site.github.build_revision}}/docs/{{page.path}}"><i class="fa fa-pencil"></i>Suggest edit</a>
+                    </div>
+                </div>
+
+                {% if page.image %}
+                <div class="article-header-image-container">
+                    <img src="{{ shared_asset_path }}/img/{{ page.image }}" class="article-header-image">
+                </div>
+                {% endif %}
+            </div>
+
+            <div class="clear-both"></div>
 
             {{content}}
         </div>

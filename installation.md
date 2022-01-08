@@ -1,5 +1,7 @@
 ---
 title: Installation
+description: Learn how to install our libraries with Composer and get started with important concepts for concurrent PHP.
+image: undraw/undraw_light_the_fire.svg
 permalink: /installation
 layout: docs
 ---

@@ -1,58 +1,31 @@
 ---
 title: Sponsors
-description: Maintaining high-quality open source packages is hard work. You can support our work by becoming a GitHub sponsor.
+description: Maintaining high-quality open source packages is hard work. You can support us by becoming a GitHub sponsor.
 image: undraw/undraw_appreciation.svg
 permalink: /sponsors
 layout: docs
 ---
-<style>
-    .h-center h1, .h-center h2 { text-align: center }
-    .h-center h2 { margin-top: 50px; }
-    .h-center > p { text-align: center }
-    .business-sponsors { display: flex; flex-wrap: wrap; justify-content: center; }
-    .business-sponsors > div { margin: 0 20px 20px; }
-    .other-sponsors { max-width: 230px; margin: 10px auto; }
-    .other-sponsors > ul { list-style: circle; }
-    .other-sponsors > ul > li > a { font-weight: normal; }
-    .other-sponsors > ul > li.sponsor-highlight > a { font-weight: bold; }
-    .other-sponsors > p { text-align: center }
-    .sponsor-button { text-align: center; }
-    .sponsor-description { text-align: center; }
-    .sponsor-description > h3 { margin-top: 0; }
-    .sponsor-description > p { margin-bottom: 0; }
-    img.sponsor-logo { max-width: 200px; }
-</style>
-<div class="content site-width h-center">
+<p>Thanks for using our libraries! Your GitHub sponsorship supports our core team members to help ship more releases and better documentation. Thanks to all of you already sponsoring us!</p>
 
-    <div class="sponsor-button">
-        <h2>Show your support for Amp by becoming a sponsor on GitHub!</h2>
-        <iframe src="https://github.com/sponsors/amphp/button" title="Sponsor amphp" height="35" width="107" style="border: 0; margin-top: 3px"></iframe>
-    </div>
+<p>
+    <a href="https://github.com/sponsors/amphp"><code>@amphp</code> on GitHub</a>
+</p>
 
-    <h2>Business Sponsors</h2>
+<h2>Business Sponsors</h2>
 
-    <div class="business-sponsors">
-        {% for sponsor in site.data.sponsors.business %}
-        <div class="sponsor-description">
-            <p><a href="{{ sponsor.link }}"><img class="sponsor-logo" src="{{ sponsor.logo }}" alt="{{ sponsor.name }}"/></a></p>
-            <h3><a href="{{ sponsor.link }}">{{ sponsor.name }}</a></h3>
-            <p>{{ sponsor.description }}</p>
-        </div>
-        {% endfor %}
+{% for sponsor in site.data.sponsors.business %}
+<div class="business-sponsor">
+    <h3 class="my-0"><a href="{{ sponsor.link }}">{{ sponsor.name }}</a></h3>
+    <p class="my-0">{{ sponsor.description }}</p>
+</div>
+{% endfor %}
 
-    </div>
+<h2>Other Sponsors</h2>
 
-    <h2>Other Sponsors</h2>
-
-    <div class="other-sponsors">
-        <p>Thank you to all our sponsors!</p>
-        <ul>
-        {% for sponsor in site.data.sponsors.other %}
-            <li class="sponsor-github {% if sponsor.highlight %}sponsor-highlight{% endif %}">
-                <a title="{{ sponsor.github }}" href="https://github.com/{{ sponsor.github }}">{{ sponsor.github }}</a>
-            </li>
-        {% endfor %}
-        </ul>
-    </div>
-
+<div class="other-sponsors">
+    <p>
+    {% for sponsor in site.data.sponsors.other %}
+        <a title="{{ sponsor.github }}" href="https://github.com/{{ sponsor.github }}">{{ sponsor.github }}</a>{% if forloop.last == false %},{% endif %}
+    {% endfor %}
+    </p>
 </div>

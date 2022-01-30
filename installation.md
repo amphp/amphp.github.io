@@ -12,7 +12,8 @@ install [`ext-fiber`](https://github.com/amphp/ext-fiber) with almost identical 
 
 Our packages can be installed as [Composer](https://getcomposer.org/) dependencies on PHP 8 and later, e.g.
 
-```sh
+{:.shell}
+```plain
 composer require amphp/amp
 ```
 
@@ -28,7 +29,8 @@ In addition to fibers, our packages heavily rely on the [Revolt](https://revolt.
 If you want to schedule low-level events instead of using higher-level abstractions, such as timers or I/O callbacks, you should declare a
 dependency on the Revolt event-loop for your package.
 
-```sh
+{:.shell}
+```plain
 composer require revolt/event-loop
 ```
 

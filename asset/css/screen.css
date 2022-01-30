@@ -7,6 +7,7 @@ html {
     --navigation-width: 265px;
     --color-primary: #2a6e99;
     --color-highlight: #d57a1f;
+    --color-text: #403f57;
 
     --docsearch-searchbox-background: #eee !important;
     --docsearch-searchbox-shadow: inset 0 0 0 1px #ccc !important;
@@ -16,7 +17,7 @@ html {
     --docsearch-key-shadow: 0 0 0 1px #ccc !important;
     --docsearch-key-gradient: linear-gradient(-35deg, #d5dbe4, #f8f8f8) !important;
 
-    --font-sans-serif: "Source Sans Pro", sans-serif;
+    --font-sans-serif: "Inter", sans-serif;
 
     scrollbar-gutter: stable;
 }
@@ -52,14 +53,19 @@ html {
 body {
     margin: 0;
     font-family: var(--font-sans-serif);
+    font-feature-settings: "case", "ccmp", "ss01", "ss02", "ss03";
+    letter-spacing: -0.011em; /* https://rsms.me/inter/ */
     line-height: 1.55;
     background: linear-gradient(to bottom, #fff 0, #fff 220px, #f9f8f7 300px);
     overflow-y: scroll; /* prevent jumping on too short pages */
+    color: var(--color-text);
 }
 
 .small-hint {
-    font-size: 0.875rem;
-    color: #666;
+    font-size: 0.8125rem;
+    letter-spacing: -0.003em;
+    color: rgba(64, 62, 87, 0.8);
+    margin: 0.5rem 0;
 }
 
 .text-left {
@@ -89,7 +95,7 @@ a code {
 }
 
 pre {
-    padding: 15px;
+    padding: 16px;
     border-radius: 2px;
     border: 1px solid rgba(0, 0, 0, .1);
     box-shadow: 0 1px 2px rgba(0,0,0,.05);
@@ -139,8 +145,8 @@ p:last-child {
 }
 
 .logo, h1, h2, h3, h4, h5, h6 {
-    font-family: 'Expletus Sans', sans-serif;
-    font-weight: normal;
+    font-family: var(--font-sans-serif);
+    font-weight: 800;
 }
 
 h1 {
@@ -148,14 +154,17 @@ h1 {
     padding: 0;
     margin: 0 0 4px 0;
     line-height: 1.25;
-    color: #000;
+    color: var(--color-text);
+    letter-spacing: -0.02em;
 }
 
 h2 {
     font-size: 1.375rem;
     padding: 0;
-    margin: 24px 0 0 0;
-    line-height: 1.15;
+    margin: 32px 0 8px 0;
+    line-height: 1.25;
+    color: var(--color-text);
+    letter-spacing: -0.02em;
 }
 
 h3 {
@@ -175,6 +184,7 @@ h2 code, h3 code, h4 code, h5 code, h6 code {
 
 .intro {
     font-size: 1.125rem;
+    letter-spacing: -0.017em;
 }
 
 .navigation {
@@ -229,15 +239,16 @@ h2 code, h3 code, h4 code, h5 code, h6 code {
 }
 
 .logo {
-    font-weight: bold;
+    font-size: 2rem;
+    color: var(--color-text);
+    letter-spacing: -0.025em;
+    font-weight: 700;
     vertical-align: top;
     height: 60px;
     line-height: 60px;
     display: flex;
     gap: 16px;
-    font-size: 20px;
     text-decoration: none;
-    color: black;
     position: relative;
     padding: 1rem;
     justify-content: flex-start;
@@ -290,13 +301,8 @@ h2 code, h3 code, h4 code, h5 code, h6 code {
     height: 8px;
 }
 
-.logo-title {
-    font-size: 32px;
-    color: #111;
-}
-
 .logo-description {
-    font-size: 14px;
+    font-size: 13.5px;
     color: var(--color-highlight);
 }
 
@@ -413,7 +419,6 @@ h2 code, h3 code, h4 code, h5 code, h6 code {
 
 .article-content {
     padding-top: 16px;
-    font-size: 1.1em;
     line-height: 1.625;
 }
 
@@ -532,10 +537,10 @@ h2 code, h3 code, h4 code, h5 code, h6 code {
 }
 
 .menu-section {
-    font-family: 'Expletus Sans', sans-serif;
+    font-family: var(--font-sans-serif);
     font-weight: bold;
     display: block;
-    font-size: 14px;
+    padding: 4px 0;
 }
 
 .menu-item {
@@ -641,7 +646,7 @@ a.menu-item:hover {
     border-bottom: 1px solid rgba(0, 0, 0, .1);
     margin: -16px -16px 10px -16px;
     padding: 10px 15px;
-    font-family: "Source Sans Pro", sans-serif;
+    font-family: var(--font-sans-serif);
     font-weight: normal;
 }
 
@@ -801,6 +806,8 @@ a.menu-item:hover {
     border-radius: 2px;
     border: 1px solid rgba(0, 0, 0, .1);
     position: relative;
+    font-size: 0.8125rem;
+    letter-spacing: -0.003em;
 }
 
 .note::before, .warning::before, .todo::before {
@@ -1229,7 +1236,7 @@ h1:target, h2:target, h3:target, h4:target, h5:target, h6:target {
     padding: 1rem 0;
     font-size: 1.25rem;
     font-weight: 400;
-    color: #444;
+    color: rgba(64, 62, 87, 0.8);
 }
 
 .article-intro p {
@@ -1241,4 +1248,22 @@ h1:target, h2:target, h3:target, h4:target, h5:target, h6:target {
     padding: 0;
     margin: 0 2.5rem 0 5rem;
     align-self: center;
+}
+
+.shell {
+    position: relative;
+    margin-top: 16px;
+}
+
+.shell::before {
+    content: "Shell";
+    background: #333;
+    color: var(--color-highlight);
+    font-weight: 800;
+    padding: 2px 8px;
+    top: -1px;
+    left: 16px;
+    position: absolute;
+    border-radius: 100vh;
+    transform: translateY(-50%);
 }

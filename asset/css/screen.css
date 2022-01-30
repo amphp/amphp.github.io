@@ -12,10 +12,41 @@ html {
     --docsearch-searchbox-shadow: inset 0 0 0 1px #ccc !important;
     --docsearch-primary-color: #1376dd !important;
     --docsearch-logo-color: #444 !important;
+    --docsearch-footer-shadow: 0 -1px 0 #ccc !important;
+    --docsearch-key-shadow: 0 0 0 1px #ccc !important;
+    --docsearch-key-gradient: linear-gradient(-35deg, #d5dbe4, #f8f8f8) !important;
 
     --font-sans-serif: "Source Sans Pro", sans-serif;
 
     scrollbar-gutter: stable;
+}
+
+.DocSearch-Modal .DocSearch-SearchBar {
+    --docsearch-searchbox-shadow: none !important;
+    border-bottom: 1px solid #ccc;
+}
+
+.DocSearch-Modal .DocSearch-Form {
+    border-bottom-left-radius: 0 !important;
+    border-bottom-right-radius: 0 !important;
+}
+
+.DocSearch-SearchBar {
+    padding: 0 !important;
+}
+
+.DocSearch-Button {
+    --docsearch-text-color: #aab;
+}
+
+.DocSearch-Button {
+    width: 100%;
+    margin-left: 0 !important;
+    border-radius: 4px !important;
+}
+
+.DocSearch-MagnifierLabel {
+    color: #aab !important;
 }
 
 body {
@@ -162,7 +193,7 @@ h2 code, h3 code, h4 code, h5 code, h6 code {
 
 /* Firefox */
 .navigation {
-    scrollbar-color: var(--color-highlight);
+    scrollbar-color: #aab;
     scrollbar-width: thin;
 }
 
@@ -176,7 +207,7 @@ h2 code, h3 code, h4 code, h5 code, h6 code {
 }
 
 .navigation::-webkit-scrollbar-thumb {
-    background: var(--color-highlight);
+    background: #aab;
     border-radius: 1px;
 }
 
@@ -285,16 +316,6 @@ h2 code, h3 code, h4 code, h5 code, h6 code {
 #docsearch {
     width: 100%;
     max-width: 600px;
-}
-
-.DocSearch-Button {
-    width: 100%;
-    margin-left: 0 !important;
-    border-radius: 4px !important;
-}
-
-.DocSearch-MagnifierLabel {
-    color: #000 !important;
 }
 
 .site-wrapper {

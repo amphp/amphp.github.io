@@ -182,9 +182,50 @@ h2 code, h3 code, h4 code, h5 code, h6 code {
     padding: 0;
 }
 
-.intro {
-    font-size: 1.125rem;
-    letter-spacing: -0.017em;
+.intro-start {
+    display: flex;
+    margin: 32px auto 64px auto;
+    gap: 16px;
+    max-width: 400px;
+    align-items: center;
+    justify-content: center;
+}
+
+.highlight-area-cta {
+    flex: 0 0 auto;
+    font-size: 1em;
+    font-weight: normal;
+    margin: 0;
+    display: inline-block;
+    background: var(--color-highlight);
+    box-shadow: 0 0 0 3px rgba(214, 123, 32, 0.3);
+    color: #fff;
+    padding: 8px 24px;
+    border-radius: 2px;
+}
+
+.highlight-area-cta .fa {
+    margin-left: 4px;
+    transition: 200ms transform;
+    will-change: transform;
+}
+
+.highlight-area-cta:hover {
+    text-decoration: none;
+}
+
+.highlight-area-cta:hover .fa {
+    transform: translateX(4px);
+}
+
+#docsearch .DocSearch-Button {
+    --docsearch-searchbox-background: #fff;
+    box-shadow: 0 0 0 1px #ddd inset, 0 0 0 3px #eee;
+    height: 42px !important;
+}
+
+#docsearch .DocSearch-Button:hover {
+    box-shadow: 0 0 0 1px #ccc inset, 0 0 0 3px #e8e8e8;
 }
 
 .navigation {
@@ -667,29 +708,6 @@ a.menu-item:hover {
     font-weight: normal;
 }
 
-.highlight-area-cta {
-    font-size: 1em;
-    font-weight: normal;
-    margin: 4px 0 0 0;
-    display: inline-block;
-    background: transparent;
-    color: #0F79D0;
-}
-
-.highlight-area-cta .fa {
-    margin-left: 4px;
-    transition: 200ms transform;
-    will-change: transform;
-}
-
-.highlight-area-cta:hover {
-    text-decoration: none;
-}
-
-.highlight-area-cta:hover .fa {
-    transform: translateX(4px);
-}
-
 .headline-link,
 .headline-link a {
     font-weight: normal;
@@ -1124,19 +1142,14 @@ h1:target, h2:target, h3:target, h4:target, h5:target, h6:target {
     padding: 0;
     margin: 0;
     display: grid;
-    gap: 16px;
+    gap: 8px;
 }
 
 .github-release {
-    border-radius: 4px;
+    border-radius: 2px;
     padding: 16px;
     box-shadow: 0 1px 2px rgba(0,0,0,.15), 0 2px 8px rgba(0,0,0,.05);
     background: #ffffff;
-}
-
-.github-release-preview {
-    opacity: 0.5;
-    transition: opacity 200ms;
 }
 
 .github-release-preview:hover {
@@ -1201,9 +1214,9 @@ h1:target, h2:target, h3:target, h4:target, h5:target, h6:target {
 }
 
 .badge-preview {
-    border-color: var(--color-primary);
+    border-color: var(--color-highlight);
     background: #fafafa;
-    color: var(--color-primary);
+    color: var(--color-highlight);
 }
 
 .px-0 {

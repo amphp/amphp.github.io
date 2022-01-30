@@ -7,28 +7,31 @@ layout: base
 
 <div class="site-width">
     <div class="content">
-        <img class="no-mobile float-right" style="margin: 32px 64px; max-width: 30vw" src="{{ shared_asset_path }}/img/undraw/undraw_maker_launch.svg" width="400"/>
+        <div class="article-intro text-center">
+            <img src="{{ shared_asset_path }}/img/undraw/undraw_maker_launch.svg" width="250">
 
-        <h1>
-            Build fast, concurrent applications with PHP
-        </h1>
+            <h1 style="margin: 32px 0 16px 0">Build fast, concurrent applications with PHP</h1>
 
-        <p>
-            AMPHP is a collection of event-driven libraries for PHP designed with fibers and concurrency in mind.
-        </p>
-        <p>
-            Our wide range of packages allows building entire applications using non-blocking I/O to allow for concurrency in long-running processes and server applications.
-        </p>
-        <p>
-            You can also leverage our libraries in portions of your existing application without a full-blown
-            migration to non-blocking I/O.
-        </p>
-        <p class="intro">
-            <a href="/installation" class="highlight-area-cta">Get Started <i class="fa fa-angle-right"></i></a>
-        </p>
-    </div>
+            <p>
+                AMPHP is a collection of event-driven libraries for PHP<br>
+                designed with fibers and concurrency in mind.
+            </p>
+        </div>
 
-    <div class="content">
+        <div class="clear-both"></div>
+
+        <div>
+            <p class="text-center" style="max-width: 600px; margin: 0 auto">
+                Our wide range of packages allows building entire applications using non-blocking I/O to allow for concurrency in long-running processes and server applications.
+                You can also leverage our libraries in portions of your existing application without a full-blown
+                migration to non-blocking I/O.
+            </p>
+
+            <div class="intro-start text-center">
+                <a href="/installation" class="highlight-area-cta">Get Started <i class="fa fa-angle-right"></i></a>
+            </div>
+        </div>
+
         <h2>Latest Releases</h2>
 
         <ul class="github-releases">

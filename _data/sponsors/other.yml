@@ -1,6 +1,10 @@
+- github: agustingomes
+  highlight: false
 - github: Clearfacts
   highlight: false
 - github: cspray
+  highlight: true
+- github: dwaysinc
   highlight: true
 - github: ekinhbayar
   highlight: true
@@ -12,12 +16,8 @@
   highlight: false
 - github: oqq
   highlight: false
-- github: raghuveer
-  highlight: false
 - github: tiffany-taylor
   highlight: false
-- github: tristanpemble
-  highlight: true
 - github: uzulla
   highlight: true
 - github: zonuexe
